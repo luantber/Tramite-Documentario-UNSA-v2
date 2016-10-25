@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,31 +8,26 @@ Route::get('/', function () {
 
 /*Route::get('crear/{nombre}','personasController@create');*/
 
-Route::group(['prefix'=>'grupo'],function(){
-	Route::get('encontrar','personasController@encontrarPersonas');
+//ALGUNAS RUTAS DISPONIBLES----------------------
+
+// GRUPO USUARIOS
+
+Route::group(['prefix'=>'usuarios'],function(){
+	Route::get('crear',function(){return view('crearPersona');}); //usuarios/crear
+	Route::post('creado','personasController@create');
 });
 
-Route::get('encontrar','personasController@encontrarPersonas');
+//GRUPO PEMPLEADOS **empleados/encontrar....empleados/crear 
+Route::group(['prefix'=>'empleados'],function(){
+
+	Route::get('encontrar','personasController@encontrarPersonas');//empleados/encontrar
+	
+	Route::get('crear',function(){return view('crearEmpleado');});//empleados/crear
+	Route::post('creado','empleadosController@create');
+
+	Route::get('crear_nuevo',function(){	return view('crearNewEmpleado');});//empleados/crear_nuevo
+	Route::post('crearNewEmple','empleadosController@createNew');
 
 
-Route::get('crearPersona',function(){
-	return view('crearPersona');
-});
-Route::post('crear','personasController@create');
-
-
-
-Route::get('crearEmpleado',function(){
-	return view('crearEmpleado');
-});
-Route::post('crearE','empleadosController@create');
-
-
-Route::get('crearNewEmpleado',function(){
-	return view('crearNewEmpleado');
 });
 
-Route::post('crearNewEmple','empleadosController@createNew');
-
-
-Route::get('encontrar','personasController@encontrarPersonas');
