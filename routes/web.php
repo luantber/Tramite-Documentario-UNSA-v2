@@ -14,20 +14,25 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('crear',function(){return view('crearPersona');}); //usuarios/crear
-	Route::post('creado','personasController@create');
+	Route::post('crear','personasController@create');
 });
 
-//GRUPO PEMPLEADOS **empleados/encontrar....empleados/crear 
+//GRUPO EMPLEADOS **empleados/encontrar....empleados/crear 
 Route::group(['prefix'=>'empleados'],function(){
 
 	Route::get('encontrar','personasController@encontrarPersonas');//empleados/encontrar
 	
 	Route::get('crear',function(){return view('crearEmpleado');});//empleados/crear
-	Route::post('creado','empleadosController@create');
+	Route::post('crearE','empleadosController@create');
 
 	Route::get('crear_nuevo',function(){	return view('crearNewEmpleado');});//empleados/crear_nuevo
 	Route::post('crearNewEmple','empleadosController@createNew');
-
-
 });
 
+
+//GRUPO CARGOS **areas/
+Route::group(['prefix'=>'cargos'],function(){
+
+	Route::get('crear',function(){return view('crearCargo');});//cargos/crear
+	Route::post('crearCar','cargosController@crear');
+});
