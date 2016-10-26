@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
 	<title>Trámite Documentario</title>
 </head>
-<body>
+<body>-->
+
+@extends('template')
+
+@section('title','Editar Cargo')
+
+@section('content')
+
 <h1>EDITAR CARGO</h1>
 <form method="POST" action="editarCar">
 	{{ csrf_field()}}
@@ -17,5 +24,8 @@
 	 <br> <input type="submit" value="Submit">
 </form>
 
+@endsection
+
+<!--
 </body>
-</html>
+</html>-->
