@@ -17,4 +17,19 @@ class cargosController extends Controller
     $nuevo->save();
     dd($nuevo);
     }
+
+    public function editar (Request $datos){
+
+
+    	$encontrar = Cargo::find($datos->IDcargo);
+    	$encontrar->nombreCargo = $datos->newNombreCargo;
+    	$encontrar->descripcion = $datos->newDescripcion;
+    	$encontrar->save();
+    	dd($encontrar);
+    }
+
+    public function eliminar(){
+    	$borrado = Cargo::find(1);
+    	$borrado->delete();	
+    }
 }

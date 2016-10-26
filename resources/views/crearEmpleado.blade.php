@@ -4,6 +4,7 @@
 	<title>crearEmpleado</title>
 </head>
 <body>
+<h1>CREAR EMPLEADO</h1>
 <form method="POST" action="crearE">
 	{{ csrf_field()}}
 	DNI

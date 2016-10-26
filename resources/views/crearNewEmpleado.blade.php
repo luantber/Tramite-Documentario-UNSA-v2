@@ -4,6 +4,7 @@
 	<title>crear</title>
 </head>
 <body>
+<H1>crear NUEVO EMPLEADO</H1>
 <form method="POST" action="crearNewEmple">
 	{{ csrf_field()}}
 	nombre:

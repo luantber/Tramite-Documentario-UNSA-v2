@@ -4,6 +4,7 @@
 	<title>Trámite Documentario</title>
 </head>
 <body>
+<h1>CREAR CARGO</h1>
 <form method="POST" action="crearCar">
 	{{ csrf_field()}}
 	Nombre Nuevo Cargo :

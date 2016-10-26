@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 //ALGUNAS RUTAS DISPONIBLES----------------------
 
-// GRUPO USUARIOS
+// GRUPO USUARIOS **usuarios/
 
 Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('crear',function(){return view('crearPersona');}); //usuarios/crear
@@ -30,9 +30,14 @@ Route::group(['prefix'=>'empleados'],function(){
 });
 
 
-//GRUPO CARGOS **areas/
+//GRUPO CARGOS **cargos/
 Route::group(['prefix'=>'cargos'],function(){
 
 	Route::get('crear',function(){return view('crearCargo');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
+
+	Route::get('editar',function(){return view("editarCargo");});
+	Route::post("editarCar","cargosController@editar");
+
+	Route::get('eliminar','cargosController@eliminar');
 });
