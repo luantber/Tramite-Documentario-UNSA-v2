@@ -10,7 +10,6 @@
 	<br>
 	{{ $user->apellido}}
 	<br>
-
-Ya Kat ... tu misma eres con el perfil 
+Ya Kat ... tu misma eres con el perfil go go :D
 
 @endsection
