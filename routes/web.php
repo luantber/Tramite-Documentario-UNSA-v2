@@ -13,12 +13,12 @@ Route::get('/', function () {
 // GRUPO USUARIOS **usuarios/
 
 Route::group(['prefix'=>'usuarios'],function(){
-	Route::get('/',function(){return view('personas.todos');});
-	//Route::get('crear',function(){return view('Persona.crear');}); //usuarios/crear
-	Route::get('crear',function(){return view('personas.crearPersona');}); //usuarios/crear
-	Route::post('crear','personasController@create');
-	Route::get('test','personasController@test');
-	Route::get('creado',function(){return view ('personas.creado');});
+	Route::get('/',function(){return view('usuarios.todos');});
+	
+	Route::get('crear',function(){return view('usuarios.crear');});
+	Route::post('crear','usuariosController@create');
+
+	Route::get('todos','usuariosController@todos');
 });
 
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
