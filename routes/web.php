@@ -2,7 +2,7 @@
 
 
 Route::get('/', function () {
-    return view('home');  
+    return view('home');
 });
 
 
@@ -19,11 +19,11 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('test','personasController@test');
 });
 
-//GRUPO EMPLEADOS **empleados/encontrar....empleados/crear 
+//GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
 Route::group(['prefix'=>'empleados'],function(){
 
 	Route::get('encontrar','personasController@encontrarPersonas');//empleados/encontrar
-	
+
 	Route::get('crear',function(){return view('empleados/crearEmpleado');});//empleados/crear
 	Route::post('crearE','empleadosController@create');
 
@@ -44,7 +44,7 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('eliminar','cargosController@eliminar');
 });
 
-//Solo para ver vistas :'v 
+//Solo para ver vistas :'v
 
 Route::get('login', function () {
     return view('login');
@@ -68,6 +68,10 @@ Route::get('tramites/crear',function(){
 
 Route::get('areas/crear',function(){
 	return view('areas/crearArea');
+});
+
+Route::get('areas/editar', function(){
+  return  view('areas/editarArea');
 });
 
 Route::get('prub',function(){
