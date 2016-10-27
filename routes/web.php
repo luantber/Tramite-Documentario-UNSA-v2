@@ -42,9 +42,13 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::post("editarCar","cargosController@editar");
 
 	Route::get('eliminar','cargosController@eliminar');
+
+	Route::get('mostrar','cargosController@mostrar');
 });
 
-//Solo para ver vistas :'v
+
+
+//Solo para ver vistas :'v 
 
 Route::get('login', function () {
     return view('login');

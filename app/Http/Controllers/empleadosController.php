@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+ 
 use App\Http\Requests;
 use App\Empleado;
 use App\User;
@@ -25,8 +25,10 @@ class empleadosController extends Controller
     	//dd($encontrado);
     	$nuevo->id_persona = $encontrado->id;
 
-     	$nuevo->save();
-     	dd($nuevo);
+      $nuevo->save();
+//      echo "hola";
+  //    return response()->json(['nombre'=>'laura']);
+      dd($nuevo);
 
     	
     }
@@ -51,7 +53,8 @@ class empleadosController extends Controller
     	else{
     		$newEmp->activo = false;	
      	}
-
+      echo "holo";
+      return response()->json(['nombre'=>$datosn->nomPer,'apellido'=>$datosn->apellidoPer]);
      	$newEmp->save();
         //dd($newPer);
      	//dd ($newEmp);

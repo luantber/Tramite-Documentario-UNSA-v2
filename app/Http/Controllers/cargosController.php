@@ -15,8 +15,10 @@ class cargosController extends Controller
     	$nuevo->descripcion = $datos->descripcion;
 
     $nuevo->save();
+    return view('crearCargo');
     dd($nuevo);
     }
+
 
     public function editar (Request $datos){
 
@@ -25,11 +27,27 @@ class cargosController extends Controller
     	$encontrar->nombreCargo = $datos->newNombreCargo;
     	$encontrar->descripcion = $datos->newDescripcion;
     	$encontrar->save();
-    	dd($encontrar);
+   		return view('editarCargo');
+//    	dd($encontrar);
     }
 
     public function eliminar(){
     	$borrado = Cargo::find(1);
     	$borrado->delete();	
+    }
+
+    public function mostrar(){
+    	$mostrado = Cargo::find(4);
+    	$mostrado2 = Cargo::find(5);
+    	$Amostrar = response()->json([$mostrado,$mostrado2]);
+    	//dd($Amostrar);
+//    	echo ('Amostrar='.$Amostrar);
+
+    	$cargos = Cargo::all();
+    	$todos = response()->json($cargos);
+    	//dd($cargos);
+    	echo ('todos = '.$todos);
+    	//dd($todos);
+    	return view('cargos.mostrarCargo');
     }
 }
