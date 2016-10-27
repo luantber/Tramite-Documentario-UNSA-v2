@@ -58,8 +58,9 @@ class empleadosController extends Controller
     }
 
     public function todos(){
-      $join = DB::table('users')
-                ->leftjoin('empleados','users.id','=', 'empleados.id_persona')
+
+      $join = DB::table('empleados')
+                ->leftjoin('users','empleados.id_persona','=','users.id')
                 ->get();
       return response()->json($join);
     }  
