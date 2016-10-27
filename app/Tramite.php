@@ -15,5 +15,10 @@ class Tramite extends Model
     {
         return $this->belongsTo('App\Area','area_id','id');
     }
+
+
+    public function movimientos(){
+    	return $this->hasMany('App\Movimiento','tramite_id','id');
+    }
    
 }

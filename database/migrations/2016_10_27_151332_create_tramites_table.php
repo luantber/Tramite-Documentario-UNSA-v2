@@ -15,12 +15,14 @@ class CreateTramitesTable extends Migration
     {
         Schema::create('tramites', function (Blueprint $table) {
             $table->increments('id');
-            
+            $table->integer('area_id')->unsigned();
             $table->boolean('entregado');
             $table->integer('prioridad');
             $table->timestamps();
 
-           
+            $table->foreign('area_id')
+                ->references('id')
+                ->on('areas');
 
 
 
