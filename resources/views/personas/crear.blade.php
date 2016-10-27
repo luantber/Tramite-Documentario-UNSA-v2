@@ -16,7 +16,7 @@
 			<form>
 
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-12">
 						<label for="nomPer" >Nombre: </label>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">
@@ -25,9 +25,17 @@
 					  		<input class="form-control" type="text" name ="nomPer" id="nomPer" placeholder="Ingrese nombres">
 						</div>
 					</div>
-				  <div class="col-sm-6">
+				</div><br>
+
+				<div class="row">
+				  <div class="col-sm-12">
 				  		<label for="apellido" >Apellido: </label>
-					    <input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos">	
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								</span>
+					    	<input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos">
+					    </div>
 				  </div>
 				</div><br>
 
@@ -50,19 +58,8 @@
 						    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail">
 						</div>
 					</div>
-				</div><br>
-
-				<div class="row">
-				    <div class="col-sm-12">
-						<label for="contrasena" >Password: </label>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">
-									<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-								</span>
-						    <input class="form-control" type="password" name ="contrasenaPer" id="contrasena" placeholder="Ingresar contraseña">
-						</div>
-					</div>
 				</div><br><br>
+
 
 				<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo usuario</button> 
 

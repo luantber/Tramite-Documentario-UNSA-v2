@@ -89,15 +89,7 @@
 					    <input class="form-control" type="text" name ="activoEmpleado" id="activo" placeholder="¿Empleado activo?">  
 					</div>
 				</div>
-			    <div class="col-sm-6">
-					<label for="contrasena" >Password: </label>
-					<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">
-								<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-							</span>
-					    <input class="form-control" type="password" name ="contrasenaPer" id="contrasena" placeholder="Ingresar contraseña">
-					</div>
-				</div>
+
 			</div><br><br>
 
 			<!--<div class=" row">

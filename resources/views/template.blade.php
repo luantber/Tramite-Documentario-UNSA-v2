@@ -95,7 +95,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones SU <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ url('empleados/crear_nuevo')}}">Crear Empleado</a></li>
+              <li><a href="{{ url('empleados/crear')}}">Crear Empleado</a></li>
               <li><a href="{{ url('empleados/encontrar')}}">Encontrar Empleado</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="{{ url('usuarios/crear') }}">Crear Usuario</a></li>
