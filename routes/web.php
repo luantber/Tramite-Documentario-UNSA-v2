@@ -2,7 +2,7 @@
 
 
 Route::get('/', function () {
-    return view('template');
+    return view('template');  //welcome
 });
 
 
@@ -40,4 +40,26 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::post("editarCar","cargosController@editar");
 
 	Route::get('eliminar','cargosController@eliminar');
+});
+
+//Solo para ver vistas :'v 
+
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::get('personas/ver',function(){
+	return view('verTodos');
+});
+
+Route::get('tramites/todos',function(){
+	return view('verTramites');
+});
+
+Route::get('movimientos',function(){
+	return view('verMovimientos');
+});
+
+Route::get('tramites/crear',function(){
+	return view('crearTramite');
 });
