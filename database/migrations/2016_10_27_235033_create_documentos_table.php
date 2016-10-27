@@ -15,9 +15,15 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('tramite_id')->unsigned();
             $table->string('nombre');
             $table->string('tipoDocumento');            
             $table->timestamps();
+            
+            $table->foreign('tramite_id')
+                ->references('id')
+                ->on('tramites');
+            
         });
         
     }

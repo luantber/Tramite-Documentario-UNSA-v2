@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Documento extends Model
+class Estado extends Model
 {
     //
     public function tramite()
