@@ -55,20 +55,24 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('personas/ver',function(){
-	return view('personas/verTodos');
+Route::get('usuarios/todos',function(){
+	return view('usuarios/todos');
 });
 
-Route::get('tramites/todos',function(){
-	return view('tramites/verTramites');
+Route::get('tramites/ver',function(){
+	return view('tramites/ver');
+});
+
+Route::get('tramites/ver',function(){
+	return view('tramites/ver');
 });
 
 Route::get('movimientos',function(){
-	return view('movimientos/verMovimientos');
+	return view('movimientos/ver');
 });
 
 Route::get('tramites/crear',function(){
-	return view('tramites/crearTramite');
+	return view('tramites/crear');
 });
 
 Route::get('tramites/delegar',function(){
@@ -81,11 +85,19 @@ Route::get('tramites/resolver',function(){
 });
 
 Route::get('areas/crear',function(){
-	return view('areas/crearArea');
+	return view('areas/crear');
 });
 
 Route::get('areas/editar', function(){
-  return  view('areas/editarArea');
+  return  view('areas/editar');
+});
+
+Route::get('cargos/editar', function(){
+  return  view('cargos/editar');
+});
+
+Route::get('cargos/todos', function(){
+  return  view('cargos/todos');
 });
 
 Route::get('prub',function(){

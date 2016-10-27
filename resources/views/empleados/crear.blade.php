@@ -79,7 +79,7 @@
 			  </div>
 			</div><br>
 
-			
+			<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo empleado</button> 
 
 			</div><br><br>
 
@@ -88,8 +88,6 @@
 			    <button type="submit" class="btn btn-lg" value="Submit">  Crear  </button>
 			  </div>
 			</div><br>-->
-
-			<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo empleado</button> 
 		
 		</form>
 		</div>

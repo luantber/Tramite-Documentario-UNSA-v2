@@ -80,7 +80,7 @@
                  <li><a href="{{ url('tramites/delegar') }}">Delegar</a></li>
                  <li><a href="{{ url('#') }}">Responder</a></li>
                  <li><a href="{{ url('#') }}">Buscar</a></li>
-                 <li><a href="{{ url('tramites/todos') }}">Todos</a></li>
+                 <li><a href="{{ url('tramites/ver') }}">Todos</a></li>
                </ul>
            </li>
 
@@ -89,7 +89,7 @@
                <ul class="dropdown-menu">
                  <li><a href="{{ url('cargos/crear')}}">Crear</a></li>
                  <li><a href="{{ url('cargos/editar')}}">Editar</a></li>
-                 <li><a href="{{ url('cargos/mostrar') }}">Mostrar todos</a></li>
+                 <li><a href="{{ url('cargos/todos') }}">Mostrar todos</a></li>
                </ul>
            </li>
 
