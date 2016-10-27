@@ -12,7 +12,6 @@ Route::get('/', function () {
 Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('/',function(){return view('usuarios.todos');});//usuarios
 	Route::get('todos','usuariosController@todos');
-	
 	Route::get('crear',function(){return view('usuarios.crear');});//usuarios/crear
 	Route::post('crear','usuariosController@create');
 });
