@@ -14,7 +14,7 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('/',function(){return view('usuarios.todos');});
-	
+
 	Route::get('crear',function(){return view('usuarios.crear');});
 	Route::post('crear','usuariosController@create');
 
@@ -57,7 +57,7 @@ Route::group(['prefix'=>'cargos'],function(){
 
 
 
-//Solo para ver vistas :'v 
+//Solo para ver vistas :'v
 
 Route::get('login', function () {
     return view('login');
@@ -77,6 +77,10 @@ Route::get('movimientos',function(){
 
 Route::get('tramites/crear',function(){
 	return view('tramites/crear');
+});
+
+Route::get('tramites/delegar',function(){
+	return view('tramites/delegar');
 });
 
 Route::get('areas/crear',function(){
