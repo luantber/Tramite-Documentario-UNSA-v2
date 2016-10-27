@@ -9,8 +9,8 @@
 	{{ $user }}
 	<br>
 	{{ $user->apellido}}
-
 	<br>
+
 Ya Kat ... tu misma eres con el perfil 
 
 @endsection
