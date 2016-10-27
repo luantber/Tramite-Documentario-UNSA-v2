@@ -14,13 +14,7 @@ class empleadosController extends Controller
     	$nuevo = new Empleado;
     	$nuevo->area = $datos->areaEmpleado;
     	$nuevo->cargo = $datos->cargoEmpleado;
-    	if ($datos->activoEmpleado =="si") {
-    		$nuevo->activo = true;	
-    	}
-    	else{
-    		$nuevo->activo = false;	
-     	}
-      echo $datos->dni;
+      $nuevo->activo = true;
      	$encontrado = User::where('dni',$datos->dni)->first();
     	$nuevo->id_persona = $encontrado->id;
 
@@ -44,13 +38,8 @@ class empleadosController extends Controller
     	$newEmp->area = $datosn->areaEmpleado;
     	$newEmp->cargo = $datosn->cargoEmpleado;
     	$newEmp->id_persona = $newPer->id;
-    	if ($datosn->activoEmpleado =="si") {
-    		$newEmp->activo = true;	
-    	}
-    	else{
-    		$newEmp->activo = false;	
-     	}
-
+    	$newEmp->activo = true;	
+    	
      	$newEmp->save();
       return redirect('empleados');
 
