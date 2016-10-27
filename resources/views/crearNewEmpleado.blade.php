@@ -19,40 +19,65 @@
   		<div class="col-md-6 col-md-offset-3">
 
 		<h2><p class="text-center">  Crear Nuevo Empleado </p></h2>
+		<br><br>
 		<form>
-		  <div class="form-group">
-		    <label for="nomPer">Nombre:</label>
-		    <input type="text" class="form-control" name="nomPer" id="nomPer">
-		  </div>
-		  <div class="form-group">
-		    <label for="apellido">Apellido:</label>
-		    <input type="text" class="form-control" name="apellidoPer" id="apellido">
-		  </div>
-		  <div class="form-group">
-		    <label for="DNI">DNI:</label>
-		    <input type="text" class="form-control" name="dni" id="DNI">
-		  </div>
-		  <div class="form-group">
-		    <label for="mail">e-mail:</label>
-		    <input type="email" class="form-control" name="correo" id="mail">
-		  </div>
-		  <div class="form-group">
-		    <label for="area">Área:</label>
-		    <input type="text" class="form-control" name="areaEmpleado" id="area">
-		  </div>
-		  <div class="form-group">
-		    <label for="cargo">Cargo:</label>
-		    <input type="text" class="form-control" name="cargoEmpleado" id="cargo">
-		  </div>
-		  <div class="form-group">
-		    <label for="activo">Activo:</label>
-		    <input type="text" class="form-control" name="activoEmpleado" id="activo">
-		  </div>
-		  <div class="form-group">
-		    <label for="contrasena">Password:</label>
-		    <input type="password" class="form-control" name="contrasenaPer" id="contrasena">
-		  </div>
-		  <button type="submit" class="btn btn-default" value="Submit">Crear</button>
+
+			<div class="form-group row">
+			  <label for="nomPer" class="col-xs-2 col-form-label">Nombre: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="text" name ="nomPer" id="nomPer">
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label for="apellido" class="col-xs-2 col-form-label">Apellido: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="text" name ="apellidoPer" id="apellido">
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label for="DNI" class="col-xs-2 col-form-label">DNI: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="text" name ="dni" id="DNI">
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label for="mail" class="col-xs-2 col-form-label">e-mail: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="text" name ="correo" id="mail">
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label for="area" class="col-xs-2 col-form-label">Área: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="text" name ="areaEmpleado" id="area">
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label for="cargo" class="col-xs-2 col-form-label">Cargo: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="text" name ="cargoEmpleado" id="cargo">
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label for="activo" class="col-xs-2 col-form-label">Activo: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="text" name ="activoEmpleado" id="activo">
+			  </div>
+			</div>  
+			<div class="form-group row">
+			  <label for="contrasena" class="col-xs-2 col-form-label">Password: </label>
+			  <div class="col-xs-10">
+			    <input class="form-control" type="password" name ="contrasenaPer" id="contrasena">
+			  </div>
+			</div>
+			<br>
+			<div class="form-group row">
+			  <label class="col-xs-2 col-form-label"></label>
+			  <div class="col-xs-10">
+			    <button type="submit" class="btn btn-lg" value="Submit">  Crear  </button>
+			  </div>
+			</div>
+		
 		</form>
 		</div>
 	</div>

@@ -11,9 +11,19 @@
 		@yield('title','Trámite Documentario')
 	</title>
     
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <!--<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css.map')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-theme.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-theme.css')}}">-->
+
+    <!-- Replaces jquery-1.9.1.js because a conflict. I don't know why :'v ')-->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- -->
 
 	<!--<script type="text/javascript" src="{{asset('assets/js/jquery-1.9.1.js')}}"></script>-->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/fileinput.min.css')}}">
@@ -28,7 +38,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/semantic.rtl.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.rtl.mincss')}}">
 
-	<!--<script src="{{asset('assets/{PATH}/alertify.min.js')}}"></script>-->
+	<script src="{{asset('assets/{PATH}/alertify.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('assets/js/fileinput.min.js')}}"></script> 
 	<script type="text/javascript" src="{{asset('assets/js/esinputfile.js')}}"></script>
 	<script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
@@ -43,15 +53,13 @@
 
 
 <body>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 
-
 	<!-- DEFAULT HEADER -->
 
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 
@@ -69,7 +77,7 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="/">Inicio <span class="sr-only">(current)</span></a></li>
-	        <li><a href="#">Movimientos</a></li>
+	        <li><a href="{{ url('movimientos')}}">Movimientos</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Áreas<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
@@ -82,7 +90,26 @@
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-left">
-	        <li><a href="#">Usuarios</a></li>
+	        <li class="dropdown">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="{{ url('#')}}">Ver Usuarios</a></li>
+		            <li><a href="{{ url('#') }}">Ver Empleados</a></li>
+		            <li><a href="{{ url('personas/ver') }}">Ver Todos</a></li>
+		          </ul>
+	        </li>
+
+	        <li class="dropdown">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trámites <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="{{ url('#')}}">Panel/Cola</a></li>
+		            <li><a href="{{ url('tramites/crear') }}">Nuevo</a></li>
+		            <li><a href="{{ url('#') }}">Responder</a></li>
+		            <li><a href="{{ url('#') }}">Buscar</a></li>
+		            <li><a href="{{ url('tramites/todos') }}">Todos</a></li>
+		          </ul>
+	        </li>
+
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones SU <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
@@ -94,10 +121,13 @@
 	        </li>
 	      </ul>
 
-	      <form class="navbar-form navbar-right">
-	        <button type="button" class="btn btn-default btn-md">
+	      <form class="nav navbar-nav navbar-right">
+	      	<li>
+	      		<a class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a>
+	      	</li>
+	        <!--<button type="button" class="btn btn-default btn-md">
 	        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar
-	        </button>
+	        </button>-->
 	      </form>
 	      
 	    </div><!-- /.navbar-collapse -->
@@ -105,6 +135,7 @@
 	</nav>
 
 	<!-- END HEADER -->
+	<br><br><br><br>
 
 	@section('content')
 	@show
@@ -121,8 +152,8 @@
 
 	<div class="container well">
 	<h4><center>Trámite Documentario cs unsa </center></h4>
-
 	</div>
+
 	<div id="footer">
 	    <div class="container">
 	        <div class="row">
