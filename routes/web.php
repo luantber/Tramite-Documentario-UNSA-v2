@@ -39,7 +39,7 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
 
-	Route::get('editar',function(){return view("editar");});
+	Route::get('editar',function(){return view("cargos.editar");});
 	Route::post("editarCar","cargosController@editar");
 
 	Route::get('eliminar','cargosController@eliminar');
