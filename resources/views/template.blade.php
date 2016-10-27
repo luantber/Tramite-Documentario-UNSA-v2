@@ -77,6 +77,7 @@
                <ul class="dropdown-menu">
                  <li><a href="{{ url('#')}}">Panel/Cola</a></li>
                  <li><a href="{{ url('tramites/crear') }}">Nuevo</a></li>
+                 <li><a href="{{ url('tramites/delegar') }}">Delegar</a></li>
                  <li><a href="{{ url('#') }}">Responder</a></li>
                  <li><a href="{{ url('#') }}">Buscar</a></li>
                  <li><a href="{{ url('tramites/todos') }}">Todos</a></li>
