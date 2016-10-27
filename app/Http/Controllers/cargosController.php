@@ -15,7 +15,7 @@ class cargosController extends Controller
     	$nuevo->descripcion = $datos->descripcion;
 
     $nuevo->save();
-    return view('crearCargo');
+    return view('cargos.mostrarCargo');
     dd($nuevo);
     }
 
@@ -27,7 +27,7 @@ class cargosController extends Controller
     	$encontrar->nombreCargo = $datos->newNombreCargo;
     	$encontrar->descripcion = $datos->newDescripcion;
     	$encontrar->save();
-   		return view('editarCargo');
+   		return view('cargos.mostrarCargo');
 //    	dd($encontrar);
     }
 
