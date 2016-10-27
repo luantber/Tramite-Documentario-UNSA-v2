@@ -1,9 +1,18 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
 	<title>crearEmpleado</title>
 </head>
-<body>
+<body>-->
+
+@extends('template')
+
+@section('title','Crear Empleado')
+
+@section('content')
+
+<h1>CREAR EMPLEADO</h1>
+
 <form method="POST" action="crearE">
 	{{ csrf_field()}}
 	DNI
@@ -18,5 +27,8 @@
 	 <br> <input type="submit" value="Submit">
 </form>
 
+@endsection
+
+<!--
 </body>
-</html>
+</html>-->
