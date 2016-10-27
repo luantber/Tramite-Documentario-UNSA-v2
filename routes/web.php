@@ -83,6 +83,11 @@ Route::get('tramites/delegar',function(){
 	return view('tramites/delegar');
 });
 
+
+Route::get('tramites/resolver',function(){
+	return view('tramites/resolver');
+});
+
 Route::get('areas/crear',function(){
 	return view('areas/crear');
 });
