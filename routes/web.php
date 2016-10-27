@@ -63,3 +63,7 @@ Route::get('movimientos',function(){
 Route::get('tramites/crear',function(){
 	return view('tramites/crearTramite');
 });
+
+Route::get('prub',function(){
+	dd(App\Area::find(1)->tramites);
+});
