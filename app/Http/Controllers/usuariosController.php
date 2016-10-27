@@ -30,13 +30,35 @@ class usuariosController extends Controller
         return redirect('usuarios');
 
     }
+
+    public function guardar(Request $datos,$id){
+        $editar = User::find($id);
+        $editar->nombre = $datos ->nombre;
+        $editar ->apellido = $datos ->apellido;
+        $editar ->dni = $datos ->dni;
+        $editar ->email = $datos ->email;
+        $editar ->save();
+
+        return redirect('usuarios/'.$id);
+    }
     
-    public function encontrarPersonas()
-    {
-        $encontrado = User::find(8);
-//        $encontrado->find(8);
-        dd($encontrado);
-        
+
+    public function show($id){
+    $encontrado = User::find($id);
+    if ($encontrado == null) {
+        return view ('errors.noExiste');
+    }
+
+    return view('usuarios.show',['user'=>$encontrado]);
+
+    }
+
+    public function editar($id){
+        $encontrado = User::find($id);
+        if ($encontrado == null) {
+            return view ('errors.noExiste');
+        }
+        return view('usuarios.editar',['user'=>$encontrado]);
     }
 
 }
