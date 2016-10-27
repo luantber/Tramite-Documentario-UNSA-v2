@@ -4,29 +4,23 @@
 
 @section('content')
 
-<form method="POST" action="mostrarCar">
-	{{ csrf_field()}}
 
-	<div class="container">
+<div id="container">
+</div>
 
-	<h2><p class="text-center">  Mostrar todos los cargos </p></h2><br><br>
+<script>
+var TablaCargos;
+</script>
 
-	  <table class="table table-hover">
-	    <thead>
-	      <tr>
-	        <th>ID</th>
-	        <th>Nombre de Cargo</th>
-	        <th>Descripción</th>
-	      </tr>
-	    </thead>
+<script type="text/babel" src="{{asset('rs/TablaCargos.js')}}">
+</script>
 
-	    <tbody>
+<script type="text/babel">
 
-	    </tbody>
-	  </table>
-	</div>
-
-
-</form>
+ReactDOM.render(
+	<TablaCargos url="{{asset('cargos/todos')}}" refresh="100000" />,
+	document.getElementById('container')
+);
+</script>
 
 @endsection

@@ -1,10 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Trámite Documentario</title>
-</head>
-<body>-->
 
 @extends('template')
 
@@ -47,7 +40,3 @@
 </form>
 
 @endsection
-
-<!--
-</body>
-</html>-->
