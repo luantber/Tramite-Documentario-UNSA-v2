@@ -10,7 +10,7 @@
   <h2><p class="text-center">  Crear Nuevo Trámite </p></h2>
   <br>
 
-    <div class="form-group">
+    <!--<div class="form-group">
       <label for="encargado" class="col-sm-2 control-label" >Encargado</label>
       <div class="col-sm-10">
         <select name="encargado" class="form-control" id="encargado">
@@ -18,6 +18,13 @@
         </select>
         <p id="encargadoID" ></p>
       </div>
+    </div>-->
+
+    <div class="row form-group">
+        <label for="dni" class="col-sm-2 control-label"> DNI </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="dni" id="dni" placeholder="Ingresar DNI">
+        </div>
     </div>
 
     <div class="form-group">
@@ -30,10 +37,20 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
+      <div class="col-sm-10">
+        <select name="tipoTramite" class="form-control" id="tipo">
+          <option value="" >Seleccionar</option>
+        </select>
+        <p id="nodestino" ></p>
+      </div>
+    </div>
+
   	<div class="form-group">
   		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
   		<div class="col-sm-10" >
-  			<textarea name="asunto" class="form-control" rows="3" id="descrip" placeholder="Ingrese el asunto"></textarea>
+  			<textarea name="asunto" class="form-control" rows="3" id="asunto" placeholder="Ingrese el asunto"></textarea>
   		</div>
   	</div>
 
@@ -41,7 +58,7 @@
 		<div class="form-group">
 			<label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
 			<div class="col-sm-10">
-				<select name="prioridad"  class="form-control" id="opciones">
+				<select name="prioridad"  class="form-control" id="prioridad">
           <option value="" >Seleccionar</option>
   				<option value="1" required>Urgente</option>
           <option value="2" required>Alta</option>
@@ -50,6 +67,15 @@
         <p id="nopcion" ></p>
 		  </div>
 		</div>
+
+    <div class="form-group">
+      <label for="checkbox" class="col-sm-2 control-label">Archivo: </label>
+      <div class= "col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Virtual</label>
+        </div>
+      </div>
+    </div><br>
 
     <div class="form-group">
     <label for="archivo" class="col-sm-2 control-label">Archivo</label>
@@ -65,13 +91,13 @@
           maxFilesNum: 1
         })}(jQuery);
       </script>
-    </div>
+    </div><br>
 
     <br><br><br>
 
     <div class="row">
       <div class="text-center">
-        <labelv">Creado en </label>
+        <label>Creado en </label>
         <script>
           document.write(Date());
         </script>
