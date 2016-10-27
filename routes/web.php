@@ -13,7 +13,7 @@ Route::get('/', function () {
 // GRUPO USUARIOS **usuarios/
 
 Route::group(['prefix'=>'usuarios'],function(){
-	Route::get('/',function(){return view('Persona.todos');});
+	Route::get('/',function(){return view('personas.todos');});
 	//Route::get('crear',function(){return view('Persona.crear');}); //usuarios/crear
 	Route::get('crear',function(){return view('personas.crearPersona');}); //usuarios/crear
 	Route::post('crear','personasController@create');
