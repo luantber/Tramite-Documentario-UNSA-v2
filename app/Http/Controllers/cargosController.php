@@ -15,8 +15,10 @@ class cargosController extends Controller
     	$nuevo->descripcion = $datos->descripcion;
 
     $nuevo->save();
-    return view('cargos.mostrarCargo');
-    dd($nuevo);
+    //dd($nuevo);
+    return redirect()->action('cargosController@mostrar');
+//    return view('cargos.mostrarCargo');
+    //dd($nuevo);
     }
 
 
@@ -37,17 +39,9 @@ class cargosController extends Controller
     }
 
     public function mostrar(){
-    	$mostrado = Cargo::find(4);
-    	$mostrado2 = Cargo::find(5);
-    	$Amostrar = response()->json([$mostrado,$mostrado2]);
-    	//dd($Amostrar);
-//    	echo ('Amostrar='.$Amostrar);
-
     	$cargos = Cargo::all();
     	$todos = response()->json($cargos);
-    	//dd($cargos);
-    	echo ('todos = '.$todos);
-    	//dd($todos);
-    	return view('cargos.mostrarCargo');
+    	return($todos);
+    	
     }
 }

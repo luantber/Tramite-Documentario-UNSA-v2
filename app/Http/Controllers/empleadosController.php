@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- 
+use DB;
 use App\Http\Requests;
 use App\Empleado;
 use App\User;
@@ -22,16 +22,14 @@ class empleadosController extends Controller
      	}
 
      	$encontrado = User::where('dni',$datos->dniEmpleado)->first();
-    	//dd($encontrado);
     	$nuevo->id_persona = $encontrado->id;
-
       $nuevo->save();
-//      echo "hola";
-  //    return response()->json(['nombre'=>'laura']);
-      dd($nuevo);
+//      dd($nuevo);
+      //return redirect()->action('empleadosController@todos');
 
     	
     }
+
     public function createNew(Request $datosn){
       	$newPer = new User;
         $newPer->nombre = $datosn->nomPer;
@@ -53,14 +51,21 @@ class empleadosController extends Controller
     	else{
     		$newEmp->activo = false;	
      	}
-      echo "holo";
-      return response()->json(['nombre'=>$datosn->nomPer,'apellido'=>$datosn->apellidoPer]);
+
      	$newEmp->save();
-        //dd($newPer);
-     	//dd ($newEmp);
-     	dd($newPer->id);
+      
+      return redirect()->action('empleadosController@todos');
 
 
     }
+
+    public function todos(){
+      $join = DB::table('users')
+                ->leftjoin('empleados','users.id','=', 'empleados.id_persona')
+                ->get();
+      $esto = response()->json($join);
+      
+      return response()->json($join);
+    }  
 
 }

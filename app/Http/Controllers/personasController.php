@@ -41,7 +41,8 @@ class personasController extends Controller
         $nuevo->email = $datos->correo;
         
         $nuevo->save();
-        dd($nuevo);
+        return redirect()->action('personasController@mostrar');
+//        dd($nuevo);
 
 
         
@@ -62,13 +63,7 @@ class personasController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function mostrar()
     {
         //
     }
