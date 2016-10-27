@@ -43,7 +43,8 @@ Route::group(['prefix'=>'cargos'],function(){
 
 	Route::get('eliminar','cargosController@eliminar');
 
-	Route::get('mostrar','cargosController@mostrar');
+	Route::get('mostrar',function(){return view("cargos/mostrarCargo");});  //cargos/mostrar
+	Route::post('mostrarCar','cargosController@mostrar');
 });
 
 
