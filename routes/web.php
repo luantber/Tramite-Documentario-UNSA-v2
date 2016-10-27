@@ -30,8 +30,8 @@ Route::group(['prefix'=>'empleados'],function(){
 	Route::get('crear',function(){return view('empleados.crear');});//empleados/crear
 	Route::post('crearNewEmple','empleadosController@create');
 
-	Route::get('crear-nuevo',function(){	return view('empleados/crearNewEmpleado');});//empleados/crear_nuevo
-	Route::post('crearNewEmple','empleadosController@createNew');
+	Route::get('crear_nuevo',function(){	return view('empleados/crearNewEmpleado');});//empleados/crear_nuevo
+	Route::post('crearE','empleadosController@createNew');
 
 	Route::get('todos','empleadosController@todos');
 	Route::get('join','empleadosController@join');
