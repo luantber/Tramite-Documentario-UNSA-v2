@@ -14,42 +14,58 @@
 
 		<br><br>
 			<form>
-		  		<div class="form-group row">
-				  <label for="nomPer" class="col-xs-2 col-form-label">Nombre: </label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="text" name ="nomPer" id="nomPer">
+
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="nomPer" >Nombre: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								</span>
+					  		<input class="form-control" type="text" name ="nomPer" id="nomPer" placeholder="Ingrese nombres">
+						</div>
+					</div>
+				  <div class="col-sm-6">
+				  		<label for="apellido" >Apellido: </label>
+					    <input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos">	
 				  </div>
-				</div>
-				<div class="form-group row">
-				  <label for="apellido" class="col-xs-2 col-form-label">Apellido: </label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="text" name ="apellidoPer" id="apellido">
-				  </div>
-				</div>
-				<div class="form-group row">
-				  <label for="DNI" class="col-xs-2 col-form-label">DNI: </label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="text" name ="dni" id="DNI">
-				  </div>
-				</div>
-				<div class="form-group row">
-				  <label for="mail" class="col-xs-2 col-form-label">e-mail: </label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="text" name ="correo" id="mail">
-				  </div>
-				</div>
-				<div class="form-group row">
-				  <label for="contrasena" class="col-xs-2 col-form-label">Password: </label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="password" name ="contrasenaPer" id="contrasena">
-				  </div>
-				</div>
-				<div class="form-group row">
-				  <label class="col-xs-2 col-form-label"></label>
-				  <div class="col-xs-10">
-				    <button type="submit" class="btn btn-lg" value="Submit">  Crear  </button>
-				  </div>
-				</div>
+				</div><br>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="DNI">DNI: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								</span>
+						    <input class="form-control" type="text" name ="dni" id="DNI" placeholder="Ingrese DNI">
+						</div>
+					</div>
+				    <div class="col-sm-6">
+						<label for="mail" >e-mail: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								</span>
+						    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail">
+						</div>
+					</div>
+				</div><br>
+
+				<div class="row">
+				    <div class="col-sm-12">
+						<label for="contrasena" >Password: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+								</span>
+						    <input class="form-control" type="password" name ="contrasenaPer" id="contrasena" placeholder="Ingresar contraseña">
+						</div>
+					</div>
+				</div><br><br>
+
+				<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo usuario</button> 
+
 			</form>
 		</div>
 	</div>

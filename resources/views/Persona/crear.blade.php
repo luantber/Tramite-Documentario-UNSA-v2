@@ -1,5 +1,3 @@
-
-
 @extends('template')
 
 @section('title','Crear nuevo Usuario')
