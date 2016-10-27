@@ -5,6 +5,12 @@
 	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
+  <script src="{{asset('js/react.js')}}"></script>
+  <script src="{{asset('js/react-dom.js')}}"></script>
+  <script src="{{asset('js/browser.min.js')}}"></script>
+ 
+  <script src="{{asset('js/jquery.js')}}"></script>
+
 </head>
 <body>
 
@@ -152,7 +158,6 @@
   <!--END OF FOOTER-->
 
 
-<script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 </body>
