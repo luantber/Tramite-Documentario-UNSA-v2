@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>crearPersona</title>
-</head>
-<body>
+@extends('template')
+
+@section('title','Crear Nuevo Usuario')
+
+@section('content')
+
 <form method="POST" action="crear">
 	{{ csrf_field()}}
 
@@ -11,6 +11,7 @@
   		<div class="col-md-6 col-md-offset-3">
 
 		<h2><p class="text-center">  Crear Nuevo Usuario </p></h2>
+
 		<br><br>
 			<form>
 		  		<div class="form-group row">
@@ -54,6 +55,8 @@
 	</div>
 </form>
 
+@endsection
+
 <!--
 	nombre:
 	<input type="text" name="nomPer">
@@ -68,4 +71,4 @@
 </form>
 
 </body>
-</html>
+</html>-->

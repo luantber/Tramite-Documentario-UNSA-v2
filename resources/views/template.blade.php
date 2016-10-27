@@ -9,9 +9,9 @@
 <body>
 
       <!-- Static navbar -->
-      <nav class="navbar navbar-default default-primary-color">
+      <nav class="navbar navbar-default default-primary-color" >
       	<div class="barra-superior dark-primary-color">
-	</div>
+	     </div>
 
         <div class="container-fluid">
 
@@ -35,9 +35,9 @@
         
 
 
-                <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
           <li class="active"><a href="/">Inicio <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Movimientos</a></li>
+          <li><a href="{{ url('movimientos')}}">Movimientos</a></li>
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Áreas<span class="caret"></span></a>
@@ -56,7 +56,27 @@
 
 
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="#">Usuarios</a></li>
+
+          <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li><a href="{{ url('#')}}">Ver Usuarios</a></li>
+                 <li><a href="{{ url('#') }}">Ver Empleados</a></li>
+                 <li><a href="{{ url('personas/ver') }}">Ver Todos</a></li>
+               </ul>
+           </li>
+ 
+           <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trámites <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li><a href="{{ url('#')}}">Panel/Cola</a></li>
+                 <li><a href="{{ url('tramites/crear') }}">Nuevo</a></li>
+                 <li><a href="{{ url('#') }}">Responder</a></li>
+                 <li><a href="{{ url('#') }}">Buscar</a></li>
+                 <li><a href="{{ url('tramites/todos') }}">Todos</a></li>
+               </ul>
+           </li>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones SU <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -70,13 +90,11 @@
 
         <form class="navbar-form navbar-right">
           <button type="button" class="btn btn-default btn-md">
-          <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar
+          <!--<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar-->
+             <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a> 
+             </span>
           </button>
         </form>
-        
-
-
-            
 
         </div>
       </nav>
@@ -89,6 +107,50 @@
 	@section('content')
 	@show	
 </div>
+<br><br><br>
+
+<!-- FOOTER -->
+<div class="container well">
+    <h4><center>Trámite Documentario cs unsa </center></h4>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+              <h3 class="footertext">About Us:</h3>
+              <br>
+                <div class="col-md-4">
+                  <center>
+                    <img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle" alt="the-brains">
+                    <br>
+                    <h4 class="footertext">Programmer</h4>
+                    <p class="footertext">Person who never sleep.<br>
+                  </center>
+                </div>
+                <div class="col-md-4">
+                  <center>
+                    <img src="http://oi60.tinypic.com/2z7enpc.jpg" class="img-circle" alt="...">
+                    <br>
+                    <h4 class="footertext">Artist</h4>
+                    <p class="footertext">All the images here are hand drawn by this man.<br>
+                  </center>
+                </div>
+                <div class="col-md-4">
+                  <center>
+                    <img src="http://oi61.tinypic.com/307n6ux.jpg" class="img-circle" alt="...">
+                    <br>
+                    <h4 class="footertext">Designer</h4>
+                    <p class="footertext">This pretty site and the copy it holds are all thanks to this guy.<br>
+                  </center>
+                </div>
+              </div>
+              <div class="row">
+              <p><center><a href="#">Contact us here</a> <p class="footertext">Copyright 2016</p></center></p>
+          </div>
+      </div>
+  </div>
+ 
+  <!--END OF FOOTER-->
+
 
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
