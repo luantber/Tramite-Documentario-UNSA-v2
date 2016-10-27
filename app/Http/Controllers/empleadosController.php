@@ -20,14 +20,13 @@ class empleadosController extends Controller
     	else{
     		$nuevo->activo = false;	
      	}
-
-     	$encontrado = User::where('dni',$datos->dniEmpleado)->first();
+      echo $datos->dni;
+     	$encontrado = User::where('dni',$datos->dni)->first();
     	$nuevo->id_persona = $encontrado->id;
-      $nuevo->save();
-//      dd($nuevo);
-      //return redirect()->action('empleadosController@todos');
 
-    	
+      $nuevo->save();
+      
+      return redirect('empleados');    	
     }
 
     public function createNew(Request $datosn){
@@ -53,8 +52,7 @@ class empleadosController extends Controller
      	}
 
      	$newEmp->save();
-      
-      return redirect()->action('empleadosController@todos');
+      return redirect('empleados');
 
 
     }
@@ -63,8 +61,6 @@ class empleadosController extends Controller
       $join = DB::table('users')
                 ->leftjoin('empleados','users.id','=', 'empleados.id_persona')
                 ->get();
-      $esto = response()->json($join);
-      
       return response()->json($join);
     }  
 

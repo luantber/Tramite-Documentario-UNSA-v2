@@ -15,12 +15,15 @@ class cargosController extends Controller
     	$nuevo->descripcion = $datos->descripcion;
 
     $nuevo->save();
-    //dd($nuevo);
-    return redirect()->action('cargosController@mostrar');
-//    return view('cargos.mostrarCargo');
-    //dd($nuevo);
+    return redirect('cargos');
     }
 
+
+    public function todos(){
+    	$cargos = Cargo::all(); 
+    	return response()->json($cargos);
+    	
+    }
 
     public function editar (Request $datos){
 
@@ -38,10 +41,4 @@ class cargosController extends Controller
     	$borrado->delete();	
     }
 
-    public function mostrar(){
-    	$cargos = Cargo::all();
-    	$todos = response()->json($cargos);
-    	return($todos);
-    	
-    }
 }
