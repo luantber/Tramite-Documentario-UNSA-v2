@@ -2,7 +2,7 @@
 
 
 Route::get('/', function () {
-    return view('template');  //welcome
+    return view('home');  
 });
 
 

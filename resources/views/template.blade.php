@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>@yield('titulo')</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/paleta.css">
+	<title>@yield('title')</title>
+	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
 </head>
 <body>
@@ -29,9 +29,10 @@
 
           </div>
 
+          <!-- Fin Navegacion Movil -->
 
           <div id="navbar" class="navbar-collapse collapse">
-            
+        
 
 
                 <ul class="nav navbar-nav">
@@ -77,17 +78,20 @@
 
             
 
-        </div><!--/.container-fluid -->
+        </div>
       </nav>
 
 
+
+<!--Fin Barra-->
 
 <div class="container">
 	@section('content')
 	@show	
 </div>
 
-    <script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+
 </body>
 </html>
