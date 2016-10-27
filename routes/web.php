@@ -84,5 +84,24 @@ Route::get('areas/editar', function(){
 });
 
 Route::get('prub',function(){
-	dd(App\Area::find(1)->tramites);
+	//	dd(App\Area::find(1)->tramites);
+
+	$area=new App\Area;
+	$area->nombre='gerencia';
+	$area->descripcion='descripcion';
+	$area->save();
+
+	$tramite= new App\Tramite;
+	$tramite->prioridad=2;
+	$tramite->entregado=1;
+	$tramite->area()->associate($area);
+	$tramite->save();
+	
+	$mov= new App\Movimiento;
+	$mov->tramite()->associate($area);
+	$mov->areaDestino()->associate($area);
+	$mov->areaRemitente()->associate($area);
+	$mov->save();
+	dd($mov);
+
 });
