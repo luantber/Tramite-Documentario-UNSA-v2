@@ -86,7 +86,8 @@
            <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cargos <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li><a href="{{ url('#')}}">Crear</a></li>
+                 <li><a href="{{ url('cargos/crear')}}">Crear</a></li>
+                 <li><a href="{{ url('#')}}">Editar</a></li>
                  <li><a href="{{ url('cargos/mostrar') }}">Mostrar todos</a></li>
                </ul>
            </li>
