@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 
-class personasController extends Controller
+class usuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class personasController extends Controller
     public function todos(){
     
     $usuarios = User::all();
-    return response()->json(array($usuarios));
+    return response()->json($usuarios);
     
     }
 
