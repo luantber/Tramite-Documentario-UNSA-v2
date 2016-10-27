@@ -66,6 +66,10 @@ Route::get('tramites/crear',function(){
 	return view('tramites/crearTramite');
 });
 
+Route::get('areas/crear',function(){
+	return view('areas/crearArea');
+});
+
 Route::get('prub',function(){
 	dd(App\Area::find(1)->tramites);
 });
