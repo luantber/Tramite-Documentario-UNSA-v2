@@ -19,6 +19,13 @@ class personasController extends Controller
         //
     }
 
+    public function test(){
+    
+    $p1 = User::find(2);
+
+    return response()->json(array($p1));
+    
+}
     /**
      * Show the form for creating a new resource.
      *
