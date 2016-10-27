@@ -25,32 +25,65 @@
 
             </button>
 
-            <a class="navbar-brand" href="#">Tramite Documentario</a>
+            <a class="navbar-brand" href="#">Trámite Documentario</a>
 
           </div>
 
 
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+            
+
+
+                <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Inicio <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Movimientos</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Áreas<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Crear</a></li>
+              <li><a href="#">Ver</a></li>
+              <li><a href="#">Más</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Otra</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </li>
+
+          
+        </ul>
+
+
+
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="#">Usuarios</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones SU <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ url('empleados/crear_nuevo')}}">Crear Empleado</a></li>
+              <li><a href="{{ url('empleados/encontrar')}}">Encontrar Empleado</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="{{ url('usuarios/crear') }}">Crear Usuario</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="navbar-form navbar-right">
+          <button type="button" class="btn btn-default btn-md">
+          <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar
+          </button>
+        </form>
+        
+
+
+            
 
         </div><!--/.container-fluid -->
       </nav>
 
 
 
-
-
-
-
-
-
 <div class="container">
-	@section('body')
+	@section('content')
 	@show	
 </div>
 
