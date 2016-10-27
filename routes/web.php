@@ -18,7 +18,8 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('crear',function(){return view('usuarios.crear');});
 	Route::post('crear','usuariosController@create');
 
-	Route::get('todos','usuariosController@todos');
+	Route::get('todos',function(){return view('usuarios.todos');});
+	Route::post('todos','usuariosController@todos');
 });
 
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
@@ -27,7 +28,7 @@ Route::group(['prefix'=>'empleados'],function(){
 	Route::get('encontrar','personasController@encontrarPersonas');//empleados/encontrar
 
 	Route::get('crear',function(){return view('empleados.crear');});//empleados/crear
-	Route::post('crearE','empleadosController@create');
+	Route::post('crearNewEmple','empleadosController@create');
 
 	Route::get('crear-nuevo',function(){	return view('empleados/crearNewEmpleado');});//empleados/crear_nuevo
 	Route::post('crearNewEmple','empleadosController@createNew');
@@ -62,8 +63,8 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('personas/ver',function(){
-	return view('personas/ver');
+Route::get('usuarios/todos',function(){
+	return view('usuarios/todos');
 });
 
 Route::get('tramites/todos',function(){
