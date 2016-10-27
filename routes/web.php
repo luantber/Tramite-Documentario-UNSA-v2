@@ -35,7 +35,7 @@ Route::group(['prefix'=>'empleados'],function(){
 //GRUPO CARGOS **cargos/
 Route::group(['prefix'=>'cargos'],function(){
 
-	Route::get('crear',function(){return view('crearCargo');});//cargos/crear
+	Route::get('crear',function(){return view('cargos.crearCargo');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
 
 	Route::get('editar',function(){return view("editarCargo");});
