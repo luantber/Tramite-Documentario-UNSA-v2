@@ -14,7 +14,11 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('todos','usuariosController@todos');
 	Route::get('crear',function(){return view('usuarios.crear');});//usuarios/crear
 	Route::post('crear','usuariosController@create');
+
+
 });
+	Route::get('user/{id}', 'usuariosController@show');
+
 
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
 Route::group(['prefix'=>'empleados'],function(){

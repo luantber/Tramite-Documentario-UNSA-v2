@@ -39,4 +39,11 @@ class usuariosController extends Controller
         
     }
 
+    public function show($id){
+    $encontrado = User::find($id);
+
+    return redirect('usuarios.show',['user'=>$encontrado]);
+
+    }
+
 }
