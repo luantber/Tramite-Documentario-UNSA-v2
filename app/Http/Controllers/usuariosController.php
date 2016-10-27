@@ -38,7 +38,8 @@ class usuariosController extends Controller
         $editar ->dni = $datos ->dni;
         $editar ->email = $datos ->email;
         $editar ->save();
-        return redirect('usuarios.show');
+
+        return redirect('usuarios/'.$id);
     }
     
 
