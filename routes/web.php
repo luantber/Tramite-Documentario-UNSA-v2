@@ -15,7 +15,6 @@ Route::group(['prefix'=>'usuarios'],function(){
 	
 	Route::get('crear',function(){return view('usuarios.crear');});//usuarios/crear
 	Route::post('crear','usuariosController@create');
-
 });
 
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear

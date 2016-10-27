@@ -4,8 +4,6 @@
 
 @section('content')
 
-<form method="POST" action="crear">
-	{{ csrf_field()}}
 
 	<div class="row">
   		<div class="col-md-6 col-md-offset-3">
@@ -13,7 +11,9 @@
 		<h2><p class="text-center">  Crear Nuevo Usuario </p></h2>
 
 		<br><br>
-			<form>
+			<form method="post" action="{{asset('usuarios/crear')}}">
+
+				{{ csrf_field()}}
 
 				<div class="row">
 					<div class="col-sm-12">
@@ -63,16 +63,16 @@
 				<div class="form-group">
     				<div class="text-center">
 						<button class="btn btn-lg" type="submit" value="Submit"> 
-						<a style="text-decoration: none" href="{{url('usuarios/creado')}}"> Crear nuevo usuario </a></button> 
+						<a style="text-decoration: none"> Crear nuevo usuario </a></button> 
 					</div>
 				</div>
 
-				<!--<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo usuario</button> -->
+	
 
 			</form>
 		</div>
 	</div>
-</form>
+
 
 @endsection
 
