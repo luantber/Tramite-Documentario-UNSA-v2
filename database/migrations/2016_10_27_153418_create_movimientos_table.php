@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTramitesTable extends Migration
+class CreateMovimientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,15 @@ class CreateTramitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tramites', function (Blueprint $table) {
+        Schema::create('movimientos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('area_id')->unsigned();
-            $table->boolean('entregado');
-            $table->integer('prioridad');
+            $table->integer('tramite_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('area_id')
+            $table->foreign('tramite_id')
                 ->references('id')
-                ->on('areas');
-
-
-
+                ->on('tramites');
         });
-
-        
     }
 
     /**
@@ -38,6 +31,6 @@ class CreateTramitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tramites');
+        Schema::dropIfExists('movimientos');
     }
 }

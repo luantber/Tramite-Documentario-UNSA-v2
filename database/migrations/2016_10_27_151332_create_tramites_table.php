@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMovimientosTable extends Migration
+class CreateTramitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,20 @@ class CreateMovimientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('movimientos', function (Blueprint $table) {
+        Schema::create('tramites', function (Blueprint $table) {
             $table->increments('id');
+            
+            $table->boolean('entregado');
+            $table->integer('prioridad');
             $table->timestamps();
+
+           
+
+
+
         });
+
+        
     }
 
     /**
@@ -26,6 +36,6 @@ class CreateMovimientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movimientos');
+        Schema::dropIfExists('tramites');
     }
 }
