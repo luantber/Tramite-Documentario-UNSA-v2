@@ -13,7 +13,7 @@ Route::get('/', function () {
 // GRUPO USUARIOS **usuarios/
 
 Route::group(['prefix'=>'usuarios'],function(){
-	Route::get('crear',function(){return view('crearPersona');}); //usuarios/crear
+	Route::get('crear',function(){return view('personas/crearPersona');}); //usuarios/crear
 	Route::post('crear','personasController@create');
 });
 
@@ -22,10 +22,10 @@ Route::group(['prefix'=>'empleados'],function(){
 
 	Route::get('encontrar','personasController@encontrarPersonas');//empleados/encontrar
 	
-	Route::get('crear',function(){return view('crearEmpleado');});//empleados/crear
+	Route::get('crear',function(){return view('empleados/crearEmpleado');});//empleados/crear
 	Route::post('crearE','empleadosController@create');
 
-	Route::get('crear_nuevo',function(){	return view('crearNewEmpleado');});//empleados/crear_nuevo
+	Route::get('crear_nuevo',function(){	return view('empleados/crearNewEmpleado');});//empleados/crear_nuevo
 	Route::post('crearNewEmple','empleadosController@createNew');
 });
 
@@ -49,17 +49,17 @@ Route::get('login', function () {
 });
 
 Route::get('personas/ver',function(){
-	return view('verTodos');
+	return view('personas/verTodos');
 });
 
 Route::get('tramites/todos',function(){
-	return view('verTramites');
+	return view('tramites/verTramites');
 });
 
 Route::get('movimientos',function(){
-	return view('verMovimientos');
+	return view('movimientos/verMovimientos');
 });
 
 Route::get('tramites/crear',function(){
-	return view('crearTramite');
+	return view('tramites/crearTramite');
 });
