@@ -60,8 +60,14 @@
 					</div>
 				</div><br><br>
 
+				<div class="form-group">
+    				<div class="text-center">
+						<button class="btn btn-lg" type="submit" value="Submit"> 
+						<a style="text-decoration: none" href="{{url('usuarios/creado')}}"> Crear nuevo usuario </a></button> 
+					</div>
+				</div>
 
-				<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo usuario</button> 
+				<!--<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo usuario</button> -->
 
 			</form>
 		</div>
