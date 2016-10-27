@@ -15,7 +15,9 @@ class CreateTramitesTable extends Migration
     {
         Schema::create('tramites', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('area_id')->unsigned();
+            $table->integer('area_id')->unsigned()->nullable()->default(NULL);
+            $table->integer('empleado_id')->unsigned()->nullable()->default(NULL);
+            $table->integer('persona_id')->unsigned()->nullable()->default(NULL);
             $table->boolean('entregado');
             $table->integer('prioridad');
             $table->timestamps();
@@ -23,6 +25,15 @@ class CreateTramitesTable extends Migration
             $table->foreign('area_id')
                 ->references('id')
                 ->on('areas');
+
+            $table->foreign('empleado_id')
+                ->references('id')
+                ->on('empleados')->onDelete('cascade')->onUpdate('cascade');
+                
+
+            $table->foreign('persona_id')
+                ->references('id')
+                ->on('personas');
 
 
 

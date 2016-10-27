@@ -15,8 +15,19 @@ class CreateTipoTramitesTable extends Migration
     {
         Schema::create('tipo_tramites', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('nombre');
+            $table->integer('tramite_id')->unsigned();
             $table->timestamps();
+            
+            $table->foreign('tramite_id')
+               ->references('id')
+               ->on('tramites');
+            
         });
+
+        
+          
+        
     }
 
     /**

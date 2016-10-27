@@ -9,15 +9,6 @@ use App\User;
 
 class usuariosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     public function todos(){
     
@@ -32,20 +23,14 @@ class usuariosController extends Controller
         $nuevo->nombre = $datos->nomPer;
         $nuevo->apellido = $datos->apellidoPer;
         $nuevo->dni = $datos->dni;
-//        $nuevo->password = bcrypt( $datos->contrasenaPer);
+        $nuevo->password = bcrypt("");
         $nuevo->email = $datos->correo;
         
         $nuevo->save();
         return redirect('usuarios');
 
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function encontrarPersonas()
     {
         $encontrado = User::find(8);
