@@ -68,7 +68,7 @@
                <ul class="dropdown-menu">
                  <li><a href="{{ url('#')}}">Ver Usuarios</a></li>
                  <li><a href="{{ url('#') }}">Ver Empleados</a></li>
-                 <li><a href="{{ url('personas/ver') }}">Ver Todos</a></li>
+                 <li><a href="{{ url('usuarios/todos') }}">Ver Todos</a></li>
                </ul>
            </li>
  
