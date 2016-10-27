@@ -5,6 +5,9 @@ class Persona extends React.Component{
 			<tr>
 				<td>{this.props.id}</td>
 				<td>{this.props.name}</td>
+				<td>{this.props.apellido}</td>
+				<td>{this.props.dni}</td>
+				<td>{this.props.email}</td>
 			</tr>
 			
 		);
@@ -46,6 +49,9 @@ window.TablaPersonas = React.createClass({
 		      <tr>
 		        <th>ID</th>
 		        <th>Nombre</th>
+		        <th>Apellido</th>
+		        <th>DNI</th>
+		        <th>Email</th>
 		      
 		      </tr>
 		    </thead>
@@ -55,7 +61,14 @@ window.TablaPersonas = React.createClass({
 				this.state.data.map(
 				 	function (persona){
 				 		return(
-				 				<Persona name={persona.nombre} id={persona.id} key={persona.id}/>
+				 				<Persona
+				 					id={persona.id} 
+				 					name={persona.nombre} 
+				 					apellido={persona.apellido} 
+				 					email={persona.email} 
+				 					dni={persona.dni}  
+				 					key={persona.id}
+				 				/>
 				 		)
 				 	}
 			 	)
