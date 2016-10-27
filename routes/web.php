@@ -40,11 +40,14 @@ Route::group(['prefix'=>'empleados'],function(){
 //GRUPO CARGOS **cargos/
 Route::group(['prefix'=>'cargos'],function(){
 
-	Route::get('crear',function(){return view('cargos.crearCargo');});//cargos/crear
+	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
 
-	Route::get('editar',function(){return view("editarCargo");});
+	Route::get('editar',function(){return view("cargos.editar");});
 	Route::post("editarCar","cargosController@editar");
+
+	Route::get('mostrar',function(){return view("cargos.mostrar");});
+	Route::post("mostrarCar","cargosController@editar");
 
 	Route::get('eliminar','cargosController@eliminar');
 
@@ -60,27 +63,27 @@ Route::get('login', function () {
 });
 
 Route::get('personas/ver',function(){
-	return view('personas/verTodos');
+	return view('personas/ver');
 });
 
 Route::get('tramites/todos',function(){
-	return view('tramites/verTramites');
+	return view('tramites/ver');
 });
 
 Route::get('movimientos',function(){
-	return view('movimientos/verMovimientos');
+	return view('movimientos/ver');
 });
 
 Route::get('tramites/crear',function(){
-	return view('tramites/crearTramite');
+	return view('tramites/crear');
 });
 
 Route::get('areas/crear',function(){
-	return view('areas/crearArea');
+	return view('areas/crear');
 });
 
 Route::get('areas/editar', function(){
-  return  view('areas/editarArea');
+  return  view('areas/editar');
 });
 
 Route::get('prub',function(){
