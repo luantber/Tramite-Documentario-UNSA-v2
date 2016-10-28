@@ -25,7 +25,7 @@ class cargosController extends Controller
     	
     }
 
-    public function editar (Request $datos){
+    
 
     public function guardar(Request $datos,$id){
     	$editar = Cargo::find($id);
@@ -46,7 +46,7 @@ class cargosController extends Controller
     }
 
 
-    }
+    
 
     public function eliminar($id){
     	$bencontrado = Cargo::find($id);
