@@ -66,6 +66,10 @@ Route::group(['prefix'=>'cargos'],function(){
 });
 
 
+Route::group(['prefix'=>'tramites'],function(){
+	Route::post('crearT','tramitesController@create');
+});
+
 
 //Solo para ver vistas :'v
 

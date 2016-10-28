@@ -1,4 +1,4 @@
-<?php
+sudo<?php
 
 namespace App\Http\Controllers;
 

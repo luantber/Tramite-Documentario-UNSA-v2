@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="crearNewTram">     <!-- <_Alexis -->
+<form method="POST" action="crearT">     <!-- <_Alexis -->
     {{ csrf_field()}}
 
     <form class="form-horizontal container" enctype="multipart/form-data">
