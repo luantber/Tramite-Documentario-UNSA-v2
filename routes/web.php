@@ -73,9 +73,6 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('usuarios/todos',function(){
-	return view('usuarios/todos');
-});
 
 Route::get('tramites/ver',function(){
 	return view('tramites/ver');
@@ -110,17 +107,6 @@ Route::get('areas/editar', function(){
   return  view('areas/editar');
 });
 
-Route::get('cargos/editar', function(){
-  return  view('cargos/editar');
-});
-
-Route::get('cargos/todos', function(){
-  return  view('cargos/todos');
-});
-
-Route::get('usuarios/editar', function(){
-	return view('views/usuarios/editar');
-});
 
 Route::get('prub',function(){
 	//	dd(App\Area::find(1)->tramites);
