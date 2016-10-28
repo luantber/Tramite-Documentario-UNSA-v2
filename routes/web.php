@@ -36,6 +36,14 @@ Route::group(['prefix'=>'empleados'],function(){
 	Route::get('usuario',function(){return view('empleados.usuario');});//empleados/usuario -- refiere a un empleado que ya es usuario
 	Route::post('EmpleadoUsu','empleadosController@create');
 
+	Route::get('{id}', 'empleadosController@show');
+
+	Route::get('{id}/editar','empleadosController@editar');
+	Route::post('{id}','empleadosController@guardar');
+
+	Route::get('{id}/eliminar','empleadosController@eliminar');
+	Route::post('eliminar','empleadosController@eliminado');
+
 });
 
 
@@ -47,11 +55,13 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
 
+	Route::get('{id}/editar','cargosController@editar');
+	Route::post('{id}','cargosController@guardar');
 
-//	Route::get('eliminar','cargosController@eliminar');
 
-//	Route::get('editar',function(){return view("editarCargo");});
-//	Route::post("editarCar","cargosController@editar");
+	Route::get('{id}/eliminar','cargosController@eliminar');
+
+
 });
 
 
