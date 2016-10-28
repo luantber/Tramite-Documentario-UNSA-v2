@@ -73,9 +73,10 @@ Route::group(['prefix'=>'tramites'],function(){
 
 //Solo para ver vistas :'v
 
-Route::get('login', function () {
-    return view('login');
-});
+//Route::get('login', 'LoginController@login');
+//Rutas de auth
+Route::auth();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::get('tramites/ver',function(){
@@ -99,6 +100,7 @@ Route::get('tramites/delegar',function(){
 });
 
 
+
 Route::get('tramites/resolver',function(){
 	return view('tramites/resolver');
 });
@@ -111,6 +113,9 @@ Route::get('areas/editar', function(){
   return  view('areas/editar');
 });
 
+
+
+//POST, con fe
 
 Route::get('prub',function(){
 	//	dd(App\Area::find(1)->tramites);

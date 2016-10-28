@@ -107,7 +107,11 @@
         <form class="navbar-form navbar-right">
           <button type="button" class="btn btn-default btn-md">
           <!--<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar-->
-             <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a> 
+            @if (Auth::check())
+                <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/logout') }}"> Cerrar Sesión </a>                 
+            @else
+                <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a> 
+            @endif
              </span>
           </button>
         </form>
