@@ -66,8 +66,8 @@
           <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li><a href="{{ url('#')}}">Ver Usuarios</a></li>
-                 <li><a href="{{ url('#') }}">Ver Empleados</a></li>
+                 <li><a href="{{ url('usuarios')}}">Ver Usuarios</a></li>
+                 <li><a href="{{ url('empleados') }}">Ver Empleados</a></li>
                  <li><a href="{{ url('usuarios/todos') }}">Ver Todos</a></li>
                </ul>
            </li>
