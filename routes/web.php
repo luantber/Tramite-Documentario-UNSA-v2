@@ -60,6 +60,7 @@ Route::group(['prefix'=>'cargos'],function(){
 
 
 	Route::get('{id}/eliminar','cargosController@eliminar');
+	Route::post('eliminar','empleadosController@eliminado');
 
 
 });
