@@ -31,9 +31,9 @@ class cargosController extends Controller
     	$editar = Cargo::find($id);
     	$editar ->nombreCargo = $datos->nombreCargo;
     	$editar ->descripcion = $datos->descripcion;
-    	$editar ->save('cargos');
+    	$editar ->save();
+    	return redirect('cargos');
 
-    	return redirect();
 
     }	
 
