@@ -112,9 +112,7 @@ Route::get('tramites/resolver',function(){
 	return view('tramites/resolver');
 });
 
-Route::get('areas/crear',function(){
-	return view('areas/crear');
-});
+
 
 Route::get('areas/editar', function(){
   return  view('areas/editar');

@@ -10,8 +10,9 @@ use App\Area;
 class areasController extends Controller
 {
 	public function crearGet(){
+		
 		$areas = Area::all();
-		return view('areas.crear',['areas'=>$areas]);
+		return view('areas.crear',['areas'=> $areas]);
 	}	
 		
     public function crear(Request $datos){

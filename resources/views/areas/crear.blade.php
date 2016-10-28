@@ -6,8 +6,8 @@
 
 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
-
-<form method="POST" action="{{asset('areas/crear')}}">
+{{ $areas }}
+<form method="POST" action="crear">
 	{{ csrf_field()}}
 
 	<div class="row">
