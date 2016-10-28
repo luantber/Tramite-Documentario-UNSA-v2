@@ -89,7 +89,7 @@
                <ul class="dropdown-menu">
                  <li><a href="{{ url('cargos/crear')}}">Crear</a></li>
                  <li><a href="{{ url('cargos/editar')}}">Editar</a></li>
-                 <li><a href="{{ url('cargos/todos') }}">Mostrar todos</a></li>
+                 <li><a href="{{ url('cargos') }}">Mostrar todos</a></li>
                </ul>
            </li>
 
