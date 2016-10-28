@@ -22,7 +22,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-							<label for="nombre" type="string" name="nombre" id="nombre" > {{ $empleado->nombre }} </label>
+							<input class="form-control" type="string" name ="nombre" id="nombre" value="{{$empleado->nombre}}" disabled="">
 						</div>
 					</div>
 				</div><br>
@@ -34,7 +34,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					    	<label for="apellido" type="string" name ="apellido" id="apellido" >{{$empleado->apellido}} </label>
+					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$empleado->apellido}}" disabled="">
 					    </div>
 				  </div>
 				</div><br>
@@ -42,25 +42,47 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<label for="area">Area: </label>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">
-									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-								</span>
 						    <input class="form-control" type="string" name ="area" id="area" value="{{$empleado->area}}">
-						</div>
 					</div>
 				    <div class="col-sm-6">
+				  		<label for="cargo" >Cargo: </label>
+							    <input class="form-control" type="string" name ="cargo" id="cargo" value="{{$empleado->cargo}}">
+					</div>
+
+				</div><br>
+
+				<div class="row">
+					<div class="col-sm-6">
 						<label for="email" >e-mail: </label>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="string" name ="email" id="email" value="">
+						    <input class="form-control" type="string" name ="email" id="email" value="" disabled="">
 						</div>
 					</div>
+					<div class="col-sm-6">
+						<label for="dni" >DNI: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								</span>
+						    <input class="form-control" type="string" name ="dni" id="dni" value="" disabled="">
+						</div>
+					</div>
+				</div><br>
+
+				<div class="row">
+				  <div class="col-sm-6">
+				  		<label for="activo" >Activo: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								</span>
+					    	<input class="form-control" type="string" name ="activo" id="activo" value="{{$empleado->activo}}">
+					    </div>
+				  </div>
 				</div><br><br>
-
-
 
 
 				<div class="form-group">
@@ -69,8 +91,6 @@
 						Guardar cambios </button> 
 					</div>
 				</div>
-
-	
 
 			</form>
 		</div>
