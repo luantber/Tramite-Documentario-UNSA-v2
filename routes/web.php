@@ -47,7 +47,6 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
 
-
 //	Route::get('eliminar','cargosController@eliminar');
 
 //	Route::get('editar',function(){return view("editarCargo");});
@@ -107,8 +106,8 @@ Route::get('cargos/todos', function(){
   return  view('cargos/todos');
 });
 
-Route::get('usuarios/editar', function(){
-	return view('views/usuarios/editar');
+Route::get('cargos/show', function(){
+  return  view('cargos/show');
 });
 
 Route::get('prub',function(){
