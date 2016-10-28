@@ -107,6 +107,10 @@ Route::get('cargos/todos', function(){
   return  view('cargos/todos');
 });
 
+Route::get('usuarios/editar', function(){
+	return view('views/usuarios/editar');
+});
+
 Route::get('prub',function(){
 	//	dd(App\Area::find(1)->tramites);
 

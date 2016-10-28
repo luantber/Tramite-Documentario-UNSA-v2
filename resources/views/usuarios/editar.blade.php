@@ -5,28 +5,72 @@
 
 @section('content')
 	
-	Perfil <br>
-	{{ $user }}
-	<br>
-	{{ $user->apellido}}
-	<br>
+	<div class="row">
+  		<div class="col-md-6 col-md-offset-3">
 
-	<form method="post" action="{{asset('usuarios')}}{{'/'.$user->id}}">
-		{{ csrf_field()}}
-		<input type="string" name="nombre" value=" {{ $user->nombre }}">
-		<input type="string" name="apellido" value="{{$user->apellido}}">
-		<input type="string" name="email" value="{{$user->email}}">
-		<input type="string" name="dni" value="{{$user->dni}}">
-		
+		<h2><p class="text-center">  Editar Usuario </p></h2>
 
-		<input type="submit" >
-		Ya kat .. si falta algo lo completas
-	</form>
+		<br><br>
+			<form method="post" action="{{asset('usuarios')}}{{'/'.$user->id}}">
+
+				{{ csrf_field()}}
+
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="nombre" >Nombre: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								</span>
+					  		<input class="form-control" type="string" name ="nombre" id="nombre" value=" {{ $user->nombre }}">
+						</div>
+					</div>
+				</div><br>
+
+				<div class="row">
+				  <div class="col-sm-12">
+				  		<label for="apellido" >Apellido: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								</span>
+					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$user->apellido}}">
+					    </div>
+				  </div>
+				</div><br>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="dni">DNI: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								</span>
+						    <input class="form-control" type="string" name ="dni" id="dni" value="{{$user->dni}}">
+						</div>
+					</div>
+				    <div class="col-sm-6">
+						<label for="email" >e-mail: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								</span>
+						    <input class="form-control" type="string" name ="email" id="email" value="{{$user->email}}">
+						</div>
+					</div>
+				</div><br><br>
+
+				<div class="form-group">
+    				<div class="text-center">
+						<button class="btn btn-lg" type="submit" value="Submit"> 
+						Guardar cambios </button> 
+					</div>
+				</div>
 
 	
 
-
-
-Ya Kat ... tu misma eres con el perfil 
+			</form>
+		</div>
+	</div>
 
 @endsection
