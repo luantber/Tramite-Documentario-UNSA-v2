@@ -17,12 +17,12 @@
 		<h2><p class="text-center">  Editar Cargo </p></h2>
 
 		<br><br>
-			<form method="post" action="{{asset('cargos')}}{{'/'.$cargo->id}}">
+			<form method="post" action="{{asset('cargos')}}">
 
 				{{ csrf_field()}}
 
 					<div class="row">
-						<div class="col-sm-4">
+						<!--<div class="col-sm-4">
 							<label for="idcargo" >ID: </label>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1">
@@ -30,7 +30,7 @@
 									</span>
 						  		<input class="form-control" type="text" name ="idcargo" id="idcargo" value="{{ $cargo->idcargo }}">
 							</div>
-						</div>
+						</div>-->
 						<div class="col-sm-8">
 							<label for="nomcargo" >Nombre: </label>
 							<div class="input-group">
@@ -56,11 +56,11 @@
 			    	<ul class="pager">
 				        <li><a href="#">Cancelar</a></li>
 				    </ul>
-				</form>
+			</form>
 		</div>
 
-	</div>
-	
+</div>
+
 @endsection
 
 <!--
