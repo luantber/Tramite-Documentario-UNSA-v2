@@ -79,6 +79,18 @@
 			  </div>
 			</div><br>
 
+			<div class="row">
+				  <div class="col-sm-6">
+				  		<label for="activo" >Activo: </label>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">
+									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+								</span>
+					    	<input class="form-control" type="string" name ="activo" id="activo" placeholder="¿Activo?">
+					    </div>
+				  </div>
+			</div><br><br>
+
 			<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo empleado</button> 
 
 			</div><br><br>
