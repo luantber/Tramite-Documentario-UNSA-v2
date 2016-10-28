@@ -23,7 +23,7 @@ class Tramite extends Model
 
 
     public function empleado()
-    {
+    {	
     	return $this->belongsTo('App\Empleado','empleado_id','id');
     }
 
