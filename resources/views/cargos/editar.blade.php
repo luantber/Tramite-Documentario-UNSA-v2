@@ -1,9 +1,3 @@
-<!--<!DOCTYPE html>
-<html>
-<head>
-	<title>Trámite Documentario</title>
-</head>
-<body>-->
 
 @extends('template')
 
@@ -17,7 +11,7 @@
 		<h2><p class="text-center">  Editar Cargo </p></h2>
 
 		<br><br>
-			<form method="post" action="{{asset('cargos')}}">
+			<form method="post" action="{{asset('cargos')}}{{'/'.$cargo->id}}">
 
 				{{ csrf_field()}}
 
@@ -29,7 +23,7 @@
 									<span class="input-group-addon" id="basic-addon1">
 										<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 									</span>
-						  		<input class="form-control" type="text" name ="nomCargo" id="nomCargo" value="{{ $cargo->nombreCargo }}">
+						  		<input class="form-control" type="text" name ="nombreCargo" id="nomCargo" value="{{ $cargo->nombreCargo }}">
 							</div>
 						</div>
 					</div><br>
@@ -54,7 +48,3 @@
 </div>
 
 @endsection
-
-<!--
-</body>
-</html>-->
