@@ -16,12 +16,13 @@ class areasController extends Controller
 	}
 
     public function crear(Request $datos){
-			dd($datos);
+		//dd($datos->descripcion);
+    	
     	$nuevo = new Area;
     	$nuevo->nombre = $datos->nomArea;
-    	$nuevo->area_id = $datos->idArePad;
-    	$datos->jefe_id = $datos->jefArea;
-    	$nuevo->descripcion = $datos->$descripcion;
+    	$nuevo->area_id = $datos->idAreaPad;
+    	$nuevo->jefe_id = $datos->jefArea;
+    	$nuevo->descripcion = $datos->descripcion;
 
     	$nuevo->save();
 
