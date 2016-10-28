@@ -110,18 +110,6 @@ Route::get('areas/editar', function(){
   return  view('areas/editar');
 });
 
-Route::get('cargos/editar', function(){
-  return  view('cargos/editar');
-});
-
-Route::get('cargos/todos', function(){
-  return  view('cargos/todos');
-});
-
-Route::get('cargos/show', function(){
-  return  view('cargos/show');
-});
-
 Route::get('prub',function(){
 	//	dd(App\Area::find(1)->tramites);
 
