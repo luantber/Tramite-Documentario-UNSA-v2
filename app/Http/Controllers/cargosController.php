@@ -27,18 +27,36 @@ class cargosController extends Controller
 
     public function editar (Request $datos){
 
+    public function guardar(Request $datos,$id){
+    	$editar = Cargo::find($id);
+    	$editar ->nombreCargo = $datos->nombreCargo;
+    	$editar ->descripcion = $datos->descripcion;
+    	$editar ->save('cargos');
 
-    	$encontrar = Cargo::find($datos->IDcargo);
-    	$encontrar->nombreCargo = $datos->newNombreCargo;
-    	$encontrar->descripcion = $datos->newDescripcion;
-    	$encontrar->save();
-   		return view('cargos.mostrarCargo');
-//    	dd($encontrar);
+    	return redirect();
+
+    }	
+
+    public function editar($id){
+    	$encontrado = Cargo::find($id);
+    	if($encontrado == null){
+    		echo "error NO EXISTE EL CARGO";
+    	}
+    	return view('cargos.editar',['cargo'=>$encontrado]);
     }
 
-    public function eliminar(){
-    	$borrado = Cargo::find(1);
-    	$borrado->delete();	
+
+    }
+
+    public function eliminar($id){
+    	$bencontrado = Cargo::find($id);
+    	if ($encontrado == null) {
+            echo "error NO EXISTE EL CARGO";
+//            return view ('errors.noExiste');
+        }
+      $encontrado->delete();
+      return redirect('cargos');
+    	
     }
 
 }

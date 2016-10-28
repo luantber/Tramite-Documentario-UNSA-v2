@@ -54,4 +54,49 @@ class empleadosController extends Controller
       return response()->json($join);
     }  
 
+    public function show($id){
+      $encontrado = Empleado::find($id);
+      if ($encontrado == null) {
+        echo "error EL EMPLEADO NO EXISTE";
+        //return view ('errors.noExiste');
+      }
+
+    return view('empleados.show',['empleado'=>$encontrado]);
+    }
+
+    public function editar($id){
+        $encontrado = Empleado::find($id);
+        if ($encontrado == null) {
+            echo "error EL EMPLEADO NO EXISTE";
+//            return view ('errors.noExiste');
+        }
+        return view('empleados.editar',['empleado'=>$encontrado]);
+    }
+
+        public function guardar(Request $datos,$id){
+        $editar = Empleado::find($id);
+        $editar->area = $datos ->area;
+        $editar ->cargo = $datos ->cargo;
+        $editar ->activo = $datos ->activo;
+        $editar ->save();
+
+        return redirect('empleados/'.$id);
+    }
+
+    public function eliminar($id){
+      $encontrado = Empleado::find($id);
+      if ($encontrado == null) {
+            echo "error EL EMPLEADO NO EXISTE";
+//            return view ('errors.noExiste');
+        }
+        return view('empleados.eliminar',['eliminado'=>$encontrado]);
+    }
+
+    public function eliminado(Request $datos){
+      $eliminado = Empleado::find($datos->id);
+      $eliminado->delete();
+      return redirect('empleados');
+    }
+
+
 }
