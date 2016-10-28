@@ -5,9 +5,9 @@
 @section('content')
 
 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+{{$areas}}
 
-{{ $areas }}
-<form method="POST" action="crear">
+<form method="POST" action="{{asset('areas/crear')}}">
 	{{ csrf_field()}}
 
 	<div class="row">
@@ -22,16 +22,20 @@
 
       <div class="form-group">
 		    <label for="nomAreaPad"> Nombre del Área Padre: </label>
-		    <select type="text" class="form-control" placeholder="Selecciona el Area Padre" name="idAreaPad" id="idAreaPad"> </select>
+		    <select type="text" class="form-control" placeholder="Selecciona el Area Padre" name="idAreaPad" id="idAreaPad">
+					<option value="0">Sin Padre</option>
+				</select>
 		  </div>
 
 		  <div class="form-group">
 		    <label for="jefArea"> Jefe del Área: </label>
-		    <select type="text" class="form-control" placeholder="Selecciona el Jefe del Área" name="jefArea" id="jefArea"> </select>
+		    <select type="text" class="form-control" placeholder="Selecciona el Jefe del Área" name="jefArea" id="jefArea">
+					<option value="0">Sin Jefe</option>
+				</select>
 		  </div>
 
 		  <div class="form-group">
-		    <label for="Descripcion"> Descripción: </label>
+		    <label for="descripcion"> Descripción: </label>
         <textarea class="form-control" placeholder="Ingrese la descripción"  name="descripcion" id="descripcion" required="true"></textarea>
       </div>
 

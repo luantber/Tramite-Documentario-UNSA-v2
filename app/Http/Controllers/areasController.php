@@ -10,13 +10,13 @@ use App\Area;
 class areasController extends Controller
 {
 	public function crearGet(){
-		
+
 		$areas = Area::all();
 		return view('areas.crear',['areas'=> $areas]);
-	}	
-		
-    public function crear(Request $datos){
+	}
 
+    public function crear(Request $datos){
+			dd($datos);
     	$nuevo = new Area;
     	$nuevo->nombre = $datos->nomArea;
     	$nuevo->area_id = $datos->idArePad;
@@ -26,5 +26,5 @@ class areasController extends Controller
     	$nuevo->save();
 
     	return redirect('/');
-    }	
+    }
 }
