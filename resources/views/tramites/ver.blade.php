@@ -7,7 +7,7 @@
 <h2><p class="text-center">  Ver Trámites </p></h2>
 	<br>
 
-	
+
 	<div class="container">
 
 		<ul class="nav nav-tabs">
@@ -65,7 +65,7 @@
 			        <td>30/10/16</td>
 			        <th><span class="glyphicon glyphicon-envelope"></span> </th>
 			    </tr>
-				
+
 			</tbody>
 		</table>
 	</div>

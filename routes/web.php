@@ -26,7 +26,7 @@ Route::group(['prefix'=>'usuarios'],function(){
 Route::group(['prefix'=>'empleados'],function(){
 	Route::get('/',function(){return view('empleados.todos');});//empleados
 	Route::get('todos','empleadosController@todos');
-	
+
 
 	Route::get('crear',function(){return view('empleados.crear');});//empleados/crear --refiere a un empleado que no existe como usuario
 	Route::post('crearNewEmple','empleadosController@createNew');
@@ -120,7 +120,9 @@ Route::get('areas/editar', function(){
   return  view('areas/editar');
 });
 
-
+Route::get('estados/crear', function(){
+  return  view('estados/crear');
+});
 
 //POST, con fe
 
@@ -137,7 +139,7 @@ Route::get('prub',function(){
 	$tramite->entregado=1;
 	$tramite->area()->associate($area);
 	$tramite->save();
-	
+
 	$mov= new App\Movimiento;
 	$mov->tramite()->associate($area);
 	$mov->areaDestino()->associate($area);

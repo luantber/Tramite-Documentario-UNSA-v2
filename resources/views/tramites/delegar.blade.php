@@ -5,7 +5,7 @@
 @section('content')
 
 <form method="POST" action="delegarTram">
-
+      {{ csrf_field()}}
   <h2><p class="text-center">  Delegar Trámite </p></h2>
   <br>
 

@@ -7,14 +7,13 @@
 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
 
-<form method="POST" action="crear">
+<form method="POST" action="editar">
 	{{ csrf_field()}}
 
 	<div class="row">
   		<div class="col-md-6 col-md-offset-3">
 
 		<h2><p class="text-center">  Editar Área </p></h2>
-		<form>
 
       <div class="form-group">
 		    <label for="nomArea"> Nombre del Área: </label>
@@ -38,7 +37,6 @@
 
 		  <button type="submit" class="btn btn-default" value="Submit">Guardar Cambios</button>
 
-		</form>
 		</div>
 	</div>
 

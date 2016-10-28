@@ -5,8 +5,8 @@
 @section('content')
 
 <form  action="resolTram" method="POST">
-
-  <h2><p class="text-center">  Resolver Trámite </p></h2>
+    {{ csrf_field()}}
+  <h2><p class="text-center">  Comentar para Delegar/Terminar Trámite </p></h2>
   <br>
 
   <div class="row form-group">
@@ -16,17 +16,17 @@
 
           <label for="comentario" class=" col-sm-offset-2 col-sm-2"> Comentario </label>
           <div class="col-sm-6">
-            <textarea name="comentario" rows="4" type="text" placeholder="Ingrese Comentario" class="form-control" id="comentario"> </textarea>
+            <textarea name="comentario" rows="4" type="text" placeholder="Ingrese Comentario" class="form-control" id="comentario" required> </textarea>
           </div>
 
       </div>
-
+      <!--
       <div class="row form-group col-sm-offset-5 col-sm-4">
 
         <button type="submit" class="btn btn-default" value="Submit">Crear Comentario</button>
 
       </div>
-
+      -->
     </div>
 <!-- Segunda columna -->
     <div class="col-sm-6 form-group">
@@ -87,7 +87,7 @@
 
       <div class="row col-sm-offset-2 col-sm-4 form-group">
 
-        <button type="submit" class="btn btn-default" value="Submit">Delegar Tramite</button>
+        <button type="submit" class="btn btn-default" value="Submit">Delegar/Terminar Tramite</button>
 
       </div>
 
@@ -103,7 +103,7 @@
 
       <div class="row col-sm-offset-2 col-sm-4">
 
-          <label for="progreso" class="row col-sm-offset-3 col-sm-4 control-label" >Progreso</label>
+          <label for="progreso" class="row col-sm-offset-8 col-sm-4 control-label" >Progreso</label>
 
       </div>
     </div>
