@@ -12,8 +12,8 @@ class usuariosController extends Controller
 
     public function todos(){
     
-    $usuarios = User::all();
-    return response()->json($usuarios);
+        $usuarios = User::all();
+        return response()->json($usuarios);
     
     }
 
@@ -23,7 +23,7 @@ class usuariosController extends Controller
         $nuevo->nombre = $datos->nomPer;
         $nuevo->apellido = $datos->apellidoPer;
         $nuevo->dni = $datos->dni;
-        $nuevo->password = bcrypt("");
+        $nuevo->password = bcrypt($datos->dni);
         $nuevo->email = $datos->correo;
         
         $nuevo->save();
@@ -44,12 +44,13 @@ class usuariosController extends Controller
     
 
     public function show($id){
-    $encontrado = User::find($id);
-    if ($encontrado == null) {
-        return view ('errors.noExiste');
-    }
+        $encontrado = User::find($id);
+        
+        if ($encontrado == null) {
+            return view ('errors.noExiste');
+        }
 
-    return view('usuarios.show',['user'=>$encontrado]);
+        return view('usuarios.show',['user'=>$encontrado]);
 
     }
 

@@ -20,7 +20,6 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('{id}/editar','usuariosController@editar');
 	Route::post('{id}','usuariosController@guardar');
 
-
 });
 
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
@@ -62,7 +61,6 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('{id}/eliminar','cargosController@eliminar');
 	Route::post('eliminar','empleadosController@eliminado');
 
-
 });
 
 
@@ -70,6 +68,15 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::post('crearT','tramitesController@create');
 });
 
+
+
+Route::group(['prefix'=>'areas'],function(){
+	
+	Route::get('/',function(){ dd("nothing");	});
+	Route::get('crear','areasController@crearGet');
+
+	Route::post('crear','areasController@crear');
+});
 
 //Solo para ver vistas :'v
 
