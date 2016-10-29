@@ -11,7 +11,7 @@
 		<h2><p class="text-center">  Crear Nuevo Usuario </p></h2>
 
 		<br><br>
-			<form method="post" action="{{asset('usuarios/crear')}}">
+			<form method="post" onsubmit="return validar()" action="{{asset('usuarios/crear')}}">
 
 				{{ csrf_field()}}
 
@@ -22,7 +22,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					  		<input class="form-control" type="text" name ="nomPer" id="nomPer" placeholder="Ingrese nombres">
+					  		<input class="form-control" type="text" name ="nomPer" id="nomPer" placeholder="Ingrese nombres" required="true">
 						</div>
 					</div>
 				</div><br>
@@ -34,36 +34,42 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					    	<input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos">
+					    	<input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos" required="true">
 					    </div>
 				  </div>
 				</div><br>
 
 				<div class="row">
-					<div class="col-sm-6">
-						<label for="DNI">DNI: </label>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">
-									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-								</span>
-						    <input class="form-control" type="text" name ="dni" id="DNI" placeholder="Ingrese DNI">
+
+					<!--<form onsubmit="validar()" >-->
+						<div class="col-sm-6">
+							<label for="DNI">DNI: </label>
+							<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">
+										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+									</span>
+							    <input class="form-control" type="text" name ="dni" id="DNI" placeholder="Ingrese DNI" required="true">
+							</div>
+							<p id="noingreso"></p>
 						</div>
-					</div>
+					<!--</form>-->
+
 				    <div class="col-sm-6">
 						<label for="mail" >e-mail: </label>
 						<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail">
+						    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail" required="true">
 						</div>
+						<p id="nocorreo"></p>
 					</div>
 				</div><br><br>
 
 				<div class="form-group">
     				<div class="text-center">
 						<button class="btn btn-lg" type="submit" value="Submit"> 
-						<a style="text-decoration: none"> Crear nuevo usuario </a></button> 
+						Crear nuevo usuario </button> 
 					</div>
 				</div>
 
@@ -72,6 +78,26 @@
 			</form>
 		</div>
 	</div>
+
+<script type="text/javascript">
+	function validar(){
+		var DNI = document.getElementById("DNI").value;
+		var correo = document.getElementById("mail").value;
+		var texto,texto2;
+
+		if( !(/^\d{8}$/.test(DNI)) ) {
+		    texto ="Ingrese un número de 8 digitos";
+  			document.getElementById("noingreso").innerHTML = texto;
+			return false;
+		}
+
+		if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w/.test(correo)) ) {
+			texto2 = "Ingrese un e-mail válido";
+			document.getElementById("nocorreo").innerHTML = texto2;
+			return false;
+		}
+	}
+</script>
 
 
 @endsection

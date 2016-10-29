@@ -23,12 +23,12 @@
           </div>
         </div>-->
 
-        <div class="row form-group">
+        <div class=" form-group">
             <label for="dni" class="col-sm-2 control-label"> DNI </label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="dni" id="dni" placeholder="Ingresar DNI">
             </div>
-        </div>
+        </div><br><br>
 
         <div class="form-group">
           <label for="destino" class="col-sm-2 control-label" >Área a delegar</label>
@@ -48,14 +48,14 @@
             </select>
             <p id="nodestino" ></p>
           </div>
-        </div>
+        </div><br>
 
       	<div class="form-group">
       		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
       		<div class="col-sm-10" >
       			<textarea name="asunto" class="form-control" rows="3" id="asunto" placeholder="Ingrese el asunto"></textarea>
       		</div>
-      	</div>
+      	</div><br>
 
 
     		<div class="form-group">
@@ -78,7 +78,7 @@
               <label><input type="checkbox" value="">Virtual</label>
             </div>
           </div>
-        </div><br>
+        </div>
 
         <div class="form-group">
         <label for="archivo" class="col-sm-2 control-label">Archivo</label>

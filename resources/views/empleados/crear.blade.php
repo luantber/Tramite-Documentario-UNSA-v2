@@ -29,12 +29,12 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 							</span>
-				  		<input class="form-control" type="text" name ="nomPer" id="nomPer" placeholder="Ingrese nombres">
+				  		<input class="form-control" type="text" name ="nomPer" id="nomPer" placeholder="Ingrese nombres" required="true">
 					</div>
 				</div>
 			  <div class="col-sm-6">
 			  		<label for="apellido" >Apellido: </label>
-				    <input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos">	
+				    <input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos" required="true">	
 			  </div>
 			</div><br>
 
@@ -45,7 +45,7 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 							</span>
-					    <input class="form-control" type="text" name ="dni" id="DNI" placeholder="Ingrese DNI">
+					    <input class="form-control" type="text" name ="dni" id="DNI" placeholder="Ingrese DNI" required="true">
 					</div>
 				</div>
 			    <div class="col-sm-6">
@@ -54,7 +54,7 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							</span>
-					    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail">
+					    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail" required="true">
 					</div>
 				</div>
 			</div><br>
@@ -65,7 +65,7 @@
 				    <!--<select name="area" class="form-control" id="area">
 			          <option value="" >Seleccionar área</option>
 			        </select>-->
-			        <input class="form-control" type="text" name ="areaEmpleado" id="area" placeholder="Ingresar área">
+			        <input class="form-control" type="text" name ="areaEmpleado" id="area" placeholder="Ingresar área" required="true">
 			  </div>
 			</div><br>
 
@@ -75,7 +75,7 @@
 				  	<!--<select name="cargoEmpleado" class="form-control" id="cargo">
 			          <option value="" >Seleccionar área</option>
 			        </select>-->
-			        <input class="form-control" type="text" name ="cargoEmpleado" id="cargo" placeholder="Ingresar cargo">
+			        <input class="form-control" type="text" name ="cargoEmpleado" id="cargo" placeholder="Ingresar cargo" required="true">
 			  </div>
 			</div><br>
 
@@ -86,7 +86,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 								</span>
-					    	<input class="form-control" type="string" name ="activo" id="activo" placeholder="¿Activo?">
+					    	<input class="form-control" type="string" name ="activo" id="activo" placeholder="¿Activo?" required="true">
 					    </div>
 				  </div>
 			</div><br><br>
