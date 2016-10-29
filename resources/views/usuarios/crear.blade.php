@@ -41,7 +41,6 @@
 
 				<div class="row">
 
-					<!--<form onsubmit="validar()" >-->
 						<div class="col-sm-6">
 							<label for="DNI">DNI: </label>
 							<div class="input-group">
@@ -52,7 +51,6 @@
 							</div>
 							<p id="noingreso"></p>
 						</div>
-					<!--</form>-->
 
 				    <div class="col-sm-6">
 						<label for="mail" >e-mail: </label>

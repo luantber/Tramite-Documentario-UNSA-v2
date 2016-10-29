@@ -11,16 +11,15 @@
 
 @section('content')
 
-<form method="POST" action="crearNewEmple">
-	{{ csrf_field()}}
-
 	<!--<div class="container">-->
-	<div class="row">
-  		<div class="col-md-6 col-md-offset-3">
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
 
 		<h2><p class="text-center">  Crear Nuevo Empleado </p></h2>
 		<br><br>
-		<form>
+
+		<form method="post" onsubmit="return validar()" action="{{asset('empleados/crearNewEmple')}}">
+		{{ csrf_field()}}
 
 			<div class="row">
 				<div class="col-sm-6">
@@ -47,7 +46,9 @@
 							</span>
 					    <input class="form-control" type="text" name ="dni" id="DNI" placeholder="Ingrese DNI" required="true">
 					</div>
+					<p id="noingreso"></p>
 				</div>
+
 			    <div class="col-sm-6">
 					<label for="mail" >e-mail: </label>
 					<div class="input-group">
@@ -56,6 +57,7 @@
 							</span>
 					    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail" required="true">
 					</div>
+					<p id="nocorreo"></p>
 				</div>
 			</div><br>
 
@@ -91,20 +93,44 @@
 				  </div>
 			</div><br><br>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Crear nuevo empleado</button> 
+			<div class="form-group">
+				<div class="text-center">
+					<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit"> 
+					Crear nuevo empleado </button> 
+				</div>
+			</div>
 
-			</div><br><br>
-
-			<!--<div class=" row">
-			  <div class="col-sm-12">
-			    <button type="submit" class="btn btn-lg" value="Submit">  Crear  </button>
-			  </div>
-			</div><br>-->
-		
 		</form>
-		</div>
 	</div>
-</form>
+</div>
+
+<script type="text/javascript">
+	function validar(){
+		var DNI = document.getElementById("DNI").value;
+		var correo = document.getElementById("mail").value;
+		var texto,texto2;
+
+		if( !(/^\d{8}$/.test(DNI)) ) {
+		    texto ="Ingrese un número de 8 digitos";
+  			document.getElementById("noingreso").innerHTML = texto;
+			return false;
+		}
+
+		if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w/.test(correo)) ) {
+			texto2 = "Ingrese un e-mail válido";
+			document.getElementById("nocorreo").innerHTML = texto2;
+			return false;
+		}
+	}
+</script>
+
+
+<!--<div class=" row">
+  <div class="col-sm-12">
+    <button type="submit" class="btn btn-lg" value="Submit">  Crear  </button>
+  </div>
+</div><br>-->
+
 <!--
 	nombre:
 	<input type="text" name="nomPer">

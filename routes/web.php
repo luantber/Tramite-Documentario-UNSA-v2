@@ -20,13 +20,14 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('{id}/editar','usuariosController@editar');
 	Route::post('{id}','usuariosController@guardar');
 
+
 });
 
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
 Route::group(['prefix'=>'empleados'],function(){
 	Route::get('/',function(){return view('empleados.todos');});//empleados
 	Route::get('todos','empleadosController@todos');
-
+	
 
 	Route::get('crear',function(){return view('empleados.crear');});//empleados/crear --refiere a un empleado que no existe como usuario
 	Route::post('crearNewEmple','empleadosController@createNew');
@@ -61,6 +62,7 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('{id}/eliminar','cargosController@eliminar');
 	Route::post('eliminar','empleadosController@eliminado');
 
+
 });
 
 
@@ -68,15 +70,6 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::post('crearT','tramitesController@create');
 });
 
-
-
-Route::group(['prefix'=>'areas'],function(){
-	
-	Route::get('/',function(){ dd("nothing");	});
-	Route::get('crear','areasController@crearGet');
-
-	Route::post('crear','areasController@crear');
-});
 
 //Solo para ver vistas :'v
 
@@ -112,15 +105,15 @@ Route::get('tramites/resolver',function(){
 	return view('tramites/resolver');
 });
 
-
+Route::get('areas/crear',function(){
+	return view('areas/crear');
+});
 
 Route::get('areas/editar', function(){
   return  view('areas/editar');
 });
 
-Route::get('estados/crear', function(){
-  return  view('estados/crear');
-});
+
 
 //POST, con fe
 
@@ -137,7 +130,7 @@ Route::get('prub',function(){
 	$tramite->entregado=1;
 	$tramite->area()->associate($area);
 	$tramite->save();
-
+	
 	$mov= new App\Movimiento;
 	$mov->tramite()->associate($area);
 	$mov->areaDestino()->associate($area);
