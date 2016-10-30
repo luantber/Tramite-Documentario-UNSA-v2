@@ -39,6 +39,6 @@ class Tramite extends Model
    
    	public function estado()
     {
-    	return $this->belongsTo('App\Estado','tramite_id','id');
+    	return $this->belongsTo('App\EstadoTramite','tramite_id','id');
     }
 }

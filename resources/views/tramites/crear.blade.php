@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="crearT">     <!-- <_Alexis -->
+<form method="post" action="{{asset('tramites/crear')}}">     <!-- <_Alexis -->
     {{ csrf_field()}}
 
     <form class="form-horizontal container" enctype="multipart/form-data">

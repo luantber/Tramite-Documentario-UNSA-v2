@@ -20,6 +20,7 @@ class CreateTramitesTable extends Migration
             $table->integer('persona_id')->unsigned()->nullable()->default(NULL);
             $table->integer('tipo_tramite_id')->unsigned()->nullable()->default(NULL);
             $table->integer('estado_tramite_id')->unsigned()->nullable()->default(NULL);
+            $table->string('nro_expediente')->default('1');
             $table->text('asunto');
             $table->integer('prioridad');
             $table->timestamps();

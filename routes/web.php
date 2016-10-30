@@ -67,7 +67,11 @@ Route::group(['prefix'=>'cargos'],function(){
 
 
 Route::group(['prefix'=>'tramites'],function(){
-	Route::post('crearT','tramitesController@create');
+	Route::post('crear','tramitesController@create');
+	Route::get('crear',function(){	return view('tramites/crear');});	
+	Route::get('ver',function(){	return view('tramites/ver');});
+	Route::get('delegar',function(){	return view('tramites/delegar');});
+	Route::get('resolver',function(){	return view('tramites/resolver');});
 });
 
 
@@ -79,31 +83,21 @@ Route::auth();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
-Route::get('tramites/ver',function(){
-	return view('tramites/ver');
-});
 
-Route::get('tramites/ver',function(){
-	return view('tramites/ver');
-});
+
+
 
 Route::get('movimientos',function(){
 	return view('movimientos/ver');
 });
 
-Route::get('tramites/crear',function(){
-	return view('tramites/crear');
-});
-
-Route::get('tramites/delegar',function(){
-	return view('tramites/delegar');
-});
 
 
 
-Route::get('tramites/resolver',function(){
-	return view('tramites/resolver');
-});
+
+
+
+
 
 Route::get('areas/crear',function(){
 	return view('areas/crear');

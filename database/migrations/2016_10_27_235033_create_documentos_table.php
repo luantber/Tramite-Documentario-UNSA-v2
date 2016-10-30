@@ -17,6 +17,7 @@ class CreateDocumentosTable extends Migration
             $table->increments('id');
             $table->integer('tramite_id')->unsigned()->nullable()->default(NULL);
             $table->integer('tipo_documento_id')->unsigned()->nullable()->default(NULL);
+            $table->boolean('entregado');
             $table->string('nombre');            
             $table->timestamps();
             
