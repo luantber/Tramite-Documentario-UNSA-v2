@@ -5,6 +5,19 @@
 @section('content')
 
 
+<!-- Asi imprimes el dato -->
+{{$tipos}}
+
+<!-- Puedes hacer fors , ifs .. etc -->
+
+@foreach ($tipos as $tipo)
+  <p> {{ $tipo}} </p>
+    <p> {{ $tipo->id }}</p>
+@endforeach
+
+
+
+
 <form method="POST" onsubmit="return validar()" action="crearT">     <!-- <_Alexis -->
     {{ csrf_field()}}
 

@@ -67,7 +67,9 @@ Route::group(['prefix'=>'cargos'],function(){
 
 
 Route::group(['prefix'=>'tramites'],function(){
-	Route::post('crearT','tramitesController@create');
+	Route::get('crear','tramitesController@createGet');
+	Route::post('crear','tramitesController@create');
+
 });
 
 
@@ -89,10 +91,6 @@ Route::get('tramites/ver',function(){
 
 Route::get('movimientos',function(){
 	return view('movimientos/ver');
-});
-
-Route::get('tramites/crear',function(){
-	return view('tramites/crear');
 });
 
 Route::get('tramites/delegar',function(){

@@ -42,11 +42,12 @@ class tramitesController extends Controller
     	$tramite->save();
 
     	//crear movimiento
+    }
 
+    public function createGet(){
+        $tipoTramites = TipoTramite::all();
 
-
-    	
-
+        return view('tramites.crear',["tipos"=>$tipoTramites]);
     }
 
     
