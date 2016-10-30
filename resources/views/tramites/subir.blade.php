@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<label for="tipoDoc" >Tipo de documentos: </label>
-			        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false">
+			        <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false" multiple="">
 			          <script type="text/javascript">
 			          (function($){
 			            $("#archivo").fileinput(
