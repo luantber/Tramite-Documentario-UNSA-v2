@@ -21,9 +21,10 @@
 		  </div>
 
       <div class="form-group">
-		    <label for="nomAreaPad"> Nombre del Área Padre: </label>
-		    <select type="text" class="form-control" placeholder="Selecciona el Area Padre" name="idAreaPad" id="idAreaPad">
-					<option value="0">Sin Padre</option>
+		    <label for="idAreaPad"> Nombre del Área Padre: </label>
+		    	<select type="text" class="form-control" placeholder="Selecciona el Area Padre" name="idAreaPad" id="idAreaPad">
+					<!--<option value="0">Sin Padre</option>-->
+					<option value="0" >Seleccionar área padre</option>
 				</select>
 		  </div>
 
