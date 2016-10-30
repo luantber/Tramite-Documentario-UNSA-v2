@@ -5,11 +5,15 @@
 	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
+  <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
+
   <script src="{{asset('js/react.js')}}"></script>
   <script src="{{asset('js/react-dom.js')}}"></script>
   <script src="{{asset('js/browser.min.js')}}"></script>
  
   <script src="{{asset('js/jquery.js')}}"></script>
+  <script src="{{asset('js/fileinput.js')}}"></script>
+
 
 </head>
 <body>

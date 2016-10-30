@@ -18,7 +18,7 @@
 
 
 
-<form method="POST" onsubmit="return validar()" action="crearT">     <!-- <_Alexis -->
+<form method="POST" onsubmit="return validar()" action="{{asset('tramites/crear')}}">     <!-- <_Alexis -->
     {{ csrf_field()}}
 
     <form class="form-horizontal container" enctype="multipart/form-data">
@@ -69,9 +69,9 @@
           <div class="col-sm-10">
             <select name="prioridad"  class="form-control" id="prioridad">
               <option value="" >Seleccionar</option>
-              <option value="1" required>Urgente</option>
-              <option value="2" required>Alta</option>
-              <option value="3" required>Normal</option>
+              <option value="1" required>"Urgente"</option>
+              <option value="2" required>"Alta"</option>
+              <option value="3" required>"Normal"</option>
             </select>
             <p id="nopcion" ></p>
           </div>
