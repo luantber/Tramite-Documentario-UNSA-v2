@@ -9,6 +9,6 @@ class TipoTramite extends Model
     //
     public function tramite()
     {
-    	return $this->belongsTo('App\Tramite','tramite_id','id');
+    	return $this->hasMany('App\Tramite','tipo_tramite_id','id');
     }
 }

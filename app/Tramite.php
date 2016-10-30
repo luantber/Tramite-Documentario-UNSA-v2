@@ -34,7 +34,7 @@ class Tramite extends Model
 
     public function tipoTramite()
     {
-    	return $this->hasOne('App\TipoTramite','tramite_id','id');
+    	return $this->belongsTo('App\TipoTramite','tipo_tramite_id','id');
     }	
    
    	public function estado()
