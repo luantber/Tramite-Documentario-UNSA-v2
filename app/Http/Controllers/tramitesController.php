@@ -54,13 +54,14 @@ class tramitesController extends Controller
     	$tramite->save();
 
     	//crear movimiento
-    }
-
+    
+    */
         $tramite=new Tramite;
         $tramite->prioridad=4;
         $tramite->asunto='sasas';
         
         $tramite->save();
+    }
     public function createGet(){
         $tipoTramites = TipoTramite::all();
 
