@@ -62,10 +62,17 @@ class tramitesController extends Controller
         
         $tramite->save();
     }
+
     public function createGet(){
         $tipoTramites = TipoTramite::all();
 
         return view('tramites.crear',["tipos"=>$tipoTramites]);
+    }
+
+    public function todos()
+    {
+        $tramites = Tramite::all();
+        return response()->json($tramites);
     }
 
     

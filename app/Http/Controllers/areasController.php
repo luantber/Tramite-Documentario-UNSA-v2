@@ -9,6 +9,11 @@ use App\Area;
 
 class areasController extends Controller
 {
+    public function todos()
+    {
+        $areas = Area::all();
+        return response()->json($areas);
+    }
 	public function crearGet(){
 
 		$areas = Area::all();

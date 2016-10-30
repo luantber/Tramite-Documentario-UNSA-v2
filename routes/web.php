@@ -19,8 +19,6 @@ Route::group(['prefix'=>'usuarios'],function(){
 
 	Route::get('{id}/editar','usuariosController@editar');
 	Route::post('{id}','usuariosController@guardar');
-
-
 });
 
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
@@ -43,7 +41,6 @@ Route::group(['prefix'=>'empleados'],function(){
 
 	Route::get('{id}/eliminar','empleadosController@eliminar');
 	Route::post('eliminar','empleadosController@eliminado');
-
 });
 
 
@@ -66,13 +63,15 @@ Route::group(['prefix'=>'cargos'],function(){
 
 
 Route::group(['prefix'=>'tramites'],function(){
-	Route::post('crear','tramitesController@create');
-	Route::get('crear',function(){	return view('tramites/crear');});	
-	Route::get('ver',function(){	return view('tramites/ver');});
-	Route::get('delegar',function(){	return view('tramites/delegar');});
-	Route::get('resolver',function(){	return view('tramites/resolver');});
+
+	Route::get('/',function(){return view('tramites/ver');});
+	Route::get('/todos','tramitesController@todos');
+
 	Route::get('crear','tramitesController@createGet');
 	Route::post('crear','tramitesController@create');
+
+	Route::get('delegar',function(){return view('tramites/delegar');});
+	Route::get('resolver',function(){return view('tramites/resolver');});
 
 });
 
@@ -80,7 +79,8 @@ Route::group(['prefix'=>'tramites'],function(){
 /* Quien Borró mis rutas de areas ¡¡ */
 Route::group(['prefix'=>'areas'],function(){ 
    
-  Route::get('/',function(){ dd("nothing");  }); 
+  Route::get('/',function(){ return view('areas.todos');  }); 
+  Route::get('/todos','areasController@todos');
 
   Route::get('crear','areasController@crearGet'); 
   Route::post('crear','areasController@crear'); 
