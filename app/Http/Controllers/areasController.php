@@ -28,4 +28,27 @@ class areasController extends Controller
 
     	return redirect('areas');
     }
+
+    public function show($id){
+        $area = Area::find($id);
+        return view('areas.show',['area'=>$area]);
+    }
+
+    public function editar($id)
+    {
+        $area = Area::find($id);
+        return view('areas.editar',['area'=>$area]);
+    }
+
+    public function guardar($id,Request $datos)
+    {
+        $area = Area::find($id);
+
+        $area->nombre=$datos->nomArea;
+        $area->descripcion=$datos->descripcion;
+        //$area->jefe_id=
+        //$area->area_id=
+        $area->save();
+        return redirect('areas');
+    }
 }

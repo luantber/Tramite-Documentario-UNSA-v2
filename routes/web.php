@@ -62,7 +62,6 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('{id}/eliminar','cargosController@eliminar');
 	Route::post('eliminar','empleadosController@eliminado');
 
-
 });
 
 
@@ -78,7 +77,24 @@ Route::group(['prefix'=>'tramites'],function(){
 });
 
 
-//Solo para ver vistas :'v
+/* Quien Borró mis rutas de areas ¡¡ */
+Route::group(['prefix'=>'areas'],function(){ 
+   
+  Route::get('/',function(){ dd("nothing");  }); 
+
+  Route::get('crear','areasController@crearGet'); 
+  Route::post('crear','areasController@crear'); 
+
+  Route::get('{id}','areasController@show');
+
+
+  Route::get('{id}/editar','areasController@editar');
+  Route::post('{id}','areasController@guardar');
+}); 
+ 
+
+
+
 
 //Route::get('login', 'LoginController@login');
 //Rutas de auth
@@ -87,7 +103,11 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 
+//Solo para ver vistas :'v
 
+Route::get('tramites/ver',function(){
+	return view('tramites/ver');
+});
 
 
 Route::get('movimientos',function(){
@@ -105,18 +125,6 @@ Route::get ('tramites/subir',function(){
 Route::get('tramites/resolver',function(){
 	return view('tramites/resolver');
 });
-
-
-
-
-Route::get('areas/crear',function(){
-	return view('areas/crear');
-});
-
-Route::get('areas/editar', function(){
-  return  view('areas/editar');
-});
-
 
 
 //POST, con fe

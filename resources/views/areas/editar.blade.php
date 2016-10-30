@@ -4,10 +4,12 @@
 
 @section('content')
 
+{{$area}}
+
 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
 
-<form method="POST" action="editar">
+<form method="POST" action="{{ asset('areas')}}{{'/'.$area->id}}">
 	{{ csrf_field()}}
 
 	<div class="row">
