@@ -65,8 +65,9 @@ class tramitesController extends Controller
 
     public function createGet(){
         $tipoTramites = TipoTramite::all();
+        $areas= Area::all()->where('area_id',NULL);
 
-        return view('tramites.crear',["tipos"=>$tipoTramites]);
+        return view('tramites.crear',["tipos"=>$tipoTramites,"areas"=>$areas]);
     }
 
     public function todos()
