@@ -61,6 +61,8 @@ class tramitesController extends Controller
         $tramite->asunto='sasas';
         
         $tramite->save();
+
+        return view('tramites.subir');
     }
 
     public function createGet(){
