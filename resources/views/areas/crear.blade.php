@@ -23,8 +23,10 @@
       <div class="form-group">
 		    <label for="idAreaPad"> Nombre del Área Padre: </label>
 		    	<select type="text" class="form-control" placeholder="Selecciona el Area Padre" name="idAreaPad" id="idAreaPad">
-					<!--<option value="0">Sin Padre</option>-->
-					<option value="0" >Seleccionar área padre</option>
+					<option value="0">Sin Padre</option>
+					@foreach($areas as $area)
+	                    <option value="{{$area->id}}">"{{$area->nombre}}"</option>
+	                @endforeach
 				</select>
 		  </div>
 

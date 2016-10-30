@@ -76,9 +76,9 @@
       	<div class="form-group">
       		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
       		<div class="col-sm-10" >
-      			<textarea name="asunto" class="form-control" rows="3" id="asunto" placeholder="Ingrese el asunto"></textarea>
+      			<textarea name="asunto" class="form-control" rows="2" id="asunto" placeholder="Ingrese el asunto"></textarea>
       		</div>
-      	</div><br>
+      	</div>
 
         <!--<div class="form-group">
         <label for="archivo" class="col-sm-2 control-label">Archivo</label>
