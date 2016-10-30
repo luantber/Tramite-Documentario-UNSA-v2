@@ -72,7 +72,8 @@ Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('delegar',function(){return view('tramites/delegar');});
 	Route::get('resolver',function(){return view('tramites/resolver');});
-
+	Route::get('ver',function(){	return view('tramites/ver');});
+  	
 });
 
 
@@ -90,6 +91,7 @@ Route::group(['prefix'=>'areas'],function(){
 
   Route::get('{id}/editar','areasController@editar');
   Route::post('{id}','areasController@guardar');
+  
 }); 
  
 
@@ -105,26 +107,18 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 //Solo para ver vistas :'v
 
-Route::get('tramites/ver',function(){
-	return view('tramites/ver');
-});
+
 
 
 Route::get('movimientos',function(){
 	return view('movimientos/ver');
 });
 
-Route::get('tramites/delegar',function(){
-	return view('tramites/delegar');
-});
 
-Route::get ('tramites/subir',function(){
-	return view('tramites/subir');
-});
 
-Route::get('tramites/resolver',function(){
-	return view('tramites/resolver');
-});
+
+
+
 
 
 //POST, con fe
