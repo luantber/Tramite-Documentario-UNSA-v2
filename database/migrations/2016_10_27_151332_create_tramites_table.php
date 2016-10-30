@@ -19,7 +19,8 @@ class CreateTramitesTable extends Migration
             $table->integer('empleado_id')->unsigned()->nullable()->default(NULL);
             $table->integer('persona_id')->unsigned()->nullable()->default(NULL);
             $table->integer('tipo_tramite_id')->unsigned()->nullable()->default(NULL);
-            $table->boolean('entregado');
+            $table->integer('estado_tramite_id')->unsigned()->nullable()->default(NULL);
+            $table->text('asunto');
             $table->integer('prioridad');
             $table->timestamps();
 
@@ -40,6 +41,9 @@ class CreateTramitesTable extends Migration
                 ->references('id')
                 ->on('tipo_tramites');
 
+            $table->foreign('estado_tramite_id')
+                ->references('id')
+                ->on('estado_tramites');
 
 
         });

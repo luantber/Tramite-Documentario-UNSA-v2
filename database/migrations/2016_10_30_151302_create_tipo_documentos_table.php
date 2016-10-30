@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstadosTable extends Migration
+class CreateTipoDocumentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateEstadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estados', function (Blueprint $table) {
+        Schema::create('tipo_documentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tramite_id')->unsigned();
             $table->string('nombre');
+            $table->text('descripcion');
             $table->timestamps();
-
-            $table->foreign('tramite_id')
-                ->references('id')
-                ->on('tramites');
         });
     }
 
@@ -32,6 +28,6 @@ class CreateEstadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estados');
+        Schema::dropIfExists('tipo_documentos');
     }
 }

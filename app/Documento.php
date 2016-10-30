@@ -11,4 +11,9 @@ class Documento extends Model
     {
     	return $this->belongsTo('App\Tramite','tramite_id','id');
     }
+
+	public function tipoDocumento()
+    {
+    	return $this->belongsTo('App\TipoDocumento','tipo_documento_id','id');
+    }    
 }

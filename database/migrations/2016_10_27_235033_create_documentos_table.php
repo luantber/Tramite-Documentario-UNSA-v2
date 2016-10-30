@@ -15,9 +15,9 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tramite_id')->unsigned();
-            $table->string('nombre');
-            $table->string('tipoDocumento');            
+            $table->integer('tramite_id')->unsigned()->nullable()->default(NULL);
+            $table->integer('tipo_documento_id')->unsigned()->nullable()->default(NULL);
+            $table->string('nombre');            
             $table->timestamps();
             
             $table->foreign('tramite_id')
