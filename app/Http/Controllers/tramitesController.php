@@ -54,30 +54,17 @@ class tramitesController extends Controller
     	$tramite->save();
 
     	//crear movimiento
-        $movimiento=new Movimiento;
-        $movimiento->tramite()->associate($tramite);
-        $movimiento->areaDestino()->associate($area_destino);
-        $movimiento->areaRemitente()->associate($mesa_de_partes);
-        $movimiento->save();
-        */
-        //return view('tramites.subirDocumentos')->with('tramite',$tramite);
+    }
 
         $tramite=new Tramite;
         $tramite->prioridad=4;
         $tramite->asunto='sasas';
         
         $tramite->save();
+    public function createGet(){
+        $tipoTramites = TipoTramite::all();
 
-
-
-        
-        return view('tramites.crear');
-
-
-
-
-    	
-
+        return view('tramites.crear',["tipos"=>$tipoTramites]);
     }
 
     

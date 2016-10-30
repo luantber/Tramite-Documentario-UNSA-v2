@@ -26,6 +26,6 @@ class areasController extends Controller
 
     	$nuevo->save();
 
-    	return redirect('/');
+    	return redirect('areas');
     }
 }
