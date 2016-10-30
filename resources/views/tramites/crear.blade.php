@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="crearT">     <!-- <_Alexis -->
+<form method="POST" onsubmit="return validar()" action="crearT">     <!-- <_Alexis -->
     {{ csrf_field()}}
 
     <form class="form-horizontal container" enctype="multipart/form-data">
@@ -28,6 +28,7 @@
             <div class="col-sm-10">
               <input type="text" class="form-control" name="dni" id="dni" placeholder="Ingresar DNI">
             </div>
+            <p id="noingreso"></p>
         </div><br><br>
 
         <div class="form-group">
@@ -50,26 +51,25 @@
           </div>
         </div><br>
 
+        <div class="form-group">
+          <label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
+          <div class="col-sm-10">
+            <select name="prioridad"  class="form-control" id="prioridad">
+              <option value="" >Seleccionar</option>
+              <option value="1" required>Urgente</option>
+              <option value="2" required>Alta</option>
+              <option value="3" required>Normal</option>
+            </select>
+            <p id="nopcion" ></p>
+          </div>
+        </div>
+
       	<div class="form-group">
       		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
       		<div class="col-sm-10" >
       			<textarea name="asunto" class="form-control" rows="3" id="asunto" placeholder="Ingrese el asunto"></textarea>
       		</div>
       	</div><br>
-
-
-    		<div class="form-group">
-    			<label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
-    			<div class="col-sm-10">
-    				<select name="prioridad"  class="form-control" id="prioridad">
-              <option value="" >Seleccionar</option>
-      				<option value="1" required>Urgente</option>
-              <option value="2" required>Alta</option>
-      				<option value="3" required>Normal</option>
-    				</select>
-            <p id="nopcion" ></p>
-    		  </div>
-    		</div>
 
         <div class="form-group">
           <label for="checkbox" class="col-sm-2 control-label">Archivo: </label>
@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
         <label for="archivo" class="col-sm-2 control-label">Archivo</label>
         <div class="col-sm-10">
           <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false">
@@ -95,22 +95,22 @@
             })}(jQuery);
           </script>
         </div><br>
+        </div>-->
 
         <br><br><br>
 
-        <div class="row">
+        <!--<div class="row">
           <div class="text-center">
             <label>Creado en </label>
             <script>
               document.write(Date());
             </script>
           </div>
-        </div>
+        </div>-->
 
         <nav>
           <ul class="pager">
             <li><a href="#">Cancelar</a></li>
-
           </ul>
         </nav>
 
@@ -126,5 +126,18 @@
 
     </form>
 </form>
+
+<script type="text/javascript">
+  function validar(){
+    var DNI = document.getElementById("dni").value;
+    var texto;
+
+    if( !(/^\d{8}$/.test(DNI)) ) {
+        texto ="Ingrese un número de 8 digitos";
+        document.getElementById("noingreso").innerHTML = texto;
+      return false;
+    }
+  }
+</script>
 
 @endsection

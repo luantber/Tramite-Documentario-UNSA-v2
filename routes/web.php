@@ -99,7 +99,9 @@ Route::get('tramites/delegar',function(){
 	return view('tramites/delegar');
 });
 
-
+Route::get ('tramites/subir',function(){
+	return view('tramites/subir');
+});
 
 Route::get('tramites/resolver',function(){
 	return view('tramites/resolver');
