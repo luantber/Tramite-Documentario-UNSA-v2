@@ -5,6 +5,7 @@
 @section('content')
 
 
+
 <form method="POST" onsubmit="return validar()" action="{{asset('tramites')}}"> 
     {{ csrf_field()}}
 

@@ -69,13 +69,9 @@
 		      				<option value="1" required>"Informática"</option>
 		              		<option value="2" required>"Gerencia"</option>
 		      				<option value="3" required>"Contabilidad"</option>
-			          <!--<script type="text/javascript">
-			              var nuevo;
-			              for (var i=0;i<areas.length;i++){
-			                nuevo=areas[i];
-			                document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
-			              }
-			           </script> -->
+			          			@foreach($area as $are)
+				                    <option value='{{$are->id}}'>{{$are->nombre}}</option>
+				                @endforeach  
 			        </select>
 			        <!--<input class="form-control" type="text" name ="areaEmpleado" id="area" placeholder="Ingresar área" required="true">-->
 			  </div>

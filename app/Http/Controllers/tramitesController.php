@@ -142,5 +142,9 @@ class tramitesController extends Controller
         return response()->json($tramites);
     }
 
-    
+    public function showTramite($id)
+    {
+        $tramite= Tramite::find($id);
+        return view('tramites.editar',["nose"=>$tramite]);
+    }    
 }

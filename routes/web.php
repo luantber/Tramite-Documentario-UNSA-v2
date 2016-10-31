@@ -79,7 +79,7 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('editar',function(){return view('tramites/editar');});
 	Route::get('subir',function(){return view('tramites/subir');});
 	Route::get('eliminar',function(){return view('tramites/eliminar');});
-
+	Route::get('{id}','tramitesController@showTramite');
 });
 
 
@@ -156,3 +156,4 @@ Route::get('prub',function(){
 	dd($mov);
 
 });
+
