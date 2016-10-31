@@ -8,13 +8,15 @@ use App\Http\Requests;
 use App\Empleado;
 use App\User;
 use App\Cargo;
+use App\Area;
 
 class empleadosController extends Controller
 {
 
     public function antesCrear(){
       $cargos = DB::table('cargos')->select('id','nombreCargo')->get();
-      return view('empleados.crear',['cargo'=>$cargos]);
+      $areas = DB::table('areas')->select('id','nombre')->get();
+      return view('empleados.crear',['cargo'=>$cargos, 'area'=>$areas]);
 
     }
 
