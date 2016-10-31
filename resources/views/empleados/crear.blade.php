@@ -132,13 +132,7 @@
 	</div>
 </div>
 
-<p id="prueba"> </p>
-
-<script type="text/javascript">
-	cargo[0]; 
-	document.getElementById("prueba").innerHTML = cargo[0];
-</script>
-
+<input class="form-control" type="string" name ="area" id="area" value="{{$area[0]->nombre}}" required="true">
 <script type="text/javascript">
 	function validar(){
 		var DNI = document.getElementById("DNI").value;
