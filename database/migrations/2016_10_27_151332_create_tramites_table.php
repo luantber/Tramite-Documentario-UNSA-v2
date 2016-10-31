@@ -36,7 +36,7 @@ class CreateTramitesTable extends Migration
 
             $table->foreign('persona_id')
                 ->references('id')
-                ->on('personas');
+                ->on('users');
 
             $table->foreign('tipo_tramite_id')
                 ->references('id')
