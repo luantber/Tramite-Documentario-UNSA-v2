@@ -88,7 +88,11 @@ class tramitesController extends Controller
         $tramite->save();
         $tramite->nro_expediente=date("Y").sprintf('%07d', $tramite->id);
 
-        
+        $movimiento=new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaDestino()->associate($area_destino);
+        $movimiento->areaRemitente()->associate($mesa_de_partes);
+        $movimiento->save();
     
         
     
@@ -145,6 +149,19 @@ class tramitesController extends Controller
     public function showTramite($id)
     {
         $tramite= Tramite::find($id);
-        return view('tramites.editar',["nose"=>$tramite]);
+        return view('tramites.editar',["tramite"=>$tramite]);
     }    
+
+    public function editarTramiteV($id)
+    {
+        $tramite=Tramite::find($id);
+        return view('tramites.editar',["tramite"=>$tramite]);
+    }
+
+    public function eliminarTramiteV($id)
+    {
+        $tramite=Tramite::find($id);
+        return view('tramites.eliminar',["tramite"=>$tramite]);
+    }
+
 }

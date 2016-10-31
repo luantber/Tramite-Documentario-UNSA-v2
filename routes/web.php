@@ -85,6 +85,8 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('eliminar',function(){return view('tramites/eliminar');});
 	Route::get('{id}','tramitesController@showTramite');
 	Route::post('{id}/subir','tramitesController@subirDocumento');
+	Route::get('{id}/editar','tramitesController@editarTramiteV');
+	Route::get('{id}/eliminar','tramitesController@eliminarTramiteV');
 });
 
 
