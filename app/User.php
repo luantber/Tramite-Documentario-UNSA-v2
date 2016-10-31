@@ -30,6 +30,10 @@ class User extends Authenticatable
     public function empleado() 
     { 
         return $this->belongsTo('App\Empleado','id_persona'); 
+    }
+
+    public function tramite(){
+        return $this->hasMany('App\Tramite','persona_id');
     } 
 
 
