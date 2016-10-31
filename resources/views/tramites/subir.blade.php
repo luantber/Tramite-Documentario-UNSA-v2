@@ -10,7 +10,7 @@
 		<h2><p class="text-center">  Subir documentos </p></h2>
 		<br><br>
 
-		<form method="post" action="{{asset('empleados/')}}">
+		<form method="post" action="{{asset('tramites/subir')}}">
 		{{ csrf_field()}}
 
 			<div class="row">
@@ -20,28 +20,32 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
 							</span>
-				  		<input class="form-control" type="text" name ="numExp" id="numExp" placeholder="Ingrese número de expediente" required="true">
+				  		<input class="form-control" type="text" name ="numExp" id="numExp" placeholder="Ingrese número de expediente" required="true" value="">
 					</div>
 				</div>
 			  <div class="col-sm-6">
 			  		<label for="tipoDoc" >Tipo de documentos: </label>
 				    <select name="tipoDoc" type="text" class="form-control" id="tipoDoc">
 			          <option value="" >Seleccionar tipo de documento</option>
-		      				<option value="1" required>"Solicitud"</option>
-		      				<option value="2" required>"Otro"</option>
-			          <!--<script type="text/javascript">
-			              var nuevo;
-			              for (var i=0;i<tipo.length;i++){
-			                nuevo=tipo[i];
-			                document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
-			              }
-			           </script> -->
+			          		@foreach($tiposDocumentos as $tipoDocumento)
+			                    <option value="{{$tipoDocumento->id}}">"{{$tipoDocumento->nombre}}"</option>
+			                @endforeach
 			        </select>
 			        <!--<input class="form-control" type="text" name ="tipoDoc" id="tipoDoc" placeholder="Ingresar tipo de documento" required="true">-->
 			  </div>
 			</div><br>
 
-
+			<div class="row">
+				<div class="col-sm-12">
+		          <label for="nomDoc" >Nombre de documento: </label>
+					<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+							</span>
+				  		<input class="form-control" type="text" name ="nomDoc" id="nomDoc" placeholder="Ingrese nombre de documento" required="true">
+					</div>
+		        </div>
+		    </div> <br>
 
 			<div class="row">
 				<div class="col-sm-12">
@@ -65,26 +69,30 @@
 			<div class="row">
 				<div class="col-sm-12">
 		          <label for="checkbox" >Archivo:   </label>
-		              <label><input type="checkbox" value="">Virtual</label>
+		              <label><input type="checkbox" name="checkbox" id="checkbox" value="">Virtual</label>
 		        </div>
 		    </div> <br><br>
 
-			<div class="form-group">
-				<div class="col-sm-6">
+		    <div class="row">
 					<div class="text-center">
 					<button class="btn btn-lg " type="submit" value="Submit"> 
 					Subir documentos</button>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="text-center">
-					<button class="btn btn-lg" type="submit" value="Submit"> Finalizar</button>
-					</div>
-				</div>
-			</div><br><br>
+		    </div><br> <br>
 
 		</form>
+
 	</div>
 </div>
+
+	<form method="post" action="{{asset('tramites/')}}">
+		{{ csrf_field()}}
+		<div class="row">
+			<div class="text-center">
+				<button class="btn btn-lg" type="submit" value="Submit"> Finalizar</button>
+			</div>
+		</div>
+		<br><br>
+	</form>
 
 @endsection

@@ -16,13 +16,14 @@ class CreateEmpleadosTable extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->timestamps();
-            $table->integer("id_persona");
+            $table->integer("id_persona")->unsigned();
             $table->integer("id_area");
             $table->integer("id_cargo")->unsigned();
             $table->integer("id_estado");
             $table->boolean('activo');
 
             //$table->foreign('id_cargo')->references('id')->on('cargos');
+            $table->foreign('id_persona')->references('id')->on('users');
         });
     }
 

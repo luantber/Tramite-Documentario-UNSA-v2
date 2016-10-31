@@ -9,6 +9,7 @@ use App\Area;
 use App\Tramite;
 use App\Empleado;
 use App\TipoTramite;
+use App\TipoDocumento;
 use App\EstadoTramite;
 use App\Documento;
 use App\User;
@@ -83,19 +84,41 @@ class tramitesController extends Controller
 
         //crear movimiento
     
-    
-    
-    
         
-
-        return view('tramites.subir');
+    
+    
+        $tiposDocumentos=TipoDocumento::all();
+        $nro_expediente=$tramite->id;
+        
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
     }
 
     public function createGet(){
+        
         $tipoTramites = TipoTramite::all();
         $areas= Area::all()->where('area_id',NULL);
 
         return view('tramites.crear',["tipos"=>$tipoTramites,"areas"=>$areas]);
+        
+    }
+
+    public function subirDocumento(Request $datos)
+    {
+        /*
+        $tipoDoc=TipoDocumento->find($datos->tipoDoc);
+        $tramite=Tramite::find($datos->numExp);
+
+
+        $doc= new Documento;
+        $doc->nombre=$datos->nomDoc;
+        $doc->nombre_archivo=$datos->archivo;
+        $doc->entregado=0;
+        $doc->virtual=$datos->checkbox;
+        $doc->tipoDocumento()->associate($tipoDoc);
+        $doc->tramite()->associate($tramite);
+        */
+        //return view('tramites.subir');
+        
     }
 
     public function todos()
