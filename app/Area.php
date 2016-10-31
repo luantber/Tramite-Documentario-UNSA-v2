@@ -14,4 +14,8 @@ class Area extends Model
     {
     	return $this->hasMany('App\Tramite','area_id','id');
     }
+
+    public function empleado(){
+    	return $this->hasMany('App\Tramite','id_area','id');
+    }
 }

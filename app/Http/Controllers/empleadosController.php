@@ -29,8 +29,15 @@ class empleadosController extends Controller
      	$encontrado = User::where('dni',$datos->dni)->first();
     	$nuevo->id_persona = $encontrado->id;
 
-      $nuevo->save();
 
+      $nuevo->save();
+      $user = User::find($encontrado->id);
+      $cargo = Cargo::find($datosn->id_cargo);
+      $area = Area::find($datosn->id_area);
+
+      $nuevo->cargo()->associate($cargo);
+      $nuevo->area()->associate($area);
+      $nuevo->user()->associate($user);
 
 
       
@@ -56,7 +63,6 @@ class empleadosController extends Controller
       $newEmp->id_persona = $newPer->id;
       $newEmp->activo = false;  
       
-      $newEmp->save();
 
       $cargo = Cargo::find($datosn->id_cargo);
       $area = Area::find($datosn->id_area);
@@ -64,6 +70,9 @@ class empleadosController extends Controller
       $newEmp->cargo()->associate($cargo);
       $newEmp->area()->associate($area);
       $newEmp->user()->associate($newPer);
+
+      $newEmp->save();
+
 
       return redirect('empleados');
 
@@ -84,26 +93,25 @@ class empleadosController extends Controller
 
     public function show($id){
       $encontrado = Empleado::findOrFail($id);
-      //dd($encontrado);
       if ($encontrado == null) {
         return view ('errors.noEmpleado');
       }
-      //$hola = 'holaaaa';
+//      echo $encontrado->area->nombre;
     return view('empleados.show',['empleado'=>$encontrado]);
     }
 
 
 
     public function editar($id){
-        $encontrado = Empleado::find($id);
+        $encontrado = Empleado::findOrFail($id);
         if ($encontrado == null) {
             return view ('errors.noEmpleado');
         }
 
-        $user = User::find($encontrado->id_persona);
-        $encontrado->user()->associate($user);
+      $cargos = DB::table('cargos')->select('id','nombreCargo')->get();
+      $areas = DB::table('areas')->select('id','nombre')->get();
 
-        return view('empleados.editar',['empleado'=>$encontrado]);
+        return view('empleados.editar',['empleado'=>$encontrado,'cargos'=>$cargos,'areas'=>$areas]);
     }
 
         public function guardar(Request $datos,$id){
