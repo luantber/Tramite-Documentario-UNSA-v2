@@ -124,6 +124,10 @@ Route::get('tramites/subir',function(){
 	return view('tramites/subir');
 });
 
+Route::get('tramites/eliminar',function(){
+	return view('tramites/eliminar');
+});
+
 //POST, con fe
 
 Route::get('prub',function(){
