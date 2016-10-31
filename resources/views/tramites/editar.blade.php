@@ -10,7 +10,7 @@
 
     <form class="form-horizontal container" enctype="multipart/form-data">
 
-      <h2><p class="text-center">  Crear Nuevo Trámite </p></h2>
+      <h2><p class="text-center">  Editar Trámite </p></h2>
       <br>
 
         <div class=" form-group">

@@ -29,19 +29,22 @@
 			          <option value="" >Seleccionar tipo de documento</option>
 		      				<option value="1" required>"Solicitud"</option>
 		      				<option value="2" required>"Otro"</option>
-			          <!--<script type="text/javascript">
-			              var nuevo;
-			              for (var i=0;i<tipo.length;i++){
-			                nuevo=tipo[i];
-			                document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
-			              }
-			           </script> -->
 			        </select>
 			        <!--<input class="form-control" type="text" name ="tipoDoc" id="tipoDoc" placeholder="Ingresar tipo de documento" required="true">-->
 			  </div>
 			</div><br>
 
-
+			<div class="row">
+				<div class="col-sm-12">
+		          <label for="nomDoc" >Nombre de documento: </label>
+					<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+							</span>
+				  		<input class="form-control" type="text" name ="nomDoc" id="nomDoc" placeholder="Ingrese nombre de documento" required="true">
+					</div>
+		        </div>
+		    </div> <br>
 
 			<div class="row">
 				<div class="col-sm-12">
