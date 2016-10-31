@@ -17,9 +17,12 @@ class CreateEmpleadosTable extends Migration
             $table->increments('id')->unsigned();
             $table->timestamps();
             $table->integer("id_persona");
-            $table->string("area");
-            $table->string("cargo");
+            $table->integer("id_area");
+            $table->integer("id_cargo")->unsigned();
+            $table->integer("id_estado");
             $table->boolean('activo');
+
+            //$table->foreign('id_cargo')->references('id')->on('cargos');
         });
     }
 

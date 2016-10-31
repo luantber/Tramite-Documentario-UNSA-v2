@@ -4,18 +4,8 @@
 
 @section('content')
 
-
 <!-- Asi imprimes el dato -->
 {{$tipos}}
-
-<!-- Puedes hacer fors , ifs .. etc -->
-
-@foreach ($tipos as $tipo)
-  <p> {{ $tipo}} </p>
-    <p> {{ $tipo->id }}</p>
-@endforeach
-
-
 
 
 <form method="POST" onsubmit="return validar()" action="{{asset('tramites/crear')}}">     <!-- <_Alexis -->
@@ -49,6 +39,9 @@
           <div class="col-sm-10">
             <select name="destino" class="form-control" id="destino">
               <option value="" >Seleccionar</option>
+                @foreach($areas as $area)
+                    "<option value="{{$area->id}}">"{{$area->nombre}}"</option>"
+                @endforeach
             </select>
             <p id="nodestino" ></p>
           </div>
@@ -58,7 +51,10 @@
           <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
           <div class="col-sm-10">
             <select name="tipoTramite" class="form-control" id="tipo">
-              <option value="" >Seleccionar</option>
+              <option value="" >Elegir área</option>
+                  @foreach($tipos as $tipo)
+                    "<option value="{{$tipo->id}}">"{{$tipo->nombre}}"</option>"
+                  @endforeach
             </select>
             <p id="nodestino" ></p>
           </div>
@@ -80,18 +76,9 @@
       	<div class="form-group">
       		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
       		<div class="col-sm-10" >
-      			<textarea name="asunto" class="form-control" rows="3" id="asunto" placeholder="Ingrese el asunto"></textarea>
+      			<textarea name="asunto" class="form-control" rows="2" id="asunto" placeholder="Ingrese el asunto"></textarea>
       		</div>
-      	</div><br>
-
-        <div class="form-group">
-          <label for="checkbox" class="col-sm-2 control-label">Archivo: </label>
-          <div class= "col-sm-10">
-            <div class="checkbox">
-              <label><input type="checkbox" value="">Virtual</label>
-            </div>
-          </div>
-        </div>
+      	</div>
 
         <!--<div class="form-group">
         <label for="archivo" class="col-sm-2 control-label">Archivo</label>

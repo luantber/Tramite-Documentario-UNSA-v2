@@ -18,27 +18,27 @@ class Tramite extends Model
 
     public function persona()
     {
-    	return $this->belongsTo('App\Persona','persona_id','id');
+        return $this->belongsTo('App\User','persona_id','id');
     }
 
 
     public function empleado()
-    {	
-    	return $this->belongsTo('App\Empleado','empleado_id','id');
+    {   
+        return $this->belongsTo('App\Empleado','empleado_id','id');
     }
 
     public function movimientos()
     {
-    	return $this->hasMany('App\Movimiento','tramite_id','id');
+        return $this->hasMany('App\Movimiento','tramite_id','id');
     }
 
     public function tipoTramite()
     {
-    	return $this->belongsTo('App\TipoTramite','tipo_tramite_id','id');
-    }	
+        return $this->belongsTo('App\TipoTramite','tipo_tramite_id','id');
+    }   
    
-   	public function estado()
+    public function estado()
     {
-    	return $this->belongsTo('App\EstadoTramite','tramite_id','id');
+        return $this->belongsTo('App\EstadoTramite','estado_tramite_id','id');
     }
 }

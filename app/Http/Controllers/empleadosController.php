@@ -12,9 +12,10 @@ class empleadosController extends Controller
 {
     public function create(Request $datos){
     	$nuevo = new Empleado;
-    	$nuevo->area = $datos->areaEmpleado;
-    	$nuevo->cargo = $datos->cargoEmpleado;
-      $nuevo->activo = true;
+    	$nuevo->id_area = $datos->id_area;
+    	$nuevo->id_cargo = $datos->id_cargo;
+      $nuevo->id_estado = $datos->id_estado;
+      $nuevo->activo = false;
      	$encontrado = User::where('dni',$datos->dni)->first();
     	$nuevo->id_persona = $encontrado->id;
 
@@ -28,17 +29,18 @@ class empleadosController extends Controller
         $newPer->nombre = $datosn->nomPer;
         $newPer->apellido = $datosn->apellidoPer;
         $newPer->dni = $datosn->dni;
-        $newPer->password = bcrypt( $datosn->contrasenaPer);
+        $newPer->password = bcrypt($datosn->dni);
         $newPer->email = $datosn->correo;
         $newPer->save();
 
 
 
     	$newEmp = new Empleado;
-    	$newEmp->area = $datosn->areaEmpleado;
-    	$newEmp->cargo = $datosn->cargoEmpleado;
+    	$newEmp->id_area = $datosn->id_area;
+    	$newEmp->id_cargo = $datosn->id_cargo;
+      $newEmp->id_estado = $datosn->id_estado;
     	$newEmp->id_persona = $newPer->id;
-    	$newEmp->activo = true;	
+    	$newEmp->activo = false;	
     	
      	$newEmp->save();
       return redirect('empleados');
@@ -56,9 +58,9 @@ class empleadosController extends Controller
 
     public function show($id){
       $encontrado = Empleado::find($id);
+     // dd($encontrado);
       if ($encontrado == null) {
-        echo "error EL EMPLEADO NO EXISTE";
-        //return view ('errors.noExiste');
+        return view ('errors.noEmpleado');
       }
 
     return view('empleados.show',['empleado'=>$encontrado]);
@@ -67,8 +69,7 @@ class empleadosController extends Controller
     public function editar($id){
         $encontrado = Empleado::find($id);
         if ($encontrado == null) {
-            echo "error EL EMPLEADO NO EXISTE";
-//            return view ('errors.noExiste');
+            return view ('errors.noEmpleado');
         }
         return view('empleados.editar',['empleado'=>$encontrado]);
     }
@@ -86,8 +87,8 @@ class empleadosController extends Controller
     public function eliminar($id){
       $encontrado = Empleado::find($id);
       if ($encontrado == null) {
-            echo "error EL EMPLEADO NO EXISTE";
-//            return view ('errors.noExiste');
+          
+            return view ('errors.noEmpleado');
         }
         return view('empleados.eliminar',['eliminado'=>$encontrado]);
     }

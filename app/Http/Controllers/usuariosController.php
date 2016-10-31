@@ -25,6 +25,7 @@ class usuariosController extends Controller
         $nuevo->dni = $datos->dni;
         $nuevo->password = bcrypt($datos->dni);
         $nuevo->email = $datos->correo;
+        $nuevo->activo = false;
         
         $nuevo->save();
         return redirect('usuarios');
@@ -37,6 +38,7 @@ class usuariosController extends Controller
         $editar ->apellido = $datos ->apellido;
         $editar ->dni = $datos ->dni;
         $editar ->email = $datos ->email;
+        $editar ->activo = true;
         $editar ->save();
 
         return redirect('usuarios/'.$id);
@@ -44,11 +46,10 @@ class usuariosController extends Controller
     
 
     public function show($id){
-        $encontrado = User::find($id);
-        
-        if ($encontrado == null) {
-            return view ('errors.noExiste');
-        }
+    $encontrado = User::find($id);
+    if ($encontrado == null) {
+        return view ('errors.noUsuario');
+    }
 
         return view('usuarios.show',['user'=>$encontrado]);
 
@@ -57,7 +58,7 @@ class usuariosController extends Controller
     public function editar($id){
         $encontrado = User::find($id);
         if ($encontrado == null) {
-            return view ('errors.noExiste');
+            return view ('errors.noUsuario');
         }
         return view('usuarios.editar',['user'=>$encontrado]);
     }

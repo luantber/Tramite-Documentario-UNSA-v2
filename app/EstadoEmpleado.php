@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cargo extends Model
+class EstadoEmpleado extends Model
 {
     public function empleado(){
-    	return $this->hasMany('App\Empleado','id_cargo');
+    	return $this->hasMany('App\Empleado','id_estado','id');
     }
-    
 }
