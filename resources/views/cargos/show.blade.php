@@ -31,7 +31,7 @@
 			<div class="row">
 				<a href="{{asset('cargos')}}{{'/'.$cargo->id.'/editar'}}" data-original-title="editCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Editar </a>
 	            <span class="pull-right">
-	                <a data-original-title="removeCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i> Eliminar </a>
+	                <a href="{{asset('cargos')}}{{'/'.$cargo->id.'/eliminar'}}" data-original-title="removeCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i> Eliminar </a>
 	            </span>
 	        </div>
 
