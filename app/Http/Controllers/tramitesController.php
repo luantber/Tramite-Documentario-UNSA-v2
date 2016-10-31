@@ -112,8 +112,8 @@ class tramitesController extends Controller
 
     public function subirDocumento(Request $datos)
     {
-        /*
-        $tipoDoc=TipoDocumento->find($datos->tipoDoc);
+        
+        $tipoDoc=TipoDocumento::find($datos->tipoDoc);
         $tramite=Tramite::find($datos->numExp);
 
 
@@ -121,10 +121,17 @@ class tramitesController extends Controller
         $doc->nombre=$datos->nomDoc;
         $doc->nombre_archivo=$datos->archivo;
         $doc->entregado=0;
-        $doc->virtual=$datos->checkbox;
+        /// modificar---------------------------------------
+        $doc->virtual=0;
         $doc->tipoDocumento()->associate($tipoDoc);
         $doc->tramite()->associate($tramite);
-        */
+        $doc->save();
+
+        $tiposDocumentos=TipoDocumento::all();
+
+        $nro_expediente=$datos->nro_expediente;
+        
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
         //return view('tramites.subir');
         
     }
