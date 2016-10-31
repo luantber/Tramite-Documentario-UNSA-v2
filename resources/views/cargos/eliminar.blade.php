@@ -15,7 +15,7 @@
 				{{ csrf_field()}}
 
 					<div class="row">
-						
+
 						<div class="col-sm-12">
 							<label for="nomCargo" >Nombre: </label>
 							<div class="input-group">

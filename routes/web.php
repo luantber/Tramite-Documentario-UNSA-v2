@@ -46,7 +46,7 @@ Route::group(['prefix'=>'empleados'],function(){
 
 //GRUPO CARGOS **cargos/
 Route::group(['prefix'=>'cargos'],function(){
-	Route::get('/',function(){return view('cargos.todos');});//cargos 
+	Route::get('/',function(){return view('cargos.todos');});//cargos
 	Route::get('todos','cargosController@todos');
 
 	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
@@ -84,22 +84,22 @@ Route::group(['prefix'=>'tramites'],function(){
 
 
 /* Quien Borró mis rutas de areas ¡¡ */
-Route::group(['prefix'=>'areas'],function(){ 
-   
-  Route::get('/',function(){ return view('areas.todos');  }); 
+Route::group(['prefix'=>'areas'],function(){
+
+  Route::get('/',function(){ return view('areas.todos');  });
   Route::get('/todos','areasController@todos');
 
-  Route::get('crear','areasController@crearGet'); 
-  Route::post('crear','areasController@crear'); 
+  Route::get('crear','areasController@crearGet');
+  Route::post('crear','areasController@crear');
 
   Route::get('{id}','areasController@show');
 
 
   Route::get('{id}/editar','areasController@editar');
   Route::post('{id}','areasController@guardar');
-  
-}); 
- 
+
+});
+
 
 
 
@@ -132,6 +132,15 @@ Route::get('tramites/eliminar',function(){
 	return view('tramites/eliminar');
 });
 
+Route::get('tipoTramite/crear',function(){
+	return view('tipoTramite/editar');
+});
+
+Route::get('tipoTramite/eliminar',function(){
+	return view('tipoTramite/eliminar');
+});
+
+
 //POST, con fe
 
 Route::get('prub',function(){
@@ -147,7 +156,7 @@ Route::get('prub',function(){
 	$tramite->entregado=1;
 	$tramite->area()->associate($area);
 	$tramite->save();
-	
+
 	$mov= new App\Movimiento;
 	$mov->tramite()->associate($area);
 	$mov->areaDestino()->associate($area);
@@ -156,4 +165,3 @@ Route::get('prub',function(){
 	dd($mov);
 
 });
-
