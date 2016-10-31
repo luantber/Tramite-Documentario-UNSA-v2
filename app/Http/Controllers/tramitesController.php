@@ -9,6 +9,7 @@ use App\Area;
 use App\Tramite;
 use App\Empleado;
 use App\TipoTramite;
+use App\TipoDocumento;
 use App\EstadoTramite;
 use App\Documento;
 use App\User;
@@ -86,9 +87,9 @@ class tramitesController extends Controller
     
     
     
-        
+        $tiposDocumentos=TipoDocumento::all();
 
-        return view('tramites.subir');
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos]);
     }
 
     public function createGet(){
