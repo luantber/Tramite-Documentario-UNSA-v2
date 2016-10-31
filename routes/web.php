@@ -37,11 +37,11 @@ Route::group(['prefix'=>'empleados'],function(){
 
 	Route::get('{id}', 'empleadosController@show');
 
-	Route::get('{id}/editar','empleadosController@editar');
-	Route::post('{id}','empleadosController@guardar');
-
 	Route::get('{id}/eliminar','empleadosController@eliminar');
 	Route::post('eliminar','empleadosController@eliminado');
+	
+	Route::get('{id}/editar','empleadosController@editar');
+	Route::post('{id}','empleadosController@guardar');
 });
 
 
