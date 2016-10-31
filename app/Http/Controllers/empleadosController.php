@@ -30,6 +30,9 @@ class empleadosController extends Controller
     	$nuevo->id_persona = $encontrado->id;
 
       $nuevo->save();
+
+
+
       
       return redirect('empleados');    	
     }
@@ -43,16 +46,25 @@ class empleadosController extends Controller
         $newPer->email = $datosn->correo;
         $newPer->activo = false;
         $newPer->save();
+          
 
 
-    	$newEmp = new Empleado;
-    	$newEmp->id_area = $datosn->id_area;
-    	$newEmp->id_cargo = $datosn->id_cargo;
+      $newEmp = new Empleado;
+      $newEmp->id_area = $datosn->id_area;
+      $newEmp->id_cargo = $datosn->id_cargo;
       $newEmp->id_estado = $datosn->id_estado;
-    	$newEmp->id_persona = $newPer->id;
-    	$newEmp->activo = false;	
-    	
-     	$newEmp->save();
+      $newEmp->id_persona = $newPer->id;
+      $newEmp->activo = false;  
+      
+      $newEmp->save();
+
+      $cargo = Cargo::find($datosn->id_cargo);
+      $area = Area::find($datosn->id_area);
+
+      $newEmp->cargo()->associate($cargo);
+      $newEmp->area()->associate($area);
+      $newEmp->user()->associate($newPer);
+
       return redirect('empleados');
 
 
@@ -68,30 +80,29 @@ class empleadosController extends Controller
       return response()->json($join);
     }  
 
+
+
     public function show($id){
-      $encontrado = Empleado::find($id);
-      $cargo = Cargo::find($encontrado->id_cargo);
-      $user = User::find($encontrado->id_persona);
-      $area = Area::find($encontrado->id_area);
-
-      $encontrado->cargo()->associate($cargo);
-      $encontrado->user()->associate($user);
-      $encontrado->area()->associate($area);
-
+      $encontrado = Empleado::findOrFail($id);
       //dd($encontrado);
-      //dd($encontrado->user->nombre);
       if ($encontrado == null) {
         return view ('errors.noEmpleado');
       }
-
+      //$hola = 'holaaaa';
     return view('empleados.show',['empleado'=>$encontrado]);
     }
+
+
 
     public function editar($id){
         $encontrado = Empleado::find($id);
         if ($encontrado == null) {
             return view ('errors.noEmpleado');
         }
+
+        $user = User::find($encontrado->id_persona);
+        $encontrado->user()->associate($user);
+
         return view('empleados.editar',['empleado'=>$encontrado]);
     }
 

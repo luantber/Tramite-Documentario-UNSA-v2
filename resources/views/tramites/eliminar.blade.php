@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="{{asset('tramites')}}"> 
+<form method="POST" action="{{asset('tramites')}}">
     {{ csrf_field()}}
 
     <form class="form-horizontal container" enctype="multipart/form-data">
@@ -60,8 +60,8 @@
       </form>
 </form>
 
-        
-<form method="POST" onsubmit="return validar()" action="{{asset('tramites')}}"> 
+
+<form method="POST" onsubmit="return validar()" action="{{asset('tramites')}}">
   <div class="row">
     {{ csrf_field()}}
         <div class="form-group">

@@ -24,36 +24,36 @@ class tramitesController extends Controller
     {
         //-----------------------------codigo para generar bd
         /*
-        $area=new Area;
-        $area->nombre='Mesa de Partes';
-        $area->descripcion='Descripcion';
-        $area->save();
+            $area=new Area;
+            $area->nombre='Mesa de Partes';
+            $area->descripcion='Descripcion';
+            $area->save();
 
-        $area2=new Area;
-        $area2->nombre='Gerencia';
-        $area2->descripcion='Descripcion';
-        $area2->save();        
+            $area2=new Area;
+            $area2->nombre='Gerencia';
+            $area2->descripcion='Descripcion';
+            $area2->save();        
 
-        $tipo=new TipoTramite;
-        $tipo->nombre='solicitud';
-        $tipo->descripcion='descripcion';
-        $tipo->save();
+            $tipo=new TipoTramite;
+            $tipo->nombre='solicitud';
+            $tipo->descripcion='descripcion';
+            $tipo->save();
 
-        $tipo2=new TipoTramite;
-        $tipo2->nombre='reclamo';
-        $tipo2->descripcion='descripcion';
-        $tipo2->save();        
-        
+            $tipo2=new TipoTramite;
+            $tipo2->nombre='reclamo';
+            $tipo2->descripcion='descripcion';
+            $tipo2->save();        
+            
 
-        $estado=new EstadoTramite;
-        $estado->nombre='iniciado';
-        $estado->descripcion='descripcion';
-        $estado->save();    
+            $estado=new EstadoTramite;
+            $estado->nombre='iniciado';
+            $estado->descripcion='descripcion';
+            $estado->save();    
 
-        $tipo=new TipoDocumento;
-        $tipo->nombre='carta';
-        $tipo->descripcion='descripcion';
-        $tipo->save();
+            $tipo=new TipoDocumento;
+            $tipo->nombre='carta';
+            $tipo->descripcion='descripcion';
+            $tipo->save();
         */        
         
         //obtenemos a la persona dado un dni
@@ -138,7 +138,7 @@ class tramitesController extends Controller
 
     public function todos()
     {
-        $tramites = Tramite::all();
+        $tramites = Tramite::with('area','persona','empleado','tipoTramite','estado');
         return response()->json($tramites);
     }
 
