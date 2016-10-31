@@ -10,10 +10,10 @@
 		<h2><p class="text-center">  Eliminar Cargo </p></h2>
 
 		<br><br>
-			<form method="post" action="{{asset('cargos')}}{{'/'.$cargo->id}}">
+			<form method="post" action="{{asset('cargos/eliminar')}}">
 
 				{{ csrf_field()}}
-
+<input type="text" name="id" value="{{$eliminado->id}}">
 					<div class="row">
 
 						<div class="col-sm-12">

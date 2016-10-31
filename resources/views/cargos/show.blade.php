@@ -5,11 +5,9 @@
 
 @section('content')
 	
-	Cargo <br>
-	{{ $cargo }}
-	<br>
+<h1>Hagan la vista de show :3 mostrar cargo</h1>
+{{$cargo->nombreCargo}}
+<p>{{$cargo->descripcion}}</p>
 
-	<br>
-<a href="{{asset('cargo')}}{{'/'.$cargo->id.'/editar'}}"> Editar</a>
 
 @endsection

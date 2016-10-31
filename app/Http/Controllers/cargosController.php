@@ -27,7 +27,7 @@ class cargosController extends Controller
 
     
 
-    public function guardar(Request $datos,$id){
+    public function guardarsss(Request $datos,$id){
     	$editar = Cargo::find($id);
     	$editar ->nombreCargo = $datos->nombreCargo;
     	$editar ->descripcion = $datos->descripcion;
@@ -45,7 +45,11 @@ class cargosController extends Controller
     	return view('cargos.editar',['cargo'=>$encontrado]);
     }
 
+    public function show($id){
+        $encontrado = Cargo::find($id);
 
+        return view('cargos.show',['cargo'=>$encontrado]);
+    }
     
 
     public function eliminar($id){
@@ -57,7 +61,9 @@ class cargosController extends Controller
     	
     }
 
+
     public function eliminado(Request $datos){
+        //dd("hola");
     	$eliminado = Cargo::find($datos->id);
     	$eliminado->delete();
     	return redirect('cargos');

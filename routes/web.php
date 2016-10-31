@@ -52,12 +52,15 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
 
-	Route::get('{id}/editar','cargosController@editar');
-	Route::post('{id}','cargosController@guardar');
-
 
 	Route::get('{id}/eliminar','cargosController@eliminar');
-	Route::post('eliminar','empleadosController@eliminado');
+	Route::post('eliminar','cargosController@eliminado');
+
+	Route::get('{id}/editar','cargosController@editar');
+	Route::post('{id}','cargosController@guardarsss');
+	
+	Route::get('{id}','cargosController@show');
+
 
 });
 
@@ -111,60 +114,3 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 
-//Solo para ver vistas :'v
-
-
-
-
-Route::get('movimientos',function(){
-	return view('movimientos/ver');
-});
-
-Route::get('tramites/editar',function(){
-	return view('tramites/editar');
-});
-
-Route::get('tramites/subir',function(){
-	return view('tramites/subir');
-});
-
-Route::get('tramites/eliminar',function(){
-	return view('tramites/eliminar');
-});
-
-Route::get('tipoTramite/crear',function(){
-	return view('tipoTramite/editar');
-});
-
-Route::get('tipoTramite/eliminar',function(){
-	return view('tipoTramite/eliminar');
-});
-
-Route::get('tipoTramite/show',function(){
-	return view('tipoTramite/show');
-});
-
-//POST, con fe
-
-Route::get('prub',function(){
-	//	dd(App\Area::find(1)->tramites);
-
-	$area=new App\Area;
-	$area->nombre='gerencia';
-	$area->descripcion='descripcion';
-	$area->save();
-
-	$tramite= new App\Tramite;
-	$tramite->prioridad=2;
-	$tramite->entregado=1;
-	$tramite->area()->associate($area);
-	$tramite->save();
-
-	$mov= new App\Movimiento;
-	$mov->tramite()->associate($area);
-	$mov->areaDestino()->associate($area);
-	$mov->areaRemitente()->associate($area);
-	$mov->save();
-	dd($mov);
-
-});
