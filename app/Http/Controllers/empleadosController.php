@@ -7,9 +7,20 @@ use DB;
 use App\Http\Requests;
 use App\Empleado;
 use App\User;
+use App\Cargo;
 
 class empleadosController extends Controller
 {
+
+    public function antesCrear(){
+      $cargos = DB::table('cargos')->select('id','nombreCargo')->get();
+      //dd($cargos[0]->id);
+      $fun = response()->json($cargos);
+      //dd($fun);
+      return view('empleados.crear',['$cargo'=>$fun]);
+
+    }
+
     public function create(Request $datos){
     	$nuevo = new Empleado;
     	$nuevo->id_area = $datos->id_area;
@@ -31,8 +42,8 @@ class empleadosController extends Controller
         $newPer->dni = $datosn->dni;
         $newPer->password = bcrypt($datosn->dni);
         $newPer->email = $datosn->correo;
+        $newPer->activo = false;
         $newPer->save();
-
 
 
     	$newEmp = new Empleado;

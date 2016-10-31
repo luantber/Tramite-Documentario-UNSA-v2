@@ -49,10 +49,9 @@ class cargosController extends Controller
     
 
     public function eliminar($id){
-    	$bencontrado = Cargo::find($id);
+    	$encontrado = Cargo::find($id);
     	if ($encontrado == null) {
             echo "error NO EXISTE EL CARGO";
-//            return view ('errors.noExiste');
         }
       return view('cargos.eliminar',['eliminado'=>$encontrado]);
     	

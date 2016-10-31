@@ -64,7 +64,7 @@
 			<div class=" row">
 			  <div class="col-sm-12">
 			  	<label for="area">Área: </label>
-				    <select name="areaEmpleado" type="text" class="form-control" id="area">
+				    <select name="id_area" type="text" class="form-control" id="area">
 			          <option value="" >Seleccionar área</option>
 		      				<option value="1" required>"Informática"</option>
 		              		<option value="2" required>"Gerencia"</option>
@@ -84,7 +84,7 @@
 			<div class=" row">
 			  <div class="col-sm-12">
 			    <label for="cargo">Cargo: </label>
-				  	<select name="cargoEmpleado" type="text" class="form-control" id="cargo">
+				  	<select name="id_cargo" type="text" class="form-control" id="cargo">
 			          <option value="" >Seleccionar cargo</option>
 			          		<option value="1" required>"Jefe"</option>
 		              		<option value="2" required>"Asistente"</option>
@@ -101,17 +101,25 @@
 			  </div>
 			</div><br>
 
-			<div class="row">
-				  <div class="col-sm-6">
-				  		<label for="activo" >Activo: </label>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">
-									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-								</span>
-					    	<input class="form-control" type="string" name ="activo" id="activo" placeholder="¿Activo?" required="true">
-					    </div>
-				  </div>
-			</div><br><br>
+<div class=" row">
+			  <div class="col-sm-12">
+			    <label for="cargo">Estado: </label>
+				  	<select name="id_estado" type="text" class="form-control" id="cargo">
+			          <option value="" >Seleccionar cargo</option>
+			          		<option value="1" required>"Jefe"</option>
+		              		<option value="2" required>"Asistente"</option>
+		      				<option value="3" required>"Subjefe"</option>
+			          	<!--<script type="text/javascript">
+				            var nuevo;
+				            for(var i=0;i<cargos.length;i++){
+				              nuevo=cargos[i];
+				              document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
+				            }
+				        </script>-->
+			        </select>
+			        <!--<input class="form-control" type="text" name ="cargoEmpleado" id="cargo" placeholder="Ingresar cargo" required="true">-->
+			  </div>
+			</div><br>
 
 			<div class="form-group">
 				<div class="text-center">
@@ -123,6 +131,13 @@
 		</form>
 	</div>
 </div>
+
+<p id="prueba"> </p>
+
+<script type="text/javascript">
+	cargo[0]; 
+	document.getElementById("prueba").innerHTML = cargo[0];
+</script>
 
 <script type="text/javascript">
 	function validar(){
