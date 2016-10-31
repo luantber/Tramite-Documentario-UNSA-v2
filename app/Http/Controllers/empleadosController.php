@@ -63,12 +63,23 @@ class empleadosController extends Controller
       $join = DB::table('empleados')
                 ->leftjoin('users','empleados.id_persona','=','users.id')
                 ->get();
+
+      //dd($join);
       return response()->json($join);
     }  
 
     public function show($id){
       $encontrado = Empleado::find($id);
-     // dd($encontrado);
+      $cargo = Cargo::find($encontrado->id_cargo);
+      $user = User::find($encontrado->id_persona);
+      $area = Area::find($encontrado->id_area);
+
+      $encontrado->cargo()->associate($cargo);
+      $encontrado->user()->associate($user);
+      $encontrado->area()->associate($area);
+
+      //dd($encontrado);
+      //dd($encontrado->user->nombre);
       if ($encontrado == null) {
         return view ('errors.noEmpleado');
       }
