@@ -12,7 +12,7 @@ class Empleado extends Model
 
     public function user() 
     { 
-        return $this->belongsTo('App\User','id_persona','id'); 
+        return $this->hasOne('App\User','id'); 
     } 
 
     
