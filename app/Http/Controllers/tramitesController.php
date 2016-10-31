@@ -86,18 +86,18 @@ class tramitesController extends Controller
         $tramite->persona()->associate($persona);
         $tramite->estado()->associate($estado);
         $tramite->save();
+        $tramite->nro_expediente=date("Y").sprintf('%07d', $tramite->id);
 
-        //crear movimiento
-    
         
     
+        
     
         $tiposDocumentos=TipoDocumento::all();
-
-        $nro_expediente=$tramite->id;
         
-        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
-        //return view('tramites.subir']->with('tiposDocumentos',$tiposDocumentos);
+        
+        
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
+        
 
     }
 
@@ -110,12 +110,12 @@ class tramitesController extends Controller
         
     }
 
-    public function subirDocumento(Request $datos)
+    public function subirDocumento(Request $datos,$id)
     {
         
         $tipoDoc=TipoDocumento::find($datos->tipoDoc);
-        $tramite=Tramite::find($datos->numExp);
-
+        $tramite=Tramite::find($id);
+        
 
         $doc= new Documento;
         $doc->nombre=$datos->nomDoc;
@@ -129,10 +129,10 @@ class tramitesController extends Controller
 
         $tiposDocumentos=TipoDocumento::all();
 
-        $nro_expediente=$datos->nro_expediente;
+       
         
-        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
-        //return view('tramites.subir');
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
+        
         
     }
 
