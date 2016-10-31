@@ -73,6 +73,7 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('delegar',function(){return view('tramites/delegar');});
 	Route::get('resolver',function(){return view('tramites/resolver');});
 	Route::get('ver',function(){	return view('tramites/ver');});
+	Route::post('subir','tramitesController@subirDocumento');
   	
 });
 
