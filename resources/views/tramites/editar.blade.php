@@ -73,19 +73,31 @@
         </nav>
 
         <div class="row">
-        	<div class="form-group">
-            <div class="text-center">
-            <button type="submit" class="btn btn-lg" value="Submit">Guardar cambios</button>
+          	<div class="form-group">
+              <div class="text-center">
+                <button type="submit" class="btn btn-lg" value="Submit">Guardar cambios</button>
+              </div>
             </div>
-          </div>
         </div>
+      </form>
+</form>
+
+        
+      <form method="POST" onsubmit="return validar()" action="{{asset('tramites')}}"> 
+        <div class="row">
+          {{ csrf_field()}}
+              <div class="form-group">
+                <div class="text-center">
+                  <button type="submit" class="btn btn-lg" value="Submit">Finalizar</button>
+                </div>
+              </div>
+        </div>
+      </form>
+
 
         <p> </p>
         <p> .</p>
         <p> .</p>
-
-    </form>
-</form>
 
 <script type="text/javascript">
   function validar(){
