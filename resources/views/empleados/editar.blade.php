@@ -11,7 +11,7 @@
 		<h2><p class="text-center">  Editar Empleados </p></h2>
 
 		<br><br>
-			<form method="post" onsubmit="return validar()" action="{{asset('empleados')}}{{'/'.$empleado->id}}">
+			<form method="post" onsubmit="return validar()" action="{{asset('empleados')}}{{'/'.$empleado->user->id.'/editar'}}">
 
 				{{ csrf_field()}}
 
@@ -22,7 +22,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-							<input class="form-control" type="string" name ="nombre" id="nombre" value="{{$empleado->nombre}}" disabled="" required="true">
+							<input class="form-control" type="string" name ="nombre" id="nombre" value="{{$empleado->user->nombre}}" disabled="" required="true">
 						</div>
 					</div>
 				</div><br>
@@ -34,7 +34,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$empleado->apellido}}" disabled="" required="true">
+					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$empleado->user->apellido}}" disabled="" required="true">
 					    </div>
 				  </div>
 				</div><br>
@@ -42,11 +42,11 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<label for="area">Area: </label>
-						    <input class="form-control" type="string" name ="area" id="area" value="{{$empleado->area}}" required="true">
+						    <input class="form-control" type="string" name ="area" id="area" value="" required="true">
 					</div>
 				    <div class="col-sm-6">
 				  		<label for="cargo" >Cargo: </label>
-							    <input class="form-control" type="string" name ="cargo" id="cargo" value="{{$empleado->cargo}}" required="true">
+							<input class="form-control" type="string" name ="cargo" id="cargo" value="" required="true">
 					</div>
 
 				</div><br>
@@ -58,7 +58,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="string" name ="email" id="mail" value="" disabled="" required="true">
+						    <input class="form-control" type="string" name ="email" id="mail" value="{{$empleado->user->email}}" disabled="" required="true">
 						</div>
 						<p id="nocorreo"></p>
 					</div>
@@ -68,7 +68,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="string" name ="dni" id="DNI" value="" disabled="" required="true">
+						    <input class="form-control" type="string" name ="dni" id="DNI" value="{{$empleado->user->dni}}" disabled="" required="true">
 						</div>
 						<p id="noingreso"></p>
 					</div>
@@ -81,7 +81,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 								</span>
-					    	<input class="form-control" type="string" name ="activo" id="activo" value="{{$empleado->activo}}" required="true">
+					    	<input class="form-control" type="string" name ="activo" id="activo" value="{{$empleado->user->activo}}" required="true">
 					    </div>
 				  </div>
 				</div><br><br>

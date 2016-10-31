@@ -66,12 +66,9 @@
 			  	<label for="area">Área: </label>
 				    <select name="id_area" type="text" class="form-control" id="area">
 			          <option value="" >Seleccionar área</option>
-		      				<option value="1" required>"Informática"</option>
-		              		<option value="2" required>"Gerencia"</option>
-		      				<option value="3" required>"Contabilidad"</option>
-			          			@foreach($area as $are)
-				                    <option value='{{$are->id}}'>{{$are->nombre}}</option>
-				                @endforeach  
+		          			@foreach($area as $are)
+			                    <option value='{{$are->id}}'>{{$are->nombre}}</option>
+			                @endforeach  
 			        </select>
 			        <!--<input class="form-control" type="text" name ="areaEmpleado" id="area" placeholder="Ingresar área" required="true">-->
 			  </div>
@@ -82,38 +79,21 @@
 			    <label for="cargo">Cargo: </label>
 				  	<select name="id_cargo" type="text" class="form-control" id="cargo">
 			          <option value="" >Seleccionar cargo</option>
-			          		<option value="1" required>"Jefe"</option>
-		              		<option value="2" required>"Asistente"</option>
-		      				<option value="3" required>"Subjefe"</option>
-			          	<!--<script type="text/javascript">
-				            var nuevo;
-				            for(var i=0;i<cargos.length;i++){
-				              nuevo=cargos[i];
-				              document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
-				            }
-				        </script>-->
+			          		@foreach($cargo as $carg)
+			                    <option value='{{$carg->id}}'>{{$carg->nombreCargo}}</option>
+			                @endforeach
 			        </select>
-			        <!--<input class="form-control" type="text" name ="cargoEmpleado" id="cargo" placeholder="Ingresar cargo" required="true">-->
 			  </div>
 			</div><br>
 
-<div class=" row">
+			<div class=" row">
 			  <div class="col-sm-12">
 			    <label for="cargo">Estado: </label>
 				  	<select name="id_estado" type="text" class="form-control" id="cargo">
-			          <option value="" >Seleccionar cargo</option>
-			          		<option value="1" required>"Jefe"</option>
-		              		<option value="2" required>"Asistente"</option>
-		      				<option value="3" required>"Subjefe"</option>
-			          	<!--<script type="text/javascript">
-				            var nuevo;
-				            for(var i=0;i<cargos.length;i++){
-				              nuevo=cargos[i];
-				              document.write("<option value="+nuevo[0]+">"+nuevo[1]+"</option>")
-				            }
-				        </script>-->
+			          <option value="" >Seleccionar estado</option>
+			            <option value="1">Activo</option>
+			            <option value="2">Inactivo</option>
 			        </select>
-			        <!--<input class="form-control" type="text" name ="cargoEmpleado" id="cargo" placeholder="Ingresar cargo" required="true">-->
 			  </div>
 			</div><br>
 
@@ -141,7 +121,7 @@
 			return false;
 		}
 
-		if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w/.test(correo)) ) {
+		else if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w/.test(correo)) ) {
 			texto2 = "Ingrese un e-mail válido";
 			document.getElementById("nocorreo").innerHTML = texto2;
 			return false;
