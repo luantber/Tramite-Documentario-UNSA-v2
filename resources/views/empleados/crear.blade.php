@@ -132,12 +132,6 @@
 	</div>
 </div>
 
-<p id="prueba"> </p>
-
-<script type="text/javascript">
-	cargo[0]; 
-	document.getElementById("prueba").innerHTML = cargo[0];
-</script>
 
 <script type="text/javascript">
 	function validar(){

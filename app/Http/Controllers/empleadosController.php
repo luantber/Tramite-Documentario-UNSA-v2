@@ -14,10 +14,7 @@ class empleadosController extends Controller
 
     public function antesCrear(){
       $cargos = DB::table('cargos')->select('id','nombreCargo')->get();
-      //dd($cargos[0]->id);
-      //$fun = response()->json($cargos);
-      //dd($fun[0].id);
-      return view('empleados.crear',['$cargo'=>$cargos]);
+      return view('empleados.crear',['cargo'=>$cargos]);
 
     }
 
