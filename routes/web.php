@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('/',function(){return view('usuarios.todos');});//usuarios
 	Route::get('todos','usuariosController@todos');
+
 	Route::get('crear',function(){return view('usuarios.crear');});//usuarios/crear
 	Route::post('crear','usuariosController@create');
 
@@ -68,8 +69,8 @@ Route::group(['prefix'=>'cargos'],function(){
 Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('/',function(){return view('tramites/ver');});
-	Route::post('/',function(){return view('tramites/ver');});
-	Route::get('/todos','tramitesController@todos');
+
+	Route::get('todos','tramitesController@todos');
 
 	Route::get('crear','tramitesController@createGet');
 	Route::post('crear','tramitesController@create');
@@ -97,11 +98,27 @@ Route::group(['prefix'=>'areas'],function(){
 
   Route::get('{id}','areasController@show');
 
-
   Route::get('{id}/editar','areasController@editar');
   Route::post('{id}','areasController@guardar');
 
 });
+
+
+Route::group(['prefix'=>'tipostramite'],function(){ 
+   
+  Route::get('/',function(){ return view('tiposTramite.todos');  }); 
+  Route::get('/todos','tiposTramiteController@todos');
+
+  Route::get('crear','tiposTramiteController@crearGet'); 
+  Route::post('crear','tiposTramiteController@crear'); 
+
+
+  Route::get('{id}/editar','tiposTramiteController@editar');
+  Route::get('{id}','tiposTramiteController@show');
+  Route::post('{id}','tiposTramiteController@guardar');
+  
+}); 
+ 
 
 
 
@@ -114,40 +131,12 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 
+//Solo para ver vistas :'v
+/*
+	GG Tu solo para vistas, si quieres verlo tiene que funcionar
+*/
 
 
-
-
-Route::get('movimientos',function(){
-	return view('movimientos/ver');
-});
-
-Route::get('cargos/show',function(){
-	return view('cargos/show');
-});
-
-//POST, con fe
-
-Route::get('prub',function(){
-	//	dd(App\Area::find(1)->tramites);
-
-	$area=new App\Area;
-	$area->nombre='gerencia';
-	$area->descripcion='descripcion';
-	$area->save();
-
-	$tramite= new App\Tramite;
-	$tramite->prioridad=2;
-	$tramite->entregado=1;
-	$tramite->area()->associate($area);
-	$tramite->save();
-	
-	$mov= new App\Movimiento;
-	$mov->tramite()->associate($area);
-	$mov->areaDestino()->associate($area);
-	$mov->areaRemitente()->associate($area);
-	$mov->save();
-	dd($mov);
-
-});
-
+/*
+	GG tu Prueba
+*/

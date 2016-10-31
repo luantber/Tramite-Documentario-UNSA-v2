@@ -23,7 +23,7 @@ class CreateEmpleadosTable extends Migration
             $table->boolean('activo');
 
             //$table->foreign('id_cargo')->references('id')->on('cargos');
-            $table->foreign('id_persona')->references('id')->on('users');
+           // $table->foreign('id_persona')->references('id')->on('users');
         });
     }
 
