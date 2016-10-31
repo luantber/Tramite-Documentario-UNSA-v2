@@ -20,15 +20,16 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
 							</span>
-				  		<input class="form-control" type="text" name ="numExp" id="numExp" placeholder="Ingrese número de expediente" required="true">
+				  		<input class="form-control" type="text" name ="numExp" id="numExp" placeholder="Ingrese número de expediente" required="true" value="">
 					</div>
 				</div>
 			  <div class="col-sm-6">
 			  		<label for="tipoDoc" >Tipo de documentos: </label>
 				    <select name="tipoDoc" type="text" class="form-control" id="tipoDoc">
 			          <option value="" >Seleccionar tipo de documento</option>
-		      				<option value="1" required>"Solicitud"</option>
-		      				<option value="2" required>"Otro"</option>
+			          		@foreach($tiposDocumentos as $tipoDocumento)
+			                    <option value="{{$tipoDocumento->id}}">"{{$tipoDocumento->nombre}}"</option>
+			                @endforeach
 			        </select>
 			        <!--<input class="form-control" type="text" name ="tipoDoc" id="tipoDoc" placeholder="Ingresar tipo de documento" required="true">-->
 			  </div>
