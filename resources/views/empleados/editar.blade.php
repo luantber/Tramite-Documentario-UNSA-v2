@@ -42,11 +42,11 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<label for="area">Area: </label>
-						    <input class="form-control" type="string" name ="area" id="area" value="" required="true">
+						    <input class="form-control" type="string" name ="area" id="area" value="{{$empleado->area->nombre}}" required="true">
 					</div>
 				    <div class="col-sm-6">
 				  		<label for="cargo" >Cargo: </label>
-							<input class="form-control" type="string" name ="cargo" id="cargo" value="" required="true">
+							<input class="form-control" type="string" name ="cargo" id="cargo" value="{{$empleado->cargo->nombreCargo}}" required="true">
 					</div>
 
 				</div><br>
