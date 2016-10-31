@@ -120,16 +120,8 @@ Route::get('movimientos',function(){
 	return view('movimientos/ver');
 });
 
-Route::get('tramites/editar',function(){
-	return view('tramites/editar');
-});
-
-Route::get('tramites/subir',function(){
-	return view('tramites/subir');
-});
-
-Route::get('tramites/eliminar',function(){
-	return view('tramites/eliminar');
+Route::get('cargos/show',function(){
+	return view('cargos/show');
 });
 
 //POST, con fe
