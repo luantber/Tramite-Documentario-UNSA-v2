@@ -87,7 +87,7 @@
 	</div>
 </div>
 
-	<form method="post" action="{{asset('tramites/')}}">
+	<form method="post" action="{{asset('tramites')}}">
 		{{ csrf_field()}}
 		<div class="row">
 			<div class="text-center">

@@ -65,6 +65,7 @@ Route::group(['prefix'=>'cargos'],function(){
 Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('/',function(){return view('tramites/ver');});
+	Route::post('/',function(){return view('tramites/ver');});
 	Route::get('/todos','tramitesController@todos');
 
 	Route::get('crear','tramitesController@createGet');
@@ -74,8 +75,11 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('resolver',function(){return view('tramites/resolver');});
 	Route::get('ver',function(){	return view('tramites/ver');});
 	Route::post('subir','tramitesController@subirDocumento');
-	
-  	
+
+	Route::get('editar',function(){return view('tramites/editar');});
+	Route::get('subir',function(){return view('tramites/subir');});
+	Route::get('eliminar',function(){return view('tramites/eliminar');});
+
 });
 
 
