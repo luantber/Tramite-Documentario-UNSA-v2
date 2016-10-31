@@ -25,9 +25,9 @@ Route::group(['prefix'=>'usuarios'],function(){
 Route::group(['prefix'=>'empleados'],function(){
 	Route::get('/',function(){return view('empleados.todos');});//empleados
 	Route::get('todos','empleadosController@todos');
-	
 
-	Route::get('crear',function(){return view('empleados.crear');});//empleados/crear --refiere a un empleado que no existe como usuario
+	//Route::get('crear',function(){return view('empleados.crear');});//empleados/crear --refiere a un empleado que no existe como usuario
+	Route::get('crear','empleadosController@antesCrear');
 	Route::post('crearNewEmple','empleadosController@createNew');
 
 
@@ -46,7 +46,7 @@ Route::group(['prefix'=>'empleados'],function(){
 
 //GRUPO CARGOS **cargos/
 Route::group(['prefix'=>'cargos'],function(){
-	Route::get('/',function(){return view('cargos.todos');});//cargos --aqui se pueden ver todos los cargos
+	Route::get('/',function(){return view('cargos.todos');});//cargos 
 	Route::get('todos','cargosController@todos');
 
 	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
@@ -73,6 +73,8 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('delegar',function(){return view('tramites/delegar');});
 	Route::get('resolver',function(){return view('tramites/resolver');});
 	Route::get('ver',function(){	return view('tramites/ver');});
+	Route::post('subir','tramitesController@subirDocumento');
+	
   	
 });
 
@@ -114,12 +116,13 @@ Route::get('movimientos',function(){
 	return view('movimientos/ver');
 });
 
+Route::get('tramites/editar',function(){
+	return view('tramites/editar');
+});
 
-
-
-
-
-
+Route::get('tramites/subir',function(){
+	return view('tramites/subir');
+});
 
 //POST, con fe
 
