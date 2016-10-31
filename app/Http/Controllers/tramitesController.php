@@ -84,26 +84,27 @@ class tramitesController extends Controller
 
         //crear movimiento
     
-    
+        
     
     
         $tiposDocumentos=TipoDocumento::all();
         $nro_expediente=$tramite->id;
-
+        echo $nro_expediente;
         return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
     }
 
     public function createGet(){
-        /*
+        
         $tipoTramites = TipoTramite::all();
         $areas= Area::all()->where('area_id',NULL);
 
         return view('tramites.crear',["tipos"=>$tipoTramites,"areas"=>$areas]);
-        */
+        
     }
 
     public function subirDocumento(Request $datos)
     {
+        /*
         $tipoDoc=TipoDocumento->find($datos->tipoDoc);
         $tramite=Tramite::find($datos->numExp);
 
@@ -111,9 +112,10 @@ class tramitesController extends Controller
         $doc= new Documento;
         $doc
 
-
+        */
 
         return view('tramites.subir');
+        
     }
 
     public function todos()
