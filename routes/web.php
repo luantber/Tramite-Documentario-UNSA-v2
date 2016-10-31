@@ -140,6 +140,9 @@ Route::get('tipoTramite/eliminar',function(){
 	return view('tipoTramite/eliminar');
 });
 
+Route::get('tipoTramite/show',function(){
+	return view('tipoTramite/show');
+});
 
 //POST, con fe
 
