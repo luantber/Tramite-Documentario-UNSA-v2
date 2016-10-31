@@ -114,12 +114,13 @@ Route::get('movimientos',function(){
 	return view('movimientos/ver');
 });
 
+Route::get('tramites/editar',function(){
+	return view('tramites/editar');
+});
 
-
-
-
-
-
+Route::get('tramites/subir',function(){
+	return view('tramites/subir');
+});
 
 //POST, con fe
 

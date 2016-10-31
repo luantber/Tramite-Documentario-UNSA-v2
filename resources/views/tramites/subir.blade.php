@@ -10,7 +10,7 @@
 		<h2><p class="text-center">  Subir documentos </p></h2>
 		<br><br>
 
-		<form method="post" action="{{asset('empleados/')}}">
+		<form method="post" action="{{asset('tramites/')}}">
 		{{ csrf_field()}}
 
 			<div class="row">
@@ -65,26 +65,30 @@
 			<div class="row">
 				<div class="col-sm-12">
 		          <label for="checkbox" >Archivo:   </label>
-		              <label><input type="checkbox" value="">Virtual</label>
+		              <label><input type="checkbox" name="checkbox" id="checkbox" value="">Virtual</label>
 		        </div>
 		    </div> <br><br>
 
-			<div class="form-group">
-				<div class="col-sm-6">
+		    <div class="row">
 					<div class="text-center">
 					<button class="btn btn-lg " type="submit" value="Submit"> 
 					Subir documentos</button>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="text-center">
-					<button class="btn btn-lg" type="submit" value="Submit"> Finalizar</button>
-					</div>
-				</div>
-			</div><br><br>
+		    </div><br> <br>
 
 		</form>
+
 	</div>
 </div>
+
+	<form method="post" action="{{asset('tramites/')}}">
+		{{ csrf_field()}}
+		<div class="row">
+			<div class="text-center">
+				<button class="btn btn-lg" type="submit" value="Submit"> Finalizar</button>
+			</div>
+		</div>
+		<br><br>
+	</form>
 
 @endsection
