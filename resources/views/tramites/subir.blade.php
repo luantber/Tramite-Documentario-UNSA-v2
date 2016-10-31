@@ -10,7 +10,7 @@
 		<h2><p class="text-center">  Subir documentos </p></h2>
 		<br><br>
 
-		<form method="post" action="{{asset('tramites/')}}">
+		<form method="post" action="{{asset('tramites/subir')}}">
 		{{ csrf_field()}}
 
 			<div class="row">

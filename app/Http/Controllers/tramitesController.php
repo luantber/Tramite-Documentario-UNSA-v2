@@ -110,10 +110,13 @@ class tramitesController extends Controller
 
 
         $doc= new Documento;
-        $doc
-
+        $doc->nombre=$datos->nomDoc;
+        $doc->nombre_archivo=$datos->archivo;
+        $doc->entregado=0;
+        $doc->virtual=$datos->checkbox;
+        $doc->tipoDocumento()->associate($tipoDoc);
+        $doc->tramite()->associate($tramite);
         */
-
         //return view('tramites.subir');
         
     }

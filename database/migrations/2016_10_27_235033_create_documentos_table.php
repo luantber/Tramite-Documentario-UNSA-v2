@@ -18,12 +18,18 @@ class CreateDocumentosTable extends Migration
             $table->integer('tramite_id')->unsigned()->nullable()->default(NULL);
             $table->integer('tipo_documento_id')->unsigned()->nullable()->default(NULL);
             $table->boolean('entregado');
-            $table->string('nombre');            
+            $table->boolean('virtual');
+            $table->string('nombre');
+            $table->string('nombre_archivo');            
             $table->timestamps();
             
             $table->foreign('tramite_id')
                 ->references('id')
                 ->on('tramites');
+
+            $table->foreign('tipo_documento_id')
+                ->references('id')
+                ->on('tipo_documentos');
             
         });
         
