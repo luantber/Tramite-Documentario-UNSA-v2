@@ -88,9 +88,11 @@ class tramitesController extends Controller
     
     
         $tiposDocumentos=TipoDocumento::all();
-        $nro_expediente=$tramite->id;
+        //$nro_expediente=$tramite->id;
+
         
-        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
+      //  return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
+        return view('tramites.subir')->with('tiposDocumentos',$tiposDocumentos);
     }
 
     public function createGet(){
