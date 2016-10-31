@@ -28,8 +28,10 @@
 				    <select name="tipoDoc" type="text" class="form-control" id="tipoDoc">
 			          <option value="" >Seleccionar tipo de documento</option>
 			          		@foreach($tiposDocumentos as $tipoDocumento)
-			                    <option value="{{$tipoDocumento->id}}">"{{$tipoDocumento->nombre}}"</option>
+			                    <option value='{{$tipoDocumento->id}}'>{{$tipoDocumento->nombre}}</option>
 			                @endforeach
+
+			                
 			        </select>
 			        <!--<input class="form-control" type="text" name ="tipoDoc" id="tipoDoc" placeholder="Ingresar tipo de documento" required="true">-->
 			  </div>
