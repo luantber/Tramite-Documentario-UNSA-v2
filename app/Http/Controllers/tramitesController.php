@@ -89,7 +89,7 @@ class tramitesController extends Controller
     
         $tiposDocumentos=TipoDocumento::all();
         $nro_expediente=$tramite->id;
-        echo $nro_expediente;
+        
         return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
     }
 
@@ -114,7 +114,7 @@ class tramitesController extends Controller
 
         */
 
-        return view('tramites.subir');
+        //return view('tramites.subir');
         
     }
 
