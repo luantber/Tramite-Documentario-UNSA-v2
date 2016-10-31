@@ -49,6 +49,11 @@ class tramitesController extends Controller
         $estado->nombre='iniciado';
         $estado->descripcion='descripcion';
         $estado->save();    
+
+        $tipo=new TipoDocumento;
+        $tipo->nombre='carta';
+        $tipo->descripcion='descripcion';
+        $tipo->save();
         */        
         
         //obtenemos a la persona dado un dni
