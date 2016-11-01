@@ -166,10 +166,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 		return view('tramites/panel');
 	});
 
-	Route::get('/documentos',function(){
-		return view('tramites.documentos');
-	});
-
 /*
 	GG tu Prueba
 */
