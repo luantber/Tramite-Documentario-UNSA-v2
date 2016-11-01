@@ -54,6 +54,11 @@ class tramitesController extends Controller
             $tipo->nombre='carta';
             $tipo->descripcion='descripcion';
             $tipo->save();
+
+            $cargo=new App\Cargo;
+            $cargo->nombreCargo='jefe';
+            $cargo->descripcion='this is the boos';
+            $cargo->save();
         */        
         
         //obtenemos a la persona dado un dni
@@ -86,12 +91,15 @@ class tramitesController extends Controller
         $tramite->persona()->associate($persona);
         $tramite->estado()->associate($estado);
         $tramite->save();
-        $tramite->nro_expediente=date("Y").sprintf('%07d', $tramite->id);
+        $tramite->nro_expediente=(date("Y").sprintf('%07d', $tramite->id));
+        $tramite->save();
 
+        $comentario="sin comentarios";
         $movimiento=new Movimiento;
         $movimiento->tramite()->associate($tramite);
         $movimiento->areaDestino()->associate($area_destino);
         $movimiento->areaRemitente()->associate($mesa_de_partes);
+        $movimiento->comentario=$comentario;
         $movimiento->save();
     
         
@@ -181,5 +189,45 @@ class tramitesController extends Controller
         $tramite=Tramite::find($id);
         return view('tramites.eliminar',["tramite"=>$tramite]);
     }
+
+
+    public function delegarAreaV($id){
+        $tramite=Tramite::find($id);
+        $areas=Area::all()->where('id_area',NULL);
+        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
+    }
+
+    public function delegarArea(Request $datos, $id){
+        
+        $tramite=Tramite::find($id);
+        
+        $area_destino=Area::find($datos->area_destino);
+        $movimiento=new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaDestino()->associate($area_destino);
+        $movimiento->areaRemitente()->associate($tramite->area);
+        $movimiento->comentario=$datos->comentario;
+        $movimiento->save();
+        $tramite->area()->associate($area_destino);
+        $tramite->save();
+        return redirect('tramites');
+    }
+
+
+    public function getDocumentosV($id)
+    {   
+        $documentos=Documento::all()->where('id',$id);
+        return view('tramites.documentos',["documentos"=>$documentos]);
+    }
+
+    /*
+    public function delegarSubAreaV($id){
+        $usuario=User::find(Auth::user()->id);
+        $areas=Area::all()->where('area_id',$usuario->area->id);
+        $tramite=Tramite::find($id);
+        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
+    }
+    */
+
 
 }

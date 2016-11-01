@@ -97,7 +97,9 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('crear','tramitesController@createGet');
 	Route::post('crear','tramitesController@create');
 
-	Route::get('delegar',function(){return view('tramites/delegar');});
+	Route::get('{id}/delegar-area','tramitesController@delegarAreaV');
+	Route::get('{id}/delegar-sub-area','tramitesController@delegarSubAreaV');
+	Route::post('{id}/delegar-area','tramitesController@delegarArea');
 	Route::get('resolver',function(){return view('tramites/resolver');});
 	Route::get('ver',function(){	return view('tramites/ver');});
 	//Route::post('subir','tramitesController@subirDocumento');
@@ -113,6 +115,9 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::post('{id}','tramitesController@guardar');
 
 	Route::get('{id}/eliminar','tramitesController@eliminarTramiteV');
+	Route::get('{id}/documentos','tramitesController@getDocumentosV');
+
+
 });
 
 

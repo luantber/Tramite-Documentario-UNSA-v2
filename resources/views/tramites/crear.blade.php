@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Asi imprimes el dato -->
-{{$tipos}}
+{{$areas}}
 
 
 <form method="POST" onsubmit="return validar()" action="{{asset('tramites/crear')}}">     <!-- <_Alexis -->
