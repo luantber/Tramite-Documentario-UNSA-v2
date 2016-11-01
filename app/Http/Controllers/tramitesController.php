@@ -212,6 +212,14 @@ class tramitesController extends Controller
         $tramite->save();
         return redirect('tramites');
     }
+
+
+    public function getDocumentosV($id)
+    {   
+        $documentos=Documento::all()->where('id',$id);
+        return view('tramites.documentos',["documentos"=>$documentos]);
+    }
+
     /*
     public function delegarSubAreaV($id){
         $usuario=User::find(Auth::user()->id);

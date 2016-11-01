@@ -93,6 +93,8 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::post('{id}','tramitesController@guardar');
 
 	Route::get('{id}/eliminar','tramitesController@eliminarTramiteV');
+	Route::get('{id}/documentos','tramitesController@getDocumentosV');
+
 
 });
 
