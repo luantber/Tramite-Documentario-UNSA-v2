@@ -4,82 +4,92 @@
 
 @section('content')
 
-	<!--<div class="container">-->
-<div class="row">
-	<div class="col-md-6 col-md-offset-3">
 
-		<h2><p class="text-center">  Eliminar Empleado </p></h2>
-		<br><br>
 
-		<form method="post" action="{{asset('empleados/eliminado')}}">
+<form method="post" action="{{asset('empleados/eliminado')}}">
 
-			<div class="row">
-				<div class="col-sm-6">
-					<label for="nomPer" >Nombre: </label>
-					<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">
-								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							</span>
-				  		<input class="form-control" type="text" name ="nomPer" id="nomPer" disabled="" value="{{$eliminado->user->nombre}}">
-					</div>
-				</div>
-			  <div class="col-sm-6">
-			  		<label for="apellido" >Apellido: </label>
-				    <input class="form-control" type="text" name ="apellidoPer" id="apellido" disabled="" value="{{$eliminado->user->apellido}}">	
-			  </div>
-			</div><br>
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Perfil de:  {{ $eliminado->user->nombre }}</h3>
+            </div>
 
-			<div class="row">
-				<div class="col-sm-6">
-					<label for="DNI">DNI: </label>
-					<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">
-								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-							</span>
-					    <input class="form-control" type="text" name ="dni" id="DNI" disabled="" value="{{$eliminado->user->dni}}">
-					</div>
-					<p id="noingreso"></p>
-				</div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('imagenes/perfil.jpg')}}" class="img-circle img-responsive"> </div>
+               
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nombre: </td>
+                        <td>{{ $eliminado->user->nombre }}</td>
+                      </tr>
+                      <tr>
+                        <td>Apellidos: </td>
+                        <td>{{ $eliminado->user->apellido}}</td>
+                      </tr>
+                      <tr>
+                        <td>DNI:</td>
+                        <td>{{ $eliminado->user->dni }}</td>
+                      </tr>
+                      <tr>
+                        <td>Cargo:</td>
+                        <td>{{ $eliminado-> cargo->nombreCargo }}</td>
+                      </tr>
+                      <tr>
+                        <td>Area:</td>
+                        <td>{{ $eliminado-> area -> nombre }}</td>
+                      </tr>
+                      <tr>
+                        <td> e-mail: </td>
+                        <td>{{$eliminado -> user-> email}}</td>
+                      </tr>
+                      <tr>
+                        <td> Activo: </td>
+                        <td>{{$eliminado -> user-> activo}}</td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
 
-			    <div class="col-sm-6">
-					<label for="mail" >e-mail: </label>
-					<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">
-								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-							</span>
-					    <input class="form-control" type="text" name ="correo" id="mail" disabled="" value="{{$eliminado->user->email}}">
-					</div>
-					<p id="nocorreo"></p>
-				</div>
-			</div><br>
+                </div>
+              </div>
+            </div>
+        </div>
 
-			<div class=" row">
-			  <div class="col-sm-12">
-			  	<label for="area">Área: </label>
-			        <input class="form-control" type="text" name ="areaEmpleado" id="area" required="true" value="{{$eliminado->area->nombre}}" disabled="">
-			  </div>
-			</div><br>
+      	<div class="text-center">
+			<button type="button" class="btn btn-info btn-lg" type="submit" value="Submit" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
+		</div>
 
-			<div class=" row">
-			  <div class="col-sm-12">
-			    <label for="cargo">Cargo: </label>
-				  	<input class="form-control" type="text" name ="id_cargo" id="cargo" required="true" value="{{$eliminado->cargo->nombreCargo}}" disabled="">
-			  </div>
-			</div><br>
+<!--
+		<div id="Eliminar" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Eliminar</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>¿Está seguro que desea eliminar este cargo?</p>
+		      </div>
+		      <div class="modal-footer">
+		      	<button type="button" value="submit" class="btn btn-default" data-dismiss="modal">Sí</button>
+		        <button type="button" value="" class="btn btn-default" data-dismiss="modal">No</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+-->
 
-			<div class=" row">
-			  <div class="col-sm-12">
-			    <label for="cargo">Estado: </label>
-				  	<input class="form-control" type="text" name ="id_estado" id="cargo" required="true" value="{{$eliminado->activo}}" disabled="">
-			  </div>
-			</div><br>
 
-			<div class="text-center">
-				<button type="button" class="btn btn-info btn-lg" type="submit" value="Submit" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
-	    	</div>
-
-		</form>
+    	<ul class="pager">
+	        <li><a href="#">Cancelar</a></li>
+	    </ul>
 	</div>
-</div>
+
+</form>
+
 
 @endsection
