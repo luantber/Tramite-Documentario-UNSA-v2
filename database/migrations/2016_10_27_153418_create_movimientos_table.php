@@ -18,7 +18,7 @@ class CreateMovimientosTable extends Migration
             $table->integer('tramite_id')->unsigned();
             $table->integer('area_remitente_id')->unsigned();
             $table->integer('area_destino_id')->unsigned();
-
+            $table->text('comentario');
             $table->timestamps();
 
             $table->foreign('tramite_id')
