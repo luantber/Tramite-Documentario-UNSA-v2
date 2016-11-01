@@ -161,9 +161,17 @@ class tramitesController extends Controller
     }
 
     public function guardar(Request $datos,$id){
+
         $editar = Tramite::find($id);
+        
         $editar->prioridad = $datos->prioridad;
         $editar ->asunto = $datos->asunto;
+        $area=Area::find($datos->tipoTramite);
+        
+        $tipo=TipoTramite::find($datos->tipoTramite);
+        $editar ->area()->associate($area);
+        $editar ->tipoTramite()->associate($area);
+        
         $editar ->save();
         return redirect('tramites');
     }
