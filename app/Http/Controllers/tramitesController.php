@@ -155,7 +155,9 @@ class tramitesController extends Controller
     public function editarTramiteV($id)
     {
         $tramite=Tramite::find($id);
-        return view('tramites.editar',["tramite"=>$tramite]);
+        $areas = Area::all();
+        $tipos =TipoTramite::all();
+        return view('tramites.editar',["tramite"=>$tramite,"areas"=>$areas,"tipos"=>$tipos]);
     }
 
     public function eliminarTramiteV($id)

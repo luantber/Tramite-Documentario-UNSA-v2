@@ -4,8 +4,6 @@
 
 @section('content')
 
-
-
 <form method="POST" onsubmit="return validar()" action="{{asset('tramites')}}{{'/'.$tramite->id.'/editar'}}"> 
     {{ csrf_field()}}
 
@@ -27,7 +25,11 @@
           <div class="col-sm-10">
             <select name="destino" class="form-control" id="destino">
               <option value="{{$tramite->area->id}}" >{{$tramite->area->nombre}}</option>
-
+              @foreach($areas as $area)
+                @if( $tramite->area->id != $area->id)
+                  <option value="{{$area->id}}" >{{$area->nombre}}</option>
+                @endif
+              @endforeach
             </select>
             <p id="nodestino" ></p>
           </div>
@@ -38,7 +40,11 @@
           <div class="col-sm-10">
             <select name="tipoTramite" class="form-control" id="tipo">
               <option value="{{$tramite->tipo}}" >{{$tramite->tipoTramite->nombre}}</option>
-
+                @foreach($tipos as $tipo)
+                @if( $tramite->tipoTramite->id != $tipo->id)
+                  <option value="{{$tipo->id}}" >{{$tipo->nombre}}</option>
+                @endif
+              @endforeach
             </select>
             <p id="nodestino" ></p>
           </div>
