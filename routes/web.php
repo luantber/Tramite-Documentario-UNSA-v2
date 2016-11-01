@@ -91,6 +91,7 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::post('{id}','tramitesController@guardar');
 
 	Route::get('{id}/eliminar','tramitesController@eliminarTramiteV');
+
 });
 
 
@@ -159,6 +160,10 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 */
 	Route::get('/panel', function(){
 		return view('tramites/panel');
+	});
+
+	Route::get('/documentos',function(){
+		return view('tramites.documentos');
 	});
 
 /*
