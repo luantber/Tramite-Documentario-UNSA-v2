@@ -1,5 +1,5 @@
 @extends('template')
-@section('title','Areas')
+@section('title','Tipos de Trámite')
 
 @section('content')
 
