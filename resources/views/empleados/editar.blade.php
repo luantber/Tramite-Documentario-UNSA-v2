@@ -11,7 +11,7 @@
 		<h2><p class="text-center">  Editar Empleados </p></h2>
 
 		<br><br>
-			<form method="post" onsubmit="return validar()" action="{{asset('empleados')}}{{'/'.$empleado->user->id.'/editar'}}">
+			<form method="post" onsubmit="return validar()" action="{{asset('empleados')}}{{'/'.$empleado->id}}">
 
 				{{ csrf_field()}}
 
@@ -22,7 +22,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-							<input class="form-control" type="string" name ="nombre" id="nombre" value="{{$empleado->user->nombre}}" disabled="" required="true">
+							<input class="form-control" type="string" name ="nombre" id="nombre" value="{{$empleado->user->nombre}}"  required="true">
 						</div>
 					</div>
 				</div><br>
@@ -34,7 +34,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$empleado->user->apellido}}" disabled="" required="true">
+					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$empleado->user->apellido}}"  required="true">
 					    </div>
 				  </div>
 				</div><br>
@@ -72,7 +72,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="string" name ="email" id="mail" value="{{$empleado->user->email}}" disabled="" required="true">
+						    <input class="form-control" type="string" name ="email" id="mail" value="{{$empleado->user->email}}"  required="true">
 						</div>
 						<p id="nocorreo"></p>
 					</div>
@@ -82,22 +82,24 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="string" name ="dni" id="DNI" value="{{$empleado->user->dni}}" disabled="" required="true">
+						    <input class="form-control" type="string" name ="dni" id="DNI" value="{{$empleado->user->dni}}"  required="true">
 						</div>
 						<p id="noingreso"></p>
 					</div>
 				</div><br>
 
 				<div class="row">
-				  <div class="col-sm-6">
-				  		<label for="activo" >Activo: </label>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">
-									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-								</span>
-					    	<input class="form-control" type="string" name ="activo" id="activo" value="{{$empleado->user->activo}}" required="true">
-					    </div>
-				  </div>
+				 
+				  		<label for="activo" >Estado: </label>
+						<select name="estado" class="form-control" id="cargo">
+				              <option value="{{$empleado->estado->id}}" >{{$empleado->estado->nombre}}</option>
+				                @foreach($estados as $stads)
+				                @if( $empleado->estado->id != $stads->id)
+				                  <option value="{{$stads->id}}" >{{$stads->nombre}}</option>
+				                @endif
+				              @endforeach
+				            </select>
+				  
 				</div><br><br>
 
 

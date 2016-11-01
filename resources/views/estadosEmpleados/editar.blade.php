@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="">
+<form method="POST" action="{{asset('estadosEmpleados')}}{{'/'.$estado->id}}">
 	{{ csrf_field()}}
 
 	<div class="row">
@@ -15,13 +15,13 @@
 
       <div class="form-group">
 		    <label for="nomArea"> Nombre del Estado: </label>
-		    <input type="text" class="form-control" name="nomEstado" id="nomEstado" value="{$empleado->nombre}" required="true">
+		    <input type="text" class="form-control" name="nombre" id="nomEstado" value="{{$estado->nombre}}" required="true">
 		  </div>
 
 
 		  <div class="form-group">
 		    <label for="Descripcion"> Descripción: </label>
-        <input class="form-control" name="descripcion" id="descripcion" value="{$empleado->nombre}" required="true">
+        <input class="form-control" name="descripcion" id="descripcion" value="{{$estado->descripcion}}" required="true">
       </div>
 
 		  <div class="form-group">

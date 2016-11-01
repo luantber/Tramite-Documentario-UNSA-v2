@@ -23,6 +23,10 @@ class Empleado extends Model
     	return $this->belongsTo('App\Area','id_area','id');
     }
 
+    public function estado(){
+        return $this->belongsTo('App\EstadoEmpleado','id_estado','id');
+    }
+
     
 
 }

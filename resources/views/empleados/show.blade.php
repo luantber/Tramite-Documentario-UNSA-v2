@@ -43,8 +43,8 @@
                         <td>{{$empleado -> user-> email}}</td>
                       </tr>
                       <tr>
-                        <td> Activo: </td>
-                        <td>{{$empleado -> user-> activo}}</td>
+                        <td> Estado: </td>
+                        <td>{{$empleado -> estado-> nombre}}</td>
                       </tr>
                      
                     </tbody>

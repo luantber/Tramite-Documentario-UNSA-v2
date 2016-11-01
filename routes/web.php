@@ -35,13 +35,14 @@ Route::group(['prefix'=>'empleados'],function(){
 	Route::get('usuario',function(){return view('empleados.usuario');});//empleados/usuario -- refiere a un empleado que ya es usuario
 	Route::post('EmpleadoUsu','empleadosController@create');
 
-	Route::get('{id}', 'empleadosController@show');
 
 	Route::get('{id}/eliminar','empleadosController@eliminar');
 	Route::post('eliminar','empleadosController@eliminado');
 	
 	Route::get('{id}/editar','empleadosController@editar');
 	Route::post('{id}','empleadosController@guardar');
+	
+	Route::get('{id}', 'empleadosController@show');
 });
 
 
@@ -64,6 +65,27 @@ Route::group(['prefix'=>'cargos'],function(){
 
 
 });
+
+//GRUPO ESTADO EMPLEADOS
+
+Route::group(['prefix'=>'estadosEmpleados'],function(){
+	Route::get('/',function(){return view ('estadosEmpleados.todos');});
+	Route::get('todos','estadoEmpleadosController@todos');
+
+	Route::get('crear',function(){return view('estadosEmpleados.crear');});
+	Route::post('crear','estadoEmpleadosController@crear');
+
+	Route::get('{id}/editar','estadoEmpleadosController@editar');
+	Route::post('{id}','estadoEmpleadosController@guardar');
+
+//	Route::get('{id}/eliminar','estadoEmpleadosController@eliminar');
+//	Route::post('eliminar','estadoEmpleadosController@eliminado');
+
+	Route::get('{id}','estadoEmpleadosController@show');
+
+});
+
+
 
 
 Route::group(['prefix'=>'tramites'],function(){

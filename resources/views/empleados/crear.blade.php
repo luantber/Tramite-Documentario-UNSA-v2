@@ -91,8 +91,9 @@
 			    <label for="estado">Estado: </label>
 				  	<select name="id_estado" type="text" class="form-control" id="estado">
 			          <option value="" >Seleccionar estado</option>
-			            <option value="1">Activo</option>
-			            <option value="0">Inactivo</option>
+			          		@foreach($estado as $stads)
+			                    <option value='{{$stads->id}}'>{{$stads->nombre}}</option>
+			                @endforeach
 			        </select>
 			  </div>
 			</div><br>

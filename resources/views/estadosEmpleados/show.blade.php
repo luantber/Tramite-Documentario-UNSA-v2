@@ -9,7 +9,7 @@
       <div class="panel panel-info">
         <div class="panel-heading">
           <div class="text-center">
-            <h3 class="panel-title">Estado: { $estado->nombre}</h3>
+            <h3 class="panel-title">Estado: {{$estado->nombre}}</h3>
           </div>
         </div>
         <div class="panel-body">
@@ -20,11 +20,11 @@
                 <tbody>
                   <tr>
                     <td>Nombre de Estado: </td>
-                    <td>{$estado->nombre}</td>
+                    <td>{{$estado->nombre}}</td>
                   </tr>
                   <tr>
                     <td>Descripción: </td>
-                    <td>{$estado->descripcion}</td>
+                    <td>{{$estado->descripcion}}</td>
                   </tr>                     
                 </tbody>
               </table>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+Luis los datos  ya estan mandados
 <div id="container">
 </div>
 

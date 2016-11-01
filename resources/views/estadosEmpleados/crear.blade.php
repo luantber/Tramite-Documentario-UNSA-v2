@@ -15,7 +15,7 @@
 
       <div class="form-group">
 		    <label for="nomArea"> Nombre del Estado: </label>
-		    <input type="text" class="form-control" placeholder="Nombre" name="nomEstado" id="nomEstado" required="true">
+		    <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nomEstado" required="true">
 		  </div>
 
 
