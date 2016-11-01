@@ -149,7 +149,7 @@ class tramitesController extends Controller
     public function showTramite($id)
     {
         $tramite= Tramite::find($id);
-        return view('tramites.editar',["tramite"=>$tramite]);
+        return view('tramites.show',["tramite"=>$tramite]);
     }    
 
     public function editarTramiteV($id)

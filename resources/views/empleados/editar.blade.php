@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title','Perfil')
+@section('title','Editar Empleado')
 
 
 @section('content')
