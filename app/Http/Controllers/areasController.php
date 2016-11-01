@@ -42,7 +42,8 @@ class areasController extends Controller
     public function editar($id)
     {
         $area = Area::find($id);
-        return view('areas.editar',['area'=>$area]);
+        $areas = Area::all();
+        return view('areas.editar',['area'=>$area,'areas'=>$areas]);
     }
 
     public function guardar($id,Request $datos)
