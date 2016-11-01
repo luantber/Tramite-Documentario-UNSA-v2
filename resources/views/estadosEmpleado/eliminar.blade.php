@@ -1,16 +1,16 @@
 @extends('template')
 
-@section('title','Eliminar Cargo')
+@section('title','Eliminar Estado')
 
 @section('content')
 
-<form method="post" action="{{asset('cargos/eliminar')}}">
+<form method="post" action="{{asset('estadosEmpleado/eliminar')}}">
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
       <div class="panel panel-info">
         <div class="panel-heading">
           <div class="text-center">
-            <h3 class="panel-title">Cargo: {{ $eliminado->nombreCargo }}</h3>
+            <h3 class="panel-title">Estado: { $eliminado->nombre }</h3>
           </div>
         </div>
         
@@ -21,12 +21,12 @@
               <table class="table table-user-information">
                 <tbody>
                   <tr>
-                    <td>Nombre de Cargo: </td>
-                    <td>{{$eliminado->nombreCargo}}</td>
+                    <td>Nombre de Estado: </td>
+                    <td>{$eliminado->nombre}</td>
                   </tr>
                   <tr>
                     <td>Descripción: </td>
-                    <td>{{$eliminado->descripcion}}</td>
+                    <td>{$eliminado->descripcion}</td>
                   </tr>                     
                 </tbody>
               </table>
