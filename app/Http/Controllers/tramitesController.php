@@ -160,6 +160,14 @@ class tramitesController extends Controller
         return view('tramites.editar',["tramite"=>$tramite,"areas"=>$areas,"tipos"=>$tipos]);
     }
 
+    public function guardar(Request $datos,$id){
+        $editar = Tramite::find($id);
+        $editar->prioridad = $datos->prioridad;
+        $editar ->asunto = $datos->asunto;
+        $editar ->save();
+        return redirect('tramites');
+    }
+
     public function eliminarTramiteV($id)
     {
         $tramite=Tramite::find($id);

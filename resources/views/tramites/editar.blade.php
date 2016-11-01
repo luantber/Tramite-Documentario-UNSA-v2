@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" onsubmit="return validar()" action="{{asset('tramites')}}{{'/'.$tramite->id.'/editar'}}"> 
+<form method="post" onsubmit="return validar()" action="{{asset('tramites')}}{{'/'.$tramite->id}}"> 
     {{ csrf_field()}}
 
     <form class="form-horizontal container" enctype="multipart/form-data">
@@ -74,7 +74,7 @@
       	<div class="row">
       		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
       		<div class="col-sm-10" >
-      			<input name="asunto" class="form-control" id="asunto" value="{{$tramite->asunto}}" required=""></textarea>
+      			<input name="asunto" class="form-control" id="asunto" value="{{$tramite->asunto}}" required="">
       		</div>
       	</div><br>
 

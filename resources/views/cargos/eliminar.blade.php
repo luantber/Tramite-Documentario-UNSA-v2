@@ -36,10 +36,9 @@
 					<div class="text-center">
 						<button type="button" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
 			    	</div>
-
+<!--
 					<div id="Eliminar" class="modal fade" role="dialog">
 					  <div class="modal-dialog">
-
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -53,9 +52,9 @@
 					        <button type="button" value="" class="btn btn-default" data-dismiss="modal">No</button>
 					      </div>
 					    </div>
-
 					  </div>
 					</div>
+-->
 
 
 			    	<ul class="pager">
