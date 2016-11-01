@@ -125,10 +125,6 @@ Route::group(['prefix'=>'tipostramite'],function(){
   Route::post('{id}','tiposTramiteController@guardar');
   
 }); 
- 
-
-
-
 
 
 //Route::get('login', 'LoginController@login');
@@ -141,8 +137,11 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //Solo para ver vistas :'v
 /*
 	GG Tu solo para vistas, si quieres verlo tiene que funcionar
+	>:c :(
 */
-
+	Route::get('/panel', function(){
+		return view('tramites/panel');
+	});
 
 /*
 	GG tu Prueba
