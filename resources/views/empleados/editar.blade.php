@@ -42,11 +42,25 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<label for="area">Area: </label>
-						    <input class="form-control" type="string" name ="area" id="area" value="{{$empleado->area->nombre}}" required="true">
+						    <select name="area" class="form-control" id="area">
+				              <option value="{{$empleado->area->id}}" >{{$empleado->area->nombre}}</option>
+				              @foreach($areas as $area)
+				                @if( $empleado->area->id != $area->id)
+				                  <option value="{{$area->id}}" >{{$area->nombre}}</option>
+				                @endif
+				              @endforeach
+				            </select>
 					</div>
 				    <div class="col-sm-6">
 				  		<label for="cargo" >Cargo: </label>
-							<input class="form-control" type="string" name ="cargo" id="cargo" value="{{$empleado->cargo->nombreCargo}}" required="true">
+							<select name="cargo" class="form-control" id="cargo">
+				              <option value="{{$empleado->cargo->id}}" >{{$empleado->cargo->nombreCargo}}</option>
+				                @foreach($cargos as $cargo)
+				                @if( $empleado->cargo->id != $cargo->id)
+				                  <option value="{{$cargo->id}}" >{{$cargo->nombreCargo}}</option>
+				                @endif
+				              @endforeach
+				            </select>
 					</div>
 
 				</div><br>

@@ -88,11 +88,11 @@
 
 			<div class=" row">
 			  <div class="col-sm-12">
-			    <label for="cargo">Estado: </label>
-				  	<select name="id_estado" type="text" class="form-control" id="cargo">
+			    <label for="estado">Estado: </label>
+				  	<select name="id_estado" type="text" class="form-control" id="estado">
 			          <option value="" >Seleccionar estado</option>
 			            <option value="1">Activo</option>
-			            <option value="2">Inactivo</option>
+			            <option value="0">Inactivo</option>
 			        </select>
 			  </div>
 			</div><br>
