@@ -128,16 +128,18 @@ class empleadosController extends Controller
         $editar->id_area = $datos ->area;
         $editar ->id_cargo = $datos ->cargo;
         $editar ->id_estado = $datos ->estado;
+        $editar ->save();
 
         $editarUsu->nombre = $datos->nombre;
-        $editarUsu->apellido = $datos->apelido;
+        $editarUsu->apellido = $datos->apellido;
         $editarUsu->email = $datos->email;
         $editarUsu->dni = $datos->dni;
         $editarUsu->activo = true;
+        echo $editarUsu->id;
+        echo $editarUsu->apellido;
 
         $editarUsu->save();
 
-        $editar ->save();
 
         return redirect('empleados/'.$id);
     }

@@ -54,9 +54,9 @@
               </div>
             </div>
                  <div class="panel-footer">
-                        <a href="{{asset('empleados')}}{{'/'.$empleado->user->id.'/editar'}}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{{asset('empleados')}}{{'/'.$empleado->id.'/editar'}}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                         <span class="pull-right">
-                            <a href="{{asset('empleados')}}{{'/'.$empleado->user->id.'/eliminar'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                            <a href="{{asset('empleados')}}{{'/'.$empleado->id.'/eliminar'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                         </span>
                     </div>
 
