@@ -12,7 +12,7 @@
 		<h2><p class="text-center">  Subir documentos </p></h2>
 		<br><br>
 
-		<form method="post" action="{{asset('tramites'.'/'.$tramite->id.'/subir')}}">
+		<form method="post" action="{{asset('tramites'.'/'.$tramite->id.'/subir')}}" enctype="multipart/form-data">
 		{{ csrf_field()}}
 		
 

@@ -141,6 +141,14 @@ class tramitesController extends Controller
 
         $tiposDocumentos=TipoDocumento::all();
 
+        //end modificar --- 
+
+        //start subir archivo
+        $archivo=$datos->file('archivo');
+        $ext=$archivo->guessClientExtension();
+        $nombre=$datos->nomDoc.".".$ext;
+        $path=$archivo->storeAs('semiFTP/'.$datos->numExp,$nombre); //<- la variable path almacena la ruta del archivo
+
        
         
         return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
