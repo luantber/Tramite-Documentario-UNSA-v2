@@ -175,11 +175,22 @@ class tramitesController extends Controller
         
         $editar->prioridad = $datos->prioridad;
         $editar ->asunto = $datos->asunto;
+
         $area=Area::find($datos->tipoTramite);
-        
+        $estado=EstadoTramite::find($datos->estadoTramite);        
         $tipo=TipoTramite::find($datos->tipoTramite);
-        $editar ->area()->associate($area);
-        $editar ->tipoTramite()->associate($area);
+
+        if($area!=NULL){
+            $editar ->area()->associate($area);    
+        }
+        if($estado!=NULL){
+            $editar->estado()->associate($estado);
+        }
+        if($tipo!=NULL){
+            $editar ->tipoTramite()->associate($area);    
+        }
+        
+        
         
         $editar ->save();
         return redirect('tramites');
