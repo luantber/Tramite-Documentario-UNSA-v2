@@ -22,6 +22,25 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::post('{id}','usuariosController@guardar');
 });
 
+Route::group(['prefix'=>'empleados/estados'],function(){
+	Route::get('/',function(){return view ('estadosEmpleados.todos');});
+	Route::get('todos','estadoEmpleadosController@todos');
+
+	Route::get('crear',function(){return view('estadosEmpleados.crear');});
+	Route::post('crear','estadoEmpleadosController@crear');
+
+	Route::get('{id}/eliminar','estadoEmpleadosController@eliminar');
+	Route::post('eliminar','estadoEmpleadosController@eliminado');
+
+	Route::get('{id}/editar','estadoEmpleadosController@editar');
+	Route::post('{id}','estadoEmpleadosController@guardar');
+
+
+	Route::get('{id}','estadoEmpleadosController@show');
+
+});
+
+
 //GRUPO EMPLEADOS **empleados/encontrar....empleados/crear
 Route::group(['prefix'=>'empleados'],function(){
 	Route::get('/',function(){return view('empleados.todos');});//empleados
@@ -67,23 +86,7 @@ Route::group(['prefix'=>'cargos'],function(){
 
 //GRUPO ESTADO EMPLEADOS
 
-Route::group(['prefix'=>'empleados/estados'],function(){
-	Route::get('/',function(){return view ('estadosEmpleados.todos');});
-	Route::get('todos','estadoEmpleadosController@todos');
 
-	Route::get('crear',function(){return view('estadosEmpleados.crear');});
-	Route::post('crear','estadoEmpleadosController@crear');
-
-	Route::get('{id}/eliminar','estadoEmpleadosController@eliminar');
-	Route::post('eliminar','estadoEmpleadosController@eliminado');
-
-	Route::get('{id}/editar','estadoEmpleadosController@editar');
-	Route::post('{id}','estadoEmpleadosController@guardar');
-
-
-	Route::get('{id}','estadoEmpleadosController@show');
-
-});
 	//estados de tramites
 	Route::group(['prefix'=>'tramites/estados'],function(){	
 		Route::get('/',function(){return view ('estadosTramites.todos');});
