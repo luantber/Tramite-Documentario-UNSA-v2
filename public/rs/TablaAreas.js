@@ -4,6 +4,8 @@ class Cargo extends React.Component{
 		return (
 			<tr>
 				<td>{this.props.nombre}</td>
+				<td>{this.props.padre}</td>
+				<td>{this.props.jefe}</td>
 				<td>{this.props.descripcion}</td>
 
 			</tr>
@@ -47,6 +49,8 @@ window.TablaAreas = React.createClass({
 		      <tr>
 		        
 		        <th>Nombre de Area</th>
+	        	<th>Area Padre</th>
+	        	<th>Jefe de Area</th>
 	        	<th>Descripción</th>
 		      
 		      </tr>
@@ -55,14 +59,56 @@ window.TablaAreas = React.createClass({
 		    <tbody>      
 			  {
 				this.state.data.map(
-				 	function (cargo){
-				 		return(
+				 	function (area){
+
+				 		if(area.area){
+				 			if(area.jefe){
+				 				return(
 				 				<Cargo
-				 					nombre={cargo.nombre} 
-				 					descripcion={cargo.descripcion}
-				 					key={cargo.id}
-				 				/>
-				 		)
+				 					nombre={area.nombre} 
+				 					descripcion={area.descripcion}
+				 					padre={area.area.nombre}
+				 					jefe={area.jefe.user.nombre + " " +area.jefe.user.apellido}
+
+				 					key={area.id}
+				 				/>)
+				 			}
+				 			else{
+				 				return(
+				 				<Cargo
+				 					nombre={area.nombre} 
+				 					descripcion={area.descripcion}
+				 					padre={area.area.nombre}
+				 					
+				 					key={area.id}
+				 				/>)
+				 			}
+				 				
+				 		}
+				 		else{
+				 			if(area.jefe){
+				 				return(
+				 				<Cargo
+				 					nombre={area.nombre} 
+				 					descripcion={area.descripcion}
+				 					
+				 					jefe={area.jefe.user.nombre + area.jefe.user.apellido}
+
+				 					key={area.id}
+				 				/>)
+				 			}
+				 			else{
+				 				return(
+				 				<Cargo
+				 					nombre={area.nombre} 
+				 					descripcion={area.descripcion}
+				 			
+				 					
+				 					key={area.id}
+				 				/>)
+				 			}
+				 		}
+				 		
 				 	}
 			 	)
 			}

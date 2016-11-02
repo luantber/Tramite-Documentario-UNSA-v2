@@ -6,18 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Area;
+use App\Empleado;
 
 class areasController extends Controller
 {
     public function todos()
     {
-        $areas = Area::all();
+        $areas = Area::with('area','jefe.user')->get();
         return response()->json($areas);
     }
 	public function crearGet(){
 
 		$areas = Area::all();
-		return view('areas.crear',['areas'=> $areas]);
+        $empleados = Empleado::with('user')->get();
+		return view('areas.crear',['areas'=> $areas,'empleados'=>$empleados]);
 	}
 
     public function crear(Request $datos){
@@ -25,11 +27,14 @@ class areasController extends Controller
     	
     	$nuevo = new Area;
     	$nuevo->nombre = $datos->nomArea;
-    	$nuevo->area_id = $datos->idAreaPad;
-    	$nuevo->jefe_id = $datos->jefArea;
+        $nuevo->jefe_id = $datos->jefArea;
     	$nuevo->descripcion = $datos->descripcion;
 
+        $nuevo->area_id=$datos->idAreaPad;
+
     	$nuevo->save();
+
+    
 
     	return redirect('areas');
     }

@@ -141,7 +141,7 @@ Route::group(['prefix'=>'areas'],function(){
 Route::group(['prefix'=>'tipostramite'],function(){ 
    
   Route::get('/',function(){ return view('tiposTramite.todos');  }); 
-  Route::get('/todos','tiposTramiteController@todos');
+  Route::get('todos','tiposTramiteController@todos');
 
   Route::get('crear','tiposTramiteController@crearGet'); 
   Route::post('crear','tiposTramiteController@crear'); 
@@ -153,7 +153,7 @@ Route::group(['prefix'=>'tipostramite'],function(){
   
 }); 
 
-Route::group(['prefix'=>'estadosEmpleado'],function(){
+Route::group(['prefix'=>'empleados/estados'],function(){
 	Route::get('/crear',function(){
 		return view('estadosEmpleado.crear');
 	});
