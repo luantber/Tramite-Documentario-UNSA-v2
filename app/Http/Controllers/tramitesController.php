@@ -14,7 +14,7 @@ use App\EstadoTramite;
 use App\Documento;
 use App\User;
 use App\Movimiento; 
-
+use App\Cargo;
 
 
 class tramitesController extends Controller
@@ -55,7 +55,7 @@ class tramitesController extends Controller
             $tipo->descripcion='descripcion';
             $tipo->save();
 
-            $cargo=new App\Cargo;
+            $cargo=new Cargo;
             $cargo->nombreCargo='jefe';
             $cargo->descripcion='this is the boos';
             $cargo->save();
@@ -216,7 +216,8 @@ class tramitesController extends Controller
 
     public function getDocumentosV($id)
     {   
-        $documentos=Documento::all()->where('id',$id);
+        $tramite= Tramite::find($id);
+        $documentos=$tramite->documentos;
         return view('tramites.documentos',["documentos"=>$documentos]);
     }
 

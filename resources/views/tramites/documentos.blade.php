@@ -24,13 +24,16 @@
 			<tbody>
 				<tr>
 					@foreach($documentos as $documento)
+					<tr>
 						<td>{{$documento->id}}</td>
 						<td>{{$documento->tramite->nro_expediente}}</td>
 						<td>{{$documento->tipoDocumento->nombre}}</td>
 						<td>{{$documento->nombre}}</td>
 				        <td>{{$documento->created_at}} </td>
 				        <td>{{$documento->tramite->area->nombre}}</td>
+
 				        <th><a value="" href="" type="button" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-envelope"></i></a></th>
+				     </tr>
 					@endforeach
 			    </tr>
 

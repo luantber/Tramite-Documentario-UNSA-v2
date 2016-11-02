@@ -41,4 +41,9 @@ class Tramite extends Model
     {
         return $this->belongsTo('App\EstadoTramite','estado_tramite_id','id');
     }
+
+    public function documentos()
+    {
+        return $this->hasMany('App\Documento','tramite_id','id');
+    }
 }
