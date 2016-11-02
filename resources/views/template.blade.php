@@ -85,6 +85,9 @@
                  <li><a href="{{ url('#') }}">Responder</a></li>
                  <li><a href="{{ url('#') }}">Buscar</a></li>
                  <li><a href="{{ url('tramites/ver') }}">Todos</a></li>
+                 <li><a href="{{ url('tramites/estados/crear') }}">crear Estados</a></li>
+                 <li><a href="{{ url('tramites/estados') }}">Estados</a></li>
+
                </ul>
            </li>
 

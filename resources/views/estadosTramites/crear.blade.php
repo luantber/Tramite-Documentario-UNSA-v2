@@ -3,11 +3,7 @@
 @section('title','Crear Estado')
 
 @section('content')
-
-<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-
-
-<form method="POST" action="crear">
+<form method="POST" action="{{asset('tramites/estados/crear')}}">
 	{{ csrf_field()}}
 
 	<div class="row">
@@ -18,7 +14,7 @@
 
       <div class="form-group">
 		    <label for="nomArea"> Nombre del Estado: </label>
-		    <input type="text" class="form-control" placeholder="Nombre" name="nomEstado" id="nomEstado" required="true">
+		    <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nomEstado" required="true">
 		  </div>
 
 
@@ -27,7 +23,11 @@
         <textarea class="form-control" placeholder="Ingrese la descripción"  name="descripcion" id="descripcion" required="true"></textarea>
       </div>
 
-		  <button type="submit" class="btn btn-default" value="Submit">Crear</button>
+		  <div class="form-group">
+        	<div class="text-center">
+          		<button type="submit" value="Submit" class="btn btn-lg">Crear Estado</button>
+        	</div>
+      	  </div>
 
 		</form>
 		</div>

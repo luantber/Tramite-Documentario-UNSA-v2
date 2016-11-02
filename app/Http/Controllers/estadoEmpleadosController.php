@@ -19,7 +19,7 @@ class estadoEmpleadosController extends Controller
 
     public function todos(){
     	$estados = EstadoEmpleado::all();
-    	return response()->json($cargos);
+    	return response()->json($estados);
     }
 
     public function show ($id){

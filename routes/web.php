@@ -84,7 +84,25 @@ Route::group(['prefix'=>'estadosEmpleados'],function(){
 	Route::get('{id}','estadoEmpleadosController@show');
 
 });
+	//estados de tramites
+	Route::group(['prefix'=>'tramites/estados'],function(){	
+		Route::get('/',function(){return view ('estadosTramites.todos');});
+		Route::get('todos','estadosTramitesController@todos');
 
+		Route::get('crear',function(){return view('estadosTramites.crear');});
+		Route::post('crear','estadosTramitesController@crear');
+
+		Route::get('{id}/eliminar','estadosTramitesController@eliminar');
+		Route::post('eliminar','estadosTramitesController@eliminado');
+
+		Route::get('{id}/editar','estadosTramitesController@editar');
+		Route::post('{id}','estadosTramitesController@guardar');
+
+
+		Route::get('{id}','estadosTramitesController@show');
+
+
+	});
 
 
 
@@ -116,7 +134,6 @@ Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('{id}/eliminar','tramitesController@eliminarTramiteV');
 	Route::get('{id}/documentos','tramitesController@getDocumentosV');
-
 
 });
 
