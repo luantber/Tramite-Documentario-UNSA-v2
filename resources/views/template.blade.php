@@ -102,8 +102,8 @@
                       <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estados-Empleados <span class="caret"></span></a>
                <ul class="dropdown-menu">
-                 <li><a href="{{ url('estadosEmpleados/crear')}}">Crear</a></li>
-                 <li><a href="{{ url('estadosEmpleados') }}">Mostrar todos</a></li>
+                 <li><a href="{{ url('empleados/estados/crear')}}">Crear</a></li>
+                 <li><a href="{{ url('empleados/estados') }}">Mostrar todos</a></li>
                </ul>
            </li>
 
