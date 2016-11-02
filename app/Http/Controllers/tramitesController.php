@@ -150,7 +150,7 @@ class tramitesController extends Controller
 
     public function todos()
     {
-        $tramites = Tramite::with('area','persona','empleado','tipoTramite','estado');
+        $tramites = Tramite::with('area','persona','empleado','tipoTramite','estado')->get();
         return response()->json($tramites);
     }
 
