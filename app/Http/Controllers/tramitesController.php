@@ -15,7 +15,7 @@ use App\Documento;
 use App\User;
 use App\Movimiento; 
 use App\Cargo;
-
+use Illuminate\Support\Facades\Auth;
 
 class tramitesController extends Controller
 {
@@ -213,7 +213,7 @@ class tramitesController extends Controller
 
     public function delegarAreaV($id){
         $tramite=Tramite::find($id);
-        $areas=Area::all()->where('id_area',NULL);
+        $areas=Area::all()->where('area_id',NULL);
         return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
     }
 
@@ -241,14 +241,32 @@ class tramitesController extends Controller
         return view('tramites.documentos',["documentos"=>$documentos]);
     }
 
-    /*
+    
+
     public function delegarSubAreaV($id){
+        
         $usuario=User::find(Auth::user()->id);
-        $areas=Area::all()->where('area_id',$usuario->area->id);
+        $areas=Area::all()->where('area_id',$usuario->empleado->area->id);
         $tramite=Tramite::find($id);
         return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
     }
-    */
 
+    public function delegarEmpleadoV($id){
+        $usuario=User::find(Auth::user()->id);
+        $area=$usuario->empleado->area;
+        $empleados=Empleado::all()->where('id_area',$area->id);
+        $tramite=Tramite::find($id);
+        
+        return view('tramites.delegar-empleado',["tramite"=>$tramite,"empleados"=>$empleados]);
+    }
+    
+    public function delegarEmpleado(Request $datos,$id){
+        $tramite=Tramite::find($id);
+        $empleado=Empleado::find($datos->id_empleado);
+        $tramite->empleado()->associate($empleado);
+        $tramite->save();
+        return redirect('tramites');
+
+    }
 
 }
