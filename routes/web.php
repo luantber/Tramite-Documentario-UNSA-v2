@@ -153,23 +153,7 @@ Route::group(['prefix'=>'tipostramite'],function(){
   
 }); 
 
-Route::group(['prefix'=>'empleados/estados'],function(){
-	Route::get('/crear',function(){
-		return view('estadosEmpleado.crear');
-	});
-	Route::get('/editar',function(){
-		return view('estadosEmpleado.editar');
-	});
-	Route::get('/eliminar',function(){
-		return view('estadosEmpleado.eliminar');
-	});
-	Route::get('/show',function(){
-		return view('estadosEmpleado.show');
-	});
-	Route::get('/todos',function(){
-		return view('estadosEmpleado.todos');
-	});
-});
+
 
 
 //Route::get('login', 'LoginController@login');
