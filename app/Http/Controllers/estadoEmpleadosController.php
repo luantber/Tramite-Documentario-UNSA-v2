@@ -46,7 +46,7 @@ class estadoEmpleadosController extends Controller
     }
 
     public function eliminado(Request $datos){
-    	dd($datos);
+    	//dd($datos);
     	$eliminado = EstadoEmpleado::find($datos->id);
     	$eliminado->delete();
     	return redirect('estadosEmpleados');

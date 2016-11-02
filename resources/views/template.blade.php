@@ -72,7 +72,7 @@
                <ul class="dropdown-menu">
                  <li><a href="{{ url('usuarios')}}">Ver Usuarios</a></li>
                  <li><a href="{{ url('empleados') }}">Ver Empleados</a></li>
-                 <li><a href="{{ url('usuarios/todos') }}">Ver Todos</a></li>
+
                </ul>
            </li>
  
@@ -92,8 +92,15 @@
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cargos <span class="caret"></span></a>
                <ul class="dropdown-menu">
                  <li><a href="{{ url('cargos/crear')}}">Crear</a></li>
-                 <li><a href="{{ url('cargos/editar')}}">Editar</a></li>
                  <li><a href="{{ url('cargos') }}">Mostrar todos</a></li>
+               </ul>
+           </li>
+
+                      <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estados-Empleados <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li><a href="{{ url('estadosEmpleados/crear')}}">Crear</a></li>
+                 <li><a href="{{ url('estadosEmpleados') }}">Mostrar todos</a></li>
                </ul>
            </li>
 

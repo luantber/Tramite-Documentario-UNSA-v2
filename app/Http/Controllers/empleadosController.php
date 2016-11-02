@@ -122,7 +122,6 @@ class empleadosController extends Controller
 
         public function guardar(Request $datos,$id){
         $editar = Empleado::find($id);
-        echo $editar->id_persona;
         $editarUsu = User::find($editar->id_persona);
 
         $editar->id_area = $datos ->area;

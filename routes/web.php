@@ -27,7 +27,6 @@ Route::group(['prefix'=>'empleados'],function(){
 	Route::get('/',function(){return view('empleados.todos');});//empleados
 	Route::get('todos','empleadosController@todos');
 
-	//Route::get('crear',function(){return view('empleados.crear');});//empleados/crear --refiere a un empleado que no existe como usuario
 	Route::get('crear','empleadosController@antesCrear');
 	Route::post('crearNewEmple','empleadosController@createNew');
 
@@ -75,11 +74,12 @@ Route::group(['prefix'=>'estadosEmpleados'],function(){
 	Route::get('crear',function(){return view('estadosEmpleados.crear');});
 	Route::post('crear','estadoEmpleadosController@crear');
 
+	Route::get('{id}/eliminar','estadoEmpleadosController@eliminar');
+	Route::post('eliminar','estadoEmpleadosController@eliminado');
+
 	Route::get('{id}/editar','estadoEmpleadosController@editar');
 	Route::post('{id}','estadoEmpleadosController@guardar');
 
-//	Route::get('{id}/eliminar','estadoEmpleadosController@eliminar');
-//	Route::post('eliminar','estadoEmpleadosController@eliminado');
 
 	Route::get('{id}','estadoEmpleadosController@show');
 
