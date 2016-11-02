@@ -24,7 +24,7 @@
                   </tr>
                   <tr>
                     <td>Nombre de Área Padre: </td>
-                    <td>{{$area->area->nombre}}</td>
+                    <td>{{$area->area_id}}</td>
                   </tr>      
                   <tr>
                     <td>Jefe de Área: </td>

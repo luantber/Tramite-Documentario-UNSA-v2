@@ -48,9 +48,6 @@
 					</span>
 				    	<select type="text" class="form-control" placeholder="Selecciona el Jefe del Área" name="jefArea" id="jefArea">
 							<option value="0">Sin Jefe</option>
-							@foreach($empleados as $empleado)
-			                    <option value="{{$empleado->id}}">{{$empleado->user->nombre}}</option>
-			                @endforeach
 						</select>
 				</div>
 		  </div>
