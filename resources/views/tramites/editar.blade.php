@@ -31,7 +31,7 @@
               @endforeach
             </select>
           </div>
-        </div>
+        </div><br>
 
         <div class="row">
           <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
@@ -45,7 +45,7 @@
               @endforeach
             </select>
           </div>
-        </div>
+        </div><br>
 
         <div class="row">
           <label for="tipo" class="col-sm-2 control-label" >Estado de Trámite</label>
@@ -57,7 +57,7 @@
               @endforeach
             </select>
           </div>
-        </div>
+        </div><br>
 
         <div class="row">
           <label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>

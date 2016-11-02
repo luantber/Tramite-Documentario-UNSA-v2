@@ -51,6 +51,10 @@
                         <td>{{$tramite->tipoTramite->nombre}}</td>
                       </tr>
                       <tr>
+                        <td>Tipo de trámite:</td>
+                        <td>{{$tramite->estado->nombre}}</td>
+                      </tr>
+                      <tr>
                         <td> Prioridad: </td>
                         @if($tramite->prioridad == 1)
                           <td>Urgente</td>
