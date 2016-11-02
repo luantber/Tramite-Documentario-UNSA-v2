@@ -51,7 +51,7 @@
                         <td>{{$tramite->tipoTramite->nombre}}</td>
                       </tr>
                       <tr>
-                        <td>Tipo de trámite:</td>
+                        <td>Estado de trámite:</td>
                         <td>{{$tramite->estado->nombre}}</td>
                       </tr>
                       <tr>
