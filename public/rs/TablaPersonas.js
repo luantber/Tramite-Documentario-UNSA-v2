@@ -3,10 +3,13 @@ class Persona extends React.Component{
 	render(){
 		return (
 			<tr>
+				<td>{this.props.id}</td>
 				<td>{this.props.name}</td>
 				<td>{this.props.apellido}</td>
 				<td>{this.props.dni}</td>
 				<td>{this.props.email}</td>
+				<td><a href={this.props.base+'/'+this.props.id}> ver </a></td>
+
 			</tr>
 			
 		);
@@ -37,7 +40,7 @@ window.TablaPersonas = React.createClass({
 
 	componentDidMount(){
 		this.cargarDatos();
-	setInterval(this.cargarDatos,this.props.refresh)
+		setInterval(this.cargarDatos,this.props.refresh)
 	},
 
 	render(){
@@ -46,11 +49,13 @@ window.TablaPersonas = React.createClass({
 <table className="table table-striped">
 		  <thead>
 		      <tr>
-		        
+		        <th>ID</th>
 		        <th>Nombre</th>
 		        <th>Apellido</th>
 		        <th>DNI</th>
 		        <th>Email</th>
+		        <th>Ver</th>
+		        <th>Editar</th>
 		      
 		      </tr>
 		    </thead>
@@ -61,14 +66,16 @@ window.TablaPersonas = React.createClass({
 				 	function (persona){
 				 		return(
 				 				<Persona
-				 					name={persona.nombre} 
-				 					apellido={persona.apellido} 
-				 					email={persona.email} 
-				 					dni={persona.dni}  
+				 					name={persona.user.nombre} 
+				 					apellido={persona.user.apellido} 
+				 					email={persona.user.email} 
+				 					dni={persona.user.dni}
+				 					base={this.props.base}
+				 					id={persona.id} 
 				 					key={persona.id}
 				 				/>
 				 		)
-				 	}
+				 	},this
 			 	)
 			}
 		    </tbody>

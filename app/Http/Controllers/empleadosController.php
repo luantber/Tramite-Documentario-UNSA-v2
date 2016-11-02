@@ -22,6 +22,7 @@ class empleadosController extends Controller
     }
 
     public function create(Request $datos){
+
     	$nuevo = new Empleado;
     	$nuevo->id_area = $datos->id_area;
     	$nuevo->id_cargo = $datos->id_cargo;
@@ -85,13 +86,10 @@ class empleadosController extends Controller
     }
 
     public function todos(){
-
-      $join = DB::table('empleados')
-                ->leftjoin('users','empleados.id_persona','=','users.id')
-                ->get();
-
+      $todos = Empleado::with('user','cargo','area','estado')->get()    ;
+      
       //dd($join);
-      return response()->json($join);
+      return response()->json($todos);
     }  
 
 
