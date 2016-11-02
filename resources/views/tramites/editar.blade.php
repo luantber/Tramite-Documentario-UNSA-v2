@@ -17,7 +17,6 @@
             <div class="col-sm-10">
               <input type="text" class="form-control" name="dni" id="dni" required="true" value="{{$tramite->persona->dni}}" disabled="">
             </div>
-            <p id="noingreso"></p>
         </div><br>
 
         <div class="row">
@@ -31,7 +30,6 @@
                 @endif
               @endforeach
             </select>
-            <p id="nodestino" ></p>
           </div>
         </div>
 
@@ -46,7 +44,18 @@
                 @endif
               @endforeach
             </select>
-            <p id="nodestino" ></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="tipo" class="col-sm-2 control-label" >Estado de Trámite</label>
+          <div class="col-sm-10">
+            <select name="estadoTramite" class="form-control" id="tipo">
+              <option value="" >Estado de trámite</option>
+                @foreach($estados as $estado)
+                  <option value="{{$estado->id}}" >{{$estado->nombre}}</option>
+              @endforeach
+            </select>
           </div>
         </div>
 

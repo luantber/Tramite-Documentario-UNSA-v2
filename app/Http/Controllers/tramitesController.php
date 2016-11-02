@@ -165,7 +165,8 @@ class tramitesController extends Controller
         $tramite=Tramite::find($id);
         $areas = Area::all();
         $tipos =TipoTramite::all();
-        return view('tramites.editar',["tramite"=>$tramite,"areas"=>$areas,"tipos"=>$tipos]);
+        $estados =EstadoTramite::all();
+        return view('tramites.editar',["tramite"=>$tramite,"areas"=>$areas,"tipos"=>$tipos,"estados"=>$estados]);
     }
 
     public function guardar(Request $datos,$id){
