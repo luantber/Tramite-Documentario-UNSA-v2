@@ -34,9 +34,9 @@
         </div>
 
         	<div class="panel-footer">
-				<a href="{{asset('estadosEmpleados')}}{{'/'.$estado->id.'/editar'}}" data-original-title="editCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+				<a href="{{asset('empleados/estados')}}{{'/'.$estado->id.'/editar'}}" data-original-title="editCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 	            <span class="pull-right">
-	                <a href="{asset('estadosEmpleado')}{'/'.$estado->id.'/eliminar'}" data-original-title="removeCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+	                <a href="{{asset('empleados/estados')}}{{'/'.$estado->id.'/eliminar'}}" data-original-title="removeCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 	            </span>
             </div>
       </div>

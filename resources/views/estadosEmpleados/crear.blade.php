@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="crear">
+<form method="POST" action="{{asset('empleados/estados/crear')}}">
 	{{ csrf_field()}}
 
 	<div class="row">

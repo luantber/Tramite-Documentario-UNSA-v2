@@ -67,7 +67,7 @@ Route::group(['prefix'=>'cargos'],function(){
 
 //GRUPO ESTADO EMPLEADOS
 
-Route::group(['prefix'=>'estadosEmpleados'],function(){
+Route::group(['prefix'=>'empleados/estados'],function(){
 	Route::get('/',function(){return view ('estadosEmpleados.todos');});
 	Route::get('todos','estadoEmpleadosController@todos');
 

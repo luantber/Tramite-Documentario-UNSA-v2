@@ -14,7 +14,7 @@ class estadoEmpleadosController extends Controller
     	$nuevo ->nombre = $datos->nombre;
     	$nuevo ->descripcion = $datos->descripcion;
     	$nuevo ->save();
-    	return redirect('estadosEmpleados');
+    	return redirect('empleados/estados');
     }
 
     public function todos(){
@@ -37,7 +37,7 @@ class estadoEmpleadosController extends Controller
     	$editar->nombre = $datos->nombre;
     	$editar->descripcion = $datos->descripcion;
     	$editar->save();
-    	return redirect('estadosEmpleados');
+    	return redirect('empleados/estados/'.$id);
     }
 
     public function eliminar($id){
@@ -49,6 +49,6 @@ class estadoEmpleadosController extends Controller
     	//dd($datos);
     	$eliminado = EstadoEmpleado::find($datos->id);
     	$eliminado->delete();
-    	return redirect('estadosEmpleados');
+    	return redirect('empleados/estados');
     }
 }
