@@ -4,7 +4,10 @@
 
 @section('content')
 
-	<h1>ERROR 404</h1>
-	<h2> :P holi holi</h2>
+
+<br>
+	<div class="alert alert-danger">
+	  <strong>Danger!</strong> Error 404 
+	</div>
 
 @endsection

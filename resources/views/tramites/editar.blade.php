@@ -4,8 +4,7 @@
 
 @section('content')
 
-
-<form method="POST" onsubmit="return validar()" action="{{asset('tramites')}}"> 
+<form method="post" onsubmit="return validar()" action="{{asset('tramites')}}{{'/'.$tramite->id}}"> 
     {{ csrf_field()}}
 
     <form class="form-horizontal container" enctype="multipart/form-data">
@@ -13,55 +12,80 @@
       <h2><p class="text-center">  Editar Trámite </p></h2>
       <br>
 
-        <div class=" form-group">
+        <div class="row">
             <label for="dni" class="col-sm-2 control-label"> DNI </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="dni" id="dni" placeholder="Ingresar DNI" required="true" value="DNI" disabled="">
+              <input type="text" class="form-control" name="dni" id="dni" required="true" value="{{$tramite->persona->dni}}" disabled="">
             </div>
-            <p id="noingreso"></p>
-        </div><br><br>
+        </div><br>
 
-        <div class="form-group">
+        <div class="row">
           <label for="destino" class="col-sm-2 control-label" >Área a delegar</label>
           <div class="col-sm-10">
             <select name="destino" class="form-control" id="destino">
-              <option value="" >Seleccionar</option>
-
+              <option value="{{$tramite->area->id}}" >{{$tramite->area->nombre}}</option>
+              @foreach($areas as $area)
+                @if( $tramite->area->id != $area->id)
+                  <option value="{{$area->id}}" >{{$area->nombre}}</option>
+                @endif
+              @endforeach
             </select>
-            <p id="nodestino" ></p>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
-          <div class="col-sm-10">
-            <select name="tipoTramite" class="form-control" id="tipo">
-              <option value="" >Elegir área</option>
-
-            </select>
-            <p id="nodestino" ></p>
           </div>
         </div><br>
 
-        <div class="form-group">
+        <div class="row">
+          <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
+          <div class="col-sm-10">
+            <select name="tipoTramite" class="form-control" id="tipo">
+              <option value="{{$tramite->tipo}}" >{{$tramite->tipoTramite->nombre}}</option>
+                @foreach($tipos as $tipo)
+                @if( $tramite->tipoTramite->id != $tipo->id)
+                  <option value="{{$tipo->id}}" >{{$tipo->nombre}}</option>
+                @endif
+              @endforeach
+            </select>
+          </div>
+        </div><br>
+
+        <div class="row">
+          <label for="tipo" class="col-sm-2 control-label" >Estado de Trámite</label>
+          <div class="col-sm-10">
+            <select name="estadoTramite" class="form-control" id="tipo">
+              <option value="" >Estado de trámite</option>
+                @foreach($estados as $estado)
+                  <option value="{{$estado->id}}" >{{$estado->nombre}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div><br>
+
+        <div class="row">
           <label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
           <div class="col-sm-10">
-            <select name="prioridad"  class="form-control" value="" id="prioridad">
-              <option value="" >Seleccionar</option>
-              <option value="1" required>"Urgente"</option>
-              <option value="2" required>"Alta"</option>
-              <option value="3" required>"Normal"</option>
+            <select name="prioridad"  class="form-control" id="prioridad" >
+              @if($tramite->prioridad == 1)
+                <option value="1" required>Urgente</option>
+                <option value="2" required>Alta</option>    
+                <option value="3" required>Normal</option>
+              @elseif($tramite->prioridad == 2)
+                <option value="2" required>Alta</option>    
+                <option value="1" required>Urgente</option>
+                <option value="3" required>Normal</option>
+              @elseif ($tramite->prioridad == 3)
+                <option value="3" required>Normal</option>
+                <option value="1" required>Urgente</option>
+                <option value="2" required>Alta</option>
+              @endif
             </select>
-            <p id="nopcion" ></p>
           </div>
-        </div>
+        </div><br>
 
-      	<div class="form-group">
+      	<div class="row">
       		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
       		<div class="col-sm-10" >
-      			<textarea name="asunto" class="form-control" rows="2" id="asunto" placeholder="Ingrese el asunto" value="Asunto" ></textarea>
+      			<input name="asunto" class="form-control" id="asunto" value="{{$tramite->asunto}}" required="">
       		</div>
-      	</div>
+      	</div><br>
 
         <br><br><br>
         <p>.</p>

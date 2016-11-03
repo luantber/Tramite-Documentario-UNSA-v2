@@ -12,8 +12,9 @@
 		<h2><p class="text-center">  Subir documentos </p></h2>
 		<br><br>
 
-		<form method="post" action="{{asset('tramites/subir')}}">
+		<form method="post" action="{{asset('tramites'.'/'.$tramite->id.'/subir')}}" enctype="multipart/form-data">
 		{{ csrf_field()}}
+		
 
 			<div class="row">
 				<div class="col-sm-6">
@@ -22,7 +23,7 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
 							</span>
-				  		<input class="form-control" type="text" name ="numExp" id="numExp" placeholder="Ingrese número de expediente" required="true" value="">
+				  		<input class="form-control" type="text" name ="numExp" id="numExp" placeholder="Ingrese número de expediente" required="true" value="{{$tramite->nro_expediente}}" disabled="">
 					</div>
 				</div>
 			  <div class="col-sm-6">
@@ -31,9 +32,7 @@
 			          <option value="" >Seleccionar tipo de documento</option>
 			          		@foreach($tiposDocumentos as $tipoDocumento)
 			                    <option value='{{$tipoDocumento->id}}'>{{$tipoDocumento->nombre}}</option>
-			                @endforeach
-
-			                
+			                @endforeach            
 			        </select>
 			        <!--<input class="form-control" type="text" name ="tipoDoc" id="tipoDoc" placeholder="Ingresar tipo de documento" required="true">-->
 			  </div>
@@ -83,13 +82,13 @@
 					Subir documentos</button>
 					</div>
 		    </div><br> <br>
-
+		    
 		</form>
 
 	</div>
 </div>
 
-	<form method="post" action="{{asset('tramites/')}}">
+	<form method="get" action="{{asset('tramites')}}">
 		{{ csrf_field()}}
 		<div class="row">
 			<div class="text-center">

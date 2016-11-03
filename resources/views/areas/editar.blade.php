@@ -4,44 +4,78 @@
 
 @section('content')
 
-{{$area}}
-
-<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-
-
-<form method="POST" action="{{ asset('areas')}}{{'/'.$area->id}}">
-	{{ csrf_field()}}
-
-	<div class="row">
+<div class="row">
   		<div class="col-md-6 col-md-offset-3">
 
 		<h2><p class="text-center">  Editar Área </p></h2>
 
-      <div class="form-group">
-		    <label for="nomArea"> Nombre del Área: </label>
-		    <input type="text" class="form-control" placeholder="Nombre" name="nomArea" id="nomArea">
-		  </div>
+		<br><br>
+		<form method="post" action="{{ asset('areas')}}{{'/'.$area->id}}">
+		{{ csrf_field()}}
 
-      <div class="form-group">
-		    <label for="nomAreaPad"> Nombre del Área Padre: </label>
-		    <select type="text" class="form-control" placeholder="Selecciona el Area Padre" name="nomAreaPad" id="nomAreaPad"> </select>
-		  </div>
+      		<div class="row">
 
+      			<div class="col-sm-12">
+					<label for="nomArea"> Nombre del Área: </label>
+					<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+							</span>
+			    		<input type="text" class="form-control"name="nomArea" id="nomArea" value="{{$area->nombre}}">
+		  			</div>
+		  		</div>
+		  	</div><br>
+
+		  	<div class="row">
+		  		<div class="col-sm-12">
+				    <label for="nomAreaPad"> Nombre del Área Padre: </label>
+				    	<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+							</span>
+					    	<select type="text" class="form-control" name="nomAreaPad" id="nomAreaPad" >
+								<option value="{{$area->area_id}}">{$area->nombre}</option>
+								@foreach($areas as $are)
+								  @if( $area->area_id != $are->id)	
+									<option value="{{$are->id}}">{{$are->nombre}}</option>
+								  @endif
+								@endforeach
+									
+							</select>
+					</div>
+				</div>	
+		  	</div><br>
+      	  
 		  <div class="form-group">
 		    <label for="jefArea"> Jefe del Área: </label>
-		    <select type="text" class="form-control" placeholder="Selecciona el Jefe del Área" name="jefArea" id="jefArea"> </select>
+		    	<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">
+								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+							</span>
+						<select type="text" class="form-control" name="jefAreaPad" id="jefAreaPad" >
+							<option value="0">Sin Padre</option>
+						</select>
+				</div>
 		  </div>
 
 		  <div class="form-group">
-		    <label for="Descripcion"> Descripción: </label>
-        <textarea class="form-control" placeholder="Ingrese la descripción"  name="descripcion" id="descripcion"></textarea>
-      </div>
+			    <label for="Descripcion"> Descripción: </label>
+	        	<input class="form-control" value="{{ $area->descripcion }}"  name="descripcion" id="descripcion" required="">
+	      </div>
 
-		  <button type="submit" class="btn btn-default" value="Submit">Guardar Cambios</button>
+		    <div class="text-center">
+	      		<button type="submit" value="Submit" class="btn btn-primary">Guardar</button>
+	    	</div>
+
+	    	<ul class="pager">
+		        <li><a href="#">Cancelar</a></li>
+		    </ul>
+
+		</div>
+
+		</form>
 
 		</div>
 	</div>
-
-</form>
 
 @endsection

@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title','Mostrar Cargo')
+@section('title','Mostrar Estado')
 
 @section('content')
 	
@@ -9,7 +9,7 @@
       <div class="panel panel-info">
         <div class="panel-heading">
           <div class="text-center">
-            <h3 class="panel-title">Cargo: {{ $cargo->nombreCargo }}</h3>
+            <h3 class="panel-title">Estado: {{$estado->nombre}}</h3>
           </div>
         </div>
         <div class="panel-body">
@@ -19,12 +19,12 @@
               <table class="table table-user-information">
                 <tbody>
                   <tr>
-                    <td>Nombre de Cargo: </td>
-                    <td>{{$cargo->nombreCargo}}</td>
+                    <td>Nombre de Estado: </td>
+                    <td>{{$estado->nombre}}</td>
                   </tr>
                   <tr>
                     <td>Descripción: </td>
-                    <td>{{$cargo->descripcion}}</td>
+                    <td>{{$estado->descripcion}}</td>
                   </tr>                     
                 </tbody>
               </table>
@@ -34,9 +34,9 @@
         </div>
 
         	<div class="panel-footer">
-				<a href="{{asset('cargos')}}{{'/'.$cargo->id.'/editar'}}" data-original-title="editCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+				<a href="{{asset('empleados/estados')}}{{'/'.$estado->id.'/editar'}}" data-original-title="editCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 	            <span class="pull-right">
-	                <a href="{{asset('cargos')}}{{'/'.$cargo->id.'/eliminar'}}" data-original-title="removeCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+	                <a href="{{asset('empleados/estados')}}{{'/'.$estado->id.'/eliminar'}}" data-original-title="removeCargo" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 	            </span>
             </div>
       </div>
@@ -44,4 +44,3 @@
     </div>
 
 @endsection
-

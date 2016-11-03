@@ -9,18 +9,20 @@ use App\Empleado;
 use App\User;
 use App\Cargo;
 use App\Area;
-
+use App\EstadoEmpleado;
 class empleadosController extends Controller
 {
 
     public function antesCrear(){
       $cargos = DB::table('cargos')->select('id','nombreCargo')->get();
       $areas = DB::table('areas')->select('id','nombre')->get();
-      return view('empleados.crear',['cargo'=>$cargos, 'area'=>$areas]);
+      $estados = DB::table('estado_empleados')->select('id','nombre')->get();
+      return view('empleados.crear',['cargo'=>$cargos, 'area'=>$areas,'estado'=>$estados]);
 
     }
 
     public function create(Request $datos){
+
     	$nuevo = new Empleado;
     	$nuevo->id_area = $datos->id_area;
     	$nuevo->id_cargo = $datos->id_cargo;
@@ -29,7 +31,19 @@ class empleadosController extends Controller
      	$encontrado = User::where('dni',$datos->dni)->first();
     	$nuevo->id_persona = $encontrado->id;
 
+
       $nuevo->save();
+      $user = User::find($encontrado->id);
+      $cargo = Cargo::find($datos->id_cargo);
+      $area = Area::find($datos->id_area);
+      $estado = EstadoEmpleado::find($datos->id_estado);
+
+      $nuevo->cargo()->associate($cargo);
+      $nuevo->area()->associate($area);
+      $nuevo->estado()->associate($estado);
+      $nuevo->user()->associate($user);
+
+
       
       return redirect('empleados');    	
     }
@@ -43,64 +57,86 @@ class empleadosController extends Controller
         $newPer->email = $datosn->correo;
         $newPer->activo = false;
         $newPer->save();
+          
 
 
-    	$newEmp = new Empleado;
-    	$newEmp->id_area = $datosn->id_area;
-    	$newEmp->id_cargo = $datosn->id_cargo;
+      $newEmp = new Empleado;
+      $newEmp->id_area = $datosn->id_area;
+      $newEmp->id_cargo = $datosn->id_cargo;
       $newEmp->id_estado = $datosn->id_estado;
-    	$newEmp->id_persona = $newPer->id;
-    	$newEmp->activo = false;	
-    	
-     	$newEmp->save();
+      $newEmp->id_persona = $newPer->id;
+      $newEmp->activo = false;  
+      
+
+      $cargo = Cargo::find($datosn->id_cargo);
+      $area = Area::find($datosn->id_area);
+      $estado = EstadoEmpleado::find($datosn->id_estado);
+
+      $newEmp->cargo()->associate($cargo);
+      $newEmp->area()->associate($area);
+      $newEmp->estado()->associate($estado);
+      $newEmp->user()->associate($newPer);
+
+      $newEmp->save();
+
+
       return redirect('empleados');
 
 
     }
 
     public function todos(){
-
-      $join = DB::table('empleados')
-                ->leftjoin('users','empleados.id_persona','=','users.id')
-                ->get();
-
+      $todos = Empleado::with('user','cargo','area','estado')->get()    ;
+      
       //dd($join);
-      return response()->json($join);
+      return response()->json($todos);
     }  
 
+
+
     public function show($id){
-      $encontrado = Empleado::find($id);
-      $cargo = Cargo::find($encontrado->id_cargo);
-      $user = User::find($encontrado->id_persona);
-      $area = Area::find($encontrado->id_area);
-
-      $encontrado->cargo()->associate($cargo);
-      $encontrado->user()->associate($user);
-      $encontrado->area()->associate($area);
-
-      //dd($encontrado);
-      //dd($encontrado->user->nombre);
+      $encontrado = Empleado::findOrFail($id);
       if ($encontrado == null) {
         return view ('errors.noEmpleado');
       }
-
+//      echo $encontrado->area->nombre;
     return view('empleados.show',['empleado'=>$encontrado]);
     }
 
+
+
     public function editar($id){
-        $encontrado = Empleado::find($id);
+        $encontrado = Empleado::findOrFail($id);
         if ($encontrado == null) {
             return view ('errors.noEmpleado');
         }
-        return view('empleados.editar',['empleado'=>$encontrado]);
+
+      $cargos = DB::table('cargos')->select('id','nombreCargo')->get();
+      $areas = DB::table('areas')->select('id','nombre')->get();
+      $estados = DB::table('estado_empleados')->select('id','nombre')->get();
+
+        return view('empleados.editar',['empleado'=>$encontrado,'cargos'=>$cargos,'areas'=>$areas,'estados'=>$estados]);
     }
 
         public function guardar(Request $datos,$id){
         $editar = Empleado::find($id);
-        $editar->area = $datos ->area;
-        $editar ->cargo = $datos ->cargo;
-        $editar ->activo = $datos ->activo;
+        $editarUsu = User::find($editar->id_persona);
+
+        $editar->id_area = $datos ->area;
+        $editar ->id_cargo = $datos ->cargo;
+        $editar ->id_estado = $datos ->estado;
         $editar ->save();
+
+        $editarUsu->nombre = $datos->nombre;
+        $editarUsu->apellido = $datos->apellido;
+        $editarUsu->email = $datos->email;
+        $editarUsu->dni = $datos->dni;
+        $editarUsu->activo = true;
+        echo $editarUsu->id;
+        echo $editarUsu->apellido;
+
+        $editarUsu->save();
+
 
         return redirect('empleados/'.$id);
     }

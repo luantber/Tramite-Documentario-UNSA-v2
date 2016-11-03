@@ -16,11 +16,15 @@ class Empleado extends Model
     }
 
     public function cargo(){
-    	return $this->belongsTo('App\Cargo','id','id_cargo');
+    	return $this->belongsTo('App\Cargo','id_cargo','id');
     } 
 
     public function area(){
-    	return $this->belongsTo('App\Area','id','id_area');
+    	return $this->belongsTo('App\Area','id_area','id');
+    }
+
+    public function estado(){
+        return $this->belongsTo('App\EstadoEmpleado','id_estado','id');
     }
 
     

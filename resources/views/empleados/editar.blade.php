@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title','Perfil')
+@section('title','Editar Empleado')
 
 
 @section('content')
@@ -22,7 +22,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-							<input class="form-control" type="string" name ="nombre" id="nombre" value="{{$empleado->nombre}}" disabled="" required="true">
+							<input class="form-control" type="string" name ="nombre" id="nombre" value="{{$empleado->user->nombre}}"  required="true">
 						</div>
 					</div>
 				</div><br>
@@ -34,7 +34,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$empleado->apellido}}" disabled="" required="true">
+					    	<input class="form-control" type="string" name ="apellido" id="apellido" value="{{$empleado->user->apellido}}"  required="true">
 					    </div>
 				  </div>
 				</div><br>
@@ -42,11 +42,25 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<label for="area">Area: </label>
-						    <input class="form-control" type="string" name ="area" id="area" value="{{$empleado->area}}" required="true">
+						    <select name="area" class="form-control" id="area">
+				              <option value="{{$empleado->area->id}}" >{{$empleado->area->nombre}}</option>
+				              @foreach($areas as $area)
+				                @if( $empleado->area->id != $area->id)
+				                  <option value="{{$area->id}}" >{{$area->nombre}}</option>
+				                @endif
+				              @endforeach
+				            </select>
 					</div>
 				    <div class="col-sm-6">
 				  		<label for="cargo" >Cargo: </label>
-							    <input class="form-control" type="string" name ="cargo" id="cargo" value="{{$empleado->cargo}}" required="true">
+							<select name="cargo" class="form-control" id="cargo">
+				              <option value="{{$empleado->cargo->id}}" >{{$empleado->cargo->nombreCargo}}</option>
+				                @foreach($cargos as $cargo)
+				                @if( $empleado->cargo->id != $cargo->id)
+				                  <option value="{{$cargo->id}}" >{{$cargo->nombreCargo}}</option>
+				                @endif
+				              @endforeach
+				            </select>
 					</div>
 
 				</div><br>
@@ -58,7 +72,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="string" name ="email" id="mail" value="" disabled="" required="true">
+						    <input class="form-control" type="string" name ="email" id="mail" value="{{$empleado->user->email}}"  required="true">
 						</div>
 						<p id="nocorreo"></p>
 					</div>
@@ -68,22 +82,24 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 								</span>
-						    <input class="form-control" type="string" name ="dni" id="DNI" value="" disabled="" required="true">
+						    <input class="form-control" type="string" name ="dni" id="DNI" value="{{$empleado->user->dni}}"  required="true">
 						</div>
 						<p id="noingreso"></p>
 					</div>
 				</div><br>
 
 				<div class="row">
-				  <div class="col-sm-6">
-				  		<label for="activo" >Activo: </label>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">
-									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-								</span>
-					    	<input class="form-control" type="string" name ="activo" id="activo" value="{{$empleado->activo}}" required="true">
-					    </div>
-				  </div>
+				 
+				  		<label for="activo" >Estado: </label>
+						<select name="estado" class="form-control" id="cargo">
+				              <option value="{{$empleado->estado->id}}" >{{$empleado->estado->nombre}}</option>
+				                @foreach($estados as $stads)
+				                @if( $empleado->estado->id != $stads->id)
+				                  <option value="{{$stads->id}}" >{{$stads->nombre}}</option>
+				                @endif
+				              @endforeach
+				            </select>
+				  
 				</div><br><br>
 
 

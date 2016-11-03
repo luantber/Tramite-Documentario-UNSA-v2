@@ -14,8 +14,8 @@ use App\EstadoTramite;
 use App\Documento;
 use App\User;
 use App\Movimiento; 
-
-
+use App\Cargo;
+use Illuminate\Support\Facades\Auth;
 
 class tramitesController extends Controller
 {
@@ -24,31 +24,41 @@ class tramitesController extends Controller
     {
         //-----------------------------codigo para generar bd
         /*
-        $area=new Area;
-        $area->nombre='Mesa de Partes';
-        $area->descripcion='Descripcion';
-        $area->save();
+            $area=new Area;
+            $area->nombre='Mesa de Partes';
+            $area->descripcion='Descripcion';
+            $area->save();
 
-        $area2=new Area;
-        $area2->nombre='Gerencia';
-        $area2->descripcion='Descripcion';
-        $area2->save();        
+            $area2=new Area;
+            $area2->nombre='Gerencia';
+            $area2->descripcion='Descripcion';
+            $area2->save();        
 
-        $tipo=new TipoTramite;
-        $tipo->nombre='solicitud';
-        $tipo->descripcion='descripcion';
-        $tipo->save();
+            $tipo=new TipoTramite;
+            $tipo->nombre='solicitud';
+            $tipo->descripcion='descripcion';
+            $tipo->save();
 
-        $tipo2=new TipoTramite;
-        $tipo2->nombre='reclamo';
-        $tipo2->descripcion='descripcion';
-        $tipo2->save();        
-        
+            $tipo2=new TipoTramite;
+            $tipo2->nombre='reclamo';
+            $tipo2->descripcion='descripcion';
+            $tipo2->save();        
+            
 
-        $estado=new EstadoTramite;
-        $estado->nombre='iniciado';
-        $estado->descripcion='descripcion';
-        $estado->save();    
+            $estado=new EstadoTramite;
+            $estado->nombre='iniciado';
+            $estado->descripcion='descripcion';
+            $estado->save();    
+
+            $tipo=new TipoDocumento;
+            $tipo->nombre='carta';
+            $tipo->descripcion='descripcion';
+            $tipo->save();
+
+            $cargo=new Cargo;
+            $cargo->nombreCargo='jefe';
+            $cargo->descripcion='this is the boos';
+            $cargo->save();
         */        
         
         //obtenemos a la persona dado un dni
@@ -81,18 +91,25 @@ class tramitesController extends Controller
         $tramite->persona()->associate($persona);
         $tramite->estado()->associate($estado);
         $tramite->save();
+        $tramite->nro_expediente=(date("Y").sprintf('%07d', $tramite->id));
+        $tramite->save();
 
-        //crear movimiento
+        $comentario="sin comentarios";
+        $movimiento=new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaDestino()->associate($area_destino);
+        $movimiento->areaRemitente()->associate($mesa_de_partes);
+        $movimiento->comentario=$comentario;
+        $movimiento->save();
     
         
-    
     
         $tiposDocumentos=TipoDocumento::all();
-
-        $nro_expediente=$tramite->id;
         
-        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"nro_expediente"=>$nro_expediente]);
-        //return view('tramites.subir']->with('tiposDocumentos',$tiposDocumentos);
+        
+        
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
+        
 
     }
 
@@ -105,30 +122,151 @@ class tramitesController extends Controller
         
     }
 
-    public function subirDocumento(Request $datos)
+    public function subirDocumento(Request $datos,$id)
     {
-        /*
-        $tipoDoc=TipoDocumento->find($datos->tipoDoc);
-        $tramite=Tramite::find($datos->numExp);
-
+        
+        $tipoDoc=TipoDocumento::find($datos->tipoDoc);
+        $tramite=Tramite::find($id);
+        
 
         $doc= new Documento;
         $doc->nombre=$datos->nomDoc;
         $doc->nombre_archivo=$datos->archivo;
         $doc->entregado=0;
-        $doc->virtual=$datos->checkbox;
+        /// modificar---------------------------------------
+        $doc->virtual=0;
         $doc->tipoDocumento()->associate($tipoDoc);
         $doc->tramite()->associate($tramite);
-        */
-        //return view('tramites.subir');
+        $doc->save();
+
+        $tiposDocumentos=TipoDocumento::all();
+
+        //end modificar --- 
+
+        //start subir archivo
+        $archivo=$datos->file('archivo');
+        $ext=$archivo->guessClientExtension();
+        $nombre=$datos->nomDoc.".".$ext;
+        $path=$archivo->storeAs('semiFTP/'.$datos->numExp,$nombre); //<- la variable path almacena la ruta del archivo
+
+       
+        
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
+        
         
     }
 
     public function todos()
     {
-        $tramites = Tramite::all();
+        $tramites = Tramite::with('area','persona','empleado','tipoTramite','estado')->get();
         return response()->json($tramites);
     }
 
+    public function showTramite($id)
+    {
+        $tramite= Tramite::find($id);
+        return view('tramites.show',["tramite"=>$tramite]);
+    }    
+
+    public function editarTramiteV($id)
+    {
+        $tramite=Tramite::find($id);
+        $areas = Area::all();
+        $tipos =TipoTramite::all();
+        $estados =EstadoTramite::all();
+        return view('tramites.editar',["tramite"=>$tramite,"areas"=>$areas,"tipos"=>$tipos,"estados"=>$estados]);
+    }
+
+    public function guardar(Request $datos,$id){
+
+        $editar = Tramite::find($id);
+        
+        $editar->prioridad = $datos->prioridad;
+        $editar ->asunto = $datos->asunto;
+
+        $area=Area::find($datos->tipoTramite);
+        $estado=EstadoTramite::find($datos->estadoTramite);        
+        $tipo=TipoTramite::find($datos->tipoTramite);
+
+        if($area!=NULL){
+            $editar ->area()->associate($area);    
+        }
+        if($estado!=NULL){
+            $editar->estado()->associate($estado);
+        }
+        if($tipo!=NULL){
+            $editar ->tipoTramite()->associate($area);    
+        }
+        
+        
+        
+        $editar ->save();
+        return redirect('tramites');
+    }
+
+    public function eliminarTramiteV($id)
+    {
+        $tramite=Tramite::find($id);
+        return view('tramites.eliminar',["tramite"=>$tramite]);
+    }
+
+
+    public function delegarAreaV($id){
+        $tramite=Tramite::find($id);
+        $areas=Area::all()->where('area_id',NULL);
+        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
+    }
+
+    public function delegarArea(Request $datos, $id){
+        
+        $tramite=Tramite::find($id);
+        
+        $area_destino=Area::find($datos->area_destino);
+        $movimiento=new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaDestino()->associate($area_destino);
+        $movimiento->areaRemitente()->associate($tramite->area);
+        $movimiento->comentario=$datos->comentario;
+        $movimiento->save();
+        $tramite->area()->associate($area_destino);
+        $tramite->save();
+        return redirect('tramites');
+    }
+
+
+    public function getDocumentosV($id)
+    {   
+        $tramite= Tramite::find($id);
+        $documentos=$tramite->documentos;
+        return view('tramites.documentos',["documentos"=>$documentos]);
+    }
+
     
+
+    public function delegarSubAreaV($id){
+        
+        $usuario=User::find(Auth::user()->id);
+        $areas=Area::all()->where('area_id',$usuario->empleado->area->id);
+        $tramite=Tramite::find($id);
+        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
+    }
+
+    public function delegarEmpleadoV($id){
+        $usuario=User::find(Auth::user()->id);
+        $area=$usuario->empleado->area;
+        $empleados=Empleado::all()->where('id_area',$area->id);
+        $tramite=Tramite::find($id);
+        
+        return view('tramites.delegar-empleado',["tramite"=>$tramite,"empleados"=>$empleados]);
+    }
+    
+    public function delegarEmpleado(Request $datos,$id){
+        $tramite=Tramite::find($id);
+        $empleado=Empleado::find($datos->id_empleado);
+        $tramite->empleado()->associate($empleado);
+        $tramite->save();
+        return redirect('tramites');
+
+    }
+
 }

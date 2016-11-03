@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Asi imprimes el dato -->
-{{$tipos}}
+{{$areas}}
 
 
 <form method="POST" onsubmit="return validar()" action="{{asset('tramites/crear')}}">     <!-- <_Alexis -->
@@ -40,7 +40,7 @@
             <select name="destino" class="form-control" id="destino">
               <option value="" >Seleccionar</option>
                 @foreach($areas as $area)
-                    "<option value="{{$area->id}}">"{{$area->nombre}}"</option>"
+                    <option value="{{$area->id}}">{{$area->nombre}}</option>
                 @endforeach
             </select>
             <p id="nodestino" ></p>
@@ -53,7 +53,7 @@
             <select name="tipoTramite" class="form-control" id="tipo">
               <option value="" >Elegir área</option>
                   @foreach($tipos as $tipo)
-                    "<option value="{{$tipo->id}}">"{{$tipo->nombre}}"</option>"
+                    <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                   @endforeach
             </select>
             <p id="nodestino" ></p>
@@ -65,9 +65,9 @@
           <div class="col-sm-10">
             <select name="prioridad"  class="form-control" id="prioridad">
               <option value="" >Seleccionar</option>
-              <option value="1" required>"Urgente"</option>
-              <option value="2" required>"Alta"</option>
-              <option value="3" required>"Normal"</option>
+              <option value="1" required>Urgente</option>
+              <option value="2" required>Alta</option>
+              <option value="3" required>Normal</option>
             </select>
             <p id="nopcion" ></p>
           </div>
