@@ -20,8 +20,14 @@
 
 		  <div class="form-group">
 		    <label for="Descripcion"> Descripción: </label>
-        <textarea class="form-control" placeholder="Ingrese la descripción"  name="descripcion" id="descripcion" required="true"></textarea>
-      </div>
+        	<textarea class="form-control" placeholder="Ingrese la descripción"  name="descripcion" id="descripcion" required="true"></textarea>
+          </div>
+
+           <div class="checkbox">
+		    <label>
+		      <input type="checkbox" value="" name="" id=""> Show
+		    </label>
+		  </div>
 
 		  <div class="form-group">
         	<div class="text-center">
