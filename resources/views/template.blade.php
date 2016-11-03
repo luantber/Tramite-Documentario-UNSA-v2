@@ -7,12 +7,16 @@
 
   <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
 
+	<link rel="stylesheet" type="text/css" href="{{asset('css/notas.css')}}">
+
   <script src="{{asset('js/react.js')}}"></script>
   <script src="{{asset('js/react-dom.js')}}"></script>
   <script src="{{asset('js/browser.min.js')}}"></script>
- 
+
   <script src="{{asset('js/jquery.js')}}"></script>
   <script src="{{asset('js/fileinput.js')}}"></script>
+
+
 
 
 </head>
@@ -42,7 +46,7 @@
           <!-- Fin Navegacion Movil -->
 
           <div id="navbar" class="navbar-collapse collapse">
-        
+
         <ul class="nav navbar-nav navbar-right">
 
 <!--MOVIMIENTOS-->
@@ -57,7 +61,7 @@
             </ul>
           </li>
 
-          
+
         </ul>
 
 
@@ -110,20 +114,36 @@
           <!--<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar-->
             @if (Auth::check())
 
-                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>                 
+                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>
                 </button>
 
                 <button type="button" class="btn btn-default btn-md">
-                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-out" href="{{ url('/logout') }}"> Cerrar Sesión </a>                 
+                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-out" href="{{ url('/logout') }}"> Cerrar Sesión </a>
             @else
-                <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a> 
+                <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a>
             @endif
              </span>
           </button>
         </form>
-        </ul>
 
-        </div>
+
+<!--AGENDA-->
+
+				<li class="dropdown">
+						 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
+						 <ul class="dropdown-menu">
+						 <li><a href="">Nuevo</a></li>
+							 <li><a href="">Todos</a></li>
+
+						 </ul>
+				 </li>
+
+
+
+				</ul>
+
+				</div>
+
       </nav>
 
 
@@ -132,13 +152,13 @@
 
 <div class="container">
   @section('content')
-  @show 
+  @show
 </div>
 <br><br><br>
 
 <!-- FOOTER -->
 <div class="container well">
-    <h4><center>Trámite Documentario cs unsa </center></h4>
+    <h4><center>Trámite Documentario CS UNSA </center></h4>
     </div>
     <div id="footer">
         <div class="container">
@@ -175,7 +195,7 @@
           </div>
       </div>
   </div>
- 
+
   <!--END OF FOOTER-->
 
 

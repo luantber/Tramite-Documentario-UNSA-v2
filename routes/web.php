@@ -56,10 +56,10 @@ Route::group(['prefix'=>'empleados'],function(){
 
 	Route::get('{id}/eliminar','empleadosController@eliminar');
 	Route::post('eliminar','empleadosController@eliminado');
-	
+
 	Route::get('{id}/editar','empleadosController@editar');
 	Route::post('{id}','empleadosController@guardar');
-	
+
 	Route::get('{id}', 'empleadosController@show');
 });
 
@@ -78,7 +78,7 @@ Route::group(['prefix'=>'cargos'],function(){
 
 	Route::get('{id}/editar','cargosController@editar');
 	Route::post('{id}','cargosController@guardarsss');
-	
+
 	Route::get('{id}','cargosController@show');
 
 
@@ -88,7 +88,7 @@ Route::group(['prefix'=>'cargos'],function(){
 
 
 	//estados de tramites
-	Route::group(['prefix'=>'tramites/estados'],function(){	
+	Route::group(['prefix'=>'tramites/estados'],function(){
 		Route::get('/',function(){return view ('estadosTramites.todos');});
 		Route::get('todos','estadosTramitesController@todos');
 
@@ -161,20 +161,20 @@ Route::group(['prefix'=>'areas'],function(){
 });
 
 
-Route::group(['prefix'=>'tipostramite'],function(){ 
-   
-  Route::get('/',function(){ return view('tiposTramite.todos');  }); 
+Route::group(['prefix'=>'tipostramite'],function(){
+
+  Route::get('/',function(){ return view('tiposTramite.todos');  });
   Route::get('todos','tiposTramiteController@todos');
 
-  Route::get('crear','tiposTramiteController@crearGet'); 
-  Route::post('crear','tiposTramiteController@crear'); 
+  Route::get('crear','tiposTramiteController@crearGet');
+  Route::post('crear','tiposTramiteController@crear');
 
 
   Route::get('{id}/editar','tiposTramiteController@editar');
   Route::get('{id}','tiposTramiteController@show');
   Route::post('{id}','tiposTramiteController@guardar');
-  
-}); 
+
+});
 
 
 
@@ -194,6 +194,14 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 	Route::get('/panel', function(){
 		return view('tramites/panel');
 	});
+
+  Route::get('notas/crear', function(){
+    return view('notas/crear');
+  });
+
+  Route::get('notas/todos', function(){
+    return view('notas/todos');
+  });
 
 /*
 	GG tu Prueba
