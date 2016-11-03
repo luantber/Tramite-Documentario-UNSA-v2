@@ -13,7 +13,22 @@ class CreateNotasTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('notas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nombre');
+            $table->text('descripcion');
+            $table->integer('empleados_id')->unsigned();
+            $table->integer('areas_id')->unsigned();
+            $table->timestamps();
+
+            $table->foreign('empleados_id')
+                ->references('id')
+                ->on('empleados');
+            $table->foreign('areas_id')
+                ->references('id')
+                ->on('areas');    
+
+        });
     }
 
     /**
@@ -23,6 +38,6 @@ class CreateNotasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('notas');
     }
 }
