@@ -40,8 +40,14 @@ class User extends Authenticatable
 
     public function isAreaInicial(){
         /* Cambiar aqui la fun correcta*/
-        if ($this->area->nombre = "Mesa de Partes") return true;
-        else return false;
+        
+        if ($this->empleado->area->nombre == "Mesa de Partes"){
+            
+            return true;
+        }
+        else {
+            return false; 
+        }
     }
 
 

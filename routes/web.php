@@ -198,7 +198,6 @@ Route::group(['prefix'=>'mistramites'],function(){
 
 //	Route::get('{id}','notasController@show');
 
-});
 
 
 
@@ -214,9 +213,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 	GG Tu solo para vistas, si quieres verlo tiene que funcionar
 	>:c :(
 */
-	Route::get('/panel', function(){
-		return view('tramites/panel');
-	});
 
   Route::get('notas/crear', function(){
     return view('notas/crear');

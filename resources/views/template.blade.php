@@ -108,7 +108,11 @@
            </li>
 
 <!--PANEL-->
-          <li class="active"><a href="/">Panel <span class="sr-only"></span></a></li>
+          <li ><a href="{{asset('mistramites')}}">Mis Tramites </a></li>
+
+          <li class="active"><a href="{{asset('panel')}}">Panel  </a></li>
+
+
         <form class="navbar-form navbar-right">
           <button type="button" class="btn btn-default btn-md">
           <!--<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar-->

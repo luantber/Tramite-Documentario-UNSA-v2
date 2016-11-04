@@ -16,7 +16,12 @@ class panelController extends Controller
 
     public function todos()
     {
-    	$tramites = Tramite::with('area','persona','empleado','tipoTramite','estado')->get();
+    	if(Auth::user()->isAreaInicial()){
+    		$tramites = Tramite::with('area','persona')->where("area_id",Auth::user()->empleado->id_area)->get();
+
+    	}
+	
+		
         return response()->json($tramites);
     }
 
