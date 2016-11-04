@@ -20,13 +20,13 @@ class notasController extends Controller
     }
 
     public function todos_Area(){
-    	$notas = Notas::all();
-    	return response()->json($notas);
+    	$notas_area = Notas::all();
+    	return response()->json($notas_area);
     }
 
     public function todos_empleado(){
-    	$notas = Notas::all();
-    	return response() ->json($notas);
+    	$notas_em = Notas::all();
+    	return response() ->json($notas_em);
     }
     public function show ($id){
     	$encontrado = Notas::find($id);
