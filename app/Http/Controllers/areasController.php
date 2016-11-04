@@ -55,6 +55,10 @@ class areasController extends Controller
         //$area->jefe_id=
         //$area->area_id=
         $area->save();
-        return redirect('areas');
+        return redirect('areas/'.$id);
+    }
+
+    public function eliminar($id){
+        
     }
 }

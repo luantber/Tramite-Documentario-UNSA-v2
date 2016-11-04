@@ -61,7 +61,7 @@
         </div>
 
       <div class="text-center">
-      <button type="submit" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
+      <button type="submit" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="">Eliminar</button>
       </div>
 
 

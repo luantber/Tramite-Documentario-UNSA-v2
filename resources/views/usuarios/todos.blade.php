@@ -22,7 +22,7 @@ var TablaPersonas;
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaPersonas url="{{asset('usuarios/todos')}}" refresh="100000" base="usuarios" />,
+	<TablaPersonas url="{{asset('usuarios/todos')}}" refresh="100000" base="{{asset('usuarios/')}}" />,
 	document.getElementById('container')
 );
 </script>

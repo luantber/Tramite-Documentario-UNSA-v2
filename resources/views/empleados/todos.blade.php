@@ -12,15 +12,15 @@
 
 
 <script>
-var TablaPersonas;
+var TablaEmpleados;
 </script>
 
-<script type="text/babel" src="{{asset('rs/TablaPersonas.js')}}">
+<script type="text/babel" src="{{asset('rs/TablaEmpleados.js')}}">
 </script>
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaPersonas url="{{asset('empleados/todos')}}" refresh="100000" base = " {{asset('empleados/')}} " empleado="true" />,
+	<TablaEmpleados url="{{asset('empleados/todos')}}" refresh="100000" base = "{{asset('empleados')}}" />,
 
 	document.getElementById('container')
 );

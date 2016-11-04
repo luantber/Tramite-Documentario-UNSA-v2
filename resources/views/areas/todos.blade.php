@@ -15,7 +15,7 @@ var TablaAreas;
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaAreas url="{{asset('areas/todos')}}" refresh="100000" />,
+	<TablaAreas url="{{asset('areas/todos')}}" refresh="100000" base = "{{asset('areas/')}}"/>,
 	document.getElementById('container')
 );
 </script>

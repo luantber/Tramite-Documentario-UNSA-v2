@@ -5,6 +5,10 @@ class Cargo extends React.Component{
 			<tr>
 				<td>{this.props.name}</td>
 				<td>{this.props.descripcion}</td>
+				<td><a href={this.props.base+'/'+this.props.id}> <span className =  "glyphicon glyphicon-folder-open"></span></a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> <span className =  "glyphicon glyphicon-pencil"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}> <span className =  "glyphicon glyphicon-remove"></span></a></td>
+
 
 			</tr>
 			
@@ -48,6 +52,9 @@ window.TablaCargos = React.createClass({
 		        
 		        <th>Nombre de Cargo</th>
 	        	<th>Descripción</th>
+	        	<th><span className =  "glyphicon glyphicon-folder-open"></span></th>
+		        <th><span className =  "glyphicon glyphicon-pencil"></span></th>
+		        <th><span className =  "glyphicon glyphicon-remove"></span></th>
 		      
 		      </tr>
 		    </thead>
@@ -60,10 +67,12 @@ window.TablaCargos = React.createClass({
 				 				<Cargo
 				 					name={cargo.nombreCargo} 
 				 					descripcion={cargo.descripcion}
+				 					base={this.props.base}
+				 					id={cargo.id} 
 				 					key={cargo.id}
 				 				/>
 				 		)
-				 	}
+				 	},this
 			 	)
 			}
 		    </tbody>

@@ -3,19 +3,14 @@ class Persona extends React.Component{
 	render(){
 		return (
 			<tr>
-				<td>{this.props.id}</td>
 				<td>{this.props.name}</td>
 				<td>{this.props.apellido}</td>
 				<td>{this.props.dni}</td>
 				<td>{this.props.email}</td>
-				{this.props.area &&
-      			 <th>{this.props.area} </th>
-    			}
-				<td><a href={this.props.base+'/'+this.props.id}> ver </a></td>
-				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> editar </a></td>
-			{this.props.area &&
-      			 <td><a href={this.props.base+'/'+this.props.id+'/editar'}> editar </a></td>
-    			}
+				<td><a href={this.props.base+'/'+this.props.id}> <span className =  "glyphicon glyphicon-user"></span></a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> <span className =  "glyphicon glyphicon-pencil"></span> </a></td>
+
+
 			</tr>
 			
 		);
@@ -56,19 +51,15 @@ window.TablaPersonas = React.createClass({
 <table className="table table-striped">
 		  <thead>
 		      <tr>
-		        <th>ID</th>
+		     
 		        <th>Nombre</th>
 		        <th>Apellido</th>
 		        <th>DNI</th>
 		        <th>Email</th>
-		        {this.props.empleado &&
-      			 <th>Area</th>
-    			}
 		        <th>Ver</th>
 		        <th>Editar</th>
-		      	{this.props.empleado &&
-      			 <th>Eliimnar</th>
-    			}
+		        
+		      
 		      </tr>
 		    </thead>
 		  
@@ -76,35 +67,17 @@ window.TablaPersonas = React.createClass({
 			  {
 				this.state.data.map(
 				 	function (persona){
-	if(this.props.empleado){
-	return(
-			<Persona
-				name={persona.user.nombre} 
-				apellido={persona.user.apellido} 
-				email={persona.user.email} 
-				dni={persona.user.dni}
-				base={this.props.base}
-				area={persona.area.nombre}
-
-				id={persona.id} 
-				key={persona.id}
-			/>
-	)
-		
-	}
-	else{
-
-		return(
-		<Persona
-			name={persona.nombre} 
-			apellido={persona.apellido} 
-			email={persona.email} 
-			dni={persona.dni}
-			base={this.props.base}
-			id={persona.id} 
-			key={persona.id}
-		/>)
-	}
+				 		return(
+				 				<Persona
+				 					name={persona.nombre} 
+				 					apellido={persona.apellido} 
+				 					email={persona.email} 
+				 					dni={persona.dni}
+				 					base={this.props.base}
+				 					id={persona.id} 
+				 					key={persona.id}
+				 				/>
+				 		)
 				 	},this
 			 	)
 			}

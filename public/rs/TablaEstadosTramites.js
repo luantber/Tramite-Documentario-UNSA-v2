@@ -16,7 +16,7 @@ class Cargo extends React.Component{
 }
 	
 
-window.TablaAreas = React.createClass({
+window.TablaEstadosTramites = React.createClass({
 	getInitialState(){
 		return {data:[]};
 	},

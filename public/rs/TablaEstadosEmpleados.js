@@ -16,7 +16,7 @@ class Cargo extends React.Component{
 }
 	
 
-window.TablaAreas = React.createClass({
+window.TablaEstadosEmpleados = React.createClass({
 	getInitialState(){
 		return {data:[]};
 	},
@@ -49,7 +49,7 @@ window.TablaAreas = React.createClass({
 		  <thead>
 		      <tr>
 		        
-		        <th>Nombre de Area</th>
+		        <th>Nombre de estado</th>
 	        	<th>Descripción</th>
 	        	<th><span className =  "glyphicon glyphicon-folder-open"></span></th>
 		        <th><span className =  "glyphicon glyphicon-pencil"></span></th>

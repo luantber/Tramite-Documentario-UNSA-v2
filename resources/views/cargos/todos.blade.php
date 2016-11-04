@@ -18,7 +18,7 @@ var TablaCargos;
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaCargos url="{{asset('cargos/todos')}}" refresh="100000" />,
+	<TablaCargos url="{{asset('cargos/todos')}}" refresh="100000" base="{{asset('cargos/')}}" />,
 	document.getElementById('container')
 );
 </script>

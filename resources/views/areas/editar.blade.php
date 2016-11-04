@@ -34,7 +34,7 @@
 								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 							</span>
 					    	<select type="text" class="form-control" name="nomAreaPad" id="nomAreaPad" >
-								<option value="{{$area->area_id}}">{$area->nombre}</option>
+								<option value="{{$area->area_id}}">{{$area->nombre}}</option>
 								@foreach($areas as $are)
 								  @if( $area->area_id != $are->id)	
 									<option value="{{$are->id}}">{{$are->nombre}}</option>
@@ -68,7 +68,7 @@
 	    	</div>
 
 	    	<ul class="pager">
-		        <li><a href="#">Cancelar</a></li>
+		        <li><a href="{{asset('areas')}}{{'/'.$area->id}}">Cancelar</a></li>
 		    </ul>
 
 		</div>

@@ -40,7 +40,7 @@
 			    	</div>
 
 			    	<ul class="pager">
-				        <li><a href="#">Cancelar</a></li>
+				        <li><a href="{{asset('cargos')}}{{'/'.$cargo->id}}">Cancelar</a></li>
 				    </ul>
 			</form>
 		</div>

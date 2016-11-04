@@ -32,7 +32,7 @@ class cargosController extends Controller
     	$editar ->nombreCargo = $datos->nombreCargo;
     	$editar ->descripcion = $datos->descripcion;
     	$editar ->save();
-    	return redirect('cargos');
+    	return redirect('cargos/'.$id);
 
 
     }	

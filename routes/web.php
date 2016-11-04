@@ -180,6 +180,23 @@ Route::group(['prefix'=>'tipostramite'],function(){
 Route::get('panel','panelController@index');
 Route::get('panel/todos','panelController@todos');
 
+Route::group(['prefix'=>'notas'],function(){
+	Route::get('/',function(){ return view('notas.todos');});
+//	Route::get('todos_area','notasController@todos_area');
+//	Route::get('todos_empleados','notasController@todos_empleados');
+
+
+//	Route::get('{id}/eliminar','notasController@eliminar');
+//	Route::post('eliminar','notasController@eliminado');
+
+//	Route::get('{id}/editar','notasController@editar');
+//	Route::post('{id}','notasController@guardar');
+
+
+//	Route::get('{id}','notasController@show');
+
+});
+
 
 
 //Route::get('login', 'LoginController@login');

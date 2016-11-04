@@ -1,11 +1,16 @@
 
-class Cargo extends React.Component{
+class Empleado extends React.Component{
 	render(){
 		return (
 			<tr>
-				<td>{this.props.nombre}</td>
-				<td>{this.props.descripcion}</td>
-				<td><a href={this.props.base+'/'+this.props.id}> <span className =  "glyphicon glyphicon-folder-open"></span></a></td>
+
+				<td>{this.props.name}</td>
+				<td>{this.props.apellido}</td>
+				<td>{this.props.dni}</td>
+				<td>{this.props.email}</td>
+				<td>{this.props.area}</td>
+				<td>{this.props.cargo}</td>
+				<td><a href={this.props.base+'/'+this.props.id}> <span className =  "glyphicon glyphicon-user"></span></a></td>
 				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> <span className =  "glyphicon glyphicon-pencil"></span> </a></td>
 				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}> <span className =  "glyphicon glyphicon-remove"></span></a></td>
 
@@ -16,7 +21,7 @@ class Cargo extends React.Component{
 }
 	
 
-window.TablaAreas = React.createClass({
+window.TablaEmpleados = React.createClass({
 	getInitialState(){
 		return {data:[]};
 	},
@@ -39,7 +44,7 @@ window.TablaAreas = React.createClass({
 
 	componentDidMount(){
 		this.cargarDatos();
-	setInterval(this.cargarDatos,this.props.refresh)
+		setInterval(this.cargarDatos,this.props.refresh)
 	},
 
 	render(){
@@ -48,10 +53,15 @@ window.TablaAreas = React.createClass({
 <table className="table table-striped">
 		  <thead>
 		      <tr>
+	
+		        <th>Nombre</th>
+		        <th>Apellido</th>
+		        <th>DNI</th>
+		        <th>Email</th>
+		        <th>Área</th>
+		        <th>Cargo</th>
 		        
-		        <th>Nombre de Area</th>
-	        	<th>Descripción</th>
-	        	<th><span className =  "glyphicon glyphicon-folder-open"></span></th>
+	        	<th><span className =  "glyphicon glyphicon-user"></span></th>
 		        <th><span className =  "glyphicon glyphicon-pencil"></span></th>
 		        <th><span className =  "glyphicon glyphicon-remove"></span></th>
 
@@ -62,15 +72,18 @@ window.TablaAreas = React.createClass({
 		    <tbody>      
 			  {
 				this.state.data.map(
-				 	function (cargo){
+				 	function (empleado){
 				 		return(
-				 				<Cargo
-				 					nombre={cargo.nombre} 
-				 					descripcion={cargo.descripcion}
+				 				<Empleado
+				 					name={empleado.user.nombre} 
+				 					apellido={empleado.user.apellido} 
+				 					email={empleado.user.email} 
+				 					dni={empleado.user.dni}
+									area={empleado.area.nombre}
+									cargo ={empleado.cargo.nombreCargo}
 				 					base={this.props.base}
-				 					id={cargo.id}
-				 					key={cargo.id}
-
+				 					id={empleado.id} 
+				 					key={empleado.id}
 				 				/>
 				 		)
 				 	},this
