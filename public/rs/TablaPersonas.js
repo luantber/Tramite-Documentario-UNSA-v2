@@ -10,8 +10,14 @@ class Persona extends React.Component{
 				<td>{this.props.email}</td>
 				<td><a href={this.props.base+'/'+this.props.id}> ver </a></td>
 				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> editar </a></td>
-				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}> eliminar </a></td>
+			{
+				function () {
+					return(
+				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}>eliminar</a></td>
 
+					)
+				}
+			}
 			</tr>
 			
 		);
@@ -46,6 +52,7 @@ window.TablaPersonas = React.createClass({
 	},
 
 	render(){
+		console.log(this.props.empleado);
 		return(
 			
 <table className="table table-striped">
@@ -58,8 +65,9 @@ window.TablaPersonas = React.createClass({
 		        <th>Email</th>
 		        <th>Ver</th>
 		        <th>Editar</th>
-		        <th>Eliminar</th>
-		      
+		      	{this.props.empleado &&
+      			 <th>Eliimnar</th>
+    			}
 		      </tr>
 		    </thead>
 		  
@@ -67,17 +75,33 @@ window.TablaPersonas = React.createClass({
 			  {
 				this.state.data.map(
 				 	function (persona){
-				 		return(
-				 				<Persona
-				 					name={persona.user.nombre} 
-				 					apellido={persona.user.apellido} 
-				 					email={persona.user.email} 
-				 					dni={persona.user.dni}
-				 					base={this.props.base}
-				 					id={persona.id} 
-				 					key={persona.id}
-				 				/>
-				 		)
+	if(this.props.empleado){
+	return(
+			<Persona
+				name={persona.user.nombre} 
+				apellido={persona.user.apellido} 
+				email={persona.user.email} 
+				dni={persona.user.dni}
+				base={this.props.base}
+				id={persona.id} 
+				key={persona.id}
+			/>
+	)
+		
+	}
+	else{
+
+		return(
+		<Persona
+			name={persona.nombre} 
+			apellido={persona.apellido} 
+			email={persona.email} 
+			dni={persona.dni}
+			base={this.props.base}
+			id={persona.id} 
+			key={persona.id}
+		/>)
+	}
 				 	},this
 			 	)
 			}

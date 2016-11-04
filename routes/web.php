@@ -160,7 +160,7 @@ Route::group(['prefix'=>'areas'],function(){
 
 });
 
-
+/* tipos tramite */
 Route::group(['prefix'=>'tipostramite'],function(){
 
   Route::get('/',function(){ return view('tiposTramite.todos');  });
@@ -175,6 +175,10 @@ Route::group(['prefix'=>'tipostramite'],function(){
   Route::post('{id}','tiposTramiteController@guardar');
 
 });
+
+/* PANEL */
+Route::get('panel','panelController@index');
+Route::get('panel/todos','panelController@todos');
 
 
 
