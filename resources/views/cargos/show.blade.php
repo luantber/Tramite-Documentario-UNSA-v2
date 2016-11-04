@@ -26,9 +26,24 @@
                     <td>Descripción: </td>
                     <td>{{$cargo->descripcion}}</td>
                   </tr>                     
+                  <tr>
+                    <td>Permisos: </td>
+                    <td></td>
+                  </tr>
+                  
+                  <?php $permisos=$cargo->permisoscargo->toArray()?>
+
+                  @foreach($permisos as $permiso)
+                    @if($permiso==1)
+                      <tr>
+                        <td></td>
+                        <td>{{key($permisos)}} </td>
+                      </tr>
+                    @endif
+                    {!!next($permisos)!!}
+                  @endforeach
                 </tbody>
               </table>
-
             </div>
           </div>
         </div>

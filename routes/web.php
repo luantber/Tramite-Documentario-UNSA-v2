@@ -72,6 +72,8 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('crear',function(){return view('cargos.crear');});//cargos/crear
 	Route::post('crearCar','cargosController@crear');
 
+	Route::get('{id}/permisos','cargosController@permisosget');
+	Route::post('permisos','cargosController@permisos');
 
 	Route::get('{id}/eliminar','cargosController@eliminar');
 	Route::post('eliminar','cargosController@eliminado');
