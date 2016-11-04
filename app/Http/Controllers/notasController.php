@@ -9,55 +9,68 @@ use App\Notas;
 
 class notasController extends Controller
 {
-    public function crear(Request $datos){
+    public function crear_empleados(Request $datos){
     	$nuevo = new Notas ;
     	$nuevo ->nombre = $datos->nombre;
     	$nuevo ->descripcion = $datos->descripcion;
-    	$nuevo ->id_area = $datos ->idarea;
-    	$nuevo ->id_empleados = $datos ->idempleados;
+        $nuevo ->id_empleados = $datos->id_empleados;
     	$nuevo ->save();
     	return redirect('notas/todos');
     }
 
-    public function todos_Area(){
-    	$notas_area = Notas::all();
-    	return response()->json($notas_area);
+        public function crear_area(Request $datos){
+        $nuevo = new Notas ;
+        $nuevo ->nombre = $datos->nombre;
+        $nuevo ->descripcion = $datos->descripcion;
+        $nuevo ->id_area = $datos->id_area;
+        $nuevo ->save();
+        return redirect('notas/todos');
     }
 
-    public function todos_empleado(){
-    	$notas_em = Notas::all();
-    	return response() ->json($notas_em);
+    
+    public function todos(){
+    	$notas = Notas::all();
+    	return response()->json($notas);
     }
+
     public function show ($id){
     	$encontrado = Notas::find($id);
-    	return view('nota.show',['notas'=>$encontrado]);
+    	return view('notas.show',['notas'=>$encontrado]);
     }
 
     public function editar($id){
     	$encontrado = Notas::find($id);
-    	return view('nota.editar',['notas'=>$encontrado]);
+    	return view('notas.editar',['notas'=>$encontrado]);
     }
 
-    public function guardar(Request $datos,$id){
+    public function guardar_em(Request $datos,$id){
     	$editar = Notas::find($id);
     	$editar->nombre = $datos->nombre;
     	$editar->descripcion = $datos->descripcion;
-    	$editar->id_area = $datos->idarea;
-    	$editar->id_empleados = $datos->idempleados;
+        $editar->id_empleados = $datos->id_empleados;
     	$editar->save();
     	return redirect('notas/todos/'.$id);
     }
 
+        public function guardar_area(Request $datos,$id){
+        $editar = Notas::find($id);
+        $editar->nombre = $datos->nombre;
+        $editar->descripcion = $datos->descripcion;
+        $editar->id_area = $datos->id_area;
+        $editar->save();
+        return redirect('notas/todos/'.$id);
+    }
+
     public function eliminar($id){
     	$encontrado = Notas::find($id);
-    	return view('nota.eliminar',['eliminado'=>$encontrado]);
+    	return view('notas.eliminar',['eliminado'=>$encontrado]);
     }
 
     public function eliminado(Request $datos){
 
     	$eliminado = Notas::find($datos->id);
     	$eliminado->delete();
-    	return redirect('notas/todos');
+    	return redirect('notas/todos/');
     }
     //
 }

@@ -26,7 +26,7 @@ class CreateNotasTable extends Migration
                 ->on('empleados');
             $table->foreign('areas_id')
                 ->references('id')
-                ->on('areas');    
+                ->on('empleados');    
 
         });
     }

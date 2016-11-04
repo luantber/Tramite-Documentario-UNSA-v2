@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="crearNota">
+<form method="POST" action="{{asset('notas/crear_area')}}">
 	{{ csrf_field()}}
 
 
