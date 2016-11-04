@@ -191,18 +191,16 @@ Route::group(['prefix'=>'mistramites'],function(){
 /* End Panel */
 
 
-/* AGENDA She's a maniac, maniac. On the floor!!! *dances*  */
+/* AGENDA She's a maniac, maniac... on the floor!!! *dances*  */
 Route::group(['prefix'=>'notas'],function(){
 
   Route::get('/',function(){ return view('notas.todos');  });
 
   Route::get('todos','notasController@todos');
 
-  Route::get('crear/area',function(){return view('notas.crear_area'); });
-  Route::post('crear/area','notasController@crear_area');
+  Route::get('crear',function(){return view('notas.crear'); });
+  Route::post('crear','notasController@crear');
 
-  Route::get('crear/empleado',function(){return view('notas.crear_empleado'); });
-  Route::post('crear/empleado','notasController@crear_empleado');
 
 
   Route::get('{id}/editar','notasController@editar');

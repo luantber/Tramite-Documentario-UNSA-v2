@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="{{asset('notas/crear_area')}}">
+<form method="POST" action="{{asset('notas/crear')}}">
 	{{ csrf_field()}}
 
 
@@ -29,12 +29,12 @@
 
 			<div class="form-group">
 
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" name="personal"> Personal
-					</label>
-				</div>
-
+				<label for="personal">Privacidad </label>
+					<select name="id_area" type="text" class="form-control" id="personal" name="personal" required="true">
+							<option value="" >Seleccionar Privacidad</option>
+												<option value='1'>Personal</option>
+												<option value='0'>Público</option>
+						</select>
 			</div>
 
 			<button type="submit" class="btn btn-default" value="Submit">Crear</button>

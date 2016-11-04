@@ -138,8 +138,7 @@
 				<li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
 						 <ul class="dropdown-menu">
-						 <li><a href="{{ url('notas/crear/empleado') }}">Nuevo Personal</a></li>
-             <li><a href="{{ url('notas/crear/area') }}">Nuevo Publico</a></li>
+						 <li><a href="{{ url('notas/crear') }}">Nuevo</a></li>
 							 <li><a href="{{ url('notas/todos') }}">Todos</a></li>
 
 						 </ul>
