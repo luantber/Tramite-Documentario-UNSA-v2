@@ -181,7 +181,7 @@ Route::group(['prefix'=>'notas'],function()){
 	Route::get('todos_area','notasController@todos_area');
 	Route::get('todos_empleados','notasController@todos_empleados');
 
-
+});
 
 
 
