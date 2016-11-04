@@ -8,16 +8,14 @@ class Persona extends React.Component{
 				<td>{this.props.apellido}</td>
 				<td>{this.props.dni}</td>
 				<td>{this.props.email}</td>
+				{this.props.area &&
+      			 <th>{this.props.area} </th>
+    			}
 				<td><a href={this.props.base+'/'+this.props.id}> ver </a></td>
 				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> editar </a></td>
-			{
-				function () {
-					return(
-				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}>eliminar</a></td>
-
-					)
-				}
-			}
+			{this.props.area &&
+      			 <td><a href={this.props.base+'/'+this.props.id+'/editar'}> editar </a></td>
+    			}
 			</tr>
 			
 		);
@@ -52,7 +50,7 @@ window.TablaPersonas = React.createClass({
 	},
 
 	render(){
-		console.log(this.props.empleado);
+	
 		return(
 			
 <table className="table table-striped">
@@ -63,6 +61,9 @@ window.TablaPersonas = React.createClass({
 		        <th>Apellido</th>
 		        <th>DNI</th>
 		        <th>Email</th>
+		        {this.props.empleado &&
+      			 <th>Area</th>
+    			}
 		        <th>Ver</th>
 		        <th>Editar</th>
 		      	{this.props.empleado &&
@@ -83,6 +84,8 @@ window.TablaPersonas = React.createClass({
 				email={persona.user.email} 
 				dni={persona.user.dni}
 				base={this.props.base}
+				area={persona.area.nombre}
+
 				id={persona.id} 
 				key={persona.id}
 			/>
