@@ -13,6 +13,12 @@ class estadosTramitesController extends Controller
     	$nuevo = new EstadoTramite ;
     	$nuevo ->nombre = $datos->nombre;
     	$nuevo ->descripcion = $datos->descripcion;
+        if($datos->show=='Mostrar'){
+            $nuevo->show=1;
+        }
+        else{
+            $nuevo->show=0;
+        }
     	$nuevo ->save();
     	return redirect('tramites/estados');
     }

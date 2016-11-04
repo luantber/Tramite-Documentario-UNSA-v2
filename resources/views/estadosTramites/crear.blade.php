@@ -25,7 +25,7 @@
 
            <div class="checkbox">
 		    <label>
-		      <input type="checkbox" value="" name="" id=""> Show
+		      <input type="checkbox" value="Mostrar" name="show" id="show"> Show
 		    </label>
 		  </div>
 

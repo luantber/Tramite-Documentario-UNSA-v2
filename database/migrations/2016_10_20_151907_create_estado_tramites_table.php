@@ -17,6 +17,7 @@ class CreateEstadoTramitesTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->text('descripcion');
+            $table->boolean('show');
             $table->timestamps();
         });
     }
