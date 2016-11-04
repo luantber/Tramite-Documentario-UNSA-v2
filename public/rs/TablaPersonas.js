@@ -9,6 +9,8 @@ class Persona extends React.Component{
 				<td>{this.props.dni}</td>
 				<td>{this.props.email}</td>
 				<td><a href={this.props.base+'/'+this.props.id}> ver </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> editar </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}> eliminar </a></td>
 
 			</tr>
 			
@@ -56,6 +58,7 @@ window.TablaPersonas = React.createClass({
 		        <th>Email</th>
 		        <th>Ver</th>
 		        <th>Editar</th>
+		        <th>Eliminar</th>
 		      
 		      </tr>
 		    </thead>

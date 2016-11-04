@@ -68,7 +68,7 @@
 
 
     	<ul class="pager">
-	        <li><a href="#">Cancelar</a></li>
+	        <li><a href="{{asset('empleados')}}{{'/'.$eliminado->id}}">Cancelar</a></li>
 	    </ul>
 	</div>
 

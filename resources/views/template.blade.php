@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
 	<title>@yield('title')</title>
@@ -48,10 +48,27 @@
           <div id="navbar" class="navbar-collapse collapse">
 
         <ul class="nav navbar-nav navbar-right">
-
-<!--MOVIMIENTOS-->
         <ul class="nav navbar-nav">
-          <li><a href="{{ url('movimientos')}}">Movimientos</a></li>
+<!--USUARIOS-->
+          <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+               <li><a href="{{ url('usuarios/crear')}}">Nuevo</a></li>
+                 <li><a href="{{ url('usuarios')}}">Todos</a></li>
+
+               </ul>
+           </li>
+<!--EMPLEADOS-->
+                      <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                  <li><a href="{{ url('empleados/crear')}}">Nuevo</a></li>
+                  <li><a href="{{ url('empleados/')}}">Todos</a></li>
+                 <li><a href="{{ url('empleados/estados/crear')}}">Nuevo Estado</a></li>
+                 <li><a href="{{ url('empleados/estados') }}">Todos Estados</a></li>
+               </ul>
+           </li>
+
 <!--ÁREAS-->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Áreas<span class="caret"></span></a>
@@ -65,16 +82,17 @@
         </ul>
 
 
-
-<!--USUARIOS-->
-          <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+<!--cargos-->
+           <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cargos <span class="caret"></span></a>
                <ul class="dropdown-menu">
-               <li><a href="{{ url('usuarios/crear')}}">Nuevo</a></li>
-                 <li><a href="{{ url('usuarios')}}">Todos</a></li>
-
+                 <li><a href="{{ url('cargos/crear')}}">Nuevo</a></li>
+                 <li><a href="{{ url('cargos') }}">Todos</a></li>
                </ul>
            </li>
+
+<!--MOVIMIENTOS-->
+          <li><a href="{{ url('movimientos')}}">Movimientos</a></li>
 
  <!--TRAMITES-->
 
@@ -86,24 +104,6 @@
                  <li><a href="{{ url('tramites/estados/crear') }}">crear Estados</a></li>
                  <li><a href="{{ url('tramites/estados') }}">Estados</a></li>
 
-               </ul>
-           </li>
-<!--cargos-->
-           <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cargos <span class="caret"></span></a>
-               <ul class="dropdown-menu">
-                 <li><a href="{{ url('cargos/crear')}}">Nuevo</a></li>
-                 <li><a href="{{ url('cargos') }}">Todos</a></li>
-               </ul>
-           </li>
-<!--EMPLEADOS-->
-                      <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados <span class="caret"></span></a>
-               <ul class="dropdown-menu">
-                  <li><a href="{{ url('empleados/crear')}}">Nuevo</a></li>
-                  <li><a href="{{ url('empleados/')}}">Todos</a></li>
-                 <li><a href="{{ url('empleados/estados/crear')}}">Nuevo Estado</a></li>
-                 <li><a href="{{ url('empleados/estados') }}">Todos Estados</a></li>
                </ul>
            </li>
 
