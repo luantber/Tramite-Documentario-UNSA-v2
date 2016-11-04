@@ -12,7 +12,7 @@
 	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 
-		<h2><p class="text-center">  Crear Nota </p></h2>
+		<h2><p class="text-center">  Crear Nota Personal </p></h2>
 
 
 

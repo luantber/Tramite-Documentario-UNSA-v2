@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title','Nota en Agenda')
+@section('title','Notas en Agenda')
 
 @section('content')
 
@@ -29,6 +29,7 @@
                               <small>12:03:28 12-04-2014</small>
                               <h4>Recoger documentos de María</h4>
                               <p>Tengo que recoger los papeles del aula 102 a las 3.</p>
+                              <a href="#" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
                               <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
                           </div>
                       </li>
@@ -37,6 +38,7 @@
                               <small>12:03:28 12-04-2014</small>
                               <h4>Awesome date</h4>
                               <p>The years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                              <a href="#" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
                               <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
                           </div>
                       </li>
@@ -45,6 +47,7 @@
                               <small>12:03:28 12-04-2014</small>
                               <h4>Awesome project</h4>
                               <p>The years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                              <a href="#" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
                               <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
                           </div>
                       </li>

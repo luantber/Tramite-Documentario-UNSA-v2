@@ -27,6 +27,16 @@
 				<textarea type="text" class="form-control" placeholder="Ingrese la descripción"  name="descripcion" id="descripcion" required="true"></textarea>
 			</div>
 
+			<div class="form-group">
+
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="personal"> Personal
+					</label>
+				</div>
+
+			</div>
+
 			<button type="submit" class="btn btn-default" value="Submit">Crear</button>
 
 		</div>

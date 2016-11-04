@@ -191,11 +191,13 @@ Route::group(['prefix'=>'mistramites'],function(){
 /* End Panel */
 
 
-/* AGENDA   */
+/* AGENDA She's a maniac, maniac. On the floor!!! *dances*  */
 Route::group(['prefix'=>'notas'],function(){
 
   Route::get('/',function(){ return view('notas.todos');  });
-  //Route::get('todos','notasController@todos_area');
+
+  Route::get('todos','notasController@todos');
+
   Route::get('crear/area',function(){return view('notas.crear_area'); });
   Route::post('crear/area','notasController@crear_area');
 
@@ -228,7 +230,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 	GG Tu solo para vistas, si quieres verlo tiene que funcionar
 	>:c :(
 */
-
 
 
 /*

@@ -13,24 +13,32 @@ class notasController extends Controller
     	$nuevo = new Notas ;
     	$nuevo ->nombre = $datos->nombre;
     	$nuevo ->descripcion = $datos->descripcion;
-        $nuevo ->id_empleados = $datos->id_empleados;
+      $nuevo ->id_empleados = $datos->id_empleados;
+      $nuevo ->publico = $datos ->publico;
     	$nuevo ->save();
     	return redirect('notas/todos');
     }
 
-        public function crear_area(Request $datos){
+    public function crear_area(Request $datos){
         $nuevo = new Notas ;
         $nuevo ->nombre = $datos->nombre;
         $nuevo ->descripcion = $datos->descripcion;
         $nuevo ->id_area = $datos->id_area;
+        $nuevo ->publico = $datos ->publico;
         $nuevo ->save();
         return redirect('notas/todos');
     }
 
-    
+    /*
     public function todos(){
     	$notas = Notas::all();
     	return response()->json($notas);
+    }
+    */
+
+    public function todos(){
+    	$notas = Notas::all();
+    	return view('notas.todos');
     }
 
     public function show ($id){
@@ -47,16 +55,18 @@ class notasController extends Controller
     	$editar = Notas::find($id);
     	$editar->nombre = $datos->nombre;
     	$editar->descripcion = $datos->descripcion;
-        $editar->id_empleados = $datos->id_empleados;
+      $editar->id_empleados = $datos->id_empleados;
+      $editar->publico = $datos->publico;
     	$editar->save();
     	return redirect('notas/todos/'.$id);
     }
 
-        public function guardar_area(Request $datos,$id){
+    public function guardar_area(Request $datos,$id){
         $editar = Notas::find($id);
         $editar->nombre = $datos->nombre;
         $editar->descripcion = $datos->descripcion;
         $editar->id_area = $datos->id_area;
+        $editar->publico = $datos->publico;
         $editar->save();
         return redirect('notas/todos/'.$id);
     }

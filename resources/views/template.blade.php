@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>@yield('title')</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
 	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
