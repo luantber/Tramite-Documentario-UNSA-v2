@@ -176,14 +176,17 @@ Route::group(['prefix'=>'tipostramite'],function(){
 
 });
 
-/* PANEL */
-Route::get('panel','panelController@index');
-Route::get('panel/todos','panelController@todos');
+/* PANEL  - POner middleware a los dos*/  
+Route::group(['prefix'=>'panel'],function(){
+	Route::get('/','panelController@index');
+	Route::get('todos','panelController@todos');
+});
 
-Route::group(['prefix'=>'notas'],function(){
-	Route::get('/',function(){ return view('notas.todos');});
-//	Route::get('todos_area','notasController@todos_area');
-//	Route::get('todos_empleados','notasController@todos_empleados');
+Route::group(['prefix'=>'mistramites'],function(){
+	Route::get('/','panelController@indexu');
+	Route::get('todos','panelController@todosu');
+});
+/* End Panel */
 
 
 //	Route::get('{id}/eliminar','notasController@eliminar');

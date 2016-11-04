@@ -1,10 +1,11 @@
 
 class Tramite extends React.Component{
 	render(){
+		console.log(this.props.ver);
 		return (
 				
 			<tr>
-				<td>{this.props.id}</td>
+				<td>{this.props.ide}</td>
 				<td>{this.props.asunto}</td>
 		        <td>
 		        	De: {this.props.persona}  <br/>
@@ -13,7 +14,9 @@ class Tramite extends React.Component{
 		        </td>
 		        <td>{this.props.fechainicio}</td>
 		        <td>Final</td>
-		        <th><span className="glyphicon glyphicon-envelope"></span> delegar</th>
+		       	{this.props.ver &&
+      			 <td> <a href={this.props.base+'/'+this.props.id} > Ver Estado </a>  </td>
+    			}
 			</tr>
 			
 		);
@@ -48,6 +51,7 @@ window.TablaTramites = React.createClass({
 	},
 
 	render(){
+		console.log(this.props.ver);
 		return(
 			
 <table className="table table-hover">
@@ -66,34 +70,31 @@ window.TablaTramites = React.createClass({
 			  {
 				this.state.data.map(
 				 	function (tramite){
-				 			console.log(tramite.persona);
-				 			if(!tramite.persona || !tramite.area ){ return(
-				 				<Tramite
-				 					id={tramite.nro_expediente}
-									asunto={tramite.asunto}
-									fechainicio={tramite.created_at}
+				 			//console.log(tramite.persona);
+				
+		 				return(
+		 					<Tramite
+		 					ide={tramite.nro_expediente}
+		 					id={tramite.id}
 
-									key={tramite.id}
-				 				/>)
-				 			}
-				 			else{
-				 				return(
-				 					<Tramite
-				 					id={tramite.nro_expediente}
-									asunto={tramite.asunto}
-									persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
-									destino={tramite.area.nombre}
-									estado={JSON.stringify(tramite.estado)}
-									fechainicio={tramite.created_at}
+							asunto={tramite.asunto}
 
-									key={tramite.id}
-				 				/>
-				 				)
-				 			}
+							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
+							destino={tramite.area.nombre}
+							estado={JSON.stringify(tramite.estado)}
+							fechainicio={tramite.created_at}
+
+							ver={this.props.ver}
+
+							base={this.props.base}
+							key={tramite.id}
+		 				/>
+		 				)
+				 			
 				 				
 				 		
 				 	}
-			 	)
+			 	,this)
 			}
 		    </tbody>
 

@@ -36,6 +36,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Tramite','persona_id');
     } 
 
+    /* Funciones para saber que permisos tendra el usuario */
+
+    public function isAreaInicial(){
+        /* Cambiar aqui la fun correcta*/
+        if ($this->area->nombre = "Mesa de Partes") return true;
+        else return false;
+    }
 
 
 
