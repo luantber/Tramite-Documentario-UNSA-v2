@@ -8,12 +8,12 @@ class notas extends Model
 {
     public function nota_empleado()
     {
-    	return $this->belongsTo('App\Empleado','empleados_id','id');
+    	return $this->belongsTo('App\Empleado','id_empleado','id');
     }
 
     public function nota_area()
     {
-    	return $this->belongsTo('App\Area','areas_id','id');
+    	return $this->belongsTo('App\Area','id_area','id');
     }
     
     //
