@@ -181,7 +181,7 @@ Route::group(['prefix'=>'notas'],function()){
 	Route::get('todos_area','notasController@todos_area');
 	Route::get('todos_empleados','notasController@todos_empleados');
 
-	Route::get('crear',function(){return view('nota.crear');});
+	Route::get('crear','notasController@crearGet');
 	Route::post('crear','estadoEmpleadosController@crear');
 
 	Route::get('{id}/eliminar','notasController@eliminar');
