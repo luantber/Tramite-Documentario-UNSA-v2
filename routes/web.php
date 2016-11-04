@@ -176,13 +176,6 @@ Route::group(['prefix'=>'tipostramite'],function(){
 
 });
 
-Route::group(['prefix'=>'notas'],function()){
-	Route::get('/',function(){ return view('notas.todos');});
-	Route::get('todos_area','notasController@todos_area');
-	Route::get('todos_empleados','notasController@todos_empleados');
-
-});
-
 
 
 //Route::get('login', 'LoginController@login');
