@@ -5,6 +5,12 @@
 @section('content')
 
 
+{{Auth::user()}}
+
+{{Auth::user()->empleado->id}}
+
+{{Auth::user()->empleado->area->id}}
+
 <form method="POST" action="{{asset('notas/crear')}}">
 	{{ csrf_field()}}
 
@@ -14,7 +20,9 @@
 
 		<h2><p class="text-center">  Crear Nota </p></h2>
 
+			<input type="hidden" name="areas_id" value="{{Auth::user()->empleado->area->id}}">
 
+			<input type="hidden" name="empleados_id" value="{{Auth::user()->empleado->id}}">
 
 			<div class="form-group">
 				<label for="nomArea"> Nombre de la nota: </label>
@@ -29,8 +37,8 @@
 
 			<div class="form-group">
 
-				<label for="personal">Privacidad </label>
-					<select name="id_area" type="text" class="form-control" id="personal" name="personal" required="true">
+				<label for="priv">Privacidad </label>
+					<select name="personal" type="text" class="form-control" id="personal" name="personal" required="true">
 							<option value="" >Seleccionar Privacidad</option>
 												<option value='1'>Personal</option>
 												<option value='0'>Público</option>

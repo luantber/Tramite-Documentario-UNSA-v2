@@ -6,9 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Notas;
+use App\Area;
+use App\Empleado;
 
 class notasController extends Controller
 {
+
+
+
     public function crear(Request $datos){
     	$nuevo = new Notas ;
     	$nuevo ->nombre = $datos->nombre;
@@ -23,9 +28,14 @@ class notasController extends Controller
 
 
     public function todos(){
-      $pers = Notas::where('empleados_id',$datos->dni)->where('personal','1');
-    	$pub = Notas::where('areas_id',$datos->id_area)->where('personal','0');
-    	return view('notas.todos',['personal'=>$pers,'publico'=>$pub]);
+
+      $this -> middleware('auth');
+      $this->user= \Auth::user();
+      $autenticado = $this->user;
+
+      $personal = Notas::where('empleados_id',$autenticado->empleado->id)->where('personal','1')->orderBy('created_at','DESC')->paginate(2,['*'],'personal');
+      $publico = Notas::where('areas_id',$autenticado->empleado->area->id)->where('personal','0')->orderBy('created_at','DESC')->paginate(2,['*'],'publico');
+      return view('notas.todos',['personal'=>$personal,'publico'=>$publico]);
     }
 
 /*

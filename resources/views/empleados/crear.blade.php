@@ -33,7 +33,7 @@
 				</div>
 			  <div class="col-sm-6">
 			  		<label for="apellido" >Apellido: </label>
-				    <input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos" required="true">	
+				    <input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos" required="true">
 			  </div>
 			</div><br>
 
@@ -68,7 +68,7 @@
 			          <option value="" >Seleccionar área</option>
 		          			@foreach($area as $are)
 			                    <option value='{{$are->id}}'>{{$are->nombre}}</option>
-			                @endforeach  
+			                @endforeach
 			        </select>
 			        <!--<input class="form-control" type="text" name ="areaEmpleado" id="area" placeholder="Ingresar área" required="true">-->
 			  </div>
@@ -100,8 +100,8 @@
 
 			<div class="form-group">
 				<div class="text-center">
-					<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit"> 
-					Crear nuevo empleado </button> 
+					<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
+					Crear nuevo empleado </button>
 				</div>
 			</div>
 
@@ -141,14 +141,14 @@
 	nombre:
 	<input type="text" name="nomPer">
 	<br>apellido:
-	<input type="text" name="apellidoPer">	
+	<input type="text" name="apellidoPer">
 	<br>dni:
 	<input type="text" name="dni">
 	<br>email: <input type="email" name="correo">
 	<br>Área:
 	<input type="text" name="areaEmpleado">
 	<br>Cargo:
-	<input type="text" name="cargoEmpleado">	
+	<input type="text" name="cargoEmpleado">
 	<br>activo:
 	<input type="text" name="activoEmpleado">
 

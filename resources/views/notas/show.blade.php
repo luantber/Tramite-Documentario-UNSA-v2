@@ -1,52 +1,65 @@
 @extends('template')
 
-@section('title','Nota')
+@section('title','Ver Nota')
 
 @section('content')
-	
+
+
+
+<form method="POST" action="elimArea">
+	{{ csrf_field()}}
+
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-   
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Perfil de:  </h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('imagenes/perfil.jpg')}}" class="img-circle img-responsive"> </div>
-                
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Nombre: </td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Apellidos: </td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>DNI:</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td> e-mail: </td>
-                        <td></td>
-                      </tr>
-                     
-                    </tbody>
-                  </table>
 
-                </div>
-              </div>
-            </div>
-                 <div class="panel-footer">
-                 
-                        <a href="" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-
-                    </div>
-            
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="text-center">
+            <h3 class="panel-title">Nota </h3>
           </div>
         </div>
+        <div class="panel-body">
+          <div class="row">
+
+            <div class=" col-md-12 col-lg-12 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Nombre de Area: </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Nombre de Área Padre: </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Jefe de Área: </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Descripción: </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="text-center">
+			<button type="button" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
+      </div>
+
+
+
+    	<ul class="pager">
+	        <li><a href="#">Cancelar</a></li>
+	    </ul>
+
+    </div>
+
+</form>
 
 @endsection

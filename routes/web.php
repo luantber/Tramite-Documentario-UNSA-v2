@@ -198,9 +198,9 @@ Route::group(['prefix'=>'notas'],function(){
 
   Route::get('todos','notasController@todos');
 
-  Route::get('crear',function(){return view('notas.crear'); });
+  //Route::get('crear','notasController@antesCrear');
+  Route::get('crear',function(){return view('notas.crear');});
   Route::post('crear','notasController@crear');
-
 
 
   Route::get('{id}/editar','notasController@editar');
