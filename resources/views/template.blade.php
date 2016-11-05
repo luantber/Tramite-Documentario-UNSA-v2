@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>@yield('title')</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
 	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
@@ -135,8 +138,8 @@
 				<li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
 						 <ul class="dropdown-menu">
-						 <li><a href="">Nuevo</a></li>
-							 <li><a href="">Todos</a></li>
+						 <li><a href="{{ url('notas/crear') }}">Nuevo</a></li>
+							 <li><a href="{{ url('notas/todos') }}">Todos</a></li>
 
 						 </ul>
 				 </li>

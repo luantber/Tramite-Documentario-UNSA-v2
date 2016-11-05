@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="crearNota">
+<form method="POST" action="{{asset('notas/crear')}}">
 	{{ csrf_field()}}
 
 
@@ -25,6 +25,16 @@
 			<div class="form-group">
 				<label for="descripcion"> Nota: </label>
 				<textarea type="text" class="form-control" placeholder="Ingrese la descripción"  name="descripcion" id="descripcion" required="true"></textarea>
+			</div>
+
+			<div class="form-group">
+
+				<label for="personal">Privacidad </label>
+					<select name="id_area" type="text" class="form-control" id="personal" name="personal" required="true">
+							<option value="" >Seleccionar Privacidad</option>
+												<option value='1'>Personal</option>
+												<option value='0'>Público</option>
+						</select>
 			</div>
 
 			<button type="submit" class="btn btn-default" value="Submit">Crear</button>

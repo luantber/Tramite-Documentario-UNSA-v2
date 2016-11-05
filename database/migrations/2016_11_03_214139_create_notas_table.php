@@ -19,6 +19,7 @@ class CreateNotasTable extends Migration
             $table->text('descripcion');
             $table->integer('empleados_id')->unsigned();
             $table->integer('areas_id')->unsigned();
+            $table->boolean('personal');
             $table->timestamps();
 
             $table->foreign('empleados_id')
@@ -26,7 +27,7 @@ class CreateNotasTable extends Migration
                 ->on('empleados');
             $table->foreign('areas_id')
                 ->references('id')
-                ->on('areas');    
+                ->on('empleados');
 
         });
     }

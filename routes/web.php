@@ -178,7 +178,7 @@ Route::group(['prefix'=>'tipostramite'],function(){
 
 });
 
-/* PANEL  - POner middleware a los dos*/  
+/* PANEL  - POner middleware a los dos*/
 Route::group(['prefix'=>'panel'],function(){
 	Route::get('/','panelController@index');
 	Route::get('todos','panelController@todos');
@@ -191,16 +191,29 @@ Route::group(['prefix'=>'mistramites'],function(){
 /* End Panel */
 
 
-//	Route::get('{id}/eliminar','notasController@eliminar');
-//	Route::post('eliminar','notasController@eliminado');
+/* AGENDA She's a maniac, maniac... on the floor!!! *dances*  */
+Route::group(['prefix'=>'notas'],function(){
 
-//	Route::get('{id}/editar','notasController@editar');
-//	Route::post('{id}','notasController@guardar');
+  Route::get('/',function(){ return view('notas.todos');  });
+
+  Route::get('todos','notasController@todos');
+
+  Route::get('crear',function(){return view('notas.crear'); });
+  Route::post('crear','notasController@crear');
 
 
-//	Route::get('{id}','notasController@show');
 
+  Route::get('{id}/editar','notasController@editar');
+  Route::get('{id}','notasController@show');
 
+  Route::post('{id}','notasController@guardar_area');
+  Route::post('{id}','notasController@guardar_em');
+
+  Route::get('{id}/eliminar','notasController@eliminar');
+
+});
+
+/* FIN AGENDA */
 
 
 //Route::get('login', 'LoginController@login');
@@ -216,13 +229,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 	>:c :(
 */
 
-  Route::get('notas/crear', function(){
-    return view('notas/crear');
-  });
-
-  Route::get('notas/todos', function(){
-    return view('notas/todos');
-  });
 
 /*
 	GG tu Prueba
