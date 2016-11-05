@@ -28,20 +28,27 @@
                   </tr>                     
                   <tr>
                     <td>Permisos: </td>
-                    <td></td>
+                    <td> </td>
                   </tr>
-                  
-                  <?php $permisos=$cargo->permisoscargo->toArray()?>
+                
+                  <?php  
+                    $permisos=["Areas","Cargos","Usuarios","Empleados","Panel de Tramites","Tramites"];
+                    $values=array_values($cargo->permisoscargo->toArray());
+                    array_shift($values);
+                   ?>
 
-                  @foreach($permisos as $permiso)
-                    @if($permiso==1)
+                  
+                  @for($i=0;$i<6;$i++)
+                    @if($values[$i]==1)
                       <tr>
                         <td></td>
-                        <td>{{key($permisos)}} </td>
+                        <td>{{$permisos[$i]}}</td>
                       </tr>
                     @endif
-                    {!!next($permisos)!!}
-                  @endforeach
+
+                  @endfor
+
+
                 </tbody>
               </table>
             </div>
