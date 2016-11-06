@@ -1,64 +1,43 @@
 @extends('template')
 
-@section('title','Eliminar Nota')
+@section('title','Editar Nota')
 
 @section('content')
 
+<h2><p class="text-center">  Editar Área </p></h2>
 
+    <br><br>
+    <form method="POST" action="{{ asset('notas')}}{{'/'.$nota->id}}">
+    {{ csrf_field()}}
 
-<form method="POST" action="elimArea">
-	{{ csrf_field()}}
-
-	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="text-center">
-            <h3 class="panel-title">Nota </h3>
-          </div>
-        </div>
-        <div class="panel-body">
           <div class="row">
 
-            <div class=" col-md-12 col-lg-12 ">
-              <table class="table table-user-information">
-                <tbody>
-                  <tr>
-                    <td>Nombre de Area: </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Nombre de Área Padre: </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Jefe de Área: </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Descripción: </td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-
+            <div class="col-sm-12">
+          <label for="nombre"> Nombre de la Nota: </label>
+          <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+              </span>
+              <input type="text" class="form-control"name="nombre" id="nombre" value="{{$nota->nombre}}">
             </div>
           </div>
         </div>
-      </div>
+      <div class="form-group">
+          <label for="Descripcion"> Descripción: </label>
+            <input class="form-control" value="{{ $nota->descripcion }}"  name="descripcion" id="descripcion" required="">
+        </div>
 
+        <div class="text-center">
+            <button type="submit" value="Submit" class="btn btn-primary">Guardar</button>
+        </div>
 
-      <div class="text-center">
-			<button type="button" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
-      </div>
-
-
-
-    	<ul class="pager">
-	        <li><a href="#">Cancelar</a></li>
-	    </ul>
+        <ul class="pager">
+            <li><a href="{{asset('notas/todos')}}{{'/'.$nota->id.'/editar'}}">Cancelar</a></li>
+        </ul>
 
     </div>
+
+    </form>
 
 </form>
 
