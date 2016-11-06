@@ -29,9 +29,12 @@ class Empleado extends Model
 
     public function tienePermisos($cargo)
     {
+        //dd($cargo);
         $ar=$this->cargo->permisosCargo->toArray();
+
         array_shift($ar);
         foreach ($ar as $key=>$a) {
+            //dd($key,$a);
             if ($a==1 and $key==$cargo)
                 return true;
         }
