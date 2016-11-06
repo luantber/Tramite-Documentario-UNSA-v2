@@ -7,7 +7,7 @@
 <h2><p class="text-center">  Editar Área </p></h2>
 
     <br><br>
-    <form method="POST" action="{{ asset('notas')}}{{'/'.$nota->id}}">
+    <form method="POST" action="{{ asset('notas')}}{{'/'.$notas->id}}">
     {{ csrf_field()}}
 
           <div class="row">
@@ -18,7 +18,7 @@
               <span class="input-group-addon" id="basic-addon1">
                 <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
               </span>
-              <input type="text" class="form-control"name="nombre" id="nombre" value="{{$nota->nombre}}">
+              <input type="text" class="form-control"name="nombre" id="nombre" value="{{$notas->nombre}}">
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
         </div>
 
         <ul class="pager">
-            <li><a href="{{asset('notas/todos')}}{{'/'.$nota->id.'/editar'}}">Cancelar</a></li>
+            <li><a href="{{asset('notas/todos')}}{{'/'.$notas->id.'/editar'}}">Cancelar</a></li>
         </ul>
 
     </div>
