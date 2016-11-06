@@ -89,6 +89,9 @@ class cargosController extends Controller
         for ($i=0; $i <count($datos->sep) ; $i++) { 
             $ara[$datos->sep[$i]]=1;
         }
+
+        // Interesante ... 
+
         DB::table('permisos_cargos')->insert($ara);
         return redirect('cargos');
     }

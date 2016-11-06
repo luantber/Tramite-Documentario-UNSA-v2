@@ -36,20 +36,45 @@ class User extends Authenticatable
         return $this->hasMany('App\Tramite','persona_id');
     } 
 
-    /* Funciones para saber que permisos tendra el usuario */
+    /* Funciones para saber que permisos tendra el usuario por CARGO*/
 
-    public function isAreaInicial(){
-        /* Cambiar aqui la fun correcta*/
-        
-        if ($this->empleado->area->nombre == "Mesa de Partes"){
-            
-            return true;
-        }
-        else {
-            return false; 
-        }
+    public function Pareas(){
+        if($this->empleado->cargo->permisoscargo->areas) return true;
+        return false;
+    }
+
+
+    public function Pcargos()
+    {
+        if($this->empleado->cargo->permisoscargo->cargos) return true; 
+        return false;
+    }
+
+    public function Pusuarios()
+    {
+        if($this->empleado->cargo->permisoscargo->usuarios) return true; 
+        return false;
+    }
+
+    public function Pempleados()
+    {
+        if($this->empleado->cargo->permisoscargo->empleados) return true; 
+        return false;
+    }
+
+    public function Ppanel()
+    {
+        if($this->empleado->cargo->permisoscargo->panel) return true; 
+        return false;
+    }
+
+    public function Ptramites()
+    {
+        if($this->empleado->cargo->permisoscargo) return true; 
+        return false;
     }
 
 
 
 }
+
