@@ -33,7 +33,8 @@ window.TablaTramites = React.createClass({
 		return {
 			data:[],
 			url2:this.props.url,
-			num:0
+			num:0,
+			actual:1
 
 		};
 	},
@@ -60,11 +61,13 @@ window.TablaTramites = React.createClass({
 	},
 
 	click(id){
-		this.setState({url2 : this.props.url + '?page=' +id},function(){
+		this.setState({url2 : this.props.url + '?page=' +id,actual:id},function(){
+			//console.log(this.state.url2);
+			this.cargarDatos();
 
-		console.log(this.state.url2);
-		this.cargarDatos();
 		});
+
+
 	},
 
 	render(){
@@ -72,7 +75,11 @@ window.TablaTramites = React.createClass({
 		var indents = [];
 		
 		for (var i = 1; i <= this.state.num; i++) {
-  			indents.push(<li onClick={this.click.bind(this,i)}  key={i}> <a>{i}</a></li>);
+			if(this.state.actual == i){
+				indents.push(<li className="active" onClick={this.click.bind(this,i)}  key={i}> <a>{i}</a></li>);	
+			}else{
+  				indents.push(<li onClick={this.click.bind(this,i)}  key={i}> <a>{i}</a></li>);
+			}
   			console.log(i);
 		}
 
@@ -126,7 +133,7 @@ window.TablaTramites = React.createClass({
 		</table>
 
 		<ul className="pagination">
-		
+
 		 {indents}
 		</ul>
 
