@@ -54,4 +54,21 @@ class tiposTramiteController extends Controller
 
         return redirect('tipostramite');
     }
+
+      public function eliminarGet($id){
+        $encontrado = TipoTramite::find($id);
+        if ($encontrado == null) {
+            echo "error NO EXISTE EL Tramite";
+        }
+      return view('tiposTramite.eliminar',['eliminado'=>$encontrado]);
+        
+    }
+
+
+    public function eliminar(Request $datos){
+        //dd("hola");
+        $eliminado = TipoTramite::find($datos->id);
+        $eliminado->delete();
+        return redirect('tipostramite');
+    }
 }

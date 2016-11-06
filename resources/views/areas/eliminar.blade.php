@@ -6,8 +6,9 @@
 
 {{$area}}
 
-<form method="POST" action="elimArea">
+<form method="POST" action="{{ asset('areas/eliminar') }}">
 	{{ csrf_field()}}
+  <input type="hidden" name="id" value="{{$area->id}}">
 
 	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
@@ -49,7 +50,7 @@
 
 
       <div class="text-center">
-			<button type="button" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
+			<button type="submit" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
       </div>
 <!--
 		<div id="Eliminar" class="modal fade" role="dialog">

@@ -58,7 +58,21 @@ class areasController extends Controller
         return redirect('areas/'.$id);
     }
 
-    public function eliminar($id){
+
+    public function eliminarGet($id){
+        $encontrado = Area::find($id);
+        if ($encontrado == null) {
+            echo "error NO EXISTE EL CARGO";
+        }
+      return view('areas.eliminar',['area'=>$encontrado]);
         
+    }
+
+
+    public function eliminar(Request $datos){
+        //dd("hola");
+        $eliminado = Area::find($datos->id);
+        $eliminado->delete();
+        return redirect('areas');
     }
 }

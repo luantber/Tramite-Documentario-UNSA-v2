@@ -155,11 +155,14 @@ Route::group(['prefix'=>'areas'],function(){
   Route::get('crear','areasController@crearGet');
   Route::post('crear','areasController@crear');
 
-  Route::get('{id}','areasController@show');
 
   Route::get('{id}/editar','areasController@editar');
-  Route::post('{id}','areasController@guardar');
 
+    Route::get('{id}/eliminar','areasController@eliminarGet');
+  Route::post('eliminar','areasController@eliminar');
+
+  Route::get('{id}','areasController@show');
+  Route::post('{id}','areasController@guardar');
 });
 
 /* tipos tramite */
@@ -173,6 +176,10 @@ Route::group(['prefix'=>'tipostramite'],function(){
 
 
   Route::get('{id}/editar','tiposTramiteController@editar');
+
+  Route::get('{id}/eliminar','tiposTramiteController@eliminarGet');
+  Route::post('eliminar','tiposTramiteController@eliminar');
+
   Route::get('{id}','tiposTramiteController@show');
   Route::post('{id}','tiposTramiteController@guardar');
 
