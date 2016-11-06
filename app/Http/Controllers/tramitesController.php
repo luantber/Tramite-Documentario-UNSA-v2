@@ -48,6 +48,7 @@ class tramitesController extends Controller
             $estado=new EstadoTramite;
             $estado->nombre='iniciado';
             $estado->descripcion='descripcion';
+            $estado->show=1;
             $estado->save();    
 
             $tipo=new TipoDocumento;
@@ -59,7 +60,7 @@ class tramitesController extends Controller
             $cargo->nombreCargo='jefe';
             $cargo->descripcion='this is the boos';
             $cargo->save();
-        */        
+        */
         
         //obtenemos a la persona dado un dni
         $persona=User::all()->where('dni',$datos->dni)->first();
@@ -110,7 +111,7 @@ class tramitesController extends Controller
         
         return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
         
-
+    
     }
 
     public function createGet(){
@@ -211,11 +212,7 @@ class tramitesController extends Controller
     }
 
 
-    public function delegarAreaV($id){
-        $tramite=Tramite::find($id);
-        $areas=Area::all()->where('area_id',NULL);
-        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
-    }
+    
 
     public function delegarArea(Request $datos, $id){
         
@@ -241,7 +238,11 @@ class tramitesController extends Controller
         return view('tramites.documentos',["documentos"=>$documentos]);
     }
 
-    
+    public function delegarAreaV($id){
+        $tramite=Tramite::find($id);
+        $areas=Area::all()->where('area_id',NULL);
+        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
+    }
 
     public function delegarSubAreaV($id){
         
@@ -267,6 +268,16 @@ class tramitesController extends Controller
         $tramite->save();
         return redirect('tramites');
 
+    }
+
+    public function delegarV($id){
+        $tramite=Tramite::find($id);
+        $usuario=User::find(Auth::user()->id);
+        $area=$usuario->empleado->area;
+        $empleados=Empleado::all()->where('id_area',$area->id);
+        $subAreas=Area::all()->where('area_id',$usuario->empleado->area->id);
+        $areas=Area::all()->where('area_id',NULL);
+        return view('tramites.delegar',["tramite"=>$tramite,"empleados"=>$empleados,"areas"=>$areas,"subAreas"=>$subAreas]);
     }
 
 }

@@ -129,6 +129,7 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('ver',function(){	return view('tramites/ver');});
 	//Delegar empleado-area-subarea
 	Route::get('delegar',function(){return view('tramites/delegar');});
+	Route::get('{id}/delegar','tramitesController@delegarV');
 
 	//Route::post('subir','tramitesController@subirDocumento');
 
