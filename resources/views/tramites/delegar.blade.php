@@ -56,7 +56,12 @@
                   </div>
               </div><br>
 
-              <button type="button" class="btn btn-primary pull-right" value="" name="" id="">Delegar</button>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="" name="" id=""> Empleado
+                </label>
+              </div>
+
 
             </div>
 
@@ -101,6 +106,12 @@
                   </div>
               </div><br>
 
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="" name="" id=""> Área
+                </label>
+              </div><br>
+
               <div class=" row">
                   <div class="col-sm-12">
                     <label for="subarea">Sub-área: </label>
@@ -113,7 +124,7 @@
 
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="" name="" id=""> Área
+                  <input type="checkbox" value="" name="" id=""> Sub-área
                 </label>
               </div>
 
