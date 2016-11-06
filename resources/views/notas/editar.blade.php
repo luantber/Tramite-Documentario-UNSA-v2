@@ -23,7 +23,7 @@
           </div>
         </div>
       <div class="form-group">
-          <label for="Descripcion"> Descripción: </label>
+          <label for="descripcion"> Descripción: </label>
             <input class="form-control" value="{{ $nota->descripcion }}"  name="descripcion" id="descripcion" required="">
         </div>
 
