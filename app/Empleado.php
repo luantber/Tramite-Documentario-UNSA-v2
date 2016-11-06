@@ -27,6 +27,16 @@ class Empleado extends Model
         return $this->belongsTo('App\EstadoEmpleado','id_estado','id');
     }
 
+    public function tienePermisos($cargo)
+    {
+        $ar=$this->cargo->permisosCargo->toArray();
+        array_shift($ar);
+        foreach ($ar as $key=>$a) {
+            if ($a==1 and $key==$cargo)
+                return true;
+        }
+        return false;
+    }
     
 
 }

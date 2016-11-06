@@ -228,6 +228,21 @@ Route::group(['prefix'=>'notas'],function(){
 Route::auth();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+//Mi prueba is back
+
+
+Route::group(['middleware'=>'empleado:panel','prefix'=>'pruebas'],function(){
+	Route::get('/prueba', function (){
+		return "Si enntras aqui el middleware esta mal, por ahora es panel";
+	});
+	Route::get('/shidori',function(){
+		return "Que bien";
+
+	});
+
+});
+
+
 
 
 //Solo para ver vistas :'v

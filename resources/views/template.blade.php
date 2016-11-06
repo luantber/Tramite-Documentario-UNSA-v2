@@ -20,7 +20,7 @@
   <script src="{{asset('js/fileinput.js')}}"></script>
 
 
-
+  
 
 </head>
 <body>
@@ -42,17 +42,20 @@
 
             </button>
 
-            <a class="navbar-brand" href="#">Trámite Documentario</a>
+            <a class="navbar-brand" href="{{url('/')}}">Trámite Documentario</a>
 
           </div>
 
           <!-- Fin Navegacion Movil -->
 
           <div id="navbar" class="navbar-collapse collapse">
+        @if(Auth::check())
+        <ul class="nav navbar-nav ">
+        <ul class="nav navbar-nav navbar-left">
 
-        <ul class="nav navbar-nav navbar-right">
-        <ul class="nav navbar-nav">
+
 <!--USUARIOS-->
+        @section('usuarios')
           <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
                <ul class="dropdown-menu">
@@ -61,8 +64,10 @@
 
                </ul>
            </li>
+         @endsection
 <!--EMPLEADOS-->
-                      <li class="dropdown">
+          @section('empleados')
+              <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados <span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li><a href="{{ url('empleados/crear')}}">Nuevo</a></li>
@@ -71,21 +76,24 @@
                  <li><a href="{{ url('empleados/estados') }}">Todos Estados</a></li>
                </ul>
            </li>
+          @endsection
 
 <!--ÁREAS-->
+        @section('areas')
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Áreas<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ url('areas/crear')}}">Nuevo</a></li>
               <li><a href="{{ url('areas')}}">Todos</a></li>
             </ul>
-          </li>
+          </li>   
+        @endsection
 
 
-        </ul>
 
 
 <!--cargos-->
+        @section('cargos')
            <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cargos <span class="caret"></span></a>
                <ul class="dropdown-menu">
@@ -93,12 +101,13 @@
                  <li><a href="{{ url('cargos') }}">Todos</a></li>
                </ul>
            </li>
+        @endsection
 
 <!--MOVIMIENTOS-->
           <li><a href="{{ url('movimientos')}}">Movimientos</a></li>
 
  <!--TRAMITES-->
-
+        @section('tramites')
            <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trámites1 <span class="caret"></span></a>
                <ul class="dropdown-menu">
@@ -109,12 +118,47 @@
 
                </ul>
            </li>
+        @endsection
 
 <!--PANEL-->
           <li ><a href="{{asset('mistramites')}}">Mis Tramites </a></li>
 
           <li class="active"><a href="{{asset('panel')}}">Panel  </a></li>
 
+<!--AGENDA-->
+
+        <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+             <li><a href="{{ url('notas/crear') }}">Nuevo</a></li>
+               <li><a href="{{ url('notas/todos') }}">Todos</a></li>
+
+             </ul>
+         </li>
+
+        
+      
+
+      <!--Aqui empieza la seleccion-->
+
+      <?php
+        $ar=Auth::user()->empleado->cargo->permisosCargo->toArray();
+        array_shift($ar);
+      ?>
+
+
+      @foreach($ar as $key=>$a)
+        @if($a=="1")
+          @yield($key)
+        @endif
+      @endforeach
+
+      @endif
+      <!--Aqui termina la seleccion-->
+
+      </ul>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
 
         <form class="navbar-form navbar-right">
           <button type="button" class="btn btn-default btn-md">
@@ -133,16 +177,7 @@
           </button>
         </form>
 
-<!--AGENDA-->
 
-				<li class="dropdown">
-						 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
-						 <ul class="dropdown-menu">
-						 <li><a href="{{ url('notas/crear') }}">Nuevo</a></li>
-							 <li><a href="{{ url('notas/todos') }}">Todos</a></li>
-
-						 </ul>
-				 </li>
 
 
 
