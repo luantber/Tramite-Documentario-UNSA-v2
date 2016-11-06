@@ -16,15 +16,13 @@ class panelController extends Controller
 
     public function todos()
     {
-    	/*
-        if(Auth::user()->isAreaInicial()){
-    		$tramites = Tramite::with('area','persona')->where("area_id",Auth::user()->empleado->id_area)->get();
+    	
 
-    	}
-        */
+    // dd(Auth::user()->empleado->id_area) ; 1
 
-	
-		$tramites = Auth::user()->Pusuarios();
+	//dd(Tramite::all());
+		$tramites = Tramite::with('area','persona','empleado')->where('area_id',Auth::user()->empleado->id_area)->paginate(1);
+        //dd($tramites);
         return response()->json($tramites);
     }
 

@@ -158,7 +158,7 @@ class tramitesController extends Controller
 
     public function todos()
     {
-        $tramites = Tramite::with('area','persona','empleado','tipoTramite','estado')->get();
+        $tramites = Tramite::with('area','persona','empleado','tipoTramite','estado')->paginate(1);
         return response()->json($tramites);
     }
 

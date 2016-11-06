@@ -36,6 +36,17 @@ class User extends Authenticatable
         return $this->hasMany('App\Tramite','persona_id');
     } 
 
+
+    /* Funcion Es mi Area ??*/
+    public function isMyArea($idArea){
+        if($idArea == $this->empleado->id_area) return true;
+        return false;
+    }
+
+    
+
+
+
     /* Funciones para saber que permisos tendra el usuario por CARGO*/
 
     public function Pareas(){

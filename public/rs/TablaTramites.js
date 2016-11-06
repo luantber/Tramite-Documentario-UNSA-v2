@@ -22,21 +22,30 @@ class Tramite extends React.Component{
 		);
 	}
 }
+
+
+
+
 	
 
 window.TablaTramites = React.createClass({
 	getInitialState(){
-		return {data:[]};
+		return {
+			data:[],
+			url2:this.props.url,
+			num:0
+
+		};
 	},
 
 	cargarDatos(){
 		$.ajax({
-	  		url: this.props.url,
+	  		url: this.state.url2,
 			dataType: 'json',
 	  			  		
 	  		success: function(data) {
 	  			console.log(data);
-	    		this.setState({data: data});
+	    		this.setState({data: data.data,num:data.total});
 	  		}.bind(this),
 	  
 	  		error: function(xhr, status, err) {
@@ -50,9 +59,25 @@ window.TablaTramites = React.createClass({
 	setInterval(this.cargarDatos,this.props.refresh)
 	},
 
+	click(id){
+		this.setState({url2 : this.props.url + '?page=' +id},function(){
+
+		console.log(this.state.url2);
+		this.cargarDatos();
+		});
+	},
+
 	render(){
-		console.log(this.props.ver);
+		//console.log(this.props.ver);
+		var indents = [];
+		
+		for (var i = 1; i <= this.state.num; i++) {
+  			indents.push(<li onClick={this.click.bind(this,i)}  key={i}> <a>{i}</a></li>);
+  			console.log(i);
+		}
+
 		return(
+			<div>
 			
 <table className="table table-hover">
 		  <thead>
@@ -99,6 +124,13 @@ window.TablaTramites = React.createClass({
 		    </tbody>
 
 		</table>
+
+		<ul className="pagination">
+		
+		 {indents}
+		</ul>
+
+		</div>
 
 		);
 	}
