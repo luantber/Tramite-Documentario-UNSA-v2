@@ -4,13 +4,15 @@
 
 @section('content')
 
+{{$notas}}
+
 <div class="row">
       <div class="col-md-6 col-md-offset-3">
 
     <h2><p class="text-center">  Editar Notas </p></h2>
 
     <br><br>
-      <form method="post" onsubmit="return validar()" action="{{asset('notas')}}{{'/'.$nota->id}}">
+      <form method="post" onsubmit="return validar()" action="{{asset('notas')}}{{'/'.$notas->id}}">
 
         {{ csrf_field()}}
 
@@ -21,19 +23,19 @@
                 <span class="input-group-addon" id="basic-addon1">
                   <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
                 </span>
-              <input class="form-control" type="string" name ="nombre" id="nombre" value="{{$nota->nombre}}"  required="true">
+              <input class="form-control" type="string" name ="nombre" id="nombre" value="{{$notas->nombre}}"  required="true">
             </div>
           </div>
         </div><br>
 
         <div class="row">
           <div class="col-sm-12">
-              <label for="apellido" >Nota: </label>
+              <label for="nota" >Nota: </label>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </span>
-                <input class="form-control" type="string" name ="descripcion" id="descripcion" value="{{$nota->descripcion}}"  required="true">
+                <input class="form-control" type="string" name ="descripcion" id="descripcion" value="{{$notas->descripcion}}"  required="true">
               </div>
           </div>
         </div><br>
@@ -51,8 +53,8 @@
         </div><br>
         <div class="form-group">
             <div class="text-center">
-            <button class="btn btn-lg" type="submit" value="Submit"> 
-            Guardar cambios </button> 
+            <button class="btn btn-lg" type="submit" value="Submit">
+            Guardar cambios </button>
           </div>
         </div>
 

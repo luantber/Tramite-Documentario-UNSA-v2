@@ -219,6 +219,8 @@ Route::group(['prefix'=>'notas'],function(){
 
 
   Route::get('{id}/editar','notasController@editar');
+  Route::post('{id}','notasController@guardar');
+
   Route::get('{id}','notasController@show');
 
   Route::get('{id}/eliminar','notasController@eliminar');
