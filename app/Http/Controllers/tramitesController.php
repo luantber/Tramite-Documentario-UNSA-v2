@@ -23,45 +23,7 @@ class tramitesController extends Controller
     public function create(Request $datos)
     {
         //-----------------------------codigo para generar bd
-        /*
-            $area=new Area;
-            $area->nombre='Mesa de Partes';
-            $area->descripcion='Descripcion';
-            $area->save();
-
-            $area2=new Area;
-            $area2->nombre='Gerencia';
-            $area2->descripcion='Descripcion';
-            $area2->save();        
-
-            $tipo=new TipoTramite;
-            $tipo->nombre='solicitud';
-            $tipo->descripcion='descripcion';
-            $tipo->save();
-
-            $tipo2=new TipoTramite;
-            $tipo2->nombre='reclamo';
-            $tipo2->descripcion='descripcion';
-            $tipo2->save();        
-            
-
-            $estado=new EstadoTramite;
-            $estado->nombre='iniciado';
-            $estado->descripcion='descripcion';
-            $estado->show=1;
-            $estado->save();    
-
-            $tipo=new TipoDocumento;
-            $tipo->nombre='carta';
-            $tipo->descripcion='descripcion';
-            $tipo->save();
-
-            $cargo=new Cargo;
-            $cargo->nombreCargo='jefe';
-            $cargo->descripcion='this is the boos';
-            $cargo->save();
-        */
-        
+                
         //obtenemos a la persona dado un dni
         $persona=User::all()->where('dni',$datos->dni)->first();
         //obtenemos el area dado su nombre
@@ -205,30 +167,7 @@ class tramitesController extends Controller
         return redirect('tramites');
     }
 
-    public function eliminarTramiteV($id)
-    {
-        $tramite=Tramite::find($id);
-        return view('tramites.eliminar',["tramite"=>$tramite]);
-    }
-
-
-    
-
-    public function delegarArea(Request $datos, $id){
-        
-        $tramite=Tramite::find($id);
-        
-        $area_destino=Area::find($datos->area_destino);
-        $movimiento=new Movimiento;
-        $movimiento->tramite()->associate($tramite);
-        $movimiento->areaDestino()->associate($area_destino);
-        $movimiento->areaRemitente()->associate($tramite->area);
-        $movimiento->comentario=$datos->comentario;
-        $movimiento->save();
-        $tramite->area()->associate($area_destino);
-        $tramite->save();
-        return redirect('tramites');
-    }
+   
 
 
     public function getDocumentosV($id)
@@ -238,37 +177,7 @@ class tramitesController extends Controller
         return view('tramites.documentos',["documentos"=>$documentos]);
     }
 
-    public function delegarAreaV($id){
-        $tramite=Tramite::find($id);
-        $areas=Area::all()->where('area_id',NULL);
-        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
-    }
 
-    public function delegarSubAreaV($id){
-        
-        $usuario=User::find(Auth::user()->id);
-        $areas=Area::all()->where('area_id',$usuario->empleado->area->id);
-        $tramite=Tramite::find($id);
-        return view('tramites.delegar-area',["tramite"=>$tramite,"areas"=>$areas]);
-    }
-
-    public function delegarEmpleadoV($id){
-        $usuario=User::find(Auth::user()->id);
-        $area=$usuario->empleado->area;
-        $empleados=Empleado::all()->where('id_area',$area->id);
-        $tramite=Tramite::find($id);
-        
-        return view('tramites.delegar-empleado',["tramite"=>$tramite,"empleados"=>$empleados]);
-    }
-    
-    public function delegarEmpleado(Request $datos,$id){
-        $tramite=Tramite::find($id);
-        $empleado=Empleado::find($datos->id_empleado);
-        $tramite->empleado()->associate($empleado);
-        $tramite->save();
-        return redirect('tramites');
-
-    }
 
     public function delegarV($id){
         $tramite=Tramite::find($id);
@@ -315,5 +224,12 @@ class tramitesController extends Controller
 
         return redirect('tramites');
     }
+
+    public function movimientosV($id){
+        $movimientos=Movimiento::all()->where('id',$id);
+        return view('tramites.movimientos');
+    }
     
 }
+
+
