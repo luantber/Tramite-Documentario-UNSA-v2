@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="delegarTram">
+<form method="POST" action="">
       {{ csrf_field()}}
   <h2><p class="text-center">  Delegar Trámite </p></h2>
   <br><br>
@@ -25,7 +25,7 @@
                       <span class="input-group-addon" id="basic-addon1">
                         <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
                       </span>
-                      <input type="text" class="form-control" name="numExp" id="numExp" value="{$tramite->nro_expediente}" required="true" disabled="">
+                      <input type="text" class="form-control" name="numExp" id="numExp" value="{{$tramite->nro_expediente}}" required="true" disabled="">
                   </div>
                 </div>
               </div>
@@ -37,7 +37,7 @@
                       <span class="input-group-addon" id="basic-addon1">
                         <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
                       </span>
-                      <input class="form-control" type="text" name ="area_remitente" id="area_remitente" value="{$tramite->area->nombre}" required="true" disabled="">
+                      <input class="form-control" type="text" name ="area_remitente" id="area_remitente" value="{{$tramite->area->nombre}}" required="true" disabled="">
                   </div>
                 </div>
               </div><br>
@@ -51,7 +51,9 @@
                     <label for="empleado">Empleado: </label>
                       <select name="id_empleado" type="text" class="form-control" id="empleado">
                           <option value="" >Seleccionar empleado</option>
-
+                          @foreach ($empleados as $empleado)
+                            <option value="{{$empleado->id}}" >{{$empleado->user->nombre}}</option>
+                          @endforeach
                         </select>
                   </div>
               </div><br>
@@ -101,7 +103,9 @@
                     <label for="area">Area: </label>
                       <select name="area" type="text" class="form-control" id="id_area">
                           <option value="" >Seleccionar área</option>
-
+                          @foreach ($areas as $area)
+                            <option value="{{$empleado->id}}" >{{$area->nombre}}</option>
+                          @endforeach
                         </select>
                   </div>
               </div><br>
@@ -117,7 +121,9 @@
                     <label for="subarea">Sub-área: </label>
                       <select name="subarea" type="text" class="form-control" id="id_subarea">
                           <option value="" >Seleccionar sub-área</option>
-
+                          @foreach ($subAreas as $subarea)
+                            <option value="{{$empleado->id}}" >{{$subarea->nombre}}</option>
+                          @endforeach
                         </select>
                   </div>
               </div><br>
