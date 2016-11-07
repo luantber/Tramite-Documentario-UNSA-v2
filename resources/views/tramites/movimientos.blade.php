@@ -4,11 +4,10 @@
 
 @section('content')
 
+
 <h2><p class="text-center">  Ver Movimientos </p></h2>
 	<br>
 
-	<h3><p class="text-center"> Trámite: {} </p></h3>
-	
 	<div class="container">
 
 	  <table class="table table-hover">
@@ -25,11 +24,13 @@
 	    <tbody>
 
 	    	<tr>
-				<td>1</td>
-		        <td>Logística</td>
-		        <td>area2</td>
-		        <td>comentarios</td>
-		        <td>30/10/16</td>
+	    		@foreach($movimientos as $movimiento)
+					<td>{{$movimiento->id}}</td>
+			        <td>{{$movimiento->areaRemitente->nombre}}</td>
+			        <td>{{$movimiento->areaDestino->nombre}}</td>
+			        <td>{{$movimiento->comentario}}</td>
+			        <td>{{$movimiento->created_at}}</td>
+		        @endforeach
 		    </tr>
 
 	    </tbody>

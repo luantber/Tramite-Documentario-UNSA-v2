@@ -227,7 +227,7 @@ class tramitesController extends Controller
 
     public function movimientosV($id){
         $movimientos=Movimiento::all()->where('id',$id);
-        return view('tramites.movimientos');
+        return view('tramites.movimientos',["movimientos"=>$movimientos]);
     }
 
     public function documentosEditarV($id,$id2){

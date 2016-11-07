@@ -71,7 +71,14 @@
                       <tr>
                         <td> Movimientos: </td>
                         <td>
-                          <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-th-list"></i> Ir a movimientos </a>
+                          <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'movimientos'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-th-list"></i> Ir a movimientos </a>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td> Documentos: </td>
+                        <td>
+                          <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'documentos'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i> Ir a documentos </a>
                         </td>
                       </tr>
                      
