@@ -1,6 +1,12 @@
 @extends('template')
 @section('title','Estados Empleados')
 
+@section('react')
+  <script src="{{asset('js/react.js')}}"></script>
+  <script src="{{asset('js/react-dom.js')}}"></script>
+  <script src="{{asset('js/browser.min.js')}}"></script>
+@endsection
+
 @section('content')
 
 <div id="container"></div>

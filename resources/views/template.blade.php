@@ -12,11 +12,11 @@
 
 	<link rel="stylesheet" type="text/css" href="{{asset('css/notas.css')}}">
 
-  <script src="{{asset('js/react.js')}}"></script>
-  <script src="{{asset('js/react-dom.js')}}"></script>
-  <script src="{{asset('js/browser.min.js')}}"></script>
+@yield('react')
+
 
   <script src="{{asset('js/jquery.js')}}"></script>
+
   <script src="{{asset('js/fileinput.js')}}"></script>
 
 

@@ -2,6 +2,12 @@
 
 @section('title','Ver Personas')
 
+@section('react')
+  <script src="{{asset('js/react.js')}}"></script>
+  <script src="{{asset('js/react-dom.js')}}"></script>
+  <script src="{{asset('js/browser.min.js')}}"></script>
+@endsection
+
 @section('content')
 
 <h2><p class="text-center">  Ver Todos </p></h2>
