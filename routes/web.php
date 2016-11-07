@@ -274,6 +274,23 @@ Route::get('/mail',function(){
 	return view('emails.registro');
 });
 
+Route::get('busqueda/porArea',function(){
+	return view('busquedas/arearesultado');
+});
+Route::get('busqueda/resultadoArea','buscadorController@areaBusqueda');
+Route::get('busqueda/porEmpleado',function(){
+	return view('busquedas/empleadoresultado');
+});
+Route::get('busqueda/resultadoEmpleado','buscadorController@empleadoBusqueda');
+Route::get('busqueda/porUsuario',function(){
+	return view('busquedas/usuarioresultado');
+});
+Route::get('busqueda/resultadoUsuario','buscadorController@usuarioBusqueda');
+Route::get('busqueda/porTramite',function(){
+	return view('busquedas/tramiteresultado');
+});
+Route::get('busqueda/resultadoTramite','buscadorController@tramiteBusqueda');
+
 
 //Solo para ver vistas :'v
 /*

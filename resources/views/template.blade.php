@@ -120,6 +120,27 @@
            </li>
         @endsection
 
+<!--ESTADISTICAS-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estadisticas<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ url('estadisticas/parea')}}">Por Área</a></li>
+              <li><a href="{{ url('estadisticas/pempleado')}}">Por Empleado</a></li>
+              <li><a href="{{ url('/') }}">Por Usuario</a></li>
+            </ul>
+          </li>
+
+<!--BUSCADOR-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Búsquedas<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ url('busqueda/porArea')}}">Por Área</a></li>
+              <li><a href="{{ url('busqueda/porEmpleado')}}">Por Empleado</a></li>
+              <li><a href="{{ url('busqueda/porUsuario') }}">Por Usuario</a></li>
+              <li><a href="{{ url('busqueda/porTramite') }}">Por Trámite</a></li>
+            </ul>
+          </li>
+
 <!--PANEL-->
           <li ><a href="{{asset('mistramites')}}">Mis Tramites </a></li>
 
