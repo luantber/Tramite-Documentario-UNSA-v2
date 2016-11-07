@@ -312,7 +312,7 @@ class tramitesController extends Controller
             $tramite->save();
         }
 
-        //return redirect('tramites');
+        return redirect('tramites');
     }
     
 }
