@@ -33,7 +33,7 @@
                 <span class="input-group-addon" id="basic-addon1">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </span>
-                <input class="form-control" type="string" name ="apellido" id="apellido" value="{{$nota->descripcion}}"  required="true">
+                <input class="form-control" type="string" name ="descripcion" id="descripcion" value="{{$nota->descripcion}}"  required="true">
               </div>
           </div>
         </div><br>
