@@ -183,7 +183,6 @@ Route::group(['prefix'=>'tipostramite'],function(){
   Route::get('crear','tiposTramiteController@crearGet');
   Route::post('crear','tiposTramiteController@crear');
 
-
   Route::get('{id}/editar','tiposTramiteController@editar');
 
   Route::get('{id}/eliminar','tiposTramiteController@eliminarGet');
@@ -259,7 +258,7 @@ Route::group(['middleware'=>'empleado:panel','prefix'=>'pruebas'],function(){
 });
 
 Route::get('movimientos',function(){
-	return view('movimientos.ver');
+	return view('tramites.movimientos');
 });
 
 
