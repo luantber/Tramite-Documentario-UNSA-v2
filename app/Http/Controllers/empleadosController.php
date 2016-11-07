@@ -11,7 +11,6 @@ use App\Cargo;
 use App\Area;
 use App\Mail\Email;
 use App\EstadoEmpleado;
-use App\Mail\Email;
 use Mail;
 
 
