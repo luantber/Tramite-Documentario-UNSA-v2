@@ -9,8 +9,11 @@ use App\Empleado;
 use App\User;
 use App\Cargo;
 use App\Area;
+use App\Mail\Email;
 use App\EstadoEmpleado;
-use App\Mail\Email
+use Mail;
+
+
 
 class empleadosController extends Controller
 {
@@ -83,7 +86,7 @@ class empleadosController extends Controller
 
       $correo=new Email;
       $correo->nombre=$datosn->nomPer;
-      $correo->email=$datosn->$datosn->correo;
+      $correo->email=$datosn->correo;
       Mail::to($datosn->correo)->send($correo);
 
 
