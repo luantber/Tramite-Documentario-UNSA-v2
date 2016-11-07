@@ -102,7 +102,7 @@ window.TablaTramites = React.createClass({
 			  {
 				this.state.data.map(
 				 	function (tramite){
-				 			//console.log(tramite.persona);
+				 		
 				
 		 				return(
 		 					<Tramite
