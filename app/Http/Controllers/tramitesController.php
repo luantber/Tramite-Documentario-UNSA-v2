@@ -224,5 +224,12 @@ class tramitesController extends Controller
 
         return redirect('tramites');
     }
+
+    public function movimientosV($id){
+        $movimientos=Movimiento::all()->where('id',$id);
+        return view('tramites.movimientos');
+    }
     
 }
+
+
