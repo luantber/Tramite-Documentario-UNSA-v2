@@ -51,7 +51,7 @@
           <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
           <div class="col-sm-10">
             <select name="tipoTramite" class="form-control" id="tipo">
-              <option value="" >Elegir área</option>
+              <option value="" >Seleccionar</option>
                   @foreach($tipos as $tipo)
                     <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                   @endforeach

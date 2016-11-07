@@ -263,6 +263,11 @@ Route::group(['middleware'=>'empleado:panel','prefix'=>'pruebas'],function(){
 
 });
 
+Route::get('movimientos',function(){
+	return view('movimientos.ver');
+});
+
+
 Route::get('/enviar',function(){
 	$cor=new Email;
 	$cor->nombre='alex';

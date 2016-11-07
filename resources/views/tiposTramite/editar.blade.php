@@ -28,7 +28,7 @@
 
 		  <div class="form-group">
 		    <label for="descripcion"> Descripción: </label>
-        <textarea class="form-control"  name="descripcion" id="descripcion" value="{{$tipoTramite->descripcion}}"></textarea>
+        <input class="form-control"  name="descripcion" id="descripcion" value="{{$tipoTramite->descripcion}}">
       </div>
 
 		  <button type="submit" class="btn btn-default" value="Submit">Guardar Cambios</button>
