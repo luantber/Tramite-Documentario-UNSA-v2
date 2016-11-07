@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Empleado extends Model
 {
@@ -41,5 +42,11 @@ class Empleado extends Model
         return false;
     }
     
+    public function isJefe(){
+        dd(Auth::user()->empleado->area->jefe_id);
+        if(Auth::user()->empleado->id == Auth::user()->area->jefe_id)
+            return true;
+        return false;
+    }
 
 }

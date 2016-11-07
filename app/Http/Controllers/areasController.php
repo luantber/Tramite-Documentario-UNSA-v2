@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Area;
+use App\Empleado;
 
 class areasController extends Controller
 {
@@ -17,6 +18,8 @@ class areasController extends Controller
 	public function crearGet(){
 
 		$areas = Area::all();
+        
+
 		return view('areas.crear',['areas'=> $areas]);
 	}
 
@@ -41,9 +44,11 @@ class areasController extends Controller
 
     public function editar($id)
     {
+        $empleados = Empleado::all()->where('id_area',$id);
+        //dd($empleados);
         $area = Area::find($id);
         $areas = Area::all();
-        return view('areas.editar',['area'=>$area,'areas'=>$areas]);
+        return view('areas.editar',['area'=>$area,'areas'=>$areas,'empleados'=>$empleados]);
     }
 
     public function guardar($id,Request $datos)
@@ -52,8 +57,8 @@ class areasController extends Controller
 
         $area->nombre=$datos->nomArea;
         $area->descripcion=$datos->descripcion;
-        //$area->jefe_id=
-        //$area->area_id=
+        $area->jefe_id=$datos->jefe;
+        $area->area_id=$datos->nomAreaPad;
         $area->save();
         return redirect('areas/'.$id);
     }

@@ -34,7 +34,7 @@
 								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 							</span>
 					    	<select type="text" class="form-control" name="nomAreaPad" id="nomAreaPad" >
-								<option value="{{$area->area_id}}">{{$area->nombre}}</option>
+								
 								@foreach($areas as $are)
 								  @if( $area->area_id != $are->id)	
 									<option value="{{$are->id}}">{{$are->nombre}}</option>
@@ -52,10 +52,16 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 							</span>
-						<select type="text" class="form-control" name="jefAreaPad" id="jefAreaPad" >
-							<option value="0">Sin Padre</option>
-						</select>
-				</div>
+
+					    	<select type="text" class="form-control" name="jefe" id="nomJefe" >
+					    	
+								@foreach($empleados as $e)
+									<option value="{{$e->id}}">{{$e->user->nombre}} {{ $e->user->apellido}}</option>
+								 
+								@endforeach
+									
+							</select>
+					</div>
 		  </div>
 
 		  <div class="form-group">

@@ -10,7 +10,7 @@ use App\User;
 use App\Cargo;
 use App\Area;
 use App\EstadoEmpleado;
-use App\Mail\Email
+use App\Mail\Email;
 
 class empleadosController extends Controller
 {

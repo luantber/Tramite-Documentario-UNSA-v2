@@ -21,8 +21,12 @@ class panelController extends Controller
     // dd(Auth::user()->empleado->id_area) ; 1
 
 	//dd(Tramite::all());
-		$tramites = Tramite::with('area','persona','empleado')->where('area_id',Auth::user()->empleado->id_area)->join('estado_tramites', 'tramites.id', '=', 'estado_tramites.id')->where('show',1)->paginate(1);
-        //dd($tramites);
+
+        dd(Auth::user()->empleado->isJefe());
+		
+        $tramites = Tramite::with('area','persona','empleado')->where('area_id',Auth::user()->empleado->id_area)->join('estado_tramites', 'tramites.id', '=', 'estado_tramites.id')->where('show',1)->paginate(1);
+
+         //dd($tramites);
         return response()->json($tramites);
     }
 
