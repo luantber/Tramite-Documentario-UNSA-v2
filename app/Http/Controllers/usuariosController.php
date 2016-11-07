@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+
 
 class usuariosController extends Controller
 {
@@ -61,6 +64,32 @@ class usuariosController extends Controller
             return view ('errors.noUsuario');
         }
         return view('usuarios.editar',['user'=>$encontrado]);
+    }
+
+    public function activarget($email)
+    {
+        $user=DB::table('users')->where('email',$email)->first();
+        if ($user===null)
+            return view('errors.noUsuario');
+        elseif($user->activo==1)
+            echo "El usuario ya esta activado";
+        else 
+            return view('usuarios.activar',['nombre'=>$user->nombre,'id'=>$user->id]);
+
+    }
+    public function activar(Request $datos)
+    {
+        $user=User::find($datos->asd);
+        $user->activo=1;
+        $user->password=bcrypt($datos->contraseña);
+        $user->save();
+        if ($user->empleado!=null)
+        {
+            $user->empleado->activo=1;
+            $user->empleado->save();
+        }
+        return redirect('/');
+
     }
 
 }

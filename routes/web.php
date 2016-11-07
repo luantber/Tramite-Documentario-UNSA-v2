@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\Email;
+
 
 Route::get('/', function () {
     return view('home');
@@ -17,9 +19,15 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::post('crear','usuariosController@create');
 
 	Route::get('{id}', 'usuariosController@show');
+		
+	Route::get('{email}/activar','usuariosController@activarget');
+	Route::post('activar','usuariosController@activar');
 
 	Route::get('{id}/editar','usuariosController@editar');
 	Route::post('{id}','usuariosController@guardar');
+
+
+
 });
 
 Route::group(['prefix'=>'empleados/estados'],function(){
@@ -253,7 +261,16 @@ Route::group(['middleware'=>'empleado:panel','prefix'=>'pruebas'],function(){
 
 });
 
+Route::get('/enviar',function(){
+	$cor=new Email;
+	$cor->nombre='alex';
+	$cor->email='alrus2797@gmail.com';
+	Mail::to('alrus2797@gmail.com')->send($cor);
+});
 
+Route::get('/mail',function(){
+	return view('emails.registro');
+});
 
 
 //Solo para ver vistas :'v

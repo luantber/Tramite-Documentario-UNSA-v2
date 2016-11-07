@@ -10,6 +10,8 @@ use App\User;
 use App\Cargo;
 use App\Area;
 use App\EstadoEmpleado;
+use App\Mail\Email
+
 class empleadosController extends Controller
 {
 
@@ -78,6 +80,12 @@ class empleadosController extends Controller
       $newEmp->user()->associate($newPer);
 
       $newEmp->save();
+
+      $correo=new Email;
+      $correo->nombre=$datosn->nomPer;
+      $correo->email=$datosn->$datosn->correo;
+      Mail::to($datosn->correo)->send($correo);
+
 
 
       return redirect('empleados');
