@@ -230,7 +230,7 @@ class tramitesController extends Controller
         return view('tramites.movimientos');
     }
 
-    public function documentosEditarV($id){
+    public function documentosEditarV($id,$id2){
         $documento=Documento::find($id2);
         return view('tramites.docEdit',["documento"=>$documento]);
     }
