@@ -35,7 +35,7 @@ class notasController extends Controller
 
       $personal = Notas::where('empleados_id',$autenticado->empleado->id)->where('personal','1')->orderBy('created_at','DESC')->paginate(2,['*'],'personal');
       $publico = Notas::where('areas_id',$autenticado->empleado->area->id)->where('personal','0')->orderBy('created_at','DESC')->paginate(2,['*'],'publico');
-      echo('Entra a todos');
+
       return view('notas.todos',['personal'=>$personal,'publico'=>$publico]);
     }
 

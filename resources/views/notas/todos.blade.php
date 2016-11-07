@@ -35,7 +35,7 @@
                                 <h4>{{$nota->nombre}}</h4>
                                 <p>{{$nota->descripcion}}</p>
 
-                                <a href="#" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
+                                <a href="{{asset('notas')}}{{'/'.$nota->id.'/editar'}}" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
                                 <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
                             </div>
                         </li>
@@ -71,7 +71,7 @@
                             <p>{{$nota->descripcion}}</p>
 
                             @if ($nota->empleados_id == Auth::user()->empleado->id)
-                              <a href="{{asset('notas')}}{{'/'.$nota->id}}" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
+                              <a href="{{asset('notas')}}{{'/'.$nota->id.'/editar'}}" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
                             @endif
 
                             <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
@@ -98,6 +98,23 @@
   </div>
 </form>
 
+<script type="text/javascript">
+
+   function loadCSS(filename){
+
+      var file = document.createElement("link");
+      file.setAttribute("rel", "stylesheet");
+      file.setAttribute("type", "text/css");
+      file.setAttribute("href", filename);
+      document.head.appendChild(file);
+
+   }
+
+
+  //just call a function to load a new CSS:
+  loadCSS("{{asset('css/notas.css')}}");
+
+</script>
 
 
 @endsection

@@ -44,9 +44,13 @@
           <div class="col-sm-6">
             <label for="area">Privacidad: </label>
                  <select name="personal" type="text" class="form-control" id="personal" name="personal" required="true">
-                <option value="" >Cambiar Privacidad</option>
-                          <option value='1'>Personal</option>
+                   @if($notas->personal == 1)
+                    <option value="{{$notas->personal}}" >Personal</option>
                           <option value='0'>Público</option>
+                  @else
+                          <option value="{{$notas->personal}}" >Público</option>
+                          <option value='1'>Personal</option>
+                          @endif
                 </select>
           </div>
 

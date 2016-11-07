@@ -185,8 +185,8 @@
           <button type="button" class="btn btn-default btn-md">
           <!--<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar-->
             @if (Auth::check())
-
-                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>
+                
+                <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>
                 </button>
 
                 <button type="button" class="btn btn-default btn-md">
