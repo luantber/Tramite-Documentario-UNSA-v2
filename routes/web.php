@@ -273,6 +273,15 @@ Route::get('/mail',function(){
 	return view('emails.registro');
 });
 
+
+
+Route::get('estadisticas/parea', 'estadisticaController@areas');
+Route::get('estadisticas/areaConsultar','estadisticaController@areasConsultar');
+Route::get('estadisticas/pempleado','estadisticaController@empleados');
+Route::get('estadisticas/empleadoConsultar','estadisticaController@empleadosConsultar');
+
+
+
 Route::get('busqueda/porArea',function(){
 	return view('busquedas/arearesultado');
 });
