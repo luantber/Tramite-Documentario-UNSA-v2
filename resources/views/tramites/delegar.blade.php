@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="">
+<form method="post" action="{{asset('tramites'.'/'.$tramite->id.'/delegar')}}">
       {{ csrf_field()}}
   <h2><p class="text-center">  Delegar Trámite </p></h2>
   <br><br>
@@ -60,7 +60,7 @@
 
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="" name="" id=""> Empleado
+                  <input type="checkbox" value="empleado" name="c_empleado" id="c_empleado_id"> Empleado
                 </label>
               </div>
 
@@ -104,7 +104,7 @@
                       <select name="area" type="text" class="form-control" id="id_area">
                           <option value="" >Seleccionar área</option>
                           @foreach ($areas as $area)
-                            <option value="{{$empleado->id}}" >{{$area->nombre}}</option>
+                            <option value="{{$area->id}}" >{{$area->nombre}}</option>
                           @endforeach
                         </select>
                   </div>
@@ -112,7 +112,7 @@
 
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="" name="" id=""> Área
+                  <input type="checkbox" value="area" name="c_area" id="c_area_id"> Área
                 </label>
               </div><br>
 
@@ -122,7 +122,7 @@
                       <select name="subarea" type="text" class="form-control" id="id_subarea">
                           <option value="" >Seleccionar sub-área</option>
                           @foreach ($subAreas as $subarea)
-                            <option value="{{$empleado->id}}" >{{$subarea->nombre}}</option>
+                            <option value="{{$area->id}}" >{{$subarea->nombre}}</option>
                           @endforeach
                         </select>
                   </div>
@@ -130,11 +130,18 @@
 
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="" name="" id=""> Sub-área
+                  <input type="checkbox" value="subArea" name="c_subArea" id="c_subArea_id"> Sub-área
                 </label>
               </div>
-
-              <button type="button" class="btn btn-primary pull-right" value="Submit" name="" id="">Delegar</button>
+<!--
+              <button type="button" class="btn btn-primary pull-right" value="Submit" name="submit" id="submit">Delegar</button>
+-->
+              <div class="form-group">
+                <div class="text-center">
+                  <button class="btn btn-lg btn-primary  pull-right" type="submit" value="Submit"> 
+                  Delegar </button> 
+                </div>
+              </div>
 
             </div>
 
