@@ -151,10 +151,10 @@ Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('{id}/movimientos','tramitesController@movimientosV');
 
-	Route::get('{id}/documentos/{id2}/editar','tramitesController@movimientosEditarV');
-	Route::post('{id}/documentos/{id2}/editar','tramitesController@movimientosEditar');
+	Route::get('{id}/documentos/{id2}/editar','tramitesController@documentosEditarV');
+	Route::post('{id}/documentos/{id2}/editar','tramitesController@documentosEditar');
 
-	Route::get('{id}/documentos/{id2}/eliminar','tramitesController@movimientosEliminar');
+	Route::get('{id}/documentos/{id2}/eliminar','tramitesController@documentosEliminar');
 
 
 

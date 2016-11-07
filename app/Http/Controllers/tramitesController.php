@@ -230,18 +230,20 @@ class tramitesController extends Controller
         return view('tramites.movimientos');
     }
 
-    public function movimientosEditarV($id){
-        $movimiento=Movimiento::find($id2);
-        return view('tramites.docEdit',["movimiento"=>$movimiento]);
+    public function documentosEditarV($id){
+        $documento=Documento::find($id2);
+        return view('tramites.docEdit',["documento"=>$documento]);
     }
 
-    public function movimientosEliminar($id,$id2){
-        $movimiento=Movimiento::find($id2);
-        $movimiento->delete();
+    public function documentosEliminar($id,$id2){
+        $documento=Movimiento::find($id2);
+        // eliminar el archivo
+
+        $documento->delete();
         return redirect('tramites/'.$id.'/documentos');
     }
 
-    public function movimientosEditar(Request $datos, $id, $id2){
+    public function documentosEditar(Request $datos, $id, $id2){
 
         
 
