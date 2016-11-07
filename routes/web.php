@@ -130,22 +130,15 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('crear','tramitesController@createGet');
 	Route::post('crear','tramitesController@create');
 
-	Route::get('{id}/delegar-area','tramitesController@delegarAreaV');
-	Route::get('{id}/delegar-sub-area','tramitesController@delegarSubAreaV');
-	Route::post('{id}/delegar-area','tramitesController@delegarArea');
-	Route::get('{id}/delegar-empleado','tramitesController@delegarEmpleadoV');
-	Route::post('{id}/delegar-empleado','tramitesController@delegarEmpleado');
-	Route::get('resolver',function(){return view('tramites/resolver');});
+	
 	Route::get('ver',function(){	return view('tramites/ver');});
 	//Delegar empleado-area-subarea
-	Route::get('delegar',function(){return view('tramites/delegar');});
+	
 	Route::get('{id}/delegar','tramitesController@delegarV');
 	Route::post('{id}/delegar','tramitesController@delegar');
 	//Route::post('subir','tramitesController@subirDocumento');
 
-	Route::get('editar',function(){return view('tramites/editar');});
-	Route::get('subir',function(){return view('tramites/subir');});
-	Route::get('eliminar',function(){return view('tramites/eliminar');});
+	
 	Route::get('{id}','tramitesController@showTramite');
 
 	Route::post('{id}/subir','tramitesController@subirDocumento');
@@ -153,8 +146,10 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('{id}/editar','tramitesController@editarTramiteV');
 	Route::post('{id}','tramitesController@guardar');
 
-	Route::get('{id}/eliminar','tramitesController@eliminarTramiteV');
+
 	Route::get('{id}/documentos','tramitesController@getDocumentosV');
+
+	Route::get('{id}/movimientos','tramitesController@movimientosV');
 
 
 });
@@ -187,7 +182,6 @@ Route::group(['prefix'=>'tipostramite'],function(){
 
   Route::get('crear','tiposTramiteController@crearGet');
   Route::post('crear','tiposTramiteController@crear');
-
 
   Route::get('{id}/editar','tiposTramiteController@editar');
 
@@ -264,7 +258,7 @@ Route::group(['middleware'=>'empleado:panel','prefix'=>'pruebas'],function(){
 });
 
 Route::get('movimientos',function(){
-	return view('movimientos.ver');
+	return view('tramites.movimientos');
 });
 
 
@@ -278,6 +272,15 @@ Route::get('/enviar',function(){
 Route::get('/mail',function(){
 	return view('emails.registro');
 });
+
+
+
+Route::get('estadisticas/parea', 'estadisticaController@areas');
+Route::get('estadisticas/areaConsultar','estadisticaController@areasConsultar');
+Route::get('estadisticas/pempleado','estadisticaController@empleados');
+Route::get('estadisticas/empleadoConsultar','estadisticaController@empleadosConsultar');
+
+
 
 Route::get('busqueda/porArea',function(){
 	return view('busquedas/arearesultado');
