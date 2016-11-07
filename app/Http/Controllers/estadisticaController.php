@@ -13,7 +13,7 @@ class estadisticaController extends Controller
 	{
 		$dato = DB::table('areas')
 				->select('id','nombre')
-				->where('area_id','=','NULL')
+				->where('area_id','=',null)
 				->get();
 		//$dato = "ademirvillena";
 		return view('estadisticas.parea',["info"=>$dato]);

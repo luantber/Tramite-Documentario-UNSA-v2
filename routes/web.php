@@ -151,6 +151,13 @@ Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('{id}/movimientos','tramitesController@movimientosV');
 
+	Route::get('{id}/documentos/{id2}/editar','tramitesController@movimientosEditarV');
+	Route::post('{id}/documentos/{id2}/editar','tramitesController@movimientosEditar');
+
+	Route::get('{id}/documentos/{id2}/eliminar','tramitesController@movimientosEliminar');
+
+
+
 
 });
 
@@ -272,6 +279,15 @@ Route::get('/enviar',function(){
 Route::get('/mail',function(){
 	return view('emails.registro');
 });
+
+
+
+Route::get('estadisticas/parea', 'estadisticaController@areas');
+Route::get('estadisticas/areaConsultar','estadisticaController@areasConsultar');
+Route::get('estadisticas/pempleado','estadisticaController@empleados');
+Route::get('estadisticas/empleadoConsultar','estadisticaController@empleadosConsultar');
+
+
 
 Route::get('busqueda/porArea',function(){
 	return view('busquedas/arearesultado');

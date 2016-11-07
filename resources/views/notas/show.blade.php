@@ -23,7 +23,7 @@
                       </tr>
                       <tr>
                         <td>Privacidad: </td>
-                        @if($notas->personal == '1')
+                        @if($notas->personal == 1)
                           <td>Personal</td>
                         @else
                           <td>Público</td>

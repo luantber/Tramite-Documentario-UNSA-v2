@@ -229,6 +229,27 @@ class tramitesController extends Controller
         $movimientos=Movimiento::all()->where('id',$id);
         return view('tramites.movimientos');
     }
+
+    public function movimientosEditarV($id){
+        $movimiento=Movimiento::find($id2);
+        return view('tramites.docEdit',["movimiento"=>$movimiento]);
+    }
+
+    public function movimientosEliminar($id,$id2){
+        $movimiento=Movimiento::find($id2);
+        $movimiento->delete();
+        return redirect('tramites/'.$id.'/documentos');
+    }
+
+    public function movimientosEditar(Request $datos, $id, $id2){
+
+        
+
+    }
+
+
+
+
     
 }
 

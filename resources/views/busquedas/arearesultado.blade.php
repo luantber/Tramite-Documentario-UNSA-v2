@@ -75,8 +75,9 @@
 				  // appends <table> into <body>
 				  body.appendChild(tabla);
 				  // modifica el atributo "border" de la tabla y lo fija a "2";
-				  tabla.setAttribute("border", "2");
+				  //tabla.setAttribute("border", "2");
 				  tabla.setAttribute("id", "tab");
+				  tabla.setAttribute("class","table table-striped");
 					//alert(aux3.data[0].nombre);
 					/*var aux3 = JSON.parse(aux2);
 					alert(aux3.data);*/
