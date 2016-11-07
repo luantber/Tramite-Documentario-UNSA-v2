@@ -104,7 +104,7 @@
                       <select name="area" type="text" class="form-control" id="id_area">
                           <option value="" >Seleccionar área</option>
                           @foreach ($areas as $area)
-                            <option value="{{$empleado->id}}" >{{$area->nombre}}</option>
+                            <option value="{{$area->id}}" >{{$area->nombre}}</option>
                           @endforeach
                         </select>
                   </div>
@@ -122,7 +122,7 @@
                       <select name="subarea" type="text" class="form-control" id="id_subarea">
                           <option value="" >Seleccionar sub-área</option>
                           @foreach ($subAreas as $subarea)
-                            <option value="{{$empleado->id}}" >{{$subarea->nombre}}</option>
+                            <option value="{{$area->id}}" >{{$subarea->nombre}}</option>
                           @endforeach
                         </select>
                   </div>
