@@ -280,4 +280,19 @@ class tramitesController extends Controller
         return view('tramites.delegar',["tramite"=>$tramite,"empleados"=>$empleados,"areas"=>$areas,"subAreas"=>$subAreas]);
     }
 
+    
+    public function delegar(Request $datos, $id){
+        $tramite=Tramite::all()->where('nro_expediente',$datos->numExp);
+        if($datos->c_empleado=='empleado'){
+            echo "empleado";
+        }
+        else if($datos->c_area){
+            echo "area";
+        }
+        else if($datos->c_subArea){
+            echo "subArea";
+        }
+        return redirect('tramites');
+    }
+    
 }

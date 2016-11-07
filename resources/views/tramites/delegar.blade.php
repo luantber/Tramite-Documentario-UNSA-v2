@@ -60,7 +60,7 @@
 
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="" name="" id=""> Empleado
+                  <input type="checkbox" value="empleado" name="c_empleado" id="c_empleado_id"> Empleado
                 </label>
               </div>
 
@@ -112,7 +112,7 @@
 
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="" name="" id=""> Área
+                  <input type="checkbox" value="area" name="c_area" id="c_area_id"> Área
                 </label>
               </div><br>
 
@@ -130,7 +130,7 @@
 
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="" name="" id=""> Sub-área
+                  <input type="checkbox" value="subArea" name="c_subArea" id="c_subArea_id"> Sub-área
                 </label>
               </div>
 
