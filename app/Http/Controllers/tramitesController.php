@@ -232,7 +232,8 @@ class tramitesController extends Controller
 
     public function documentosEditarV($id,$id2){
         $documento=Documento::find($id2);
-        return view('tramites.docEdit',["documento"=>$documento]);
+        $tiposDocumentos=TipoDocumento::all();
+        return view('tramites.docEdit',["documento"=>$documento,"tiposDocumentos"=>$tiposDocumentos]);
     }
 
     public function documentosEliminar($id,$id2){
@@ -244,13 +245,19 @@ class tramitesController extends Controller
     }
 
     public function documentosEditar(Request $datos, $id, $id2){
-
+        $documento=Documento::find($id2);
         
+        $documento->nombre=$datos->nombreDoc;      
+        
+        $documento->nombre_archivo=$datos->docu;   
+
+        $tipo=TipoDocumento::find($datos->tipoDoc);
+        $documento->tipoDocumento()->associate($tipo);
+        
+        $documento->save();
+        return redirect('tramites/'.$id.'/documentos');
 
     }
-
-
-
 
     
 }
