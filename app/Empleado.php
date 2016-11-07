@@ -43,8 +43,8 @@ class Empleado extends Model
     }
     
     public function isJefe(){
-        dd(Auth::user()->empleado->area->jefe_id);
-        if(Auth::user()->empleado->id == Auth::user()->area->jefe_id)
+        //dd(Auth::user()->empleado->area->jefe_id);
+        if(Auth::user()->empleado->id == Auth::user()->empleado->area->jefe_id)
             return true;
         return false;
     }
