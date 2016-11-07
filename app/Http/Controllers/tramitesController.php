@@ -282,7 +282,7 @@ class tramitesController extends Controller
 
     
     public function delegar(Request $datos, $id){
-        $tramite=Tramite::all()->where('nro_expediente',$datos->numExp);
+        $tramite=Tramite::all()->where('nro_expediente',$datos->numExp)->first();
         if($datos->c_empleado=='empleado'){
             $empleado=Empleado::find($datos->id_empleado);
             $tramite->empleado()->associate($empleado);
