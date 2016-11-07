@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 use App\Http\Requests;
 use App\Cargo;
@@ -77,7 +78,7 @@ class cargosController extends Controller
         /*$permiso= new PermisosCargo;
         $permiso->timestamps=false;
         $permiso->cargo_id=$datos->cargoid;*/
-        $ara = array(
+        /*$ara = array(
             'cargo_id' => $datos->cargoid, 
             'areas' => 0,
             'cargos'=>0,
@@ -86,15 +87,40 @@ class cargosController extends Controller
             'panel'=>0,
             'tramites'=>0
             );
+        */
+
+        //empieza llenado de datos
+        $col=Schema::getColumnListing('permisos_cargos');
+        array_shift($col);
+        $ara=[];
+        $ara['cargo_id']=$datos->cargoid;
+        for ($j=0; $j <count($col) ; $j++) { 
+            # code...
+            $ara[$col[$j]]=0;
+        }
+        //return dd($ara,$col);    
+
         for ($i=0; $i <count($datos->sep) ; $i++) { 
             $ara[$datos->sep[$i]]=1;
         }
 
-        // Interesante ... 
+        //verificar si tiene los datos ya puestos
+        if ($datos->los_tiene==0)
+        {
 
-        DB::table('permisos_cargos')->insert($ara);
+            // Interesante ... 
+            //si no los tienes, los inserta
+            DB::table('permisos_cargos')->insert($ara);            
+        }
+        else
+        {
+            //si los tiene, entonces actualizalo
+            DB::table('permisos_cargos')->where('cargo_id',$datos->cargoid)->update($ara);
+        }
+
         return redirect('cargos');
     }
+
 
     public function permisosget($id)
     {
@@ -102,7 +128,8 @@ class cargosController extends Controller
         if ($cargo==NULL){
             echo "NO existe el cargo";
         }
-        return view('cargos.permisos',['id_cargo'=>$cargo->id,'nombre'=>$cargo->nombreCargo]);
+        //return view('cargos.permisos',['id_cargo'=>$cargo->id,'nombre'=>$cargo->nombreCargo]);
+        return view('cargos.permisos',['id_cargo'=>$cargo->id,'nombre'=>$cargo->nombreCargo,'permisos'=>$cargo->permisosCargo]);
     }
 
 }

@@ -75,6 +75,8 @@ Route::group(['prefix'=>'cargos'],function(){
 	Route::get('{id}/permisos','cargosController@permisosget');
 	Route::post('permisos','cargosController@permisos');
 
+
+
 	Route::get('{id}/eliminar','cargosController@eliminar');
 	Route::post('eliminar','cargosController@eliminado');
 

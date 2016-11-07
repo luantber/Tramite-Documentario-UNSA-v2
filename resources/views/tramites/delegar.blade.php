@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="{{asset('tramites'.'/'.$tramite->id.'/delegar')}}">
+<form method="post" action="{{asset('tramites'.'/'.$tramite->id.'/delegar')}}">
       {{ csrf_field()}}
   <h2><p class="text-center">  Delegar Trámite </p></h2>
   <br><br>
@@ -104,7 +104,7 @@
                       <select name="area" type="text" class="form-control" id="id_area">
                           <option value="" >Seleccionar área</option>
                           @foreach ($areas as $area)
-                            <option value="{{$empleado->id}}" >{{$area->nombre}}</option>
+                            <option value="{{$area->id}}" >{{$area->nombre}}</option>
                           @endforeach
                         </select>
                   </div>
@@ -122,7 +122,7 @@
                       <select name="subarea" type="text" class="form-control" id="id_subarea">
                           <option value="" >Seleccionar sub-área</option>
                           @foreach ($subAreas as $subarea)
-                            <option value="{{$empleado->id}}" >{{$subarea->nombre}}</option>
+                            <option value="{{$area->id}}" >{{$subarea->nombre}}</option>
                           @endforeach
                         </select>
                   </div>
@@ -133,8 +133,15 @@
                   <input type="checkbox" value="subArea" name="c_subArea" id="c_subArea_id"> Sub-área
                 </label>
               </div>
-
-              <button type="button" class="btn btn-primary pull-right" value="Submit" name="" id="">Delegar</button>
+<!--
+              <button type="button" class="btn btn-primary pull-right" value="Submit" name="submit" id="submit">Delegar</button>
+-->
+              <div class="form-group">
+                <div class="text-center">
+                  <button class="btn btn-lg btn-primary  pull-right" type="submit" value="Submit"> 
+                  Delegar </button> 
+                </div>
+              </div>
 
             </div>
 

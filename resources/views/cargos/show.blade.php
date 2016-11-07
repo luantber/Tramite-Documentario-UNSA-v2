@@ -38,7 +38,7 @@
                    ?>
 
                   
-                  @for($i=0;$i<6;$i++)
+                  @for($i=0;$i<count($values);$i++)
                     @if($values[$i]==1)
                       <tr>
                         <td></td>
