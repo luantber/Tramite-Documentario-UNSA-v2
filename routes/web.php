@@ -149,7 +149,7 @@ Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('{id}/documentos','tramitesController@getDocumentosV');
 
-	Route::get('{id}/movimientos'),'tramitesController@movimientosV';
+	Route::get('{id}/movimientos','tramitesController@movimientosV');
 
 
 });
