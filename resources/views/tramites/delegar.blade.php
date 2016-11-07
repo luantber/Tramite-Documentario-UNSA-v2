@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="">
+<form method="POST" action="{{asset('tramites'.'/'.$tramite->id.'/delegar')}}">
       {{ csrf_field()}}
   <h2><p class="text-center">  Delegar Trámite </p></h2>
   <br><br>

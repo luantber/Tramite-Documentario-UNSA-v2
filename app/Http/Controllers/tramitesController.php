@@ -292,7 +292,7 @@ class tramitesController extends Controller
         else if($datos->c_subArea){
             echo "subArea";
         }
-        return redirect('tramites');
+        //return redirect('tramites');
     }
     
 }
