@@ -209,6 +209,10 @@ Route::group(['prefix'=>'notas'],function(){
 
   Route::get('todos','notasController@todos');
 
+  Route::get('todos/personal','notasController@todosPersonal');
+
+  Route::get('todos/publico','notasController@todosPublico');
+
   //Route::get('crear','notasController@antesCrear');
   Route::get('crear',function(){return view('notas.crear');});
   Route::post('crear','notasController@crear');
@@ -217,10 +221,11 @@ Route::group(['prefix'=>'notas'],function(){
   Route::get('{id}/editar','notasController@editar');
   Route::get('{id}','notasController@show');
 
-  Route::post('{id}','notasController@guardar_area');
-  Route::post('{id}','notasController@guardar_em');
-
   Route::get('{id}/eliminar','notasController@eliminar');
+  Route::post('eliminar','notasController@eliminado');
+
+
+
 
 });
 
