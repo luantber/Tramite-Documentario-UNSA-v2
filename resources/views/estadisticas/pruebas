@@ -1,0 +1,45 @@
+@foreach($info as $i)
+		<var id="{{$info->id}}" style="visibility: hidden">{{$i->nombre}}</var>
+		@endforeach
+		<script type="text/javascript">
+		$aux = document.getElementById("info");
+		$aux.style = "visibility: visible";
+		$info = document.getElementById("info").innerText;
+		$aux.style = "visibility: hidden";
+		document.write($info.length);
+		/*for (var i = 0; i < $info.length; i++) {
+			document.write(i);
+		};*/
+		var pieData = [{value:40,color:"#0b82e7",highlight: "#0c62ab",label: $info},
+		{value:60,color:"#0b82e7",highlight: "#0c62ab",label: "Segundo dato"}];
+		var ctx = document.getElementById("chart-area").getContext("2d");
+		window.myPie = new Chart(ctx).Pie(pieData);
+		document.write($info);
+		</script>
+
+
+
+				$dato1 = json_decode($dato);
+		$dato2 = array();
+		foreach ($dato1 as $k) {
+			array_push($dato2, $k->nombre);
+		}
+
+
+
+
+		dikstra print kruskal(o algo asi para grafos)
+
+
+
+		/*var pieData = [];
+	var i = 0;
+	while(i<{{$cant1}}){
+		var a = {{$est1[i]->nombre}};
+		//pieData.push({value:40,color:"#0b82e7",highlight: "#0c62ab",label: '{{$est1[i]->nombre}}'});
+		i = i + 1;
+	}
+	var pieData = [{value:40,color:"#0b82e7",highlight: "#0c62ab",label: '{{$est1[0]->nombre}}'},
+		{value:60,color:"#0b82e7",highlight: "#0c62ab",label: '{{$est1[1]->nombre}}'}];
+		var ctx = document.getElementById("chart-area").getContext("2d");
+		window.myPie = new Chart(ctx).Pie(pieData);*/
