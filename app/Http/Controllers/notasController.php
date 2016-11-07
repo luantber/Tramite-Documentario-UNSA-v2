@@ -98,11 +98,9 @@ class notasController extends Controller
       $editar = Notas::find($id);
       $editar ->nombre = $datos->nombre;
       $editar->descripcion = $datos->descripcion;
-      $editar->empleados_id = $datos->empleados_id;
-      $editar->areas_id = $datos->areas_id;
       $editar->personal = $datos->personal;
       $editar->save();
-      return redirect('notas/todos'.$id);
+      return redirect('notas/'.$id);
 
     }
 
