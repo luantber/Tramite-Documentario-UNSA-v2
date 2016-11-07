@@ -35,7 +35,7 @@
                         @if($tramite->empleado == NULL)
                           <td>Sin encargado</td>
                         @else
-                          <td>{{$tramite->empleado}}</td>
+                          <td>{{$tramite->persona->nombre}}</td>
                         @endif
                       </tr>
                       <tr>

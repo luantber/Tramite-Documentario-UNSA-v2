@@ -282,17 +282,38 @@ class tramitesController extends Controller
 
     
     public function delegar(Request $datos, $id){
-        $tramite=Tramite::all()->where('nro_expediente',$datos->numExp);
+        $tramite=Tramite::find($id);
         if($datos->c_empleado=='empleado'){
-            echo "empleado";
+            $empleado=Empleado::find($datos->id_empleado);
+            $tramite->empleado()->associate($empleado);
+            $tramite->save();
         }
         else if($datos->c_area){
-            echo "area";
+                        
+            $area_destino=Area::find($datos->area);
+            $movimiento=new Movimiento;
+            $movimiento->tramite()->associate($tramite);
+            $movimiento->areaDestino()->associate($area_destino);
+            $movimiento->areaRemitente()->associate($tramite->area);
+            $movimiento->comentario=$datos->comentario;
+            $movimiento->save();
+            $tramite->area()->associate($area_destino);
+            $tramite->save();
+            
         }
         else if($datos->c_subArea){
-            echo "subArea";
+            $area_destino=Area::find($datos->subarea);
+            $movimiento=new Movimiento;
+            $movimiento->tramite()->associate($tramite);
+            $movimiento->areaDestino()->associate($area_destino);
+            $movimiento->areaRemitente()->associate($tramite->area);
+            $movimiento->comentario=$datos->comentario;
+            $movimiento->save();
+            $tramite->area()->associate($area_destino);
+            $tramite->save();
         }
-        //return redirect('tramites');
+
+        return redirect('tramites');
     }
     
 }

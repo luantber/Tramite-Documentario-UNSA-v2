@@ -10,7 +10,6 @@
 
   <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
 
-	<link rel="stylesheet" type="text/css" href="{{asset('css/notas.css')}}">
 
 @yield('react')
 
