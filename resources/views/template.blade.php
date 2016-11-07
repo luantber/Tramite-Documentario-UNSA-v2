@@ -3,7 +3,8 @@
 <head>
 	<title>@yield('title')</title>
 
-  <link href="{{asset('fonts/font-awesome.min.css')}}">
+  <link href="{{asset('fonts/font-awesome.min.css')}}" rel="stylesheet">
+
 
 	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
@@ -19,7 +20,7 @@
   <script src="{{asset('js/fileinput.js')}}"></script>
 
 
-  
+
 
 </head>
 <body>
@@ -85,7 +86,7 @@
               <li><a href="{{ url('areas/crear')}}">Nuevo</a></li>
               <li><a href="{{ url('areas')}}">Todos</a></li>
             </ul>
-          </li>   
+          </li>
         @endsection
 
 
@@ -135,8 +136,8 @@
              </ul>
          </li>
 
-        
-      
+
+
 
       <!--Aqui empieza la seleccion-->
 
