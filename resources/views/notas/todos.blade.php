@@ -71,7 +71,7 @@
                             <p>{{$nota->descripcion}}</p>
 
                             @if ($nota->empleados_id == Auth::user()->empleado->id)
-                              <a href="#" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
+                              <a href="{{asset('notas')}}{{'/'.$nota->id}}" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
                             @endif
 
                             <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
