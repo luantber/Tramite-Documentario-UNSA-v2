@@ -286,6 +286,7 @@ class tramitesController extends Controller
         if($datos->c_empleado=='empleado'){
             $empleado=Empleado::find($datos->id_empleado);
             $tramite->empleado()->associate($empleado);
+            $tramite->save();
         }
         else if($datos->c_area){
                         
