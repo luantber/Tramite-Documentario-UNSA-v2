@@ -33,7 +33,10 @@
 							<label for="descripcion" >Descripción de cargo: </label>
 						  		<input class="form-control" value="{{ $cargo->descripcion }}"  name="descripcion" id="descripcion">
 						</div>
-					</div><br><br>
+
+					</div><br>
+					<a href="{{url('cargos/'.$cargo->id.'/permisos')}}">Editar Permisos</a>
+					<br>
 
 					<div class="text-center">
 			      		<button type="submit" value="Submit" class="btn btn-lg">Guardar</button>
