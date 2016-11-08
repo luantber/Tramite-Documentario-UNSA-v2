@@ -249,7 +249,10 @@ class tramitesController extends Controller
         
         $documento->nombre=$datos->nombreDoc;      
         
-        $documento->nombre_archivo=$datos->docu;   
+        if($datos->docu!=NULL){
+            $documento->nombre_archivo=$datos->docu;       
+        }
+        
 
         $tipo=TipoDocumento::find($datos->tipoDoc);
         $documento->tipoDocumento()->associate($tipo);
