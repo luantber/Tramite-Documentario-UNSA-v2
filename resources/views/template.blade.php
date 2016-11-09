@@ -109,12 +109,15 @@
  <!--TRAMITES-->
         @section('tramites')
            <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trámites1 <span class="caret"></span></a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trámites <span class="caret"></span></a>
                <ul class="dropdown-menu">
                  <li><a href="{{ url('tramites/crear') }}">Nuevo</a></li>
                  <li><a href="{{ url('tramites') }}">Todos</a></li>
                  <li><a href="{{ url('tramites/estados/crear') }}">crear Estados</a></li>
                  <li><a href="{{ url('tramites/estados') }}">Estados</a></li>
+                 <li><a href="{{ url('tipostramite/crear') }}">Crear Tipo Trámite</a></li>
+                 <li><a href="{{ url('tipostramite') }}">Tipos de Trámite</a></li>
+
 
                </ul>
            </li>
