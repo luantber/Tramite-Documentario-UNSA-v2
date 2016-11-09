@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <h2><p class="text-center">  Ver Movimientos </p></h2>
 	<br>
 

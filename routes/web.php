@@ -313,7 +313,6 @@ Route::get('busqueda/resultadoTramite','buscadorController@tramiteBusqueda');
 	>:c :(
 */
 
-
 /*
 	GG tu Prueba
 */

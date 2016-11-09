@@ -52,7 +52,11 @@
                       </tr>
                       <tr>
                         <td>Estado de trámite:</td>
-                        <td>{{$tramite->estado->nombre}}</td>
+                        @if($tramite->estado==null)
+                          <td>No tiene estado</td>
+                        @else
+                          <td>{{$tramite->estado->nombre}}</td>
+                        @endif
                       </tr>
                       <tr>
                         <td> Prioridad: </td>
@@ -79,6 +83,13 @@
                         <td> Documentos: </td>
                         <td>
                           <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'documentos'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i> Ir a documentos </a>
+                        </td>
+                      </tr> 
+
+                      <tr>
+                        <td> Delegar: </td>
+                        <td>
+                          <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'delegar'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-arrow-right"></i>   Delegar </a>
                         </td>
                       </tr>
                      

@@ -4,8 +4,6 @@
 
 @section('content')
 
-{{$documento}}
-
 <div class="row">
   	<div class="col-md-6 col-md-offset-3">
 		<h2><p class="text-center">  Editar Documentos </p></h2>
@@ -24,6 +22,21 @@
 									</span>
 						  		<input class="form-control" type="text" name ="nombreDoc" id="nomDoc" value="{{ $documento->nombre }}">
 							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="tipoDoc" >Tipo de Documento: </label>
+							<select name="tipoDoc" class="form-control" id="tipoDoc">
+				              <option value="{{$documento->tipoDocumento->id}}" >{{$documento->tipoDocumento->nombre}}</option>
+				              	@foreach($tiposDocumentos as $tipoDocumento)
+				              		@if( $documento->tipoDocumento->id != $tipoDocumento->id)
+				              			<option value="{{$tipoDocumento->id}}">{{$tipoDocumento->nombre}}
+				              			</option>
+				              		@endif
+				              	@endforeach
+				            </select>
 						</div>
 					</div><br>
 

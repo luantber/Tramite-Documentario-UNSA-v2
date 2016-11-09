@@ -4,10 +4,6 @@
 
 @section('content')
 
-<!-- Asi imprimes el dato -->
-{{$areas}}
-
-
 <form method="POST" onsubmit="return validar()" action="{{asset('tramites/crear')}}">     <!-- <_Alexis -->
     {{ csrf_field()}}
 
