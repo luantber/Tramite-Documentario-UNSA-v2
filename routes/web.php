@@ -156,7 +156,7 @@ Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('{id}/documentos/{id2}/eliminar','tramitesController@documentosEliminar');
 
-
+	Route::get('{id}/subir','tramitesController@subirV');
 
 
 });

@@ -26,6 +26,8 @@ class tramitesController extends Controller
                 
         //obtenemos a la persona dado un dni
         $persona=User::all()->where('dni',$datos->dni)->first();
+
+        $usuario_empl=User::find(Auth::user()->id);
         //obtenemos el area dado su nombre
 
         $area_destino= Area::find($datos->destino);
@@ -33,9 +35,8 @@ class tramitesController extends Controller
         //-----------------------FALTA MODIFICAR ESTO
         $estado=EstadoTramite::all()->where('id',1)->first();
 
-        //-----------------------AQUI FALTA EL AREA DE MESA DE PARTES
-        $id_mesa=1;
-        $mesa_de_partes= Area::find($id_mesa);
+                
+        $mesa_de_partes= $usuario_empl->empleado->area;
 
         //obtenemos el tipo de tramite dado su nombre
         $tipo_tramite= TipoTramite::find($datos->tipoTramite);
@@ -71,9 +72,16 @@ class tramitesController extends Controller
         
         
         
-        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite,"documentos"=>$documentos]);
         
     
+    }
+
+    public function subirV($id){
+        $tiposDocumentos=TipoDocumento::all();
+        $tramite=Tramite::find($id);
+        $documentos=$tramite->documentos;
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite,"documentos"=>$documentos]);
     }
 
     public function createGet(){
@@ -93,11 +101,22 @@ class tramitesController extends Controller
         
 
         $doc= new Documento;
-        $doc->nombre=$datos->nomDoc;
-        $doc->nombre_archivo=$datos->archivo;
-        $doc->entregado=0;
+        $doc->nombre=$datos->nomDoc;        
+        if($datos->archivo!=NULL){
+            $doc->nombre_archivo=$datos->archivo;    
+            //start subir archivo
+            $archivo=$datos->file('archivo');
+            $ext=$archivo->guessClientExtension();
+            $nombre=$datos->nomDoc.".".$ext;
+            $path=$archivo->storeAs('semiFTP/'.$datos->numExp,$nombre); //<- la variable path almacena la ruta del archivo
+        }
+        else{
+            $doc->nombre_archivo='';
+        }
+        
+        
         /// modificar---------------------------------------
-        $doc->virtual=0;
+        
         $doc->tipoDocumento()->associate($tipoDoc);
         $doc->tramite()->associate($tramite);
         $doc->save();
@@ -106,11 +125,7 @@ class tramitesController extends Controller
 
         //end modificar --- 
 
-        //start subir archivo
-        $archivo=$datos->file('archivo');
-        $ext=$archivo->guessClientExtension();
-        $nombre=$datos->nomDoc.".".$ext;
-        $path=$archivo->storeAs('semiFTP/'.$datos->numExp,$nombre); //<- la variable path almacena la ruta del archivo
+        
 
        
         
@@ -204,7 +219,9 @@ class tramitesController extends Controller
             $movimiento->tramite()->associate($tramite);
             $movimiento->areaDestino()->associate($area_destino);
             $movimiento->areaRemitente()->associate($tramite->area);
+            
             $movimiento->comentario=$datos->comentario;
+            
             $movimiento->save();
             $tramite->area()->associate($area_destino);
             $tramite->save();
@@ -251,6 +268,7 @@ class tramitesController extends Controller
         
         if($datos->docu!=NULL){
             $documento->nombre_archivo=$datos->docu;       
+            
         }
         
 
