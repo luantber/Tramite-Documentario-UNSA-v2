@@ -244,7 +244,7 @@ class tramitesController extends Controller
 
     public function movimientosV($id){
         $tramite=Tramite::find($id);
-        $movimientos=tramite->movimientos;
+        $movimientos=$tramite->movimientos;
         return view('tramites.movimientos',["movimientos"=>$movimientos]);
     }
 
