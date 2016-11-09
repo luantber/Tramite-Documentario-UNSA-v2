@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\TipoTramite;
+use App\Tramite;
+use App\TipoDocumento;
 
-class tiposTramiteController extends Controller
+class tiposDocumentoController extends Controller
 {
 
 
@@ -25,7 +27,7 @@ class tiposTramiteController extends Controller
 
     	
     	$nuevo = new TipoDocumento;
-    	$nuevo->nombre = $datos->nomDoc;
+    	$nuevo->nombre = $datos->nomTipo;
     	$nuevo->descripcion = $datos->descripcion;
     	$nuevo->save();
 
@@ -44,15 +46,15 @@ class tiposTramiteController extends Controller
         return view('tiposDocumento.editar',['tipoDocumento'=>$tipoDocumento]);
     }
 
-    public function guardar($id,Request $datos)
+    public function guardar(Request $datos,$id)
     {
-        $tipoTramite = TipoTramite::find($id);
-        $tipoTramite->nombre = $datos->nombre;
-    	$tipoTramite->descripcion = $datos->descripcion;
+        $tipoDocumento = TipoDocumento::find($id);
+        $tipoDocumento->nombre = $datos->nomTipo;
+    	$tipoDocumento->descripcion = $datos->descripcion;
 
-        $tipoTramite->save();
+        $tipoDocumento->save();
 
-        return redirect('tipostramite');
+        return redirect('tiposDocumento');
     }
 
       public function eliminarGet($id){

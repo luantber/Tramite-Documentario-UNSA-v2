@@ -9,13 +9,6 @@
 
 <form method="POST" action="{{asset('tipostramite/crear')}}">
 	{{ csrf_field()}}
-<!--
-	nombre
-	<input type="text" name="nombre">
-	descripcion
-	<input type="text" name="descripcion">
-	<input type="submit" >
--->
 
 	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
