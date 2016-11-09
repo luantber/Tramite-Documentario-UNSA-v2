@@ -243,7 +243,8 @@ class tramitesController extends Controller
     }
 
     public function movimientosV($id){
-        $movimientos=Movimiento::all()->where('id',$id);
+        $tramite=Tramite::find($id);
+        $movimientos=tramite->movimientos;
         return view('tramites.movimientos',["movimientos"=>$movimientos]);
     }
 
