@@ -126,10 +126,10 @@ class tramitesController extends Controller
         //end modificar --- 
 
         
-
+        $documentos=$tramite->documentos;
        
         
-        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite]);
+        return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite,"documentos"=>$documentos]);
         
         
     }
