@@ -58,7 +58,7 @@ class empleadosController extends Controller
         $newPer->nombre = $datosn->nomPer;
         $newPer->apellido = $datosn->apellidoPer;
         $newPer->dni = $datosn->dni;
-        $newPer->password = bcrypt($datosn->dni);
+        $newPer->password = '123';
         $newPer->email = $datosn->correo;
         $newPer->activo = false;
         $newPer->save();

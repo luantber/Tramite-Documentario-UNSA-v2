@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\User;
-
 
 class usuariosController extends Controller
 {
@@ -20,13 +19,29 @@ class usuariosController extends Controller
     
     }
 
+    public function login(Request $datos)
+    {
+        $user= User::Where('email',$datos->email)->first();
+        if (Auth::attempt(['email'=>$datos->email,'password'=>$datos->password,'activo'=>1]))
+        {
+            return redirect('/');
+        }
+        else
+        {   
+            if($user->activo==0)
+                return redirect('login')->with('error','Le hemos enviado un correo para activar su cuenta');
+            else
+                return redirect('login')->with('error','Usuario o contraseña incorrectos');
+        }
+    }
+
     public function create(Request $datos)
     {
         $nuevo = new User;
         $nuevo->nombre = $datos->nomPer;
         $nuevo->apellido = $datos->apellidoPer;
         $nuevo->dni = $datos->dni;
-        $nuevo->password = bcrypt($datos->dni);
+        $nuevo->password = '123';
         $nuevo->email = $datos->correo;
         $nuevo->activo = false;
         

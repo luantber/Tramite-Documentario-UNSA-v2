@@ -162,7 +162,7 @@ Route::group(['prefix'=>'tramites'],function(){
 });
 
 
-/* tipos tramite */
+
 Route::group(['prefix'=>'tiposDocumento'],function(){
 
   Route::get('/',function(){ return view('tiposDocumento.todos');  });
@@ -267,8 +267,13 @@ Route::group(['prefix'=>'notas'],function(){
 
 //Route::get('login', 'LoginController@login');
 //Rutas de auth
-Route::auth();
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+//Route::auth();
+Route::get('login',function(){
+	return view('auth.login');
+});
+
+Route::post('login','usuariosController@login');
+Route::get('logout', 'Auth\LoginController@logout');
 
 //Mi prueba is back
 
@@ -288,6 +293,10 @@ Route::get('movimientos',function(){
 	return view('tramites.movimientos');
 });
 
+
+Route::get('descargar',function(){
+	return response()->download(storage_path('app/public/semiFTP/hola.pdf'));
+});
 
 Route::get('/enviar',function(){
 	$cor=new Email;
