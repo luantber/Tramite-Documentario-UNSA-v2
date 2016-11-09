@@ -30,11 +30,20 @@
                     <td>Permisos: </td>
                     <td> </td>
                   </tr>
-                
+                  
                   <?php  
-                    $permisos=["Areas","Cargos","Usuarios","Empleados","Panel de Tramites","Tramites"];
-                    $values=array_values($cargo->permisoscargo->toArray());
-                    array_shift($values);
+                    if($cargo->permisoscargo)
+                    {
+                      $permisos=["Areas","Cargos","Usuarios","Empleados","Panel de Tramites","Tramites"];
+                      $values=array_values($cargo->permisoscargo->toArray());
+                      array_shift($values);                      
+                    }
+                    else
+                    {
+                      $permisos=["No tiene"];
+                      $values=[1];
+                    }
+
                    ?>
 
                   

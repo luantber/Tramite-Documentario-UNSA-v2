@@ -17,7 +17,7 @@ class Empleados
     {
         if(Auth::check()){     
 
-            if ($requesr()->user()->empleado==null) return abort(403,"No puedes entrar al área de empleados");
+            if ($request->user()->empleado==null) return abort(403,"No puedes entrar al área de empleados");
             else 
             {
                 if ($request->user()->empleado->tienePermisos($cargo))

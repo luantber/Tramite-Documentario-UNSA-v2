@@ -157,21 +157,29 @@
 
 
       <!--Aqui empieza la seleccion-->
+        <?php
+          if (Auth::user()->empleado->permisosCargo)
+          {
+            $ar=Auth::user()->empleado->cargo->permisosCargo->toArray();
+            array_shift($ar);            
+          }
+          else
+          {
+            $ar=[];
+          }
 
-      <?php
-        $ar=Auth::user()->empleado->cargo->permisosCargo->toArray();
-        array_shift($ar);
-      ?>
+        ?>
 
+        
+        @foreach($ar as $key=>$a)
+          @if($a=="1")
+            @yield($key)
+          @endif
+        @endforeach
 
-      @foreach($ar as $key=>$a)
-        @if($a=="1")
-          @yield($key)
         @endif
-      @endforeach
-
-      @endif
       <!--Aqui termina la seleccion-->
+      
 
       </ul>
         </ul>
