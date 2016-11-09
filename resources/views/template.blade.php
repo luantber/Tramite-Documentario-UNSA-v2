@@ -5,14 +5,12 @@
 
   <link href="{{asset('fonts/font-awesome.min.css')}}" rel="stylesheet">
 
-
 	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
   <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
 
 @yield('react')
-
 
   <script src="{{asset('js/jquery.js')}}"></script>
 

@@ -166,7 +166,7 @@ Route::group(['prefix'=>'tramites'],function(){
 Route::group(['prefix'=>'tiposDocumento'],function(){
 
   Route::get('/',function(){ return view('tiposDocumento.todos');  });
-  Route::get('todos','tiposDocumentoontroller@todos');
+  Route::get('todos','tiposDocumentoController@todos');
 
   Route::get('crear','tiposDocumentoController@crearGet');
   Route::post('crear','tiposDocumentoController@crear');

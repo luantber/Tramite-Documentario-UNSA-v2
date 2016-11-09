@@ -92,6 +92,13 @@
                           <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'delegar'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-arrow-right"></i>   Delegar </a>
                         </td>
                       </tr>
+
+                      <tr>
+                        <td> Subir documentos: </td>
+                        <td>
+                          <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'subir'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-arrow-right"></i>   Subir </a>
+                        </td>
+                      </tr>
                      
                     </tbody>
                   </table>
