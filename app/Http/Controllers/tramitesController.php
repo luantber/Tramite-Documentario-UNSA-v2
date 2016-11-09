@@ -66,7 +66,7 @@ class tramitesController extends Controller
         $movimiento->comentario=$comentario;
         $movimiento->save();
     
-        
+        $documentos=$tramite->documentos;
     
         $tiposDocumentos=TipoDocumento::all();
         
