@@ -26,6 +26,9 @@ class tramitesController extends Controller
                 
         //obtenemos a la persona dado un dni
         $persona=User::all()->where('dni',$datos->dni)->first();
+        if($persona==NULL){
+            return redirect('tramites/crear');
+        }
 
         $usuario_empl=User::find(Auth::user()->id);
         //obtenemos el area dado su nombre

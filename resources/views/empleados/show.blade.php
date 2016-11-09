@@ -9,13 +9,14 @@
    
           <div class="panel panel-info">
             <div class="panel-heading">
+              <div class="text-center">
               <h3 class="panel-title">Perfil de:  {{ $empleado->user->nombre }}</h3>
+              </div>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('imagenes/perfil.jpg')}}" class="img-circle img-responsive"> </div>
-               
-                <div class=" col-md-9 col-lg-9 "> 
+            
+                <div class=" col-md-12 col-lg-12 "> 
                   <table class="table table-user-information">
                     <tbody>
                       <tr>

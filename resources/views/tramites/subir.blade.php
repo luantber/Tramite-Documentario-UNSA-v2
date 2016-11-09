@@ -33,7 +33,9 @@
 				    <select name="tipoDoc" type="text" class="form-control" id="tipoDoc">
 			          <option value="" >Seleccionar tipo de documento</option>
 			          		@foreach($tiposDocumentos as $tipoDocumento)
+			          			@if($tipoDocumento->id != 1)
 			                    <option value='{{$tipoDocumento->id}}'>{{$tipoDocumento->nombre}}</option>
+			                    @endif
 			                @endforeach            
 			        </select>
 

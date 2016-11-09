@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\TipoTramite;
 use App\Tramite;
 use App\TipoDocumento;
+use App\Documento;
 
 class tiposDocumentoController extends Controller
 {
@@ -57,20 +58,18 @@ class tiposDocumentoController extends Controller
         return redirect('tiposDocumento');
     }
 
-      public function eliminarGet($id){
-        $encontrado = TipoTramite::find($id);
-        if ($encontrado == null) {
-            echo "error NO EXISTE EL Tramite";
-        }
-      return view('tiposTramite.eliminar',['eliminado'=>$encontrado]);
-        
-    }
 
 
-    public function eliminar(Request $datos){
+    public function eliminar($id){
         //dd("hola");
-        $eliminado = TipoTramite::find($datos->id);
+        $documentos=Documento::all()->where('tipo_documento_id',$id);
+        foreach ($documentos as $documento) {
+            $documento->tipo_documento_id=1;
+            $documento->save();
+        }
+
+        $eliminado = TipoDocumento::find($id);
         $eliminado->delete();
-        return redirect('tipostramite');
+        return redirect('tiposDocumento');
     }
 }

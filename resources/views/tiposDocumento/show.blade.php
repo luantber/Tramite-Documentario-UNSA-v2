@@ -50,7 +50,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-primary" class="pull-left" data-dismiss="modal">No</button>
-                            <a href="{{asset('tiposDocumento/eliminar')}}" data-original-title="remove" data-toggle="tooltip" type="button" class="btn btn-primary">Sí</a>
+                            <a href="{{asset('tiposDocumento/'.$tipoDocumento->id.'/eliminar')}}" data-original-title="remove" data-toggle="tooltip" type="button" class="btn btn-primary">Sí</a>
                           </div>
                         </div>
                       </div>

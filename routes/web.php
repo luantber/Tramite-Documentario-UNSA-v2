@@ -173,8 +173,8 @@ Route::group(['prefix'=>'tiposDocumento'],function(){
 
   Route::get('{id}/editar','tiposDocumentoController@editar');
 
-  Route::get('{id}/eliminar','tiposDocumentoController@eliminarGet');
-  Route::post('eliminar','tiposDocumentoController@eliminar');
+  Route::get('{id}/eliminar','tiposDocumentoController@eliminar');
+  
 
   Route::get('{id}','tiposDocumentoController@show');
   Route::post('{id}','tiposDocumentoController@guardar');
