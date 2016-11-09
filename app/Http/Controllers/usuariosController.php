@@ -87,7 +87,7 @@ class usuariosController extends Controller
         if ($user===null)
             return view('errors.noUsuario');
         elseif($user->activo==1)
-            echo "El usuario ya esta activado";
+            return view('errors.usuarioActivado');
         else 
             return view('usuarios.activar',['nombre'=>$user->nombre,'id'=>$user->id]);
 

@@ -1,8 +1,3 @@
-    <?php  
-      $nombre="Alexander";
-      $email="alrus2797@gmail.com";
-      $empleado=true;
-    ?>
 
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -226,17 +221,6 @@ td[class="spechide"]
                             <td align='left'>
                               <div class="contentEditableContainer contentTextEditable">
                                 <div class="contentEditable" align='center'>
-                                  <!--<p >
-                                    Here’s what you can say: Thanks again for signing up to the newsletter! You’re all set up, and will be getting the emails once per week. Meanwhile, you can check out our <a target='_blank' href='#' class='link1' >Getting Started</a> section to get the most out of your new account. 
-                                    <br>
-                                    <br>
-                                    Have questions? Get in touch with us via Facebook or Twitter, or email our support team.
-                                    <br>
-                                    <br>
-                                    Cheers,
-                                    <br>
-                                    <span style='color:#222222;'>Peter Parker</span>
-                                  </p>-->
                                   <p>
                                     @if($empleado)
                                       Usted ha sido registrado en Trámite Documentario, pero necesita activar su cuenta para que pueda utilizar las acciones que se le ha asignado. Le proporcionamos un link en el que podrá asignar su contraseña.
@@ -244,9 +228,9 @@ td[class="spechide"]
                                       Usted ha sid registrado en Trámite Documentario, pero necesita activar su cuenta para poder ver sus trámites. Le proporcionamos un link en el que podrá asignar su contraseña.
                                     @endif
                                     <br>
+                                    <br>
                                     ¿Tienes alguna pregunta? Puede enviarnos un correo a nuestra cuenta de GMail
                                     <br>
-
                                     <br>
                                     Saludos,
                                     <br>
@@ -266,7 +250,7 @@ td[class="spechide"]
                                   <td align='center' bgcolor='#1A54BA' style='background:#1A54BA; padding:15px 18px;-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;'>
                                     <div class="contentEditableContainer contentTextEditable">
                                       <div class="contentEditable" align='center'>
-                                        <a target='_blank' href='{{url('/')}}' class='link2' style='color:#ffffff;'>Activa tu cuenta</a>
+                                        <a target='_blank' href="{{url('/usuarios/'.$email.'/activar')}}" class='link2' style='color:#ffffff;'>Activa tu cuenta</a>
                                       </div>
                                     </div>
                                   </td>
@@ -294,14 +278,10 @@ td[class="spechide"]
       <td valign="top" class="specbundle"><div class="contentEditableContainer contentTextEditable">
                                       <div class="contentEditable" align='center'>
                                         <p  style='text-align:left;color:#CCCCCC;font-size:12px;font-weight:normal;line-height:20px;'>
-                                          <span style='font-weight:bold;'>[CLIENTS.COMPANY_NAME]</span>
+                                          <span style='font-weight:bold;'>CSUNSA</span>
+                                          
+                                          
                                           <br>
-                                          [CLIENTS.ADDRESS]
-                                          <br>
-                                          <a target='_blank' href="[FORWARD]">Forward to a friend</a><br>
-                                          <a target="_blank" class='link1' class='color:#382F2E;' href="[UNSUBSCRIBE]">Unsubscribe</a>
-                                          <br>
-                                          <a target='_blank' class='link1' class='color:#382F2E;' href="[SHOWEMAIL]">Show this email in your browser</a>
                                         </p>
                                       </div>
                                     </div></td>
