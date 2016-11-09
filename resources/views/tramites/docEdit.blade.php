@@ -32,8 +32,10 @@
 				              <option value="{{$documento->tipoDocumento->id}}" >{{$documento->tipoDocumento->nombre}}</option>
 				              	@foreach($tiposDocumentos as $tipoDocumento)
 				              		@if( $documento->tipoDocumento->id != $tipoDocumento->id)
+				              			@if($tipoDocumento->id != 1)
 				              			<option value="{{$tipoDocumento->id}}">{{$tipoDocumento->nombre}}
 				              			</option>
+				              			@endif
 				              		@endif
 				              	@endforeach
 				            </select>

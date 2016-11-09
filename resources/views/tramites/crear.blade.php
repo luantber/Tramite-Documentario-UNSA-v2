@@ -51,7 +51,9 @@
             <select name="tipoTramite" class="form-control" id="tipo">
               <option value="" >Seleccionar</option>
                   @foreach($tipos as $tipo)
+                  @if($tipo->id!=1)
                     <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                  @endif
                   @endforeach
             </select>
             <p id="nodestino" ></p>

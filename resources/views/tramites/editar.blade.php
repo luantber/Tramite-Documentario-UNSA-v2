@@ -40,7 +40,9 @@
               <option value="{{$tramite->tipo}}" >{{$tramite->tipoTramite->nombre}}</option>
                 @foreach($tipos as $tipo)
                 @if( $tramite->tipoTramite->id != $tipo->id)
+                  @if($tipo->id!=1)
                   <option value="{{$tipo->id}}" >{{$tipo->nombre}}</option>
+                  @endif
                 @endif
               @endforeach
             </select>
