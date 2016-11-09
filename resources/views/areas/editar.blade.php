@@ -52,7 +52,7 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 							</span>
-
+							
 					    	<select type="text" class="form-control" name="jefe" id="nomJefe" >
 					    	
 								@foreach($empleados as $e)

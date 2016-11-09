@@ -48,6 +48,7 @@ class areasController extends Controller
         //dd($empleados);
         $area = Area::find($id);
         $areas = Area::all();
+        //dd($areas);
         return view('areas.editar',['area'=>$area,'areas'=>$areas,'empleados'=>$empleados]);
     }
 
@@ -60,7 +61,9 @@ class areasController extends Controller
         $area->jefe_id=$datos->jefe;
         $area->area_id=$datos->nomAreaPad;
         $area->save();
-        return redirect('areas/'.$id);
+
+        //return redirect('areas/'.$id);
+        return redirect('areas');
     }
 
 

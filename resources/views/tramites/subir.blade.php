@@ -4,6 +4,9 @@
 
 @section('content')
 
+  <script src="{{asset('js/fileinput.js')}}"></script>
+
+
 <div class="row">
 
 <form method="post" action="{{asset('tramites'.'/'.$tramite->id.'/subir')}}" enctype="multipart/form-data">

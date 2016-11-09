@@ -9,16 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
   <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
+  <script src="{{asset('js/jquery.js')}}"></script>
 
 @yield('react')
 
-  <script src="{{asset('js/jquery.js')}}"></script>
-
-  <script src="{{asset('js/fileinput.js')}}"></script>
-
 @yield('script2')
-
-
 
 </head>
 <body>

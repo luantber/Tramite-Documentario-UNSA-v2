@@ -5,9 +5,23 @@
   <script src="{{asset('js/react.js')}}"></script>
   <script src="{{asset('js/react-dom.js')}}"></script>
   <script src="{{asset('js/browser.min.js')}}"></script>
+
+  <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
 @endsection
 
+
 @section('content')
+
+<script src="{{asset('js/alertify.min.js')}}"></script>
+
+<script type="text/javascript">
+console.log("here");
+
+
+	alertify.success('Success message');
+
+
+</script>
 
 <div id="container"></div>
 

@@ -4,7 +4,6 @@
 
 @section('content')
 
-{{$area}}
 
 <form method="POST" action="{{ asset('areas/eliminar') }}">
 	{{ csrf_field()}}
@@ -30,11 +29,11 @@
                   </tr>
                   <tr>
                     <td>Nombre de Área Padre: </td>
-                    <td>{{$area->area_id}}</td>
+                    <td>{{$area->padre->nombre}}</td>
                   </tr>      
                   <tr>
                     <td>Jefe de Área: </td>
-                    <td>{{$area->jefe_id}}</td>
+                    <td>{{$area->jefe->user->nombre}}</td>
                   </tr>
                   <tr>
                     <td>Descripción: </td>
@@ -52,29 +51,10 @@
       <div class="text-center">
 			<button type="submit" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="#Eliminar">Eliminar</button>
       </div>
-<!--
-		<div id="Eliminar" class="modal fade" role="dialog">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal">&times;</button>
-		        <h4 class="modal-title">Eliminar</h4>
-		      </div>
-		      <div class="modal-body">
-		        <p>¿Está seguro que desea eliminar este cargo?</p>
-		      </div>
-		      <div class="modal-footer">
-		      	<button type="button" value="submit" class="btn btn-default" data-dismiss="modal">Sí</button>
-		        <button type="button" value="" class="btn btn-default" data-dismiss="modal">No</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
--->
 
 
     	<ul class="pager">
-	        <li><a href="#">Cancelar</a></li>
+	        <li><a href="{{ asset('areas') }}">Cancelar</a></li>
 	    </ul>
 
     </div>

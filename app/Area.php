@@ -18,4 +18,12 @@ class Area extends Model
     public function empleado(){
     	return $this->hasMany('App\Tramite','id_area','id');
     }
+
+    public function jefe(){
+        return $this->hasOne('App\Empleado','id');
+    }
+
+    public function padre(){
+        return $this->hasOne('App\Area','id');
+    }
 }
