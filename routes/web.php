@@ -162,6 +162,26 @@ Route::group(['prefix'=>'tramites'],function(){
 });
 
 
+/* tipos tramite */
+Route::group(['prefix'=>'tiposDocumento'],function(){
+
+  Route::get('/',function(){ return view('tiposDocumento.todos');  });
+  Route::get('todos','tiposDocumentoontroller@todos');
+
+  Route::get('crear','tiposDocumentoController@crearGet');
+  Route::post('crear','tiposDocumentoController@crear');
+
+  Route::get('{id}/editar','tiposDocumentoController@editar');
+
+  Route::get('{id}/eliminar','tiposDocumentoController@eliminarGet');
+  Route::post('eliminar','tiposDocumentoController@eliminar');
+
+  Route::get('{id}','tiposDocumentoController@show');
+  Route::post('{id}','tiposDocumentoController@guardar');
+
+});
+
+
 /* Quien Borró mis rutas de areas ¡¡ */
 Route::group(['prefix'=>'areas'],function(){
 
@@ -316,10 +336,3 @@ Route::get('busqueda/resultadoTramite','buscadorController@tramiteBusqueda');
 /*
 	GG tu Prueba
 */
-
-Route::get('ejemplo',function(){return view('ejemplo');});
-
-//Route::get('textoAjax',function(){return view('textoAjax');});
-
-Route::post('elphp','ejemplosController@elphp');
-Route::post('formulario','ejemplosController@formulario');
