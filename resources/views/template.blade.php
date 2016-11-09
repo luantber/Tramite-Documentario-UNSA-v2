@@ -127,7 +127,7 @@
             <ul class="dropdown-menu">
               <li><a href="{{ url('estadisticas/parea')}}">Por Área</a></li>
               <li><a href="{{ url('estadisticas/pempleado')}}">Por Empleado</a></li>
-              <li><a href="{{ url('/') }}">Por Usuario</a></li>
+              <li><a href="{{ url('estadisticas/pusuario') }}">Por Usuario</a></li>
             </ul>
           </li>
 

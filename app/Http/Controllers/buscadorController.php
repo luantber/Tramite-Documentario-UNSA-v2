@@ -16,8 +16,8 @@ class buscadorController extends Controller
     		return response()->json($respuesta);
     	}
     	$respuesta = DB::table('areas')
-    				->select('nombre','area_id','jefe_id','descripcion')
-    				->where('nombre','Like',$dato->input('nombre').'%')
+    				->select('areas.nombre','areas.area_id','areas.jefe_id','areas.descripcion','areas.id')
+    				->where('areas.nombre','Like',$dato->input('nombre').'%')
     				->get();
     	return response()->json($respuesta);
     }
@@ -33,9 +33,11 @@ class buscadorController extends Controller
     				->join('areas','areas.id','=','empleados.id_area')
     				->join('cargos','cargos.id','=','empleados.id_cargo')
     				->join('estado_empleados','estado_empleados.id','=','empleados.id_estado')
-    				->select('users.nombre as nombrepersona','apellido','email','areas.nombre as nombrearea','nombreCargo','estado_empleados.nombre as nombreestado','empleados.activo as eactivo')
+    				->select('users.nombre as nombrepersona','apellido','email','areas.nombre as nombrearea','nombreCargo','estado_empleados.nombre as nombreestado','empleados.activo as eactivo','empleados.id')
     				->where('users.nombre','Like',$dato->input('nombre').'%')
     				->orwhere('empleados.id','Like',$dato->input('nombre').'%')
+                    ->orwhere('users.apellido','Like',$dato->input('nombre').'%')
+                    ->orwhere('users.dni','Like',$dato->input('nombre').'%')
     				->get();
     		return response()->json($respuesta);
     }

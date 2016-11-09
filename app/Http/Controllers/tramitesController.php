@@ -90,7 +90,7 @@ class tramitesController extends Controller
     public function createGet(){
         
         $tipoTramites = TipoTramite::all();
-        $areas= Area::all()->where('area_id',NULL);
+        $areas= Area::all();
 
         return view('tramites.crear',["tipos"=>$tipoTramites,"areas"=>$areas]);
         

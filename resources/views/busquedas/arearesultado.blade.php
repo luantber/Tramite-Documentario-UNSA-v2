@@ -49,8 +49,10 @@
 				      // texto sea el contenido de <td>, ubica el elemento <td> al final
 				      // de la hilera de la tabla
 				      var celda = document.createElement("td");
-				      var textoCelda = document.createTextNode(aux3.data[i].nombre);
-				      celda.appendChild(textoCelda);
+				      var link = document.createElement('a');
+				      link.href = '/areas/' + aux3.data[i].id;
+				      link.innerHTML = aux3.data[i].nombre;
+				      celda.appendChild(link);
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
 				      textoCelda = document.createTextNode(aux3.data[i].area_id);
@@ -85,6 +87,7 @@
 				}, error: function(){alert("error");}});
 
 		}
+
 		/*$(document).ready(function(){
 			$("button").click(function(){
 				$.ajax({url: "busqueda/resultadoArea", success: function(result){

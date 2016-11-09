@@ -315,6 +315,8 @@ Route::get('estadisticas/parea', 'estadisticaController@areas');
 Route::get('estadisticas/areaConsultar','estadisticaController@areasConsultar');
 Route::get('estadisticas/pempleado','estadisticaController@empleados');
 Route::get('estadisticas/empleadoConsultar','estadisticaController@empleadosConsultar');
+Route::get('estadisticas/pusuario', 'estadisticaController@usuarios');
+Route::get('estadisticas/usuarioConsultar','estadisticaController@usuariosConsultar');
 
 
 

@@ -13,7 +13,9 @@ class estadisticaController extends Controller
 	{
 		$dato = DB::table('areas')
 				->select('id','nombre')
-				->where('area_id','=',null)
+				->where('area_id','=',0)
+				->orwhere('area_id','=',null)
+				->orwhere('area_id','=',NULL)
 				->get();
 		//$dato = "ademirvillena";
 		return view('estadisticas.parea',["info"=>$dato]);
@@ -53,7 +55,7 @@ class estadisticaController extends Controller
 		//return $estados2;
 		//Aqui termina esa consulta
 
-		//Consultar cantidad de tramites en el area por estado del tramite
+		//Consultar cantidad de tramites en el area por tipo del tramite
 		$dato3 = DB::table('tramites')
 				->select('id','tipo_tramite_id')
 				->where('area_id','=',$datos -> idArea)
@@ -66,8 +68,7 @@ class estadisticaController extends Controller
 
 		//return $dato3;
 		//return $tipos1;
-		//Aqui termina esa consulta
-
+		//Aqui termina esa consulta 
 		return view('estadisticas.resultado',["est1"=>$dato, "cant1" => count($dato),"estado"=>$estados,"cant2"=>count($estados), "est2"=>$dato2,"cant3"=>count($dato2),"estado2"=>$estados2,"cant4"=>count($estados2),"est3"=>$dato3,"cant5"=>count($dato3),"tipo1"=>$tipos1,"cant6"=>count($tipos1)]);	
 	}
 	public function empleados()
@@ -81,10 +82,47 @@ class estadisticaController extends Controller
 	public function empleadosConsultar(Request $datos)
 	{
 		$dato1 = DB::table('tramites')
+				->join('empleados','empleados.id','=','tramites.empleado_id')
+				->join('tipo_tramites','tipo_tramites.id','=','tramites.tipo_tramite_id')
+				->join('estado_tramites','estado_tramites.id','=','tramites.estado_tramite_id')
+				->join('users','empleados.id_persona','=','users.id')
+				->select('users.nombre','tipo_tramites.nombre as tnombre','estado_tramites.nombre as enombre')
+				->where('empleados.id','=',$datos->id_persona)
 				->get();
 
-		return view('estadisticas.presultado');
-		return $datos->id_persona;
+		$tipo = DB::table('tipo_tramites')
+				->select(DB::raw('DISTINCT(nombre)'))
+				->get();
+
+		$estado = DB::table('estado_tramites')
+				->select(DB::raw('DISTINCT(nombre)'))
+				->get();
+
+		return view('estadisticas.empleadoresultado',["datos"=>$dato1,"tipos"=>$tipo,"estados"=>$estado]);
 	}
-    //
+	public function usuarios()
+	{
+		$dato = DB::table('users')
+				->select('nombre','apellido','id')
+				->get();
+		return view('estadisticas.pusuario',["info"=>$dato]);
+	}
+	public function usuariosConsultar(Request $datos)
+	{
+		$dato1 = DB::table('tramites')
+				->join('tipo_tramites','tipo_tramites.id','=','tramites.tipo_tramite_id')
+				->join('estado_tramites','estado_tramites.id','=','tramites.estado_tramite_id')
+				->select('tramites.persona_id','tipo_tramites.nombre as tnombre','estado_tramites.nombre as enombre')
+				->where('tramites.persona_id','=',$datos->id_persona)
+				->get();
+
+		$tipo = DB::table('tipo_tramites')
+				->select(DB::raw('DISTINCT(nombre)'))
+				->get();
+
+		$estado = DB::table('estado_tramites')
+				->select(DB::raw('DISTINCT(nombre)'))
+				->get();
+		return view('estadisticas.usuarioresultado',["datos"=>$dato1,"tipos"=>$tipo,"estados"=>$estado]);
+	}
 }	
