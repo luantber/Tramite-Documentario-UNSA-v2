@@ -1,9 +1,5 @@
 <!DOCTYPE html> 
   <head> 
-    <link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}"> 
-    <link href="{{asset('fonts/font-awesome.min.css')}}">
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet"> 
-    <script src="{{asset('js/jquery.js')}}"></script> 
   </head> 
  
   <body> 

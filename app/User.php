@@ -85,7 +85,14 @@ class User extends Authenticatable
         return false;
     }
 
-
+    public function isEmpleado()
+    {
+        if($this->empleado===null)
+        {
+            return false;
+        }
+        return true;
+    }
 
 
 }

@@ -16,13 +16,20 @@ class Empleados
     public function handle($request, Closure $next,$cargo)
     {
         if(Auth::check()){     
-            if ($request->user()->empleado->tienePermisos($cargo))
-                return $next($request);
-            else
-                return  abort(403,"No tienes los suficientes permisos para entrar a esta áreasadsa");
+
+            if ($requesr()->user()->empleado==null) return abort(403,"No puedes entrar al área de empleados");
+            else 
+            {
+                if ($request->user()->empleado->tienePermisos($cargo))
+                    return $next($request);
+                else
+                    return  abort(403,"No tienes los suficientes permisos para entrar a esta área");                
+            }
+
+
         }
         else{
-            return  abort(403,"No tienes los suficientes permisos para entrar a esta áreaasdsa  ");
+            return  abort(403,"No estas logeado");
         }
     }
 }

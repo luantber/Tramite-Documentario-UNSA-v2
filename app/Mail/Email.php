@@ -29,6 +29,9 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.registro',['nombre'=>$this->nombre,'email'=>$this->email]);
+        return $this->view('emails.registro',['nombre'=>$this->nombre,'email'=>$this->email])
+                        ->from('cs.tramite.documentario@gmail.com','Tramite Documentario')
+                        ->subject('Activar su cuenta');
+
     }
 }

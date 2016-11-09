@@ -181,9 +181,13 @@
           <button type="button" class="btn btn-default btn-md">
           <!--<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar-->
             @if (Auth::check())
-                
-                <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>
-                </button>
+                @if(Auth::user()->isEmpleado())
+                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>
+                  </button>
+                @else
+                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> Usuario </a>
+                  </button>
+                @endif
 
                 <button type="button" class="btn btn-default btn-md">
                   <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-out" href="{{ url('/logout') }}"> Cerrar Sesión </a>

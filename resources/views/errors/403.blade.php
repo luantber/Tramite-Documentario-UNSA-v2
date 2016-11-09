@@ -7,7 +7,7 @@
 
 <br>
 	<div class="alert alert-danger">
-	  <strong>No tienes los permisos suficientes para entrar a esta área</strong>  
+	  <strong>{{$exception->getMessage()}}</strong>  
 	</div>
 
 @endsection
