@@ -19,20 +19,17 @@
 	        <th>Fecha: </th>
 	      </tr>
 	    </thead>
-
+	    @foreach($movimientos as $movimiento)
 	    <tbody>
-
 	    	<tr>
-	    		@foreach($movimientos as $movimiento)
 					<td>{{$movimiento->id}}</td>
 			        <td>{{$movimiento->areaRemitente->nombre}}</td>
 			        <td>{{$movimiento->areaDestino->nombre}}</td>
 			        <td>{{$movimiento->comentario}}</td>
 			        <td>{{$movimiento->created_at}}</td>
-		        @endforeach
 		    </tr>
-
 	    </tbody>
+	    @endforeach
 	  </table>
 	</div>
 

@@ -36,7 +36,9 @@
             <select name="destino" class="form-control" id="destino">
               <option value="" >Seleccionar</option>
                 @foreach($areas as $area)
+                  @if($area->id!=1)
                     <option value="{{$area->id}}">{{$area->nombre}}</option>
+                  @endif
                 @endforeach
             </select>
             <p id="nodestino" ></p>

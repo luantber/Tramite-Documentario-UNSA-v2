@@ -104,7 +104,9 @@
                       <select name="area" type="text" class="form-control" id="id_area">
                           <option value="" >Seleccionar área</option>
                           @foreach ($areas as $area)
-                            <option value="{{$area->id}}" >{{$area->nombre}}</option>
+                            @if($area->id !=1)
+                              <option value="{{$area->id}}" >{{$area->nombre}}</option>
+                            @endif
                           @endforeach
                         </select>
                   </div>
