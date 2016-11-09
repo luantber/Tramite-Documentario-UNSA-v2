@@ -11,7 +11,6 @@
 
   <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
 
-
 @yield('react')
 
 
@@ -19,6 +18,7 @@
 
   <script src="{{asset('js/fileinput.js')}}"></script>
 
+@yield('script2')
 
 
 

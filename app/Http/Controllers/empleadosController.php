@@ -83,13 +83,13 @@ class empleadosController extends Controller
       $newEmp->user()->associate($newPer);
 
       $newEmp->save();
-
+/*
       $correo=new Email;
       $correo->nombre=$datosn->nomPer;
       $correo->email=$datosn->correo;
       Mail::to($datosn->correo)->send($correo);
 
-
+*/
 
       return redirect('empleados');
 

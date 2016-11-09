@@ -316,3 +316,10 @@ Route::get('busqueda/resultadoTramite','buscadorController@tramiteBusqueda');
 /*
 	GG tu Prueba
 */
+
+Route::get('ejemplo',function(){return view('ejemplo');});
+
+//Route::get('textoAjax',function(){return view('textoAjax');});
+
+Route::post('elphp','ejemplosController@elphp');
+Route::post('formulario','ejemplosController@formulario');
