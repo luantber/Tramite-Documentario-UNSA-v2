@@ -15,7 +15,7 @@
       <form method="post" onsubmit="return validar()" action="{{asset('notas')}}{{'/'.$notas->id}}">
 
         {{ csrf_field()}}
-
+        <input type="hidden" name="id" value="{{$notas->id}}">
         <div class="row">
           <div class="col-sm-12">
             <label for="nombre" >Nombre: </label>

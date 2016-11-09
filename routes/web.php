@@ -19,7 +19,7 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::post('crear','usuariosController@create');
 
 	Route::get('{id}', 'usuariosController@show');
-		
+
 	Route::get('{email}/activar','usuariosController@activarget');
 	Route::post('activar','usuariosController@activar');
 
@@ -130,15 +130,15 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('crear','tramitesController@createGet');
 	Route::post('crear','tramitesController@create');
 
-	
+
 	Route::get('ver',function(){	return view('tramites/ver');});
 	//Delegar empleado-area-subarea
-	
+
 	Route::get('{id}/delegar','tramitesController@delegarV');
 	Route::post('{id}/delegar','tramitesController@delegar');
 	//Route::post('subir','tramitesController@subirDocumento');
 
-	
+
 	Route::get('{id}','tramitesController@showTramite');
 
 	Route::post('{id}/subir','tramitesController@subirDocumento');
@@ -194,7 +194,7 @@ Route::group(['prefix'=>'areas'],function(){
 
   Route::get('{id}/editar','areasController@editar');
 
-    Route::get('{id}/eliminar','areasController@eliminarGet');
+  Route::get('{id}/eliminar','areasController@eliminarGet');
   Route::post('eliminar','areasController@eliminar');
 
   Route::get('{id}','areasController@show');
@@ -250,7 +250,7 @@ Route::group(['prefix'=>'notas'],function(){
 
 
   Route::get('{id}/editar','notasController@editar');
-  Route::post('{id}','notasController@guardar');
+  Route::post('{id}/guardar','notasController@guardar');
 
   Route::get('{id}','notasController@show');
 

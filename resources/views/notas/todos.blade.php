@@ -36,7 +36,7 @@
                                 <p>{{$nota->descripcion}}</p>
 
                                 <a href="{{asset('notas')}}{{'/'.$nota->id.'/editar'}}" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
-                                <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
+                                <a href="{{asset('notas')}}{{'/'.$nota->id.'/eliminar'}}" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
                             </div>
                         </li>
                       @endforeach
@@ -74,7 +74,7 @@
                               <a href="{{asset('notas')}}{{'/'.$nota->id.'/editar'}}" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
                             @endif
 
-                            <a href="#" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
+                            <a href="{{asset('notas')}}{{'/'.$nota->id.'/eliminar'}}" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
                         </div>
                     </li>
                   @endforeach

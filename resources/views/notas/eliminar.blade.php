@@ -19,8 +19,8 @@
           </div>
           <div class="panel-body">
             <div class="row">
-             
-              <div class=" col-md-6 col-lg-6 "> 
+
+              <div class=" col-md-6 col-lg-6 ">
                 <table class="table table-user-information">
                   <tbody>
                     <tr>
@@ -30,6 +30,15 @@
                     <tr>
                       <td>Descripción: </td>
                       <td>{{$eliminado->descripcion}}</td>
+                    </tr>
+                    <tr>
+                      <td>Privacidad: </td>
+                      @if($eliminado->personal == 1)
+                        <td>Personal</td>
+                      @else
+                        <td>Público</td>
+                      @endif
+
                     </tr>                    
                   </tbody>
                 </table>

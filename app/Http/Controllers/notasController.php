@@ -93,14 +93,16 @@ class notasController extends Controller
     }
 
 
-    public function guardar(Request $datos,$id){
+    public function guardar(Request $datos){
 
-      $editar = Notas::find($id);
+      
+      $editar = Notas::find($datos->id);
+
       $editar ->nombre = $datos->nombre;
       $editar->descripcion = $datos->descripcion;
       $editar->personal = $datos->personal;
       $editar->save();
-      return redirect('notas/'.$id);
+      return redirect('notas/'.$datos->id);
 
     }
 
