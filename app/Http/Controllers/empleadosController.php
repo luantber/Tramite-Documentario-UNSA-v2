@@ -91,6 +91,7 @@ class empleadosController extends Controller
       Mail::to($datosn->correo)->send($correo);
 
 
+
       return redirect('empleados');
 
 

@@ -16,7 +16,7 @@ Route::group(['prefix'=>'usuarios'],function(){
 	Route::get('todos','usuariosController@todos');
 
 	Route::get('crear',function(){return view('usuarios.crear');});//usuarios/crear
-	Route::post('crear','usuariosController@create');
+	Route::post('crearr','usuariosController@create');
 
 	Route::get('{id}', 'usuariosController@show');
 
@@ -347,3 +347,13 @@ Route::get('busqueda/resultadoTramite','buscadorController@tramiteBusqueda');
 /*
 	GG tu Prueba
 */
+
+
+
+ 
+Route::get('ejemplo',function(){return view('ejemplo');}); 
+ 
+//Route::get('textoAjax',function(){return view('textoAjax');}); 
+ 
+Route::post('elphp','ejemplosController@elphp'); 
+Route::post('formulario','ejemplosController@formulario'); 

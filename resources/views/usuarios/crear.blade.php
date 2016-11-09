@@ -2,7 +2,19 @@
 
 @section('title','Crear Nuevo Usuario')
 
+@section('script2')
+<script src="{{asset('js/alertify.min.js')}}"></script>
+ <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
+
+
+
+@endsection
+
+
+
+
 @section('content')
+
 
 
 	<div class="row">
@@ -11,9 +23,7 @@
 		<h2><p class="text-center">  Crear Nuevo Usuario </p></h2>
 
 		<br><br>
-			<form method="post" onsubmit="return validar()" action="{{asset('usuarios/crear')}}">
-
-				{{ csrf_field()}}
+			<form   method="POST" onsubmit="return validar()" id="formulario" action="{{asset('usuarios/crear')}}">
 
 				<div class="row">
 					<div class="col-sm-12">
@@ -22,7 +32,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					  		<input class="form-control" type="text" name ="nomPer" id="nomPer" placeholder="Ingrese nombres" required="true">
+					  		<input class="form-control" type="text" name ="nombre" id="nomPer" placeholder="Ingrese nombres" required="true">
 						</div>
 					</div>
 				</div><br>
@@ -34,7 +44,7 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								</span>
-					    	<input class="form-control" type="text" name ="apellidoPer" id="apellido" placeholder="Ingrese apellidos" required="true">
+					    	<input class="form-control" type="text" name ="apellido" id="apellido" placeholder="Ingrese apellidos" required="true">
 					    </div>
 				  </div>
 				</div><br>
@@ -66,7 +76,7 @@
 
 				<div class="form-group">
     				<div class="text-center">
-						<button class="btn btn-lg" type="submit" value="Submit"> 
+						<button class="btn btn-lg" type="submit" id="btonEnviar" value="Submit"> 
 						Crear nuevo usuario </button> 
 					</div>
 				</div>
@@ -76,9 +86,19 @@
 			</form>
 		</div>
 	</div>
+	
+<div id="destino"></div>
 
-<script type="text/javascript">
-	function validar(){
+<script>
+var DNI = document.getElementById("DNI").value;
+//var correo = document.getElementById("mail").value;
+var texto,texto2;
+texto = "hoa aqui";
+var ruta = "{{asset('elphp')}}";
+
+$(document).ready(function(){
+
+   $("#btonEnviar").click(function(evento){
 		var DNI = document.getElementById("DNI").value;
 		var correo = document.getElementById("mail").value;
 		var texto,texto2;
@@ -94,24 +114,17 @@
 			document.getElementById("nocorreo").innerHTML = texto2;
 			return false;
 		}
-	}
-</script>
 
+      evento.preventDefault();
+
+      $("#destino").load("{{asset('usuarios/crearr')}}", {formu:$('#formulario').serializeArray(), _token:"{{csrf_token()}}"}, function(){
+     		});
+       });
+
+});
+</script>
 
 @endsection
 
-<!--
-	nombre:
-	<input type="text" name="nomPer">
-	<br>apellido:
-	<input type="text" name="apellidoPer">	
-	<br>dni:
-	<input type="text" name="dni">
-	<br>email: <input type="email" name="correo">
-	<br>password:
-	<input type="password" name="contrasenaPer">
-	 <br> <input type="submit" value="Submit">
-</form>
 
-</body>
-</html>-->
+

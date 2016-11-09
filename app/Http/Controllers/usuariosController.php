@@ -36,17 +36,34 @@ class usuariosController extends Controller
     }
 
     public function create(Request $datos)
-    {
+
+    {       //dd($datos->formu);
+
         $nuevo = new User;
-        $nuevo->nombre = $datos->nomPer;
-        $nuevo->apellido = $datos->apellidoPer;
-        $nuevo->dni = $datos->dni;
-        $nuevo->password = '123';
-        $nuevo->email = $datos->correo;
+        $nuevo->nombre = $datos->formu[0]["value"];
+        $nuevo->apellido = $datos->formu[1]["value"];
+        $nuevo->dni = $datos->formu[2]["value"];
+        $nuevo->password = bcrypt($nuevo->dni);
+        $nuevo->email = $datos->formu[3]["value"];
         $nuevo->activo = false;
         
+        //dd($nuevo);
+        
+        $email=DB::table('users')->where('email',$nuevo->email)->first();
+       //dd($email);
+        $dni=DB::table('users')->where('dni',$nuevo->dni)->first();
+
+        if($dni){
+            echo "El DNI ya existe, el usuario ya existe";
+            return view('errors.errorDuplicado');    
+        }
+        if($email){
+            echo "el correo ya existe, el usuario ya existe";
+            return view('errors.errorDuplicado');
+        }
+        
         $nuevo->save();
-        return redirect('usuarios');
+        return view('usuarios.soloVer',['user'=>$nuevo]);
 
     }
 
@@ -58,6 +75,8 @@ class usuariosController extends Controller
         $editar ->email = $datos ->email;
         $editar ->activo = true;
         $editar ->save();
+
+        DB:table('permisoscargos')->where('cargo_id',$datos->cargoid)->update($ara);
 
         return redirect('usuarios/'.$id);
     }

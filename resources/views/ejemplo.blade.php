@@ -44,7 +44,6 @@ $(document).ready(function(){
    $("#btonEnviar").click(function(evento){
       evento.preventDefault();
       $("#destino").load("{{asset('elphp')}}", {formu:$('#formulario').serialize(),nombre: "Pepe", edad: 45 , _token:"{{csrf_token()}}"}, function(){
-         //alert("recibidos los datos por ajax");
      		});
        });
 
