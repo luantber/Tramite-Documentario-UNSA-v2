@@ -76,7 +76,7 @@
 			                    <option value='{{$are->id}}'>{{$are->nombre}}</option>
 			                @endforeach
 			        </select>
-			        <!--<input class="form-control" type="text" name ="areaEmpleado" id="area" placeholder="Ingresar área" required="true">-->
+			    
 			  </div>
 			</div><br>
 

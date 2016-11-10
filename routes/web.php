@@ -58,7 +58,7 @@ Route::group(['prefix'=>'empleados'],function(){
 	Route::post('crearNewEmple','empleadosController@createNew');
 
 
-	Route::get('usuario',function(){return view('empleados.usuario');});//empleados/usuario -- refiere a un empleado que ya es usuario
+	Route::get('usuarios','empleadosController@antesCrearUsu');//empleados/usuario -- refiere a un empleado que ya es usuario
 	Route::post('EmpleadoUsu','empleadosController@create');
 
 
@@ -348,12 +348,3 @@ Route::get('busqueda/resultadoTramite','buscadorController@tramiteBusqueda');
 	GG tu Prueba
 */
 
-
-
- 
-Route::get('ejemplo',function(){return view('ejemplo');}); 
- 
-//Route::get('textoAjax',function(){return view('textoAjax');}); 
- 
-Route::post('elphp','ejemplosController@elphp'); 
-Route::post('formulario','ejemplosController@formulario'); 

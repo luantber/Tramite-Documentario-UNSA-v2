@@ -15,7 +15,7 @@
 <script src="{{asset('js/alertify.min.js')}}"></script>
 @yield('react')
 
-@yield('script2')
+@yield('script2') <!-- NO borrar esto !  -->
 
 </head>
 <body>
@@ -66,6 +66,7 @@
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados <span class="caret"></span></a>
                <ul class="dropdown-menu">
                   <li><a href="{{ url('empleados/crear')}}">Nuevo</a></li>
+                  <li><a href="{{ url('empleados/usuarios')}}">De usuario a empleado</a></li>
                   <li><a href="{{ url('empleados/')}}">Todos</a></li>
                  <li><a href="{{ url('empleados/estados/crear')}}">Nuevo Estado</a></li>
                  <li><a href="{{ url('empleados/estados') }}">Todos Estados</a></li>
