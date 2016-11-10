@@ -53,6 +53,7 @@ class tramitesController extends Controller
         $tramite=new Tramite;
         $tramite->prioridad=$prioridad;
         $tramite->asunto=$asunto;
+        $tramite->aceptado=0;
         $tramite->area()->associate($area_destino);
         $tramite->tipoTramite()->associate($tipo_tramite);
         $tramite->persona()->associate($persona);
@@ -106,18 +107,14 @@ class tramitesController extends Controller
         $doc= new Documento;
         $doc->nombre=$datos->nomDoc;        
         $doc->nombre_archivo=$datos->archivo;    
-        /*
+        
         if($datos->archivo!=NULL){
             $doc->nombre_archivo=$datos->archivo;    
-            //start subir archivo
-            $archivo=$datos->file('archivo');
-            $ext=$archivo->guessClientExtension();
-            $nombre=$datos->nomDoc.".".$ext;
-            $path=$archivo->storeAs('semiFTP/'.$datos->numExp,$nombre); //<- la variable path almacena la ruta del archivo
+            
         }
         else{
             $doc->nombre_archivo='';
-        }*/
+        }
         
         
         /// modificar---------------------------------------
@@ -126,14 +123,14 @@ class tramitesController extends Controller
         $doc->tramite()->associate($tramite);
         $doc->save();
 
-
+        if($datos->archivo!=NULL){
         //start subir archivo
         $archivo=$datos->file('archivo');
         $ext=$archivo->guessClientExtension();
         $nombre=$doc->id.".".$ext;
         $path=$archivo->storeAs('semiFTP/'.$datos->numExp,$nombre); //<- la variable path almacena la ruta del archivo
 
-
+        }
 
         $tiposDocumentos=TipoDocumento::all();
 
