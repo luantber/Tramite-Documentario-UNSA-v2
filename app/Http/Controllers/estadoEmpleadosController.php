@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\EstadoEmpleado;
 
@@ -13,8 +13,17 @@ class estadoEmpleadosController extends Controller
     	$nuevo = new EstadoEmpleado ;
     	$nuevo ->nombre = $datos->nombre;
     	$nuevo ->descripcion = $datos->descripcion;
+
+        $estado = DB::table('estado_empleados')->where('nombre',$datos->nombre)->first();
+        $mensaje = "";
+        if($estado){
+            $mensaje = "Ya existe un Estado Empleado con este nombre ".$datos->nombre;
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"nombre"]);
+        }
+        $mensaje = "El estado para empleados ".$datos->nombre." fue creado con éxito !";
+
     	$nuevo ->save();
-    	return redirect('empleados/estados');
+    	return response()->json(["respuesta"=>true,"data"=>$mensaje]);
     }
 
     public function todos(){

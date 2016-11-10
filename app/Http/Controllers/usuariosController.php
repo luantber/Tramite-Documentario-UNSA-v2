@@ -37,14 +37,13 @@ class usuariosController extends Controller
 
     public function create(Request $datos)
 
-    {       //dd($datos->formu);
-
+    {       //dd($datos->nombre);
         $nuevo = new User;
-        $nuevo->nombre = $datos->formu[0]["value"];
-        $nuevo->apellido = $datos->formu[1]["value"];
-        $nuevo->dni = $datos->formu[2]["value"];
-        $nuevo->password = bcrypt($nuevo->dni);
-        $nuevo->email = $datos->formu[3]["value"];
+        $nuevo->nombre = $datos->nombre;
+        $nuevo->apellido = $datos->apellido;
+        $nuevo->dni = $datos->dni;
+        $nuevo->password = '123';
+        $nuevo->email = $datos->correo;
         $nuevo->activo = false;
         
         //dd($nuevo);
@@ -52,18 +51,18 @@ class usuariosController extends Controller
         $email=DB::table('users')->where('email',$nuevo->email)->first();
        //dd($email);
         $dni=DB::table('users')->where('dni',$nuevo->dni)->first();
-
+        $mensaje="";
         if($dni){
-            echo "El DNI ya existe, el usuario ya existe";
-            return view('errors.errorDuplicado');    
+            $mensaje ="Un usuario con este DNI ".$datos->dni." ya esta registrado.";
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"dni"]);   
         }
         if($email){
-            echo "el correo ya existe, el usuario ya existe";
-            return view('errors.errorDuplicado');
+            $mensaje ="Un usuario con este correo ".$datos->correo." ya esta registrado.";
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"email"]);
         }
-        
         $nuevo->save();
-        return view('usuarios.soloVer',['user'=>$nuevo]);
+        
+        return response()->json(["respuesta"=>true,"data"=>"Usuario ".$datos->nombre." ".$datos->apellido." creado con éxito !.CS.Tramite.Documentario"]);
 
     }
 

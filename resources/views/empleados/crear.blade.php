@@ -9,6 +9,12 @@
 
 @section('title','Crear Nuevo Empleado')
 
+@section('script2')
+<script src="{{asset('js/alertify.min.js')}}"></script>
+ <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
+
+@endsection
+
 @section('content')
 
 	<!--<div class="container">-->
@@ -18,7 +24,7 @@
 		<h2><p class="text-center">  Crear Nuevo Empleado </p></h2>
 		<br><br>
 
-		<form method="post" onsubmit="return validar()" action="{{asset('empleados/crearNewEmple')}}">
+		<form method="post" id="formulario" action="{{asset('empleados/crearNewEmple')}}">
 		{{ csrf_field()}}
 
 			<div class="row">
@@ -95,6 +101,7 @@
 			                    <option value='{{$stads->id}}'>{{$stads->nombre}}</option>
 			                @endforeach
 			        </select>
+			        *Esperar hasta alerta de confirmación o rechazo de la petición, NO mandar mas de una vez si no recibio la alerta primero.
 			  </div>
 			</div><br>
 
@@ -111,54 +118,64 @@
 
 
 <script type="text/javascript">
-	function validar(){
+	$("#formulario").submit(function(evento){
+
 		var DNI = document.getElementById("DNI").value;
 		var correo = document.getElementById("mail").value;
 		var texto,texto2;
 
 		if( !(/^\d{8}$/.test(DNI)) ) {
-		    texto ="Ingrese un número de 8 digitos";
-  			document.getElementById("noingreso").innerHTML = texto;
+		    texto ="Ingrese un DNI correcto. Verifique el número de digitos(8)";
+		    alertify.error(texto);
 			return false;
 		}
 
 		else if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w/.test(correo)) ) {
-			texto2 = "Ingrese un e-mail válido";
-			document.getElementById("nocorreo").innerHTML = texto2;
+			texto2 = "Ingrese un e-mail válido.Verifique que contenga '@' y el '.' Ejemplo 'miCorreo@algo.algo' ";
+			alertify.error(texto2);
 			return false;
 		}
-	}
+
+		var ruta = "{{asset('empleados/crearNewEmple')}}";
+		$.ajax({
+			type:"POST",
+			url: ruta,
+			data: $("#formulario").serialize(),
+			success: function(data){
+				console.log(data);
+				if(!data.respuesta){
+					if(data.error =="dni"){
+						alertify.error(data.data);
+					}
+					else if(data.error == "email"){
+						alertify.error(data.data);
+					}	
+				}
+
+				else{
+					alertify.success(data.data);
+					$("#nomPer").val("");
+					$("#apellido").val("");
+					$("#mail").val("");
+					$("#DNI").val("");
+					$("#estado").val("");
+					$("#cargo").val("");
+					$("#area").val("");
+
+				}
+			},
+			error: function(xhr, desc, err){
+				console.log(xhr.responseText);
+				$("#error").html(xhr.responseText);
+			}
+
+		});
+
+      evento.preventDefault();
+	
+	});
 </script>
 
 
-<!--<div class=" row">
-  <div class="col-sm-12">
-    <button type="submit" class="btn btn-lg" value="Submit">  Crear  </button>
-  </div>
-</div><br>-->
-
-<!--
-	nombre:
-	<input type="text" name="nomPer">
-	<br>apellido:
-	<input type="text" name="apellidoPer">
-	<br>dni:
-	<input type="text" name="dni">
-	<br>email: <input type="email" name="correo">
-	<br>Área:
-	<input type="text" name="areaEmpleado">
-	<br>Cargo:
-	<input type="text" name="cargoEmpleado">
-	<br>activo:
-	<input type="text" name="activoEmpleado">
-
-	<br>password:
-	<input type="password" name="contrasenaPer">
-	 <br> <input type="submit" value="Submit">
-</form>
--->
 @endsection
 
-<!--
-</body>
-</html>-->

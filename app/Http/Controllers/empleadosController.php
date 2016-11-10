@@ -61,6 +61,21 @@ class empleadosController extends Controller
         $newPer->password = '123';
         $newPer->email = $datosn->correo;
         $newPer->activo = false;
+
+        $email=DB::table('users')->where('email',$datosn->correo)->first();
+       //dd($email);
+        $dni=DB::table('users')->where('dni',$datosn->dni)->first();
+
+        $mensaje="";
+        if($dni){
+            $mensaje ="Un usuario con este DNI ".$datosn->dni." ya esta registrado. Si el empleado a registrar esta registrado con anterioridad como 'usuario' por favor dirigirse a crear empleado usuario";
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"dni"]);   
+        }
+        if($email){
+            $mensaje ="Un usuario con este correo ".$datosn->correo." ya esta registrado.";
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"email"]);
+        }
+
         $newPer->save();
           
 
@@ -92,7 +107,7 @@ class empleadosController extends Controller
 
 
 
-      return redirect('empleados');
+     return response()->json(["respuesta"=>true,"data"=>"Empleado ".$datosn->nomPer." ".$datosn->apellidoPer." creado con éxito !."]);
 
 
     }
