@@ -63,6 +63,13 @@ class usuariosController extends Controller
             return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"email"]);
         }
         $nuevo->save();
+
+
+        $correo=new Email;
+        $correo->nombre=$nuevo->nombre;
+        $correo->email=$nuevo->email;
+        $correo->empleado=false;
+        Mail::to($datosn->correo)->send($correo);
         
         return response()->json(["respuesta"=>true,"data"=>"Usuario ".$datos->nombre." ".$datos->apellido." creado con éxito !.CS.Tramite.Documentario"]);
 
