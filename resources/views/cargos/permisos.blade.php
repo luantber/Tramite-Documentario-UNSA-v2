@@ -28,8 +28,27 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php
+                    $nombres=["Areas","Cargos","Usuarios","Empleados","Panel de Tramites","Tramites"];
+                    $nombres=["Movimientos","Estadisticas","Busquedas","Mis Tramites","Panel","Agenda","Áreas","Usuarios","Empleados","Tramites"];
+
+                    if($permisos)
+                    {                   
+						$ar=$permisos->toArray();
+						$campos=array_keys($ar);
+						$valores=array_values($ar);
+						array_shift($valores);
+						array_shift($campos);	
+                    }
+                    else
+                    {
+                    	array_shift($columnas);
+                    }
+					?>
+
 					@if ($permisos===NULL)
 						<input type="hidden" name="los_tiene" value="0">
+						<!--
 						<tr>
 							<td>Áreas</td>
 							<td><input type="checkbox" name="sep[]" value="areas"></td>
@@ -53,17 +72,18 @@
 						<tr>
 							<td>Tramites</td>
 							<td><input type="checkbox" name="sep[]" value="tramites"></td>
-						</tr>
+						</tr>-->
+						@for($i=0;$i<count($columnas);$i++)
+							<tr>
+								<td>{{$nombres[$i]}}</td>
+								<td><input type="checkbox" name="sep[]" value="{{$columnas[$i]}}"></td>
+							</tr>
+							
+						@endfor
+
 					@else
 						<input type="hidden" name="los_tiene" value="1">
-						<?php
-		                    $nombres=["Areas","Cargos","Usuarios","Empleados","Panel de Tramites","Tramites"];
-							$ar=$permisos->toArray();
-							$campos=array_keys($ar);
-							$valores=array_values($ar);
-							array_shift($valores);
-							array_shift($campos);
-						?>
+						
 
 						@for($i=0;$i<count($valores);$i++)
 							@if($valores[$i]==1)

@@ -135,8 +135,9 @@ class cargosController extends Controller
         if ($cargo==NULL){
             echo "NO existe el cargo";
         }
+        $col=Schema::getColumnListing('permisos_cargos');
         //return view('cargos.permisos',['id_cargo'=>$cargo->id,'nombre'=>$cargo->nombreCargo]);
-        return view('cargos.permisos',['id_cargo'=>$cargo->id,'nombre'=>$cargo->nombreCargo,'permisos'=>$cargo->permisosCargo]);
+        return view('cargos.permisos',['id_cargo'=>$cargo->id,'nombre'=>$cargo->nombreCargo,'permisos'=>$cargo->permisosCargo,'columnas'=>$col]);
     }
 
 }
