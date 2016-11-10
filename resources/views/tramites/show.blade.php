@@ -51,6 +51,14 @@
                         <td>{{$tramite->tipoTramite->nombre}}</td>
                       </tr>
                       <tr>
+                        <td>Aceptado:</td>
+                        @if($tramite->aceptado==0)
+                        <td>Aún no ha sido aceptado</td>
+                        @else
+                        <td>Aceptado</td>
+                        @endif
+                      </tr>
+                      <tr>
                         <td>Estado de trámite:</td>
                         @if($tramite->estado==null)
                           <td>No tiene estado</td>

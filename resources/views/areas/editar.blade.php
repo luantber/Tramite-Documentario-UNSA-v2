@@ -33,14 +33,17 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 							</span>
-					    	<select type="text" class="form-control" name="nomAreaPad" id="nomAreaPad" >
-								
+					    	<select type="text" class="form-control" name="nomAreaPad" id="nomAreaPad" required="">
+					    	@foreach($areas as $ar)
+				    		@if($ar->id == $area->area_id)
+							<option value="{{$ar->id}}" >{{$ar->nombre}}</option>
+							@endif
+							@endforeach
 								@foreach($areas as $are)
-								  @if( $area->area_id != $are->id)	
+								  @if( $area->area_id != $are->id)
 									<option value="{{$are->id}}">{{$are->nombre}}</option>
 								  @endif
 								@endforeach
-									
 							</select>
 					</div>
 				</div>	

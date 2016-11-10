@@ -186,24 +186,34 @@
         <ul class="nav navbar-nav navbar-right">
 
         <form class="navbar-form navbar-right">
-          <button type="button" class="btn btn-default btn-md">
+          <!--<button type="button" class="btn btn-default btn-md"> </button>-->
           <!--<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Entrar-->
             @if (Auth::check())
                 @if(Auth::user()->isEmpleado())
-                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>
-                  </button>
+                  <!--<a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}} </a>-->
+
+                  <a href="{{ url('/usuarios/'.Auth::user()->id) }}" type="button" class="btn btn-md btn-default"><i class="glyphicon glyphicon-user"></i> {{Auth::user()->empleado->area->nombre."/".Auth::user()->empleado->cargo->nombreCargo}}</a>
+                  
                 @else
-                  <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> Usuario </a>
-                  </button>
+                  <!--<span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-user" href="{{ url('/usuarios/'.Auth::user()->id) }}"> Usuario </a></span>-->
+
+                  <a href="{{ url('/usuarios/'.Auth::user()->id) }}" type="button" class="btn btn-md btn-default"><i class="glyphicon glyphicon-user"></i> Usuario</a>
+                  
                 @endif
 
-                <button type="button" class="btn btn-default btn-md">
+                <!--<button type="button" class="btn btn-default btn-md">
                   <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-out" href="{{ url('/logout') }}"> Cerrar Sesión </a>
+                  </span></button>-->
+
+                <a href="{{ url('/logout') }}" type="button" class="btn btn-md btn-default"><i class="glyphicon glyphicon-log-out"></i> Cerrar sesión</a>
+
             @else
-                <span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a>
+                <!--<span aria-hidden="true"> <a  style="text-decoration: none" class="glyphicon glyphicon-log-in" href="{{ url('/login') }}"> Ingresar </a></span>-->
+
+                <a href="{{ url('/login') }}" type="button" class="btn btn-md btn-default"><i class="glyphicon glyphicon-edit"></i>  Log in</a>
+
             @endif
-             </span>
-          </button>
+          
         </form>
 
 
@@ -251,15 +261,15 @@
               <br>
                 <div class="col-md-4">
                   <center>
-                    <img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle" alt="the-brains">
+                    <img src="{{URL::asset('imagenes/img_1.jpg')}}" class="img-circle" alt="...">
                     <br>
                     <h4 class="footertext">Programmer</h4>
-                    <p class="footertext">Person who never sleep.<br>
+                    <p class="footertext">You can thank all the crazy programming here to this guy.<br>
                   </center>
                 </div>
                 <div class="col-md-4">
                   <center>
-                    <img src="http://oi60.tinypic.com/2z7enpc.jpg" class="img-circle" alt="...">
+                    <img src="{{URL::asset('imagenes/img_2.jpg')}}" class="img-circle" alt="...">
                     <br>
                     <h4 class="footertext">Artist</h4>
                     <p class="footertext">All the images here are hand drawn by this man.<br>
@@ -267,7 +277,7 @@
                 </div>
                 <div class="col-md-4">
                   <center>
-                    <img src="http://oi61.tinypic.com/307n6ux.jpg" class="img-circle" alt="...">
+                    <img src="{{URL::asset('imagenes/img_3.jpg')}}" class="img-circle" alt="...">
                     <br>
                     <h4 class="footertext">Designer</h4>
                     <p class="footertext">This pretty site and the copy it holds are all thanks to this guy.<br>
