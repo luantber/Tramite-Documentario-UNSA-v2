@@ -56,7 +56,7 @@
                <ul class="dropdown-menu">
                <li><a href="{{ url('usuarios/crear')}}">Nuevo</a></li>
                  <li><a href="{{ url('usuarios')}}">Todos</a></li>
-                 <li><a href="{{ url('/busqueda/porUsuario') }}">Por Usuario</a></li>
+                 <li><a href="{{ url('/busqueda/porUsuario') }}">Buscar</a></li>
                </ul>
            </li>
          @endsection
@@ -70,7 +70,7 @@
                   <li><a href="{{ url('empleados/')}}">Todos</a></li>
                  <li><a href="{{ url('empleados/estados/crear')}}">Nuevo Estado</a></li>
                  <li><a href="{{ url('empleados/estados') }}">Todos Estados</a></li>
-                 <li><a href="{{ url('/busqueda/porEmpleado')}}">Por Empleado</a></li>
+                 <li><a href="{{ url('/busqueda/porEmpleado')}}">Buscar</a></li>
                </ul>
            </li>
           @endsection
@@ -82,7 +82,7 @@
             <ul class="dropdown-menu">
               <li><a href="{{ url('areas/crear')}}">Nuevo</a></li>
               <li><a href="{{ url('areas')}}">Todos</a></li>
-              <li><a href="{{ url('/busqueda/porArea')}}">Por Área</a></li>
+              <li><a href="{{ url('/busqueda/porArea')}}">Buscar</a></li>
             </ul>
           </li>
         @endsection
@@ -114,7 +114,7 @@
                  <li><a href="{{ url('tramites/estados') }}">Estados</a></li>
                  <li><a href="{{ url('tipostramite/crear') }}">Crear Tipo Trámite</a></li>
                  <li><a href="{{ url('tipostramite') }}">Tipos de Trámite</a></li>
-                <li><a href="{{ url('/busqueda/porTramite') }}">Por Trámite</a></li>
+                <li><a href="{{ url('/busqueda/porTramite') }}">Buscar</a></li>
 
                </ul>
            </li>
