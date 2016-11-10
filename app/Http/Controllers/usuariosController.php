@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\User;
+use App\Mail\Email;
+use Mail;
 
 class usuariosController extends Controller
 {
@@ -63,6 +65,14 @@ class usuariosController extends Controller
         }
         
         $nuevo->save();
+
+
+        $correo=new Email;
+        $correo->nombre=$datosn->nomPer;
+        $correo->email=$datosn->correo;
+        $correo->empleado=true;
+        Mail::to($datosn->correo)->send($correo);
+
         return view('usuarios.soloVer',['user'=>$nuevo]);
 
     }
