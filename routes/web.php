@@ -185,7 +185,7 @@ Route::group(['prefix'=>'tiposDocumento'],function(){
 /* Quien Borró mis rutas de areas ¡¡ */
 Route::group(['prefix'=>'areas'],function(){
 
-  Route::get('/',function(){ return view('areas.todos');  });
+  Route::get('/','areasController@todosGet');
   Route::get('/todos','areasController@todos');
 
   Route::get('crear','areasController@crearGet');

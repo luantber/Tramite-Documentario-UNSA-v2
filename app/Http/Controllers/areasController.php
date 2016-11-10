@@ -10,8 +10,14 @@ use App\Empleado;
 
 class areasController extends Controller
 {
+    public function todosGet(){ 
+        
+        //dd(session('data'));
+        return view('areas.todos',["data"=>session('data')]);  
+    }
     public function todos()
     {
+        
         $areas = Area::all();
         return response()->json($areas);
     }
@@ -19,22 +25,37 @@ class areasController extends Controller
 
 		$areas = Area::all();
         
-
-		return view('areas.crear',['areas'=> $areas]);
+        
+		return view('areas.crear',['areas'=> $areas,"data"=>session('data')]);
 	}
 
     public function crear(Request $datos){
 		//dd($datos->descripcion);
-    	
-    	$nuevo = new Area;
-    	$nuevo->nombre = $datos->nomArea;
-    	$nuevo->area_id = $datos->idAreaPad;
-    	$nuevo->jefe_id = $datos->jefArea;
-    	$nuevo->descripcion = $datos->descripcion;
+        try {
+            
+        	$nuevo = new Area;
+        	$nuevo->nombre = $datos->nomArea;
+        	$nuevo->area_id = $datos->idAreaPad;
+        	$nuevo->jefe_id = $datos->jefArea;
+        	$nuevo->descripcion = $datos->descripcion;
+    	    $nuevo->save(); 
 
-    	$nuevo->save();
+    	    return redirect('areas')->with('data','Area '.$datos->nomArea .',creada con exito');;
 
-    	return redirect('areas');
+        } catch (\PDOException $e) {
+            $mess = "";
+            if($e->errorInfo[1]==1062){
+                $mess = "DUplicado";
+            }else{
+                $mess = "errorssss";
+            }
+
+            return redirect('areas/crear')->with('data',$mess);
+
+            
+
+        }
+
     }
 
     public function show($id){
@@ -63,7 +84,7 @@ class areasController extends Controller
         $area->save();
 
         //return redirect('areas/'.$id);
-        return redirect('areas');
+        return redirect('areas')->with('data','Area '.$datos->nomArea .', editada con exito');
     }
 
 
@@ -81,6 +102,6 @@ class areasController extends Controller
         //dd("hola");
         $eliminado = Area::find($datos->id);
         $eliminado->delete();
-        return redirect('areas');
+        return redirect('areas')->with('data','Area '.$datos->nomArea .', borrada con exito');;
     }
 }
