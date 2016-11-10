@@ -21,7 +21,7 @@ var TablaTiposTramite;
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaTiposTramite url="{{asset('tipostramite/todos')}}" refresh="100000" />,
+	<TablaTiposTramite url="{{asset('tipostramite/todos')}}" base="{{asset('tipostramite')}}" refresh="100000" />,
 	document.getElementById('container')
 );
 </script>

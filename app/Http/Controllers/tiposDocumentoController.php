@@ -17,7 +17,7 @@ class tiposDocumentoController extends Controller
     public function todos()
     {
         $TipoDocumentos = TipoDocumento::all();
-        return response()->json($tiposDocumento);
+        return response()->json($TipoDocumentos);
     }
 	public function crearGet(){
 

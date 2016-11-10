@@ -1,5 +1,5 @@
 
-class TipoTramite extends React.Component{
+class TipoDocumento extends React.Component{
 	render(){
 		return (
 			<tr>
@@ -16,7 +16,7 @@ class TipoTramite extends React.Component{
 }
 	
 
-window.TablaTiposTramite = React.createClass({
+window.TablaTiposDocumento = React.createClass({
 	getInitialState(){
 		return {data:[]};
 	},
@@ -49,12 +49,13 @@ window.TablaTiposTramite = React.createClass({
 		  <thead>
 		      <tr>
 		        
-		        <th>Tipo de Tramite</th>
+		        <th>Tipo de Documento</th>
 	        	<th>Descripción</th>
-		      	<th><span className =  "glyphicon glyphicon-folder-open"></span></th>
+	        	<th><span className =  "glyphicon glyphicon-folder-open"></span></th>
 		        <th><span className =  "glyphicon glyphicon-pencil"></span></th>
 		        <th><span className =  "glyphicon glyphicon-remove"></span></th>
 
+		      
 		      </tr>
 		    </thead>
 		  
@@ -63,9 +64,10 @@ window.TablaTiposTramite = React.createClass({
 				this.state.data.map(
 				 	function (tipo){
 				 		return(
-				 				<TipoTramite
+				 				<TipoDocumento
 				 					nombre={tipo.nombre} 
 				 					descripcion={tipo.descripcion}
+
 				 					base={this.props.base}
 				 					id={tipo.id}
 				 					key={tipo.id}
