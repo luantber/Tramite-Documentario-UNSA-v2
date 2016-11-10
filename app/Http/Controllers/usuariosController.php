@@ -76,7 +76,8 @@ class usuariosController extends Controller
         $editar ->activo = true;
         $editar ->save();
 
-        DB:table('permisoscargos')->where('cargo_id',$datos->cargoid)->update($ara);
+        //Comentado Papu .. no se que esto.. pero tenia error
+        //DB::table('permisoscargos')->where('cargo_id',$datos->cargoid)->update($area);
 
         return redirect('usuarios/'.$id);
     }
