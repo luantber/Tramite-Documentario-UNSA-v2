@@ -24,11 +24,11 @@ class panelController extends Controller
 
     if(Auth::user()->empleado->isJefe()){
         //dd("es jefe ");
-        $tramites = Tramite::with('area','persona','empleado')->where('area_id',Auth::user()->empleado->id_area)->join('estado_tramites', 'tramites.id', '=', 'estado_tramites.id')->paginate(10);
+        $tramites = Tramite::with('area','persona','empleado')->where('area_id',Auth::user()->empleado->id_area)->join('estado_tramites', 'tramites.estado_tramite_id', '=', 'estado_tramites.id')->select('tramites.*', 'estado_tramites.show')->where('show',1)->where('empleado_id',NULL)->paginate(10);
     }
     else{
         //dd("heere");
-        $tramites = Tramite::with('area','persona','empleado')->where('area_id',Auth::user()->empleado->id_area)->join('estado_tramites', 'tramites.estado_tramite_id', '=', 'estado_tramites.id')->where('empleado_id',Auth::user()->empleado->id)->paginate(10);
+        $tramites = Tramite::with('area','persona','empleado')->where('area_id',Auth::user()->empleado->id_area)->join('estado_tramites', 'tramites.estado_tramite_id', '=', 'estado_tramites.id')->select('tramites.*', 'estado_tramites.show')->where('empleado_id',Auth::user()->empleado->id)->paginate(10);
     }
 
      //dd($tramites);
