@@ -34,16 +34,26 @@
 								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 							</span>
 					    	<select type="text" class="form-control" name="nomAreaPad" id="nomAreaPad" required="">
-					    	@foreach($areas as $ar)
-				    		@if($ar->id == $area->area_id)
-							<option value="{{$ar->id}}" >{{$ar->nombre}}</option>
-							@endif
+
+					    	@if($area->area_id == 0)
+					    		<option selected="select" value="0">No Area</option>
+					    	@else
+					    		<option value="0">No Area</option>
+					    	@endif
+
+
+					
+
+
+							@foreach($areas as $are)
+							  
+					    		@if($are->id == $area->area_id)
+								<option value="{{$are->id}}" selected="select">{{$are->nombre}}</option>
+								@else
+						
+								<option value="{{$are->id}}">{{$are->nombre}}</option>
+							  	@endif
 							@endforeach
-								@foreach($areas as $are)
-								  @if( $area->area_id != $are->id)
-									<option value="{{$are->id}}">{{$are->nombre}}</option>
-								  @endif
-								@endforeach
 							</select>
 					</div>
 				</div>	
@@ -57,10 +67,14 @@
 							</span>
 							
 					    	<select type="text" class="form-control" name="jefe" id="nomJefe" >
-					    	
+					    		<option value="0">No Jefe</option>
 								@foreach($empleados as $e)
-									<option value="{{$e->id}}">{{$e->user->nombre}} {{ $e->user->apellido}}</option>
-								 
+
+					    			@if($e->id  == $area->jefe_id)
+										<option selected="select" value="{{$e->id}}">{{$e->user->nombre}} {{ $e->user->apellido}}</option>
+								 	@else
+								 		<option  value="{{$e->id}}">{{$e->user->nombre}} {{ $e->user->apellido}}</option>
+								 	@endif
 								@endforeach
 									
 							</select>
