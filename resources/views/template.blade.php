@@ -99,8 +99,7 @@
            </li>
         @endsection
 
-<!--MOVIMIENTOS-->
-          <li><a href="{{ url('movimientos')}}">Movimientos</a></li>
+
 
  <!--TRAMITES-->
         @section('tramites')
@@ -143,7 +142,7 @@
 <!--PANEL-->
           <li ><a href="{{asset('mistramites')}}">Mis Tramites </a></li>
 
-          <li class="active"><a href="{{asset('panel')}}">Panel  </a></li>
+          <li ><a href="{{asset('panel')}}">Panel  </a></li>
 
 <!--AGENDA-->
 
