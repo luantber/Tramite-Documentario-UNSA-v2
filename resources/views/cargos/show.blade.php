@@ -34,7 +34,7 @@
                   <?php  
                     if($cargo->permisoscargo)
                     {
-                      $permisos=["Areas","Cargos","Usuarios","Empleados","Panel de Tramites","Tramites"];
+                      $permisos=["Estadísticas","Mis Tramites","Panel de Tramites","Agenda","Areas","Cargos","Usuarios","Empleados","Tramites"];
                       $values=array_values($cargo->permisoscargo->toArray());
                       array_shift($values);                      
                     }
@@ -49,6 +49,7 @@
                   
                   @for($i=0;$i<count($values);$i++)
                     @if($values[$i]==1)
+
                       <tr>
                         <td></td>
                         <td>{{$permisos[$i]}}</td>

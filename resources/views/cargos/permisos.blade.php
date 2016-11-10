@@ -29,8 +29,8 @@
 				</thead>
 				<tbody>
 					<?php
-                    $nombres=["Areas","Cargos","Usuarios","Empleados","Panel de Tramites","Tramites"];
-                    $nombres=["Movimientos","Estadisticas","Busquedas","Mis Tramites","Panel","Agenda","Áreas","Usuarios","Empleados","Tramites"];
+
+                    $nombres=["Estadisticas","Mis Tramites","Panel","Agenda","Áreas","Cargos","Usuarios","Empleados","Tramites"];
 
                     if($permisos)
                     {                   

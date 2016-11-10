@@ -15,11 +15,14 @@ class CreatePermisosCargosTable extends Migration
     {
         Schema::create('permisos_cargos', function (Blueprint $table) {
             $table->integer('cargo_id')->unsigned();
+            $table->boolean('estadisticas');
+            $table->boolean('mis_tramites');
+            $table->boolean('panel');
+            $table->boolean('notas');
             $table->boolean('areas');
             $table->boolean('cargos');
             $table->boolean('usuarios');
             $table->boolean('empleados');
-            $table->boolean('panel');
             $table->boolean('tramites');
             //$table->timestamps();
 
