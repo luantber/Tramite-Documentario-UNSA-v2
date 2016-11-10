@@ -161,7 +161,7 @@
 
       <!--Aqui empieza la seleccion-->
         <?php
-          if (Auth::user()->empleado->permisosCargo)
+          if (Auth::user()->empleado->cargo->permisosCargo)
           {
             $ar=Auth::user()->empleado->cargo->permisosCargo->toArray();
             array_shift($ar);            
