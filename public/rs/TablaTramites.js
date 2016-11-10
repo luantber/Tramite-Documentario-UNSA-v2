@@ -99,7 +99,7 @@ window.TablaTramites = React.createClass({
 		//console.log(this.props.ver);
 		var indents = [];
 		
-		for (var i = 1; i <= this.state.num; i++) {
+		for (var i = 1; i <= this.state.num; i=i+10) {
 			if(this.state.actual == i){
 				indents.push(<li className="active" onClick={this.click.bind(this,i)}  key={i}> <a>{i}</a></li>);	
 			}else{
