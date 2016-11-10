@@ -80,23 +80,6 @@
       		</div>
       	</div>
 
-        <!--<div class="form-group">
-        <label for="archivo" class="col-sm-2 control-label">Archivo</label>
-        <div class="col-sm-10">
-          <input id="archivo" name="archivo" type="file" class="file" data-show-preview="false">
-          <script type="text/javascript">
-          (function($){
-            $("#archivo").fileinput(
-            {
-              showUpload:false,
-              language: 'es',
-              allowedFileExtensions: ["doc","docx","odt"],
-              maxFilesNum: 1
-            })}(jQuery);
-          </script>
-        </div><br>
-        </div>-->
-
         <br><br><br>
 
         <!--<div class="row">
@@ -110,7 +93,7 @@
 
         <nav>
           <ul class="pager">
-            <li><a href="#">Cancelar</a></li>
+            <li><a href="{{asset('tramites')}}">Cancelar</a></li>
           </ul>
         </nav>
 

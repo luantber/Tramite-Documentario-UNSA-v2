@@ -94,7 +94,7 @@
 
         <nav>
           <ul class="pager">
-            <li><a href="#">Cancelar</a></li>
+            <li><a href="{{asset('tramites')}}">Cancelar</a></li>
           </ul>
         </nav>
 
