@@ -3,9 +3,17 @@
 
 @section('title','Crear Cargo')
 
+@section('script2')
+<script src="{{asset('js/alertify.min.js')}}"></script>
+ <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
+
+
+
+@endsection
+
 @section('content')
 
-<form method="POST" action="crearCar">
+<form method="POST" action="crearCar" id="formulario">
 	{{ csrf_field()}}
 
 	<div class="row">
@@ -38,5 +46,34 @@
 	</div>
 
 </form>
+<div id="error"></div>
+<script>
+	$("#formulario").submit(function(evento){
+		var ruta = "{{asset('cargos/crearCar')}}"
+		$.ajax({
+			type:"POST",
+			url: ruta,
+			data:$("#formulario").serialize(),
+			success: function(data){
+				console.log(data);
+				if(!data.respuesta){
+					if(data.error=="nombreCargo"){
+						alertify.error(data.data);
+					}
+				}
+				else{
+					alertify.success(data.data);
+					$("#nomcargo").val("");
+					$("#descripcion").val("");
+				}
+			},
+			error: function(xhr, desc, err){
+				console.log(xhr.responseText);
+				$("#error").html(xhr.responseText);}
+		});
+
+		evento.preventDefault();
+	});
+</script>
 
 @endsection

@@ -26,6 +26,14 @@ class empleadosController extends Controller
 
     }
 
+    public function antesCrearUsu(){
+      $cargos = DB::table('cargos')->select('id','nombreCargo')->get();
+      $areas = DB::table('areas')->select('id','nombre')->get();
+      $estados = DB::table('estado_empleados')->select('id','nombre')->get();
+      return view('empleados.usuario',['cargo'=>$cargos, 'area'=>$areas,'estado'=>$estados]);
+
+    }
+
     public function create(Request $datos){
 
     	$nuevo = new Empleado;
@@ -33,11 +41,18 @@ class empleadosController extends Controller
     	$nuevo->id_cargo = $datos->id_cargo;
       $nuevo->id_estado = $datos->id_estado;
       $nuevo->activo = false;
+
      	$encontrado = User::where('dni',$datos->dni)->first();
-    	$nuevo->id_persona = $encontrado->id;
+    	
+      $mensaje="";
+      if(!$encontrado){
+        $mensaje = "No existe ningun usuario con este DNI ".$datos->dni.", por favor verifique si es correcto. Caso contrario diríjase a la pestaña empleado Nuevo";
+        return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"dni"]);
+      }
 
-
+      $nuevo->id_persona = $encontrado->id;
       $nuevo->save();
+
       $user = User::find($encontrado->id);
       $cargo = Cargo::find($datos->id_cargo);
       $area = Area::find($datos->id_area);
@@ -49,8 +64,8 @@ class empleadosController extends Controller
       $nuevo->user()->associate($user);
 
 
-      
-      return redirect('empleados');    	
+      $mensaje = "El usuario ".$user->nombre." ".$user->apellido." ahora es un empleado. Operación satisfactoria"; 
+      return response()->json(["respuesta"=>true,"dato"=>$mensaje]);    	
     }
 
     public function createNew(Request $datosn){
@@ -61,6 +76,21 @@ class empleadosController extends Controller
         $newPer->password = '123';
         $newPer->email = $datosn->correo;
         $newPer->activo = false;
+
+        $email=DB::table('users')->where('email',$datosn->correo)->first();
+       //dd($email);
+        $dni=DB::table('users')->where('dni',$datosn->dni)->first();
+
+        $mensaje="";
+        if($dni){
+            $mensaje ="Un usuario con este DNI ".$datosn->dni." ya esta registrado. Si el empleado a registrar esta registrado con anterioridad como 'usuario' por favor dirigirse a crear empleado usuario";
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"dni"]);   
+        }
+        if($email){
+            $mensaje ="Un usuario con este correo ".$datosn->correo." ya esta registrado.";
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"email"]);
+        }
+
         $newPer->save();
           
 
@@ -92,7 +122,7 @@ class empleadosController extends Controller
 
 
 
-      return redirect('empleados');
+     return response()->json(["respuesta"=>true,"data"=>"Empleado ".$datosn->nomPer." ".$datosn->apellidoPer." creado con éxito !."]);
 
 
     }

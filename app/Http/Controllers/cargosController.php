@@ -17,9 +17,16 @@ class cargosController extends Controller
     	$nuevo = new Cargo;
     	$nuevo->nombreCargo = $datos->nombreCargo;
     	$nuevo->descripcion = $datos->descripcion;
+    $cargo = DB::table('cargos')->where('nombreCargo',$datos->nombreCargo)->first();
+    $mensaje="";
+    if($cargo){
+        $mensaje = "Ya existe un cargo con este nombre ".$datos->nombreCargo;
+        return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"nombreCargo"]);
+    }
 
     $nuevo->save();
-    return redirect('cargos/'.$nuevo->id.'/permisos');
+    $mensaje = "Cargo ".$datos->nombreCargo." creado con éxito !";
+    return response()->json(["respuesta"=>true,"data"=>$mensaje]);
     }
 
 

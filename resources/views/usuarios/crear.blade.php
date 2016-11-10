@@ -6,8 +6,6 @@
 <script src="{{asset('js/alertify.min.js')}}"></script>
  <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
 
-
-
 @endsection
 
 
@@ -23,9 +21,11 @@
 		<h2><p class="text-center">  Crear Nuevo Usuario </p></h2>
 
 		<br><br>
-			<form   method="POST" onsubmit="return validar()" id="formulario" action="{{asset('usuarios/crear')}}">
+			<form   method="POST"  id="formulario" action="{{asset('usuarios/crear')}}">
+				{{ csrf_field()}}
 
 				<div class="row">
+				
 					<div class="col-sm-12">
 						<label for="nomPer" >Nombre: </label>
 						<div class="input-group">
@@ -59,6 +59,7 @@
 									</span>
 							    <input class="form-control" type="text" name ="dni" id="DNI" placeholder="Ingrese DNI" required="true">
 							</div>
+							<div id="dniRepe"></div>
 							<p id="noingreso"></p>
 						</div>
 
@@ -70,6 +71,7 @@
 								</span>
 						    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese el e-mail" required="true">
 						</div>
+						    <div id="emailRepe"></div>
 						<p id="nocorreo"></p>
 					</div>
 				</div><br><br>
@@ -87,39 +89,62 @@
 		</div>
 	</div>
 	
-<div id="destino"></div>
+<div id="error"></div>
 
 <script>
-var DNI = document.getElementById("DNI").value;
-//var correo = document.getElementById("mail").value;
-var texto,texto2;
-texto = "hoa aqui";
-var ruta = "{{asset('elphp')}}";
 
-$(document).ready(function(){
-
-   $("#btonEnviar").click(function(evento){
+   $("#formulario").submit(function(evento){
 		var DNI = document.getElementById("DNI").value;
 		var correo = document.getElementById("mail").value;
 		var texto,texto2;
 
 		if( !(/^\d{8}$/.test(DNI)) ) {
-		    texto ="Ingrese un número de 8 digitos";
-  			document.getElementById("noingreso").innerHTML = texto;
+		    texto ="Ingrese un DNI correcto. Verifique el número de digitos(8)";
+		    alertify.error(texto);
 			return false;
 		}
 
 		if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w/.test(correo)) ) {
-			texto2 = "Ingrese un e-mail válido";
-			document.getElementById("nocorreo").innerHTML = texto2;
+			texto2 = "Ingrese un e-mail válido.Verifique que contenga '@' y el '.' Ejemplo 'miCorreo@algo.algo' ";
+			alertify.error(texto2);
 			return false;
 		}
 
+		var ruta = "{{asset('usuarios/crearr')}}"
+
+		$.ajax({
+			type:"POST",
+			url: ruta,
+			data:$("#formulario").serialize(),
+			success: function(data){
+				console.log(data);
+				if(!data.respuesta){
+					if(data.error =="dni"){
+						alertify.error(data.data);
+					}
+					else if(data.error == "email"){
+						alertify.error(data.data);
+					}	
+				}
+
+				else{
+					alertify.success(data.data);
+					$("#nomPer").val("");
+					$("#apellido").val("");
+					$("#mail").val("");
+					$("#DNI").val("");
+
+				}
+			},
+			error: function(xhr, desc, err){
+				console.log(xhr.responseText);
+				$("#error").html(xhr.responseText);
+			}
+
+		});
+
       evento.preventDefault();
 
-      $("#destino").load("{{asset('usuarios/crearr')}}", {formu:$('#formulario').serializeArray(), _token:"{{csrf_token()}}"}, function(){
-     		});
-       });
 
 });
 </script>
