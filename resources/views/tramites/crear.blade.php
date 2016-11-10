@@ -25,7 +25,7 @@
         <div class=" form-group">
             <label for="dni" class="col-sm-2 control-label"> DNI </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="dni" id="dni" placeholder="Ingresar DNI">
+              <input type="text" class="form-control" name="dni" id="dni" required="" placeholder="Ingresar DNI">
             </div>
             <p id="noingreso"></p>
         </div><br><br>
@@ -33,7 +33,7 @@
         <div class="form-group">
           <label for="destino" class="col-sm-2 control-label" >Área a delegar</label>
           <div class="col-sm-10">
-            <select name="destino" class="form-control" id="destino">
+            <select name="destino" required="" class="form-control" id="destino">
               <option value="" >Seleccionar</option>
                 @foreach($areas as $area)
                   @if($area->id!=1)
@@ -48,7 +48,7 @@
         <div class="form-group">
           <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
           <div class="col-sm-10">
-            <select name="tipoTramite" class="form-control" id="tipo">
+            <select name="tipoTramite" required="" class="form-control" id="tipo">
               <option value="" >Seleccionar</option>
                   @foreach($tipos as $tipo)
                   @if($tipo->id!=1)
@@ -63,7 +63,7 @@
         <div class="form-group">
           <label for="prioridad" class="col-sm-2 control-label" >Prioridad </label>
           <div class="col-sm-10">
-            <select name="prioridad"  class="form-control" id="prioridad">
+            <select name="prioridad" required="" class="form-control" id="prioridad">
               <option value="" >Seleccionar</option>
               <option value="1" required>Urgente</option>
               <option value="2" required>Alta</option>
@@ -76,7 +76,7 @@
       	<div class="form-group">
       		<label for="asunto" class="col-sm-2 control-label" >Asunto </label>
       		<div class="col-sm-10" >
-      			<textarea name="asunto" class="form-control" rows="2" id="asunto" placeholder="Ingrese el asunto"></textarea>
+      			<textarea name="asunto" required="" class="form-control" rows="2" id="asunto" placeholder="Ingrese el asunto"></textarea>
       		</div>
       	</div>
 

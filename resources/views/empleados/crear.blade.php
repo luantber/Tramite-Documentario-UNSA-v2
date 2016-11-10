@@ -64,7 +64,7 @@
 			<div class=" row">
 			  <div class="col-sm-12">
 			  	<label for="area">Área: </label>
-				    <select name="id_area" type="text" class="form-control" id="area">
+				    <select required="" name="id_area" type="text" class="form-control" id="area">
 			          <option value="" >Seleccionar área</option>
 		          			@foreach($area as $are)
 			                    <option value='{{$are->id}}'>{{$are->nombre}}</option>
@@ -77,7 +77,7 @@
 			<div class=" row">
 			  <div class="col-sm-12">
 			    <label for="cargo">Cargo: </label>
-				  	<select name="id_cargo" type="text" class="form-control" id="cargo">
+				  	<select required="" name="id_cargo" type="text" class="form-control" id="cargo">
 			          <option value="" >Seleccionar cargo</option>
 			          		@foreach($cargo as $carg)
 			                    <option value='{{$carg->id}}'>{{$carg->nombreCargo}}</option>
@@ -89,7 +89,7 @@
 			<div class=" row">
 			  <div class="col-sm-12">
 			    <label for="estado">Estado: </label>
-				  	<select name="id_estado" type="text" class="form-control" id="estado">
+				  	<select required="" name="id_estado" type="text" class="form-control" id="estado">
 			          <option value="" >Seleccionar estado</option>
 			          		@foreach($estado as $stads)
 			                    <option value='{{$stads->id}}'>{{$stads->nombre}}</option>

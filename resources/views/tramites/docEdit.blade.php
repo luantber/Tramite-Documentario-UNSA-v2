@@ -4,6 +4,8 @@
 
 @section('content')
 
+<script src="{{asset('js/fileinput.js')}}"></script>
+
 <div class="row">
   	<div class="col-md-6 col-md-offset-3">
 		<h2><p class="text-center">  Editar Documentos </p></h2>

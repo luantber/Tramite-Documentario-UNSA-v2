@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="post" action="{{asset('tramites'.'/'.$tramite->id.'/delegar')}}">
+<form method="post" id="form" action="{{asset('tramites'.'/'.$tramite->id.'/delegar')}}">
       {{ csrf_field()}}
   <h2><p class="text-center">  Delegar Trámite </p></h2>
   <br><br>
@@ -49,25 +49,23 @@
               <div class=" row">
                   <div class="col-sm-12">
                     <label for="empleado">Empleado: </label>
+                  
                       <select name="id_empleado" type="text" class="form-control" id="empleado">
                           <option value="" >Seleccionar empleado</option>
                           @foreach ($empleados as $empleado)
                             <option value="{{$empleado->id}}" >{{$empleado->user->nombre}}</option>
                           @endforeach
-                        </select>
+                      </select>
                   </div>
               </div><br>
 
-              <div class="checkbox">
+              <div class="selectme">
                 <label>
-                  <input type="checkbox" value="empleado" name="c_empleado" id="c_empleado_id"> Empleado
+                  <input type="checkbox" value="empleado" name="c_empleado" id="c_empleado_id" class="check"> Empleado
                 </label>
               </div>
 
-
             </div>
-
-
 
         </div>
 
@@ -112,9 +110,9 @@
                   </div>
               </div><br>
 
-              <div class="checkbox">
+              <div class="selectme">
                 <label>
-                  <input type="checkbox" value="area" name="c_area" id="c_area_id"> Área
+                  <input type="checkbox" value="area" name="c_area" id="c_area_id" class="check"> Área
                 </label>
               </div><br>
 
@@ -130,9 +128,9 @@
                   </div>
               </div><br>
 
-              <div class="checkbox">
+              <div class="selectme">
                 <label>
-                  <input type="checkbox" value="subArea" name="c_subArea" id="c_subArea_id"> Sub-área
+                  <input type="checkbox" value="subArea" name="c_subArea" id="c_subArea_id" class="check"> Sub-área
                 </label>
               </div>
 <!--
@@ -152,5 +150,21 @@
   </div>
 
 </form>
+
+<script type="text/javascript">
+  $('.selectme input:checkbox').click(function() {
+    $('.selectme input:checkbox').not(this).prop('checked', false);
+  });
+
+  jQuery(function ($) {
+    $('#form').submit(function (e) {
+        //check atleast 1 checkbox is checked
+        if (!$('.check').is(':checked')) {
+            e.preventDefault();
+        }
+    })
+})
+
+</script>
 
 @endsection

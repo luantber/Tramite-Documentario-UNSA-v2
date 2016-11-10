@@ -33,7 +33,7 @@
 				</div>
 			  <div class="col-sm-6">
 			  		<label for="tipoDoc" >Tipo de documentos: </label>
-				    <select name="tipoDoc" type="text" class="form-control" id="tipoDoc">
+				    <select name="tipoDoc" required="true" type="text" class="form-control" id="tipoDoc">
 			          <option value="" >Seleccionar tipo de documento</option>
 			          		@foreach($tiposDocumentos as $tipoDocumento)
 			          			@if($tipoDocumento->id != 1)
