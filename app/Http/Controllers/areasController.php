@@ -31,7 +31,8 @@ class areasController extends Controller
 
     public function crear(Request $datos){
 		//dd($datos->descripcion);
-        try {
+ try {
+        
             
         	$nuevo = new Area;
         	$nuevo->nombre = $datos->nomArea;
@@ -40,21 +41,23 @@ class areasController extends Controller
         	$nuevo->descripcion = $datos->descripcion;
     	    $nuevo->save(); 
 
-    	    return redirect('areas')->with('data','Area '.$datos->nomArea .',creada con exito');;
+            return response()->json(["resp"=>true,"data"=>"Area ". $datos->nomArea ." Creada con Exito"]);
+    	    //return redirect('areas')->with('data','Area '.$datos->nomArea .',creada con exito');
 
         } catch (\PDOException $e) {
             $mess = "";
             if($e->errorInfo[1]==1062){
-                $mess = "DUplicado";
+                $mess = "El nombre de area: ".$datos->nomArea. " ya existe.";
+                return response()->json(["resp"=>false,"data"=>$mess,"error"=>"nomArea"]);
             }else{
-                $mess = "errorssss";
+                $mess = "Hubo un error al crear el area, revise los datos.";
+                return response()->json(["resp"=>false,"data"=>$mess,"error"=>"else"]);
             }
 
-            return redirect('areas/crear')->with('data',$mess);
 
             
 
-        }
+     }
 
     }
 

@@ -10,7 +10,7 @@
 		<h2><p class="text-center">  Editar Área </p></h2>
 
 		<br><br>
-		<form method="post" action="{{ asset('areas')}}{{'/'.$area->id}}">
+		<form method="post" id="formulario" action="{{ asset('areas')}}{{'/'.$area->id}}">
 		{{ csrf_field()}}
 
       		<div class="row">
@@ -87,4 +87,8 @@
 		</div>
 	</div>
 
+<script type="text/javascript">
+	
+
+</script>
 @endsection

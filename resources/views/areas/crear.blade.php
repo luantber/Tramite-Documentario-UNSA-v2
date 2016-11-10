@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="{{asset('areas/crear')}}">
+<form id="formulario" method="POST" action="{{asset('areas/crear')}}">
 	{{ csrf_field()}}
 
 	<div class="row">
@@ -22,6 +22,7 @@
 						</span>
 			  		<input class="form-control" type="text" name ="nomArea" id="nomArea" placeholder="Ingrese nombre de área" required="">
 				</div>
+			    <div id="EnomArea" ></div>
 			</div>
 	  </div><br>
 
@@ -66,4 +67,54 @@
 
 </form>
 
+<div id="error"> </div>
+<script type="text/javascript">
+	
+	$("#formulario").submit(function(e) {
+
+    var url = "{{asset('areas/crear')}}"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#formulario").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               console.log(data);
+               if(!data.resp){
+                	if(data.error=="nomArea"){
+
+               	       $("#EnomArea").html(data.data);
+               	       $("#EnomArea").addClass("alert alert-warning");
+                	}
+               		else{
+
+               			$("#error").html(data.data);
+               			$("#error").addClass("alert alert-warning");
+               		}
+               	}
+               	else{
+               		alertify.success(data.data);
+               		$("#nomArea").val("");
+               		$("#idAreaPad").val(0);
+               		$("#jefArea").val(0);
+               		$("#descripcion").val("");
+               		
+               	}
+
+           },
+           error: function(xhr, desc, err)
+           {
+           		console.log(xhr.responseText);
+           		$("#error").html(xhr.responseText);
+           }
+
+         });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+});
+
+</script>
+
+	
 @endsection

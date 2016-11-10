@@ -10,7 +10,9 @@
 
   <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
   <script src="{{asset('js/jquery.js')}}"></script>
-
+  
+  <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
+<script src="{{asset('js/alertify.min.js')}}"></script>
 @yield('react')
 
 @yield('script2')
@@ -233,11 +235,8 @@
 
 <div class="container">
 
-
 @if(isset($data))
 
-  <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
-<script src="{{asset('js/alertify.min.js')}}"></script>
 <script type="text/javascript">
 
   alertify.success(' {{$data}}');
