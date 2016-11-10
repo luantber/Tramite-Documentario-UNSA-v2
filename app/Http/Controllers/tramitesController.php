@@ -58,6 +58,7 @@ class tramitesController extends Controller
         $tramite->tipoTramite()->associate($tipo_tramite);
         $tramite->persona()->associate($persona);
         $tramite->estado()->associate($estado);
+        $tramite->nro_expediente=1;
         $tramite->save();
         $tramite->nro_expediente=(date("Y").sprintf('%07d', $tramite->id));
         $tramite->save();
