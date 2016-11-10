@@ -55,7 +55,7 @@ class tramitesController extends Controller
         $area_destino= Area::find($datos->destino);
         //obtenemos el estado inicial
         //-----------------------FALTA MODIFICAR ESTO
-        $estado=EstadoTramite::all()->where('id',1)->first();
+        $estado=EstadoTramite::all()->where('id',1)->first(     );
 
                 
         $mesa_de_partes= $usuario_empl->empleado->area;
@@ -229,6 +229,9 @@ class tramitesController extends Controller
         $tramite=Tramite::find($id);
         $usuario=User::find(Auth::user()->id);
         $area=$usuario->empleado->area;
+        if($area->id!=$tramite->area->id){
+            return redirect('tramites/'.$tramite->id);
+        }
         $empleados=Empleado::all()->where('id_area',$area->id);
         $subAreas=Area::all()->where('area_id',$usuario->empleado->area->id);
         $areas=Area::all()->where('area_id',NULL);
@@ -241,10 +244,11 @@ class tramitesController extends Controller
         if($datos->c_empleado=='empleado'){
             $empleado=Empleado::find($datos->id_empleado);
             $tramite->empleado()->associate($empleado);
+            $tramite->aceptado=0;
             $tramite->save();
         }
         else if($datos->c_area){
-                        
+        
             $area_destino=Area::find($datos->area);
             $movimiento=new Movimiento;
             $movimiento->tramite()->associate($tramite);
@@ -255,6 +259,8 @@ class tramitesController extends Controller
             
             $movimiento->save();
             $tramite->area()->associate($area_destino);
+            $tramite->empleado()->associate(NULL);
+            $tramite->aceptado=0;
             $tramite->save();
             
         }
@@ -267,10 +273,12 @@ class tramitesController extends Controller
             $movimiento->comentario=$datos->comentario;
             $movimiento->save();
             $tramite->area()->associate($area_destino);
+            $tramite->empleado()->associate(NULL);
+            $tramite->aceptado=0;
             $tramite->save();
         }
 
-        return redirect('tramites');
+        return redirect('tramites/'.$tramite->id);
     }
 
     public function movimientosV($id){
