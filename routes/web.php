@@ -159,6 +159,7 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::get('{id}/subir','tramitesController@subirV');
 
 
+	Route::get('{id}/recibir','tramitesController@recibir');
 });
 
 

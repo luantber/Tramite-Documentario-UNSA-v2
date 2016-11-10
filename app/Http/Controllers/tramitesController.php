@@ -20,6 +20,25 @@ use Illuminate\Support\Facades\Auth;
 class tramitesController extends Controller
 {
     //
+
+    public function recibir($id){
+
+        $tramite = Tramite::find($id);
+
+        if($tramite){
+
+            $tramite->aceptado = !$tramite->aceptado;
+            $tramite->save();
+            //dd($tramite);
+            return redirect('panel');
+            
+        }
+        dd("no existe");
+
+        //return redirect('panel');
+
+
+    }
     public function create(Request $datos)
     {
         //-----------------------------codigo para generar bd

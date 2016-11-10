@@ -14,9 +14,34 @@ class Tramite extends React.Component{
 		        </td>
 		        <td>{this.props.fechainicio}</td>
 		        <td>Final</td>
-		       	{this.props.ver &&
-      			 <td> <a href={this.props.base+'/'+this.props.id} > Ver Estado </a>  </td>
-    			}
+
+
+		       	
+    			<td><a href={this.props.base+'/'+this.props.id}> <span className = "glyphicon glyphicon-envelope"></span></a> </td>
+    			
+
+
+    			{this.props.recibido &&
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'}> <span className = "glyphicon glyphicon-ok-sign"></span> </a></td>
+				}
+
+
+    			{this.props.norecibido &&
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'}> <span className = "glyphicon glyphicon-remove-sign"></span> </a></td>
+				}
+
+    			{this.props.ver &&
+				<td><a href={this.props.base+'/'+this.props.id+'/delegar'}> <span className = "glyphicon glyphicon-send"></span> </a></td>
+				}
+
+
+    			{this.props.ver &&
+				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> <span className = "glyphicon glyphicon-pencil"></span> </a></td>
+				}
+				{this.props.ver &&
+				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}> <span className =  "glyphicon glyphicon-remove"></span> </a></td>
+				}
+
 			</tr>
 			
 		);
@@ -94,7 +119,26 @@ window.TablaTramites = React.createClass({
 		        <th>Datos</th>
 		        <th>Fecha de Inicio</th>
 		        <th>Fecha de Finalización</th>
+
+
 		        <th><span className="glyphicon glyphicon-envelope"></span> </th>
+    		
+    			{this.props.ver &&
+				<th><span className = "glyphicon glyphicon-ok"></span> </th>
+				}
+
+				{this.props.ver &&
+				<th><span className = "glyphicon glyphicon-send"></span></th>
+				}
+
+
+    			{this.props.ver &&
+				<th><span className = "glyphicon glyphicon-pencil"></span></th>
+				}
+				{this.props.ver &&
+				<th><span className =  "glyphicon glyphicon-remove"></span></th>
+				}
+
 		    </tr>
 		  </thead>
 		  
@@ -102,9 +146,11 @@ window.TablaTramites = React.createClass({
 			  {
 				this.state.data.map(
 				 	function (tramite){
-				 		
-				
-		 				return(
+
+				if(this.props.ver){
+
+						if(tramite.aceptado){
+						return(
 		 					<Tramite
 		 					ide={tramite.nro_expediente}
 		 					id={tramite.id}
@@ -118,11 +164,64 @@ window.TablaTramites = React.createClass({
 
 							ver={this.props.ver}
 
+							recibido="true"
+
 							base={this.props.base}
 							key={tramite.id}
 		 				/>
 		 				)
-				 			
+					}
+					else{
+
+
+						return(
+		 					<Tramite
+		 					ide={tramite.nro_expediente}
+		 					id={tramite.id}
+
+							asunto={tramite.asunto}
+
+							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
+							destino={tramite.area.nombre}
+							estado={JSON.stringify(tramite.estado)}
+							fechainicio={tramite.created_at}
+
+							ver={this.props.ver}
+
+							norecibido="true"
+
+							base={this.props.base}
+							key={tramite.id}
+		 				/>
+		 				)
+					}
+				}
+				else{
+
+					return(
+		 					<Tramite
+		 					ide={tramite.nro_expediente}
+		 					id={tramite.id}
+
+							asunto={tramite.asunto}
+
+							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
+							destino={tramite.area.nombre}
+							estado={JSON.stringify(tramite.estado)}
+							fechainicio={tramite.created_at}
+
+							
+
+						
+
+							base={this.props.base}
+							key={tramite.id}
+		 				/>
+		 				)
+				}
+				 		
+					
+		 				
 				 				
 				 		
 				 	}
