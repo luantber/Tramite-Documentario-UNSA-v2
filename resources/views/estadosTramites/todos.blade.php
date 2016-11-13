@@ -21,7 +21,7 @@ var TablaEstadosTramites;
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaEstadosTramites url="{{asset('tramites/estados/todos')}}" refresh="100000" base = "{{asset('tramites/estados/')}}"/>,
+	<TablaEstadosTramites url="{{asset('tramites/estados/todos')}}" refresh="5000" base = "{{asset('tramites/estados/')}}"/>,
 	document.getElementById('container')
 );
 </script>

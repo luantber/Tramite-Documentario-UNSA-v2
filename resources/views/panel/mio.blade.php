@@ -23,7 +23,7 @@ var TablaTramites;
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaTramites url="{{asset('mistramites/todos')}}" refresh="50000" ver="true" base="{{asset('tramites')}}"/>,
+	<TablaTramites url="{{asset('mistramites/todos')}}" refresh="5000" base="{{asset('tramites')}}"/>,
 	document.getElementById('container')
 );
 </script>

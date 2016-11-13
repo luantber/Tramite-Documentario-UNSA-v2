@@ -150,6 +150,7 @@
 
 
       <!--Aqui empieza la seleccion-->
+      @if(Auth::user()->empleado)
         <?php
           if (Auth::user()->empleado->cargo->permisosCargo)
           {
@@ -158,6 +159,7 @@
           }
           else
           {
+
             $ar=[];
           }
 
@@ -173,7 +175,7 @@
         @endif
       <!--Aqui termina la seleccion-->
       
-
+  @endif
       </ul>
         </ul>
         <ul class="nav navbar-nav navbar-right">

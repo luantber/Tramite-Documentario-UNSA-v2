@@ -278,7 +278,7 @@ class tramitesController extends Controller
             $tramite->save();
         }
 
-        return redirect('tramites/'.$tramite->id);
+        return redirect('panel');
     }
 
     public function movimientosV($id){

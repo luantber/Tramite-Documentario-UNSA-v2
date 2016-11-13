@@ -11,7 +11,10 @@
 		<!--<h2><p class="text-center">  Welcome, this is the home </p></h2><br>-->
 		@if (Auth::check())
 			<h2><p clas="text-center"> Hola, {{Auth::user()->nombre}}  </p></h2>
-			<p>Su estado es: {{Auth::user()->empleado->estado->nombre}}  </p>
+			@if(isset(Auth::user()->empleado->estado->nombre))
+
+				<p>Su estado es: {{Auth::user()->empleado->estado->nombre}}  </p>
+			@endif
 		@endif
 
 		

@@ -23,7 +23,11 @@ class usuariosController extends Controller
 
     public function login(Request $datos)
     {
+        //dd($datos);
         $user= User::Where('email',$datos->email)->first();
+
+        //dd($user);
+
         if (Auth::attempt(['email'=>$datos->email,'password'=>$datos->password,'activo'=>1]))
         {
             return redirect('/');
