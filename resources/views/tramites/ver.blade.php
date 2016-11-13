@@ -14,18 +14,25 @@
 	<br>
 
 
-	<div class="container">
 
-		<ul class="nav nav-tabs">
-		  <li role="presentation" class="active"><a href="#">Todos</a></li>
-		  <li role="presentation"><a href="#">En Proceso</a></li>
-		  <li role="presentation"><a href="#">Finalizados</a></li>
-		  <li role="presentation"><a href="#">Rechazados</a></li>
-		</ul>
-		<br>
-		
-		<div id="container"></div>
-	</div>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#todos">Todos</a></li>
+  <li><a data-toggle="tab" href="#proceso">En Proceso</a></li>
+  <li><a data-toggle="tab" href="#finalizados">Finalizados</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="todos" class="tab-pane fade in active">
+  </div>
+
+  <div id="proceso" class="tab-pane fade">
+  </div>
+
+  <div id="finalizados" class="tab-pane fade">
+  </div>
+
+</div>
+
 
 
 <script>
@@ -39,7 +46,17 @@ var TablaTramites;
 
 ReactDOM.render(
 	<TablaTramites url="{{asset('tramites/todos')}}" refresh="5000" />,
-	document.getElementById('container')
+	document.getElementById('todos')
+);
+
+ReactDOM.render(
+	<TablaTramites url="{{asset('tramites/todos/activo')}}" refresh="5000" />,
+	document.getElementById('proceso')
+);
+
+ReactDOM.render(
+	<TablaTramites url="{{asset('tramites/todos/final')}}" refresh="5000" />,
+	document.getElementById('finalizados')
 );
 </script>
 

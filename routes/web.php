@@ -125,7 +125,7 @@ Route::group(['prefix'=>'tramites'],function(){
 
 	Route::get('/',function(){return view('tramites/ver');});
 
-	Route::get('todos','tramitesController@todos');
+	Route::get('todos/{estado?}','tramitesController@todos');
 
 	Route::get('crear','tramitesController@createGet');
 	Route::post('crear','tramitesController@create');

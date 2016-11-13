@@ -165,9 +165,28 @@ class tramitesController extends Controller
         
     }
 
-    public function todos()
+    public function todos($estado =null)
     {
-        $tramites = Tramite::with('area','persona','empleado','tipoTramite','estado')->paginate(10);
+        
+
+        if($estado == "activo")
+            $tramites = Tramite::whereHas(
+                'estado' , function ($query) {
+                    $query->where('show', 1);
+                })
+            ->orderBy('updated_at')->paginate(10);
+        elseif($estado == "final")
+            $tramites = Tramite::whereHas(
+                'estado' , function ($query) {
+                    $query->where('show', 0);
+                })
+            ->orderBy('updated_at')->paginate(10);
+        else
+            $tramites = Tramite::select('*')->orderBy('updated_at')->paginate(10);
+        
+
+        $tramites->load('area','persona','empleado','tipoTramite','estado');
+
         return response()->json($tramites);
     }
 
