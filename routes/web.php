@@ -9,6 +9,13 @@ Route::get('/', function () {
 
 //---------------------------- RUTAS DISPONIBLES ----------------------------------
 
+//Rutas a las que se debe acceder sin middleware
+
+Route::get('{email}/activar','usuariosController@activarget');
+Route::post('activar','usuariosController@activar');
+
+Route::get('reenviar',function(){ return view('emails.reenviar');});
+Route::post('reenviar','usuariosController@reenviar');
 // GRUPO USUARIOS **usuarios/
 
 Route::group(['prefix'=>'usuarios'],function(){
@@ -20,14 +27,8 @@ Route::group(['prefix'=>'usuarios'],function(){
 
 	Route::get('{id}', 'usuariosController@show');
 
-	Route::get('{email}/activar','usuariosController@activarget');
-	Route::post('activar','usuariosController@activar');
-
 	Route::get('{id}/editar','usuariosController@editar');
 	Route::post('{id}','usuariosController@guardar');
-
-
-
 });
 
 Route::group(['prefix'=>'empleados/estados'],function(){
@@ -155,8 +156,9 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::post('{id}/documentos/{id2}/editar','tramitesController@documentosEditar');
 
 	Route::get('{id}/documentos/{id2}/eliminar','tramitesController@documentosEliminar');
-
+	
 	Route::get('{id}/subir','tramitesController@subirV');
+	Route::get('documentos/{id}/descargar','tramitesController@descargar');
 
 
 	Route::get('{id}/recibir','tramitesController@recibir');
@@ -295,8 +297,23 @@ Route::get('movimientos',function(){
 });
 
 
-Route::get('descargar',function(){
-	return response()->download(storage_path('app/public/semiFTP/hola.pdf'));
+Route::get('descargar/{id}',function($id){
+	//$files=Storage::files(storage_path('app/public/semiFTP/'));
+	//$ext=File::extension(storage_path('app/public/semiFTP/'));
+	//$doc=App\Documento::find($id);
+	//return dd($doc);
+	//$exp=$doc->tramite->nro_expediente;
+	//$files=File::files(storage_path('app/semiFTP/'.$exp));
+	$files=File::files(storage_path('app/semiFTP/20160000002'));
+	//return pathinfo($files[0])["basename"];
+	foreach ($files as $key => $value) {
+		if(pathinfo($value)["filename"]==$id)
+			$file=pathinfo($value)["basename"];
+	}
+	if ($file)
+		return response()->download(storage_path('app/semiFTP/20160000002/'.$file));
+	else
+		return "GG";
 });
 
 Route::get('/enviar',function(){
@@ -309,7 +326,6 @@ Route::get('/enviar',function(){
 Route::get('/mail',function(){
 	return view('emails.registro');
 });
-
 
 
 Route::get('estadisticas/parea', 'estadisticaController@areas');

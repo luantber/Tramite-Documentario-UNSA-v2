@@ -10,7 +10,7 @@
 			{{$nombre}}, por favor ingrese su contraseña.
 
 			<br><br>
-			<form action="{{asset('usuarios/activar')}}" method="POST" onsubmit="return validar()">
+			<form action="{{asset('/activar')}}" method="POST" onsubmit="return validar()">
 				{{csrf_field()}}						
 				<input type="hidden" name="asd" value="{{$id}}">
 				<div class="row">

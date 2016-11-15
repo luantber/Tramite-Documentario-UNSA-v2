@@ -21,10 +21,33 @@ class usuariosController extends Controller
     
     }
 
+    public function reenviar(Request $datos)
+    {
+        $user=User::where('email',$datos->email)->first();
+        if($user)
+        {
+            $correo=new Email;
+            $correo->nombre=$user->nombre;
+            $correo->email=$user->email;
+            if($user->empleado)
+                $correo->empleado=true;
+            else
+                $correo->empleado=false;
+            Mail::to($user->email)->send($correo);
+            return view('succes',['title'=>'Correo enviado','msg'=>'Correo enviado satisfactoriamente']); 
+        }
+        else
+        {
+            return view('errors.errorGenerico',['error'=>"No se ha encontrado un usuario con el correo de: ".$datos->email]);
+        }
+
+
+    }
+
     public function login(Request $datos)
     {
         //dd($datos);
-        $user= User::Where('email',$datos->email)->first();
+        $user= User::where('email',$datos->email)->first();
 
         //dd($user);
 

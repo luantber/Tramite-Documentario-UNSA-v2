@@ -121,6 +121,7 @@
         @endsection
 
 <!--ESTADISTICAS-->
+        @section('estadisticas')
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estadisticas<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -129,14 +130,20 @@
               <li><a href="{{ url('estadisticas/pusuario') }}">Por Usuario</a></li>
             </ul>
           </li>
+        @endsection
 
 <!--PANEL-->
+        @section('mis_tramites')
           <li ><a href="{{asset('mistramites')}}">Mis Tramites </a></li>
-
+        @endsection
+        
+        @section('panel')
           <li ><a href="{{asset('panel')}}">Panel  </a></li>
+        @endsection
 
 <!--AGENDA-->
-
+      
+      @section('notas')
         <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agenda <span class="caret"></span></a>
              <ul class="dropdown-menu">
@@ -145,22 +152,31 @@
 
              </ul>
          </li>
+      @endsection
 
 
 
 
       <!--Aqui empieza la seleccion-->
-      @if(Auth::user()->empleado)
+
         <?php
-          if (Auth::user()->empleado->cargo->permisosCargo)
+
+          if (Auth::user()->empleado)
           {
-            $ar=Auth::user()->empleado->cargo->permisosCargo->toArray();
-            array_shift($ar);            
+            if (Auth::user()->empleado->cargo->permisosCargo)
+            {
+              $ar=Auth::user()->empleado->cargo->permisosCargo->toArray();
+              array_shift($ar);            
+            }
+            else
+            {
+
+              $ar=[];
+            }
           }
           else
           {
-
-            $ar=[];
+            $ar=["mis_tramites"=>"1"];
           }
 
         ?>
@@ -172,7 +188,7 @@
           @endif
         @endforeach
 
-        @endif
+        
       <!--Aqui termina la seleccion-->
       
   @endif

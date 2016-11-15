@@ -75,6 +75,7 @@
 						<p id="nocorreo"></p>
 					</div>
 				</div><br><br>
+				
 
 				<div class="form-group">
     				<div class="text-center">
@@ -92,6 +93,8 @@
 <div id="error"></div>
 
 <script>
+
+
 
    $("#formulario").submit(function(evento){
 		var DNI = document.getElementById("DNI").value;

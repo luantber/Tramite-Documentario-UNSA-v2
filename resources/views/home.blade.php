@@ -15,13 +15,23 @@
 
 				<p>Su estado es: {{Auth::user()->empleado->estado->nombre}}  </p>
 			@endif
+
 		@endif
 
 		
 
 		<h2><p class="text-center">  ¡Bienvenidos a Trámite Documentario! </p></h2><br>
-		 <img src="{{asset('imagenes/tramite.png')}}" class="img-thumbnail" width="550" height="450">
 	</div>
+	<div align="center">
+		<img src="{{asset('imagenes/tramite.png')}}" class="img-thumbnail" width="350" height="250" align="center">
+		<br>
+		<br>
+		@if(!Auth::check())
+			¿No le llegó el correo de verificación? Puede volver a reeenviarlo  
+			<a href="{{url('reenviar')}}">aquí</a>
+		@endif
+	</div>
+
 </div>
 
 @endsection

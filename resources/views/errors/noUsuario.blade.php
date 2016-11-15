@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title','Usuario creado')
+@section('title','Error')
 
 @section('content')
 

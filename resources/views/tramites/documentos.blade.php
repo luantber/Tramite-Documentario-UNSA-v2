@@ -32,7 +32,7 @@
 				        <td>{{$documento->created_at}} </td>
 				        <td>{{$documento->tramite->area->nombre}}</td>
 
-				        <th><a value="" href="{{asset('documentos') . '/'.$documento->id .'/descargar' }}" type="button" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-envelope"></i></a></th>
+				        <th><a value="" href="{{url('tramites/documentos') . '/'.$documento->id .'/descargar' }}" type="button" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-envelope"></i></a></th>
 				        <th><a value="" href="{{'documentos/'.$documento->id.'/editar'}}" type="button" class="btn btn-xs btn-warning btn-info" ><i class="glyphicon glyphicon-edit"></i></a></th>
 				        <th><a value="" href="{{'documentos/'.$documento->id.'/eliminar'}}" type="button" class="btn btn-xs btn-danger btn-info" ><i class="glyphicon glyphicon-remove"></i></a></th>
 				     </tr>
