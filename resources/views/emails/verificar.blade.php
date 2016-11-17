@@ -1,4 +1,5 @@
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,6 +16,18 @@
        -ms-text-size-adjust: 100% !important;
        -webkit-font-smoothing: antialiased !important;
      }
+      
+      .button {
+    background-color: #1A54BA; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
      .tableContent img {
        border: 0 !important;
        display: block !important;
@@ -183,16 +196,17 @@ td[class="spechide"]
       <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
-      <td valign="top" align="center" class="specbundle"><div class="contentEditableContainer contentTextEditable">
-                                <div class="contentEditable">
-                                  <p style='text-align:right;margin:0;font-family:Georgia,Time,sans-serif;font-size:26px;color:#222222;'><span class="specbundle2"><span class="font1">Bienvenido a&nbsp;</span></span></p>
-                                </div>
-                              </div></td>
-      <td valign="top" class="specbundle"><div class="contentEditableContainer contentTextEditable">
-                                <div class="contentEditable">
-                                  <p style='text-align:left;margin:0;font-family:Georgia,Time,sans-serif;font-size:26px;color:#1A54BA;'><span class="font">Trámite Documentario</span> </p>
-                                </div>
-                              </div></td>
+      <td valign="top" class="specbundle">
+        <div class="contentEditableContainer contentTextEditable">
+          <div class="contentEditable">
+            <p style='text-align:center;margin:0;font-family:Georgia,Time,sans-serif;font-size:26px;color:#1A54BA;'>
+            <span class="font">Trámite Documentario</span> 
+            </p>
+          </div>
+        </div>
+      </td>
+  
+      
     </tr>
   </tbody>
 </table>
@@ -221,14 +235,10 @@ td[class="spechide"]
                               <div class="contentEditableContainer contentTextEditable">
                                 <div class="contentEditable" align='center'>
                                   <p>
-                                    @if($empleado)
-                                      Usted ha sido registrado en Trámite Documentario, pero necesita activar su cuenta para que pueda utilizar las acciones que se le ha asignado. Le proporcionamos un link en el que podrá asignar su contraseña.
-                                    @else
-                                      Usted ha sid registrado en Trámite Documentario, pero necesita activar su cuenta para poder ver sus trámites. Le proporcionamos un link en el que podrá asignar su contraseña.
-                                    @endif
+                                    Se ha solicitado un cambio de contraseña para su cuenta. Le proporcionamos un enlace para que pueda cambiarla.
                                     <br>
                                     <br>
-                                    ¿Tienes alguna pregunta? Puede enviarnos un correo a nuestra cuenta de GMail
+                                      Si usted no solicito un cambio de contraseña entonces ignore este mensaje.
                                     <br>
                                     <br>
                                     Saludos,
@@ -246,10 +256,21 @@ td[class="spechide"]
                             <td align='center'>
                               <table>
                                 <tr>
-                                  <td align='center' bgcolor='#1A54BA' style='background:#1A54BA; padding:15px 18px;-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;'>
+                                  <td align='center' >
                                     <div class="contentEditableContainer contentTextEditable">
                                       <div class="contentEditable" align='center'>
-                                        <a target='_blank' href="{{url($email.'/activar')}}" class='link2' style='color:#ffffff;'>Activa tu cuenta</a>
+                                        <form action="{{url('contraseña')}}" method="POST">
+                                          {{csrf_field()}}
+                                          <input type="hidden" value="{{$email}}" name="email"/>
+                                          <div class="form-group">
+                                            <div class="text-center">
+                                              <button class="button" type="submit" value="Submit" > 
+                                                Guardar cambios </button> 
+                                            </div>
+                                          </div>
+                                        </form>
+                                        <!--
+                                        <a target='_blank' href="{{url($email.'/contraseña')}}" class='link2' style='color:#ffffff;'>Cambiar contraseña</a>-->
                                       </div>
                                     </div>
                                   </td>
