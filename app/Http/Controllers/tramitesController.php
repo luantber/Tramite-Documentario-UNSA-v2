@@ -16,6 +16,7 @@ use App\User;
 use App\Movimiento; 
 use App\Cargo;
 use Illuminate\Support\Facades\Auth;
+use File;
 
 class tramitesController extends Controller
 {
@@ -148,7 +149,7 @@ class tramitesController extends Controller
         $archivo=$datos->file('archivo');
         $ext=$archivo->guessClientExtension();
         $nombre=$doc->id.".".$ext;
-        $path=$archivo->storeAs('semiFTP/'.$datos->numExp,$nombre); //<- la variable path almacena la ruta del archivo
+        $path=$archivo->storeAs('semiFTP/'.$tramite->nro_expediente,$nombre); //<- la variable path almacena la ruta del archivo
 
         }
 
@@ -326,7 +327,12 @@ class tramitesController extends Controller
         $documento->nombre=$datos->nombreDoc;      
         
         if($datos->docu!=NULL){
-            $documento->nombre_archivo=$datos->docu;       
+            $documento->nombre_archivo=$datos->docu;
+            $archivo=$datos->file('docu');
+            $ext=$archivo->guessClientExtension();
+            $nombre=$id2.".".$ext;
+            $exp=$documento->tramite->nro_expediente;
+            $path=$archivo->storeAs('semiFTP/'.$exp,$nombre);
             
         }
         
@@ -336,6 +342,32 @@ class tramitesController extends Controller
         
         $documento->save();
         return redirect('tramites/'.$id.'/documentos');
+
+    }
+
+    public function descargar($id)
+    {
+        $documento=Documento::find($id);
+        if ($documento)
+        {
+            if($documento->tramite)
+                $exp=$documento->tramite->nro_expediente;
+            else
+                return view('errors.errorGenerico',['error'=>'No se ha encontrado un tramite para este documento']);
+            $files=File::files(storage_path('app/semiFTP/'.$exp));
+            foreach ($files as $value) {
+                $info=pathinfo($value);
+                if ($info["filename"]==$id)
+                    $file=$info["basename"];
+            }
+
+            if (isset($file))
+                return response()->download(storage_path('app/semiFTP/'.$exp."/".$file));
+            else
+                return view('errors.errorGenerico',["error"=>'Este documento no esta asociado a un archivo']);
+        }
+        else
+            return view ('errors.errorGenerico',["error"=>"Este documento no existe"]);
 
     }
 

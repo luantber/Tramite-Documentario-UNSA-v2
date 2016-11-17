@@ -2,6 +2,13 @@
 
 @section('title','Crear Nuevo Usuario')
 
+
+@section('materialize')
+  <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.min.css')}}">
+  <script src="{{asset('js/materialize.min.js')}}" ></script>
+@endsection
+
+
 @section('script2')
 <script src="{{asset('js/alertify.min.js')}}"></script>
  <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
@@ -73,11 +80,17 @@
 						</div>
 						    <div id="emailRepe"></div>
 						<p id="nocorreo"></p>
+				
 					</div>
-				</div><br><br>
+					<p>.</p>
+						
+						<div class="progress" id="porcentaje">
+							
+						</div>
+				</div>
 
 				<div class="form-group">
-    				<div class="text-center">
+    				<div class="text-center" id="boton">
 						<button class="btn btn-lg" type="submit" id="btonEnviar" value="Submit"> 
 						Crear nuevo usuario </button> 
 					</div>
@@ -93,20 +106,35 @@
 
 <script>
 
+
+
    $("#formulario").submit(function(evento){
+
+   		$("#porcentaje").html("<div class='indeterminate spinner-red-only'></div>");
+		$("#boton").html("<button class='btn btn-lg btn-primary btn-block' disabled='' type='submit' value='Submit'> Creando Nuevo usuario </button>");
+
 		var DNI = document.getElementById("DNI").value;
 		var correo = document.getElementById("mail").value;
 		var texto,texto2;
 
 		if( !(/^\d{8}$/.test(DNI)) ) {
 		    texto ="Ingrese un DNI correcto. Verifique el número de digitos(8)";
-		    alertify.error(texto);
+		    alertify.set('notifier','position', 'top-right');
+     		 var msg = alertify.error('Default message');
+			 msg.delay(10).setContent(texto);
+			$("#porcentaje").html(" ");
+			$("#boton").html("<button class='btn btn-lg btn-primary btn-block' type='submit' value='Submit'> Crear nuevo empleado </button>");
 			return false;
 		}
 
 		if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w/.test(correo)) ) {
 			texto2 = "Ingrese un e-mail válido.Verifique que contenga '@' y el '.' Ejemplo 'miCorreo@algo.algo' ";
-			alertify.error(texto2);
+			alertify.set('notifier','position', 'top-right');
+     		 var msg = alertify.error('Default message');
+			 msg.delay(10).setContent(texto2);
+			$("#porcentaje").html(" ");
+
+			$("#boton").html("<button class='btn btn-lg btn-primary btn-block' type='submit' value='Submit'> Crear nuevo empleado </button>");
 			return false;
 		}
 
@@ -120,10 +148,22 @@
 				console.log(data);
 				if(!data.respuesta){
 					if(data.error =="dni"){
-						alertify.error(data.data);
+						alertify.set('notifier','position', 'top-right');
+						 var msg = alertify.error('Default message');
+						 msg.delay(10).setContent(data.data);
+
+						 $("#porcentaje").html(" ")
+
+						$("#boton").html("<button class='btn btn-lg btn-primary btn-block' type='submit' value='Submit'> Crear nuevo empleado </button>");
 					}
 					else if(data.error == "email"){
-						alertify.error(data.data);
+						alertify.set('notifier','position', 'top-right');
+						 var msg = alertify.error('Default message');
+						 msg.delay(10).setContent(data.data);
+
+						 $("#porcentaje").html(" ")
+
+						$("#boton").html("<button class='btn btn-lg btn-primary btn-block' type='submit' value='Submit'> Crear nuevo empleado </button>");
 					}	
 				}
 
@@ -133,6 +173,10 @@
 					$("#apellido").val("");
 					$("#mail").val("");
 					$("#DNI").val("");
+
+					$("#porcentaje").html(" ")
+
+					$("#boton").html("<button class='btn btn-lg btn-primary btn-block' type='submit' value='Submit'> Crear nuevo empleado </button>");
 
 				}
 			},

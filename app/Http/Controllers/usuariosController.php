@@ -21,10 +21,91 @@ class usuariosController extends Controller
     
     }
 
+    public function verificar(Request $datos)
+    {
+        $user=User::where('email',$datos->email)->first();
+        if($user)
+        {
+            $correo=new Email;
+            $correo->nombre=$user->nombre;
+            $correo->email=$user->email;
+            $correo->bool=true;
+            $correo->asunto="Verificar cambio de contraseña";
+            $correo->mensaje="verificar";
+            if($user->empleado)
+                $correo->empleado=true;
+            else
+                $correo->empleado=false;
+            Mail::to($user->email)->send($correo);
+            return view('succes',["msg"=>"El correo se ha enviado satisfactoriamente"]);
+        }
+        else
+        {
+            return view('errors.errorGenerico',["error"=>"El usuario con el correo de ".$datos->email." no existe"]);
+        }
+    }
+
+    public function cambiar_contraseña(Request $datos)
+    {
+        $user=User::where('email',$datos->email)->first();
+        if($user)
+        {
+            return view('usuarios.cambiar',["email"=>$datos->email]);
+        }
+        else
+        {
+            return view('errors.errorGenerico',["error"=>"El usuario con el correo de ".$datos->email." no existe"]);
+        }
+    }
+
+    public function cambiar(Request $datos)
+    {
+        $user=User::where('email',$datos->email)->first();
+        if ($user)
+        {
+            $user->password=bcrypt($datos->contraseña);
+            $guard=$user->save();
+            if ($guard)
+                return view('succes',["msg"=>"Su contraseña se cambió satisfactoriamente"]);
+            else
+                return view('errors.errorGenerico',["error"=>"Ocurrió un problema al cambiar la contraseña"]);
+
+
+        }
+        else
+        {
+            return view('errors.errorGenerico',["error"=>"El usuario con el correo de ".$datos->email." no existe"]);   
+        }
+
+    }
+
+    public function reenviar(Request $datos)
+    {
+        $user=User::where('email',$datos->email)->first();
+        if($user)
+        {
+            $correo=new Email;
+            $correo->nombre=$user->nombre;
+            $correo->email=$user->email;
+            if($user->empleado)
+                $correo->empleado=true;
+            else
+                $correo->empleado=false;
+            Mail::to($user->email)->send($correo);
+            return view('succes',['title'=>'Correo enviado','msg'=>'Correo enviado satisfactoriamente']); 
+        }
+        else
+        {
+            return view('errors.errorGenerico',['error'=>"No se ha encontrado un usuario con el correo de: ".$datos->email]);
+        }
+
+
+    }
+
     public function login(Request $datos)
     {
         //dd($datos);
-        $user= User::Where('email',$datos->email)->first();
+        $user= User::where('email',$datos->email)->first();
 
         //dd($user);
 

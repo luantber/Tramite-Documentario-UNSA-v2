@@ -10,7 +10,7 @@
   	<div class="col-md-6 col-md-offset-3">
 		<h2><p class="text-center">  Editar Documentos </p></h2>
 		<br><br>
-			<form method="post" action="{{asset('tramites/'.$documento->tramite->id.'/documentos/'.$documento->id.'/editar')}}"}}">
+			<form method="post" action="{{asset('tramites/'.$documento->tramite->id.'/documentos/'.$documento->id.'/editar')}}" enctype="multipart/form-data">
 
 				{{ csrf_field()}}
 

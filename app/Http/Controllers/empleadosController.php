@@ -45,6 +45,7 @@ class empleadosController extends Controller
      	$encontrado = User::where('dni',$datos->dni)->first();
     	
       $mensaje="";
+      $mensaje2="";
       if(!$encontrado){
         $mensaje = "No existe ningun usuario con este DNI ".$datos->dni.", por favor verifique si es correcto. Caso contrario diríjase a la pestaña empleado Nuevo";
         return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"dni"]);
@@ -82,9 +83,12 @@ class empleadosController extends Controller
         $dni=DB::table('users')->where('dni',$datosn->dni)->first();
 
         $mensaje="";
+        $mensaje2="";
+
         if($dni){
-            $mensaje ="Un usuario con este DNI ".$datosn->dni." ya esta registrado. Si el empleado a registrar esta registrado con anterioridad como 'usuario' por favor dirigirse a crear empleado usuario";
-            return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"dni"]);   
+            $mensaje ="Un usuario con este DNI ".$datosn->dni." ya esta registrado. ";
+            $mensaje2 = "Si este DNI ya es usuario, por favor dirigirse a crear empleado usuario";
+            return response()->json(["respuesta"=>false,"data"=>$mensaje,"data2"=>$mensaje2,"error"=>"dni"]);   
         }
         if($email){
             $mensaje ="Un usuario con este correo ".$datosn->correo." ya esta registrado.";
