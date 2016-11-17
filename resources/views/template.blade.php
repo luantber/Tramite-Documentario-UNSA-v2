@@ -5,14 +5,21 @@
 
   <link href="{{asset('fonts/font-awesome.min.css')}}" rel="stylesheet">
 
+
 	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
 
+
+
   <link rel="stylesheet" type="text/css" href="{{asset('css/fileinput.css')}}">
   <script src="{{asset('js/jquery.js')}}"></script>
+
+
   
   <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
 <script src="{{asset('js/alertify.min.js')}}"></script>
+
+@yield('materialize')
 @yield('react')
 
 @yield('script2') <!-- NO borrar esto !  -->
