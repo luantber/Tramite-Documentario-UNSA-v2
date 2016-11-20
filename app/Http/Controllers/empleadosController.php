@@ -40,7 +40,7 @@ class empleadosController extends Controller
     	$nuevo->id_area = $datos->id_area;
     	$nuevo->id_cargo = $datos->id_cargo;
       $nuevo->id_estado = $datos->id_estado;
-      $nuevo->activo = false;
+      $nuevo->activo = true;
 
      	$encontrado = User::where('dni',$datos->dni)->first();
     	

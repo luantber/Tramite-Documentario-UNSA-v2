@@ -18,7 +18,7 @@ class notasController extends Controller
     	$nuevo = new Notas ;
     	$nuevo ->nombre = $datos->nombre;
     	$nuevo ->descripcion = $datos->descripcion;
-      $nuevo ->areasp_id = $datos->areas_id;
+      $nuevo ->areas_id = $datos->areas_id;
       $nuevo ->empleados_id = $datos->empleados_id;
       $nuevo ->personal = $datos ->personal;
     	$nuevo ->save();
