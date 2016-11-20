@@ -16,6 +16,18 @@ Route::post('activar','usuariosController@activar');
 
 Route::get('reenviar',function(){ return view('emails.reenviar');});
 Route::post('reenviar','usuariosController@reenviar');
+
+Route::get('perdida',function(){return view('usuarios.recuperar');});
+Route::post('verificar','usuariosController@verificar');
+
+//Route::get('{email}/contraseña',function(){return view('usuarios.cambiar');});
+
+Route::post('contraseña','usuariosController@cambiar_contraseña');
+Route::get('contraseña',function (){return view('usuarios.cambiar');});
+Route::post('cambiar','usuariosController@cambiar');
+
+//End Rutas sin middleware
+
 // GRUPO USUARIOS **usuarios/
 
 Route::group(['prefix'=>'usuarios'],function(){
@@ -324,7 +336,7 @@ Route::get('/enviar',function(){
 });
 
 Route::get('/mail',function(){
-	return view('emails.registro');
+	return view('emails.verificar');
 });
 
 

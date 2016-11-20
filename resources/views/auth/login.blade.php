@@ -33,7 +33,13 @@
 
 					<div class="input-group">
 				        <input type="checkbox" value="recuerdame" name="rememberMe"> Recuérdame 
-				    </div><br>
+				        <br>
+				        <a href="{{url('perdida')}}">He olvidado mi contraseña</a>
+				    </div>
+
+
+					
+
 					@if(session('error'))
 					<div class="alert alert-danger" role="alert" id="error" >
 					  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -41,6 +47,8 @@
 					  	{{session('error')}}
 					</div>
 					@endif
+					
+					<br>
 			        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Entrar</button>   
 			    </form>
 			</div>
