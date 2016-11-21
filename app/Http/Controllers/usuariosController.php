@@ -140,7 +140,7 @@ class usuariosController extends Controller
         $dni=DB::table('users')->where('dni',$nuevo->dni)->first();
         $mensaje="";
         if($dni){
-            $mensaje ="Un usuario con este DNI ".$datos->dni." ya esta registrado.";
+            $mensaje ="Un usuario con esta identificación ".$datos->dni." ya esta registrado.";
             return response()->json(["respuesta"=>false,"data"=>$mensaje,"error"=>"dni"]);   
         }
         if($email){
