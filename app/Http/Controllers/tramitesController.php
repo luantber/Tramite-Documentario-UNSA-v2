@@ -297,6 +297,11 @@ class tramitesController extends Controller
             $tramite->aceptado=0;
             $tramite->save();
         }
+        else if($datos->c_jefe){
+            $tramite->empleado()->associate(NULL);
+            $tramite->aceptado=0;
+            $tramite->save();
+        }
 
         return redirect('panel');
     }
