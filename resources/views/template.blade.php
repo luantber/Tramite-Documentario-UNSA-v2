@@ -55,7 +55,8 @@
         <ul class="nav navbar-nav ">
         <ul class="nav navbar-nav navbar-left">
 
-
+<!--Tutorial-->
+               <a class="navbar-brand" href="{{ url('turorial')}}">Tutorial</a>
 <!--USUARIOS-->
         @section('usuarios')
           <li class="dropdown">
