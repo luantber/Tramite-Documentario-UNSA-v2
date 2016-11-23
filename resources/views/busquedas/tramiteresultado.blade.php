@@ -40,7 +40,7 @@
 				  celda.appendChild(textoCelda);
 				  hilera.appendChild(celda);
 				  celda = document.createElement("td");
-				  textoCelda = document.createTextNode("DNI Persona");
+				  textoCelda = document.createTextNode("Identificador");
 				  celda.appendChild(textoCelda);
 				  hilera.appendChild(celda);
 				  celda = document.createElement("td");

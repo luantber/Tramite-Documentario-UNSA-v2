@@ -18,6 +18,8 @@ class buscadorController extends Controller
     	$respuesta = DB::table('areas')
     				->select('areas.nombre','areas.area_id','areas.jefe_id','areas.descripcion','areas.id')
     				->where('areas.nombre','Like',$dato->input('nombre').'%')
+                    ->orwhere('areas.id','Like',$dato->input('nombre').'%')
+                    ->orwhere('areas.jefe_id','Like',$dato->input('nombre').'%')
     				->get();
     	return response()->json($respuesta);
     }
@@ -38,6 +40,8 @@ class buscadorController extends Controller
     				->orwhere('empleados.id','Like',$dato->input('nombre').'%')
                     ->orwhere('users.apellido','Like',$dato->input('nombre').'%')
                     ->orwhere('users.dni','Like',$dato->input('nombre').'%')
+                    ->orwhere('areas.nombre','Like',$dato->input('nombre').'%')
+                    ->orwhere('cargos.nombreCargo','Like',$dato->input('nombre').'%')
     				->get();
     		return response()->json($respuesta);
     }
@@ -49,9 +53,11 @@ class buscadorController extends Controller
     		return response()->json($respuesta);
     	}
     	$respuesta = DB::table('users')
-    				->select('nombre','apellido','email','dni','activo')
+    				->select('nombre','apellido','email','dni','activo','id')
     				->where('nombre','Like',$dato->input('nombre').'%')
     				->orwhere('id','Like',$dato->input('nombre').'%')
+                    ->orwhere('dni','Like',$dato->input('nombre').'%')
+                    ->orwhere('apellido','Like',$dato->input('nombre').'%')
     				->get();
     		return response()->json($respuesta);
     }
@@ -72,6 +78,9 @@ class buscadorController extends Controller
     				->orwhere('users.nombre','Like',$dato->input('nombre').'%')
     				->orwhere('tramites.created_at','Like',$dato->input('nombre').'%')
     				->orwhere('tramites.nro_expediente','Like',$dato->input('nombre').'%')
+                    ->orwhere('users.apellido','Like',$dato->input('nombre').'%')
+                    ->orwhere('users.dni','Like',$dato->input('nombre').'%')
+                    ->orwhere('areas.nombre','Like',$dato->input('nombre').'%')
     				->get();
     		return response()->json($respuesta);
     }

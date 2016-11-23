@@ -36,7 +36,7 @@
 				  celda.appendChild(textoCelda);
 				  hilera.appendChild(celda);
 				  celda = document.createElement("td");
-				  textoCelda = document.createTextNode("DNI");
+				  textoCelda = document.createTextNode("Identificador");
 				  celda.appendChild(textoCelda);
 				  hilera.appendChild(celda);
 				  celda = document.createElement("td");
@@ -54,8 +54,11 @@
 				      // texto sea el contenido de <td>, ubica el elemento <td> al final
 				      // de la hilera de la tabla
 				      var celda = document.createElement("td");
-				      var textoCelda = document.createTextNode(aux3.data[i].nombre);
-				      celda.appendChild(textoCelda);
+				      var link = document.createElement('a');
+				      link.href = '/usuarios/' + aux3.data[i].id;
+				      link.innerHTML = aux3.data[i].nombre;
+				      //var textoCelda = document.createTextNode(aux3.data[i].nombre);
+				      celda.appendChild(link);
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
 				      textoCelda = document.createTextNode(aux3.data[i].apellido);
@@ -66,8 +69,10 @@
 				      celda.appendChild(textoCelda);
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
-				      textoCelda = document.createTextNode(aux3.data[i].dni);
-				      celda.appendChild(textoCelda);
+				      link = document.createElement('a');
+				      link.href = '/tramites/crear';
+				      link.innerHTML = aux3.data[i].dni;
+				      celda.appendChild(link);
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
 				      if(aux3.data[i].activo = '0'){

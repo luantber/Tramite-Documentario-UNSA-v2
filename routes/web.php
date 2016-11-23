@@ -7,7 +7,13 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+
 //---------------------------- RUTAS DISPONIBLES ----------------------------------
+
+Route::get('turorial',function(){
+	return view('tutorial.manual');
+});
 
 //Rutas a las que se debe acceder sin middleware
 
