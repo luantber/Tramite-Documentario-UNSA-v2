@@ -52,7 +52,7 @@
         <div id="section1"> 
           <h1>Inicio</h1>
           <h5>Bienvenido a Tramite documentario</h5>
-          <img src="{{URL::asset('imagenes/inicio.png')}}" class="img-rounded">
+          <img src="{{URL::asset('imagenes/inicio.png')}}" class="img-rounded" width="900" height="500">
           <p>Para ingresar a su cuenta tendra que proporcionar su correo electronico , con su respectiva contraseña</p>
           <p>Si no puede estrar una de la razones puede ser, que no aya activado su cuenta . Para activar la cuenta es desde su e-mail, ahi tambien le pediran crear su contraseña</p>
           <img src="login.png" class="img-rounded">
@@ -61,12 +61,12 @@
 
         <div id="section21"> 
           <h1>Crear Usuario</h1>
-          <img src="crearusuario.png" class="img-rounded">
+          <img src="{{URL::asset('imagenes/crearusuario.png')}}" class="img-rounded">
           <p>Ingresar todos los datos que se pide, si los datos como: Correo electronico, DNI o RUC, son repetidos, no se permitira registrar al nuevo usuario.</p>
         </div>
         <div id="section22"> 
           <h1>Crear Empleado</h1>
-          <img src="crearempleado.png" class="img-rounded">
+          <img src="{{URL::asset('imagenes/crearempleado.png')}}" class="img-rounded">
           <p>Ingresar los datos requeridos, al cocluir esta opcion, se crea automaticamente un usuario del empleado.</p>
         </div>
         <div id="section23"> 
