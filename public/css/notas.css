@@ -1,5 +1,5 @@
 
-body{margin-top:20px;}
+/*body{margin-top:20px;} */
 
 ul.notes li {
   margin: 10px 40px 50px 0px;
@@ -50,6 +50,17 @@ div.rotate-2 {
   background-color: #f8ac59;
   color: #ffffff;
 }
+.green-bg {
+  background-color: #53B768;
+  color: #ffffff;
+}
+
+.orange-bg {
+  background-color: #F3AC5E;
+  color: #ffffff;
+}
+
+
 
 ul.notes li div {
   text-decoration: none;

@@ -5,13 +5,8 @@
 @section('content')
 
 
-{{Auth::user()}}
 
-{{Auth::user()->empleado->id}}
-
-{{Auth::user()->empleado->area->id}}
-
-<form method="POST" action="{{asset('notas/crear')}}">
+<form id="new-nota" method="POST" action="{{asset('notas/crear')}}">
 	{{ csrf_field()}}
 
 
@@ -45,7 +40,8 @@
 						</select>
 			</div>
 
-			<button type="submit" class="btn btn-default" value="Submit">Crear</button>
+
+			<button type="submit" class="btn btn-primary" value="Submit">Crear</button>
 
 		</div>
 	</div>
