@@ -272,6 +272,7 @@
     </div>
     <div id="footer">
         <div class="container">
+        <!--
             <div class="row">
               <h3 class="footertext">About Us:</h3>
               <br>
@@ -300,6 +301,7 @@
                   </center>
                 </div>
               </div>
+              -->
               <div class="row">
               <p><center><a href="#">Contact us here</a> <p class="footertext">Copyright 2016</p></center></p>
           </div>
