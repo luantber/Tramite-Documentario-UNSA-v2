@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 use App\Http\Requests;
 use App\Notas;
 use App\Area;
 use App\Empleado;
+use Log;
 
 class notasController extends Controller
 {
@@ -27,61 +28,65 @@ class notasController extends Controller
 
 
 
-    public function todos(){
-
+    public function todos(Request $request){
+      Log::info('This is some useful information.');
       $this -> middleware('auth');
       $this->user= \Auth::user();
       $autenticado = $this->user;
 
-      $personal = Notas::where('empleados_id',$autenticado->empleado->id)->where('personal','1')->orderBy('created_at','DESC')->paginate(8,['*'],'personal');
-      $publico = Notas::where('areas_id',$autenticado->empleado->area->id)->where('personal','0')->orderBy('created_at','DESC')->paginate(8,['*'],'publico');
+      /*
+      $personas = DB::table('users')->select('id','nombre','apellido');
+      dd($personas);
+      $personal = Notas::where('empleados_id',$autenticado->empleado->id)->where('personal','1')->orderBy('created_at','DESC')->paginate(2,['*'],'personal');
+      $publico = Notas::where('areas_id',$autenticado->empleado->area->id)->where('personal','0')->orderBy('created_at','DESC')->paginate(2,['*'],'publico');
+      */
+    //  $personal = Notas::where('empleados_id',$autenticado->empleado->id)->where('personal','1')->orderBy('created_at','DESC')->paginate(8,['*'],'personal');
+    //  $publico = Notas::where('areas_id',$autenticado->empleado->area->id)->where('personal','0')->orderBy('created_at','DESC')->paginate(8,['*'],'publico');
 
-      return view('notas.todos',['personal'=>$personal,'publico'=>$publico]);
+      //dd($request->datos);
+
+      $personal = DB::table('notas')
+            ->join('empleados','notas.empleados_id','=','empleados.id')
+            ->join('users','empleados.id_persona','=','users.id')
+            ->select('notas.updated_at','notas.created_at','notas.id','notas.empleados_id','notas.areas_id','notas.nombre as nombreN','notas.descripcion','users.nombre as nombreE','users.apellido','notas.personal')
+            ->where('notas.empleados_id',$autenticado->empleado->id)
+            ->where('notas.personal','1')
+            ->orderBy('created_at','DESC')
+            //->paginate(2);
+            ->paginate(8,['*'],'personal');
+
+
+
+            if($request->ajax()){
+              //dd($personal);
+              $url = $request->fullUrl();
+              $data = $request->input('id');
+
+
+              if($data=='personal'){
+
+                return response()->json(view('notas.personal',['personal'=>$personal])->render());
+              }
+
+              if($data=='publico'){
+
+                $publico = DB::table('notas')
+                      ->join('empleados','notas.empleados_id','=','empleados.id')
+                      ->join('users','empleados.id_persona','=','users.id')
+                      ->select('notas.updated_at','notas.created_at','notas.id','notas.empleados_id','notas.areas_id','notas.nombre as nombreN','notas.descripcion','users.nombre as nombreE','users.apellido','notas.personal')
+                      ->where('notas.areas_id',$autenticado->empleado->area->id)
+                      ->where('notas.personal','0')
+                      ->orderBy('created_at','DESC')
+                      ->paginate(8,['*'],'publico');
+                return response()->json(view('notas.publico',['publico'=>$publico])->render());
+              }
+
+            }
+
+      return view('notas.todos',['personal'=>$personal]);
     }
 
 
-    public function todosPersonal(){
-      $this -> middleware('auth');
-      $this->user= \Auth::user();
-      $autenticado = $this->user;
-
-      $personal = Notas::where('empleados_id',$autenticado->empleado->id)->where('personal','1')->orderBy('created_at','DESC')->paginate(8,['*'],'personal');
-      echo('Entra a personal');
-      return View::make('notas.personal')->with('personal',$personal)->render();
-
-    }
-
-    public function todosPublico(){
-      $this -> middleware('auth');
-      $this->user= \Auth::user();
-      $autenticado = $this->user;
-      echo('Entra a publico');
-      $publico = Notas::where('areas_id',$autenticado->empleado->area->id)->where('personal','0')->orderBy('created_at','DESC')->paginate(8,['*'],'publico');
-
-      return View::make('notas.publico')->with('publico',$publico)->render();
-
-    }
-
-    public function todos2(){
-
-      $this -> middleware('auth');
-      $this->user= \Auth::user();
-      $autenticado = $this->user;
-
-      $personal = Notas::where('empleados_id',$autenticado->empleado->id)->where('personal','1')->orderBy('created_at','DESC')->paginate(8,['*'],'personal');
-      $publico = Notas::where('areas_id',$autenticado->empleado->area->id)->where('personal','0')->orderBy('created_at','DESC')->paginate(8,['*'],'publico');
-
-
-      //return view('notas.todos',['personal'=>$personal,'publico'=>$publico]);
-      return View::make('notas.personal')->with('personal'.$personal)->render();
-      return View::make('notas.publico')->with('publico'.$publico)->render();
-
-    }
-/*
-    public function todos(){
-    	return view('notas.todos');
-    }
-*/
     public function show ($id){
     	$encontrado = Notas::find($id);
     	return view('notas.show',['notas'=>$encontrado]);
@@ -95,7 +100,7 @@ class notasController extends Controller
 
     public function guardar(Request $datos){
 
-      
+
       $editar = Notas::find($datos->id);
 
       $editar ->nombre = $datos->nombre;

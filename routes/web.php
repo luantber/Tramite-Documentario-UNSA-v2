@@ -174,7 +174,7 @@ Route::group(['prefix'=>'tramites'],function(){
 	Route::post('{id}/documentos/{id2}/editar','tramitesController@documentosEditar');
 
 	Route::get('{id}/documentos/{id2}/eliminar','tramitesController@documentosEliminar');
-	
+
 	Route::get('{id}/subir','tramitesController@subirV');
 	Route::get('documentos/{id}/descargar','tramitesController@descargar');
 
@@ -195,7 +195,7 @@ Route::group(['prefix'=>'tiposDocumento'],function(){
   Route::get('{id}/editar','tiposDocumentoController@editar');
 
   Route::get('{id}/eliminar','tiposDocumentoController@eliminar');
-  
+
 
   Route::get('{id}','tiposDocumentoController@show');
   Route::post('{id}','tiposDocumentoController@guardar');
@@ -257,28 +257,22 @@ Route::group(['prefix'=>'mistramites'],function(){
 /* AGENDA She's a maniac, maniac... on the floor!!! *dances*  */
 Route::group(['prefix'=>'notas'],function(){
 
-  Route::get('/',function(){ return view('notas.todos');  });
+  Route::get('/',function(){ return redirect('notas/todos');  });
 
   Route::get('todos','notasController@todos');
 
-  Route::get('todos/personal','notasController@todosPersonal');
 
-  Route::get('todos/publico','notasController@todosPublico');
-
-  //Route::get('crear','notasController@antesCrear');
   Route::get('crear',function(){return view('notas.crear');});
   Route::post('crear','notasController@crear');
 
 
-  Route::get('{id}/editar','notasController@editar');
-  Route::post('{id}/guardar','notasController@guardar');
-
-  Route::get('{id}','notasController@show');
-
   Route::get('{id}/eliminar','notasController@eliminar');
   Route::post('eliminar','notasController@eliminado');
 
+  Route::get('{id}','notasController@show');
 
+  Route::get('{id}/editar','notasController@editar');
+  Route::post('{id}','notasController@guardar');
 
 
 });
@@ -382,4 +376,3 @@ Route::get('busqueda/resultadoTramite','buscadorController@tramiteBusqueda');
 /*
 	GG tu Prueba
 */
-
