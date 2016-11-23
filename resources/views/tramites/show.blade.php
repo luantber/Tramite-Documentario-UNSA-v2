@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
    
           <div class="panel panel-info">
@@ -89,34 +88,34 @@
                         </td>
                       </tr>
 
-                      @if(Auth::user()->isEmpleado())
-                      <!--
-                        @if($tramite->empleado!=NULL)
-                        @if(Auth::user()->id == $tramite->empleado->user->id)-->
-                      <tr>
-                        <td> Documentos: </td>
-                        <td>
-                          <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'documentos'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i> Ir a documentos </a>
-                        </td>
-                      </tr> 
-                      <!--
+                    @if(Auth::user()->isEmpleado())
+                      
+                      @if($tramite->empleado!=NULL)
+                      @if(Auth::user()->id == $tramite->empleado->user->id)
                       <tr>
                         <td> Delegar: </td>
                         <td>
                           <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'delegar'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-arrow-right"></i>   Delegar </a>
                         </td>
                       </tr>
-                      -->
+                      @endif
+                      @endif
+
+                      @if(Auth::user()->empleado->area->id == $tramite->area->id)
+                      <tr>
+                        <td> Documentos: </td>
+                        <td>
+                          <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'documentos'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i> Ir a documentos </a>
+                        </td>
+                      </tr> 
+                      @endif
                       <tr>
                         <td> Subir documentos: </td>
                         <td>
                           <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'subir'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-arrow-right"></i>   Subir </a>
                         </td>
                       </tr>
-                        
-                      <!--  @endif
-                        @endif-->
-                      @endif
+                    @endif
 
                     </tbody>
                   </table>
