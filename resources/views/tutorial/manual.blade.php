@@ -1,3 +1,10 @@
+@extends('template')
+
+@section('title','Tutorial')
+
+@section('content')
+
+
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
 
   <div class="container">
@@ -45,7 +52,7 @@
         <div id="section1"> 
           <h1>Inicio</h1>
           <h5>Bienvenido a Tramite documentario</h5>
-          <img src="inicio.png" class="img-rounded">
+          <img src="{{URL::asset('imagenes/inicio.png')}}" class="img-rounded">
           <p>Para ingresar a su cuenta tendra que proporcionar su correo electronico , con su respectiva contraseña</p>
           <p>Si no puede estrar una de la razones puede ser, que no aya activado su cuenta . Para activar la cuenta es desde su e-mail, ahi tambien le pediran crear su contraseña</p>
           <img src="login.png" class="img-rounded">
@@ -138,4 +145,4 @@
 
 </body>
 
-
+@endsection

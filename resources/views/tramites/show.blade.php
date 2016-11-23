@@ -80,6 +80,8 @@
                         <td> Asunto: </td>
                         <td>{{$tramite->asunto}}</td>
                       </tr>
+
+                      
                       <tr>
                         <td> Movimientos: </td>
                         <td>
@@ -93,14 +95,14 @@
                           <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'documentos'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i> Ir a documentos </a>
                         </td>
                       </tr> 
-
+                      <!--
                       <tr>
                         <td> Delegar: </td>
                         <td>
                           <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/'}}{{'delegar'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-arrow-right"></i>   Delegar </a>
                         </td>
                       </tr>
-
+                      -->
                       <tr>
                         <td> Subir documentos: </td>
                         <td>
