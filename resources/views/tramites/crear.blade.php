@@ -23,13 +23,13 @@
         </div>-->
 
         <div class=" form-group">
-            <label for="dni" class="col-sm-2 control-label"> DNI </label>
+            <label for="dni" class="col-sm-2 control-label"> Identificación </label>
             <div class="col-sm-10">
               
               @if(isset($dni))
-                <input type="text" class="form-control" name="dni" id="dni" required="" disabled="" value={{$dni}}> 
+                <input type="text" class="form-control" name="dni" id="dni" required=""  value="{{$dni}}"> 
               @else
-                <input type="text" class="form-control" name="dni" id="dni" required="" placeholder="Ingresar DNI"> 
+                <input type="text" class="form-control" name="dni" id="dni" required="" placeholder="Ingresar la identificación"> 
               @endif
               
             </div>
@@ -121,8 +121,8 @@
     var DNI = document.getElementById("dni").value;
     var texto;
 
-    if( !(/^\d{8}$/.test(DNI)) ) {
-        texto ="Ingrese un número de 8 digitos";
+    if( !(/^\d{8}$/.test(DNI) || /^\d{11}$/.test(DNI)) ) {
+        texto ="Ingrese un RUC o un DNI";
         document.getElementById("noingreso").innerHTML = texto;
       return false;
     }

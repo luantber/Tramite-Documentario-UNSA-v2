@@ -305,7 +305,7 @@ alertify.genericDialog ($('#new-nota')[0]).set('selector', 'input[type="password
   });
 
 </script>
-
+<!--
 <script>
 
 $(document).ready(function(){
@@ -397,7 +397,7 @@ alertify.genericDialog ($('#eliminar')[0]).set('selector', 'input[type="password
 
 
 </script>
-
+-->
 
 
 @endsection

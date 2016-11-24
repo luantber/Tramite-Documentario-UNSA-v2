@@ -331,9 +331,27 @@ class tramitesController extends Controller
             $tramite->save();
         }
         else if($datos->c_jefe){
+            $empleado=Empleado::find($datos->id_empleado);
+
+            $movimiento=new Movimiento;
+            $movimiento->tramite()->associate($tramite);
+            $movimiento->areaDestino()->associate($tramite->area);
+            $movimiento->areaRemitente()->associate($tramite->area);
+            $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+            $movimiento->empleadoDestino()->associate(Empleado::find(Auth::user()->empleado->area->jefe_id));
+            
+            $movimiento->comentario=$datos->comentario;
+            
+            $movimiento->save();
+
+
             $tramite->empleado()->associate(NULL);
             $tramite->aceptado=0;
             $tramite->save();
+        }
+
+        else if($datos->finalizar){
+
         }
 
         return redirect('panel');

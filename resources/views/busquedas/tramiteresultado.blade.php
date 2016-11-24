@@ -73,8 +73,14 @@
 				  hilera.appendChild(celda);
 				  celda = document.createElement("td");
 				  textoCelda = document.createTextNode("Fecha Creación");
-				  celda.appendChild(textoCelda);
+				  celda.appendChild(textoCelda);				  
 				  hilera.appendChild(celda);
+
+				  celda = document.createElement("td");
+				  textoCelda = document.createTextNode("Tramite link");
+				  celda.appendChild(textoCelda);				  
+				  hilera.appendChild(celda);
+
 				  tblBody.appendChild(hilera);
 				  // Crea las celdas
 				  for (var i = 0; i < aux3.data.length ; i++) {
@@ -140,6 +146,16 @@
 				      textoCelda = document.createTextNode(aux3.data[i].tcr);
 				      celda.appendChild(textoCelda);
 				      hilera.appendChild(celda);
+
+
+				      celda = document.createElement("td");
+				      link = document.createElement('a');
+				      link.href = '/tramites/' + aux3.data[i].tid;
+				      link.innerHTML = 'Ver tramite';
+				      celda.appendChild(link);
+				      hilera.appendChild(celda);
+
+				      
 				    //}
 				 
 				    // agrega la hilera al final de la tabla (al final del elemento tblbody)
