@@ -7,7 +7,7 @@
 <div class="row">
   		<div class="col-md-6 col-md-offset-3">
 
-		<h2><p class="text-center">  Editar Área </p></h2>
+		<h2><p class="text-center">  <b>Editar Área:</b> {{$area->nombre}} </p></h2>
 
 		<br><br>
 		<form method="post" id="formulario" action="{{ asset('areas')}}{{'/'.$area->id}}">
@@ -21,7 +21,7 @@
 							<span class="input-group-addon" id="basic-addon1">
 								<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 							</span>
-			    		<input type="text" class="form-control"name="nomArea" id="nomArea" value="{{$area->nombre}}">
+			    		<input type="text" class="form-control" name="nomArea" id="nomArea" value="{{$area->nombre}}">
 		  			</div>
 		  		</div>
 		  	</div><br>

@@ -147,6 +147,8 @@ window.TablaTramites = React.createClass({
 				this.state.data.map(
 				 	function (tramite){
 
+				if(tramite.estado){
+					
 				if(this.props.ver){
 
 						if(tramite.aceptado){
@@ -159,7 +161,7 @@ window.TablaTramites = React.createClass({
 
 							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
 							destino={tramite.area.nombre}
-							estado={JSON.stringify(tramite.estado)}
+							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
 
 							ver={this.props.ver}
@@ -183,7 +185,7 @@ window.TablaTramites = React.createClass({
 
 							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
 							destino={tramite.area.nombre}
-							estado={JSON.stringify(tramite.estado)}
+							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
 
 							ver={this.props.ver}
@@ -207,18 +209,21 @@ window.TablaTramites = React.createClass({
 
 							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
 							destino={tramite.area.nombre}
-							estado={JSON.stringify(tramite.estado)}
+							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
-
-							
-
-						
+					
 
 							base={this.props.base}
 							key={tramite.id}
 		 				/>
 		 				)
+				}					
 				}
+				else{
+					console.log("error Con tramite");
+					console.log(tramite);
+				}
+
 				 		
 					
 		 				

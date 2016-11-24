@@ -1,7 +1,29 @@
-enviar a jefe 
+enviar a jefe  (Done)
 
-mostrar comentarios
-restringir ver  tramitesar tramtie directamente s
+
+restringir ver  tramitesar tramtie directamentes
+
 buscar en empleado -> boton para un tramite
-buscar usuario .. y cre
-RUC  - 
+
+buscar usuario .. y cre RUC  -   (Done)
+
+- Check (Show) Editar Estado 
+- Deberias Comentarios
+
+
+- crear Area .. no muestra Mensaje
+			..  No reinicia
+			..
+			.. Editar Area : nombrecito
+
+
+$table->bigInteger('votes');	BIGINT equivalent for the database.
+
+Cuando buscas no redirecciona al crear
+
+Tipo Documento: Acepta doble
+
+Estado : todos
+
+
+Barrra  No sale el nombre del usuario

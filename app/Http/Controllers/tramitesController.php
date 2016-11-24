@@ -315,6 +315,7 @@ class tramitesController extends Controller
         }
         else if($datos->c_subArea){
             $area_destino=Area::find($datos->subarea);
+            
             $movimiento=new Movimiento;
             $movimiento->tramite()->associate($tramite);
             $movimiento->areaDestino()->associate($area_destino);
@@ -323,6 +324,7 @@ class tramitesController extends Controller
             $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
             $movimiento->comentario=$datos->comentario;
             $movimiento->save();
+            
             $tramite->area()->associate($area_destino);
             $tramite->empleado()->associate(NULL);
             $tramite->aceptado=0;

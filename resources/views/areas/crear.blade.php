@@ -84,21 +84,31 @@
                if(!data.resp){
                 	if(data.error=="nomArea"){
 
-               	       $("#EnomArea").html(data.data);
-               	       $("#EnomArea").addClass("alert alert-warning");
+               	    alertify.set('notifier','position', 'top-right');
+     		 		var msg = alertify.error('Default message');
+			 		msg.delay(10).setContent(data.data);
+
                 	}
                		else{
 
-               			$("#error").html(data.data);
-               			$("#error").addClass("alert alert-warning");
+               			alertify.set('notifier','position', 'top-right');
+     		 			var msg = alertify.error('Default message');
+			 			msg.delay(10).setContent(data.data);
+			 		
                		}
                	}
                	else{
-               		alertify.success(data.data);
+               		
+               		alertify.set('notifier','position', 'top-right');
+     		 		var msg = alertify.success('Default message');
+			 		msg.delay(10).setContent(data.data);
+			
                		$("#nomArea").val("");
                		$("#idAreaPad").val(0);
                		$("#jefArea").val(0);
                		$("#descripcion").val("");
+
+               		$("#EnomArea").html("");
                		
                	}
 
