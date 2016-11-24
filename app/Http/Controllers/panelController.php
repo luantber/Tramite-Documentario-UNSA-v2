@@ -43,7 +43,7 @@ class panelController extends Controller
      public function todosu()
     {
     	
-        $tramites = Tramite::with('area','persona','empleado')->where('persona_id',Auth::user()->id)->paginate(10);
+        $tramites = Tramite::with('area','persona','empleado','estado')->where('persona_id',Auth::user()->id)->paginate(10);
         //dd($tramites);
        return response()->json($tramites);
     }

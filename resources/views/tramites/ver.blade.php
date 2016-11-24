@@ -45,19 +45,21 @@ var TablaTramites;
 <script type="text/babel">
 
 ReactDOM.render(
-	<TablaTramites url="{{asset('tramites/todos')}}" refresh="5000" />,
+	<TablaTramites url="{{asset('tramites/todos')}}"  base="{{asset('tramites')}}" refresh="5000" />,
 	document.getElementById('todos')
 );
 
 ReactDOM.render(
-	<TablaTramites url="{{asset('tramites/todos/activo')}}" refresh="5000" />,
+	<TablaTramites url="{{asset('tramites/todos/activo')}}" base="{{asset('tramites')}}" refresh="5000" />,
 	document.getElementById('proceso')
 );
 
+
 ReactDOM.render(
-	<TablaTramites url="{{asset('tramites/todos/final')}}" refresh="5000" />,
+	<TablaTramites url="{{asset('tramites/todos/final')}}" base="{{asset('tramites')}}" refresh="5000" />,
 	document.getElementById('finalizados')
 );
+
 </script>
 
 
