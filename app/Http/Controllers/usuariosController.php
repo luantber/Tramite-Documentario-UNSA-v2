@@ -106,9 +106,8 @@ class usuariosController extends Controller
     {
         //dd($datos);
         $user= User::where('email',$datos->email)->first();
-
         //dd($user);
-
+        if (!$user) return redirect('login')->with('error','Usuario o contraseña incorrectos');
         if (Auth::attempt(['email'=>$datos->email,'password'=>$datos->password,'activo'=>1]))
         {
             return redirect('/');
