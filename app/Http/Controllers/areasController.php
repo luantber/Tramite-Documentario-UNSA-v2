@@ -63,6 +63,7 @@ class areasController extends Controller
 
     public function show($id){
         $area = Area::find($id);
+        
         return view('areas.show',['area'=>$area]);
     }
 

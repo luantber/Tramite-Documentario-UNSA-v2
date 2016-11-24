@@ -24,11 +24,11 @@
                   </tr>
                   <tr>
                     <td>Nombre de Área Padre: </td>
-                    <td>{{$area->area_id}}</td>
+                    <td>{{$area->padre->nombre}}</td>
                   </tr>      
                   <tr>
                     <td>Jefe de Área: </td>
-                    <td>{{$area->jefe_id}}</td>
+                    <td>{{$area->jefe->user->apellido}} {{$area->jefe->user->nombre}}</td>
                   </tr>
                   <tr>
                     <td>Descripción: </td>
