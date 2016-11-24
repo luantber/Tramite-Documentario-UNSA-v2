@@ -15,6 +15,8 @@
 	        <th>ID</th>
 	        <th>From: </th>
 	        <th>To: </th>
+	        <th>Remitente: </th>
+	        <th>Enviado a : </th>
 	        <th>Comentarios: </th>
 	        <th>Fecha: </th>
 	      </tr>
@@ -22,11 +24,13 @@
 	    @foreach($movimientos as $movimiento)
 	    <tbody>
 	    	<tr>
-					<td>{{$movimiento->id}}</td>
-			        <td>{{$movimiento->areaRemitente->nombre}}</td>
-			        <td>{{$movimiento->areaDestino->nombre}}</td>
-			        <td>{{$movimiento->comentario}}</td>
-			        <td>{{$movimiento->created_at}}</td>
+				<td>{{$movimiento->id}}</td>
+		        <td>{{$movimiento->areaRemitente->nombre}}</td>
+		        <td>{{$movimiento->areaDestino->nombre}}</td>
+		        <td>{{$movimiento->empleadoRemitente->user->nombre}} {{$movimiento->empleadoRemitente->user->apellido}}</td>
+		        <td>{{$movimiento->empleadoDestino->user->nombre}} {{$movimiento->empleadoDestino->user->apellido}}</td>
+		        <td>{{$movimiento->comentario}}</td>
+		        <td>{{$movimiento->created_at}}</td>
 		    </tr>
 	    </tbody>
 	    @endforeach
