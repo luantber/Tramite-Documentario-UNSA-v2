@@ -70,7 +70,7 @@
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
 				      link = document.createElement('a');
-				      link.href = '/tramites/crear';
+				      link.href = '/tramites/' + aux3.data[i].dni + '/crear';
 				      link.innerHTML = aux3.data[i].dni;
 				      celda.appendChild(link);
 				      hilera.appendChild(celda);
