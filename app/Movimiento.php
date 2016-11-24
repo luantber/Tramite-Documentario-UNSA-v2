@@ -26,4 +26,14 @@ class Movimiento extends Model
     	return $this->belongsTo('App\Area','area_remitente_id','id');
     }
 
+    public function empleadoRemitente()
+    {
+        return $this->belongsTo('App\Empleado','empleado_remitente_id','id');
+    }    
+
+    public function empleadoDestino()
+    {
+        return $this->belongsTo('App\Empleado','empleado_destino_id','id');
+    }
+
 }

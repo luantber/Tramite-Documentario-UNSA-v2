@@ -88,6 +88,9 @@ class tramitesController extends Controller
         $movimiento->tramite()->associate($tramite);
         $movimiento->areaDestino()->associate($area_destino);
         $movimiento->areaRemitente()->associate($mesa_de_partes);
+
+        $movimiento->empleadoRemitente()->associate(Empleado::find($mesa_de_partes->jefe_id));
+        $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
         $movimiento->comentario=$comentario;
         $movimiento->save();
     
@@ -262,7 +265,21 @@ class tramitesController extends Controller
     public function delegar(Request $datos, $id){
         $tramite=Tramite::find($id);
         if($datos->c_empleado=='empleado'){
+
             $empleado=Empleado::find($datos->id_empleado);
+
+            $movimiento=new Movimiento;
+            $movimiento->tramite()->associate($tramite);
+            $movimiento->areaDestino()->associate($tramite->area);
+            $movimiento->areaRemitente()->associate($tramite->area);
+            $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+            $movimiento->empleadoDestino()->associate($empleado);
+            
+            $movimiento->comentario=$datos->comentario;
+            
+            $movimiento->save();
+
+
             $tramite->empleado()->associate($empleado);
             $tramite->aceptado=0;
             $tramite->save();
@@ -274,6 +291,8 @@ class tramitesController extends Controller
             $movimiento->tramite()->associate($tramite);
             $movimiento->areaDestino()->associate($area_destino);
             $movimiento->areaRemitente()->associate($tramite->area);
+            $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+            $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
             
             $movimiento->comentario=$datos->comentario;
             
@@ -290,6 +309,8 @@ class tramitesController extends Controller
             $movimiento->tramite()->associate($tramite);
             $movimiento->areaDestino()->associate($area_destino);
             $movimiento->areaRemitente()->associate($tramite->area);
+            $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+            $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
             $movimiento->comentario=$datos->comentario;
             $movimiento->save();
             $tramite->area()->associate($area_destino);
