@@ -25,7 +25,13 @@
         <div class=" form-group">
             <label for="dni" class="col-sm-2 control-label"> DNI </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="dni" id="dni" required="" placeholder="Ingresar DNI">
+              
+              @if(isset($dni))
+                <input type="text" class="form-control" name="dni" id="dni" required="" disabled="" value={{$dni}}> 
+              @else
+                <input type="text" class="form-control" name="dni" id="dni" required="" placeholder="Ingresar DNI"> 
+              @endif
+              
             </div>
             <p id="noingreso"></p>
         </div><br><br>
