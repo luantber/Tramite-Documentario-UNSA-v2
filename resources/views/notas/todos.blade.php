@@ -1,5 +1,6 @@
 @extends('template')
 
+
 @section('title','Notas en Agenda')
 
 

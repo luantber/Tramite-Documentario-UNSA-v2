@@ -15,10 +15,6 @@
   <script src="{{asset('js/jquery.js')}}"></script>
 
 
-  
-  <link rel="stylesheet" type="text/css" href="{{asset('css/alertify.min.css')}}" >
-<script src="{{asset('js/alertify.min.js')}}"></script>
-
 @yield('materialize')
 @yield('react')
 

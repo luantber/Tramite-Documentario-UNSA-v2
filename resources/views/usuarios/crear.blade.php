@@ -82,18 +82,23 @@
 								<span class="input-group-addon" id="basic-addon1">
 									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 								</span>
-								<p>.</p>
+								<br><br>
 						    <input class="form-control" type="text" name ="correo" id="mail" placeholder="Ingrese e-mail" required="true">
 						</div>
 						    <div id="emailRepe"></div>
 						<p id="nocorreo"></p>
 				
 					</div>
-					<p>.</p>
-						
-						<div class="progress" id="porcentaje">
+					<span>.</span>
+					
+					<div class="row">
+					<br><br>
+
+
+						<div class="progress" id="porcentaje" >
 							
 						</div>
+					</div>	
 				</div>
 
 				<div class="form-group">
@@ -122,7 +127,6 @@
 		
 
 	var indice = document.formulario.identificacion.value; 
-   	//var valor = document.formul.identificacion.options[indice].value 
 
 		 
 	
@@ -221,11 +225,6 @@
 
 });
 </script>
-
-
-
-
-
 
 
 
