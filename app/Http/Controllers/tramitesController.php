@@ -121,6 +121,16 @@ class tramitesController extends Controller
         
     }
 
+    public function createGet2($dni){
+        
+        $tipoTramites = TipoTramite::all();
+        $areas= Area::all();
+
+
+        return view('tramites.crear',["tipos"=>$tipoTramites,"areas"=>$areas,"dni"=>$dni]);
+        
+    }
+
     public function subirDocumento(Request $datos,$id)
     {
         
