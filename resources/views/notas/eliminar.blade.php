@@ -19,8 +19,8 @@
         </div>
         <div class="panel-body">
           <div class="row">
-           
-            <div class=" col-md-12 col-lg-12 "> 
+
+            <div class=" col-md-12 col-lg-12 ">
               <table class="table table-user-information">
                 <tbody>
                     <tr>
@@ -39,7 +39,7 @@
                         <td>Público</td>
                       @endif
 
-                    </tr>                    
+                    </tr>
                   </tbody>
               </table>
 
@@ -48,23 +48,25 @@
         </div>
       </div>
 
-
+      <div id="confirmacion">
       <div class="text-center">
+
+        <h2><p class="text-center">  ¿Desea eliminar la nota? </p></h2>
+
         <button type="submit" class="btn btn-info btn-lg" value="" data-toggle="modal" data-target="">Eliminar</button>
       </div>
 
       <ul class="pager">
-            <li><a href="{{asset('notas')}}{{'/'.$eliminado->id}}">Cancelar</a></li>
+            <!--<li><a href="{{asset('notas')}}{{'/'.$eliminado->id}}">Cancelar</a></li> -->
+            <!--<li><a href="{{asset('notas/todos')}}">Cancelar</a></li> -->
+
       </ul>
 
     </div>
 
-
+  </div>
 
 </form>
 
 
 @endsection
-
-
-

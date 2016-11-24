@@ -21,7 +21,7 @@
 
 <div class="row">
 
-      <div class="row">
+      <div class="row ">
         <button type="button" class="btn btn-success" value="Personal" onclick="Personal()">Personal</button>
         <button type="button" class="btn btn-info" value="Publico" onclick="Publico()">Público</button>
         <button type="button" id="crear-nota" class="btn btn-danger" value="Crear">Crear Nueva Nota</button>
@@ -67,8 +67,8 @@
                                   <p>{{$nota->descripcion}}</p>
 
 
-                                  <a href="{{asset('notas')}}{{'/'.$nota->id.'/editar'}}" id="edit" class="text-danger pull-left"><i class="fa fa-pencil-square-o "></i></a>
-                                  <a href="{{asset('notas')}}{{'/'.$nota->id.'/eliminar'}}" id="delete" class="text-danger pull-right"><i class="fa fa-trash-o "></i></a>
+                                  <a href="{{asset('notas')}}{{'/'.$nota->id.'/editar'}}"  id="edit" class="text-danger pull-left edit"><i class="fa fa-pencil-square-o "></i></a>
+                                  <a href="{{asset('notas')}}{{'/'.$nota->id.'/eliminar'}}"  id="delete" class="text-danger pull-right delete"><i class="fa fa-trash-o "></i></a>
                               </div>
                           </li>
                         @endforeach
@@ -237,8 +237,17 @@ $(document).on('click','.pagination a',function(e){
 </div>
   </form>
 
+<div id="editar">
 
 
+
+</div>
+
+<div id="eliminar">
+
+
+
+</div>
 
 
 <script>
@@ -301,10 +310,12 @@ alertify.genericDialog ($('#new-nota')[0]).set('selector', 'input[type="password
 
 $(document).ready(function(){
 
-  $("#edit").click(function(e){
+  $(".edit").click(function(e){
     e.preventDefault();
     var $tmp = $(this).attr('href');
     console.log($tmp);
+    var $edi = $tmp +  " #NotasEditar";
+    $("#editar").load($edi);
     alertify.genericDialog || alertify.dialog('genericDialog',function(){
 return {
     main:function(content){
@@ -332,7 +343,53 @@ return {
 };
 });
 //force focusing password box
-alertify.genericDialog ($('#tmp')[0]).set('selector', 'input[type="password"]');
+alertify.genericDialog ($('#editar')[0]).set('selector', 'input[type="password"]');
+
+  });
+
+});
+
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+
+  $(".delete").click(function(e){
+    e.preventDefault();
+    var $tmp = $(this).attr('href');
+    console.log($tmp);
+    var $edi = $tmp +  " #confirmacion";
+    $("#eliminar").load($edi);
+    alertify.genericDialog || alertify.dialog('genericDialog',function(){
+return {
+    main:function(content){
+        this.setContent(content);
+    },
+    setup:function(){
+        return {
+            focus:{
+                element:function(){
+                    return this.elements.body.querySelector(this.get('selector'));
+                },
+                select:true
+            },
+            options:{
+                basic:true,
+                maximizable:false,
+                resizable:false,
+                padding:false
+            }
+        };
+    },
+    settings:{
+        selector:undefined
+    }
+};
+});
+//force focusing password box
+alertify.genericDialog ($('#eliminar')[0]).set('selector', 'input[type="password"]');
 
   });
 

@@ -107,8 +107,8 @@ class notasController extends Controller
       $editar->descripcion = $datos->descripcion;
       $editar->personal = $datos->personal;
       $editar->save();
-      return redirect('notas/'.$datos->id);
-
+      //return redirect('notas/'.$datos->id);
+      return redirect('notas/todos');
     }
 
     public function eliminar($id){

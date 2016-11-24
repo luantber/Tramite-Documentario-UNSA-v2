@@ -6,8 +6,8 @@
 
 
 
-<div class="row">
-      <div class="col-md-6 col-md-offset-3">
+<div id="NotasEditar" class="row">
+      <div class="col-md-10 col-md-offset-1 container">
 
     <h2><p class="text-center">  Editar Notas </p></h2>
 
@@ -17,7 +17,7 @@
         {{ csrf_field()}}
         <input type="hidden" name="id" value="{{$notas->id}}">
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <label for="nombre" >Nombre: </label>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">
@@ -29,13 +29,13 @@
         </div><br>
 
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
               <label for="nota" >Nota: </label>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </span>
-                <input class="form-control" type="string" name ="descripcion" id="descripcion" value="{{$notas->descripcion}}"  required="true">
+                <textarea class="form-control" type="text" name ="descripcion" id="descripcion" value="{{$notas->descripcion}}"  required="true">{{$notas->descripcion}} </textarea>
               </div>
           </div>
         </div><br>
