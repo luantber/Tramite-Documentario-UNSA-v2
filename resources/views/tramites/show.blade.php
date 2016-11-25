@@ -88,7 +88,7 @@
                         </td>
                       </tr>
 
-                    @if(Auth::user()->isEmpleado())
+                      @if(Auth::user()->isEmpleado())
                       
                       @if($tramite->empleado!=NULL)
                       @if(Auth::user()->id == $tramite->empleado->user->id)
@@ -125,10 +125,14 @@
               </div>
             </div>
                  <div class="panel-footer">
+                        @if(Auth::user()->isEmpleado())
+                        @if(Auth::user()->empleado->area->id == $tramite->area->id)
                         <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/editar'}}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                        <span class="pull-right">
+                        @endif
+                        @endif
+                        <!--<span class="pull-right">
                             <a href="{{asset('tramites')}}{{'/'.$tramite->id.'/eliminar'}}" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                        </span>
+                        </span>-->
                     </div>
 
 

@@ -351,6 +351,21 @@ class tramitesController extends Controller
         }
 
         else if($datos->finalizar){
+            $area_destino=Area::find($datos->subarea);
+            
+            $movimiento=new Movimiento;
+            $movimiento->tramite()->associate($tramite);
+            $movimiento->areaDestino()->associate($tramite->area);
+            $movimiento->areaRemitente()->associate($tramite->area);
+            $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+            $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
+            $movimiento->comentario=$datos->comentario;
+            $movimiento->save();
+            
+            
+            $tramite->empleado()->associate(NULL);
+            
+            $tramite->save();      
 
         }
 
