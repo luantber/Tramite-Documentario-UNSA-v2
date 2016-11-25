@@ -47,9 +47,10 @@ class Tramite extends Model
         return $this->hasMany('App\Documento','tramite_id','id');
     }
 
-    /*
-
+    
     public function comentario(){
-        return $this->hasMany('App\Movimiento','');
-    } */
+        return $this->hasMany('App\Movimiento','tramite_id','id');
+    }
+
+    
 }

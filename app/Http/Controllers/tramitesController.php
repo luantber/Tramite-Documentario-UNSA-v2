@@ -199,7 +199,7 @@ class tramitesController extends Controller
             $tramites = Tramite::select('*')->orderBy('updated_at')->paginate(10);
         
 
-        $tramites->load('area','persona','empleado','tipoTramite','estado');
+        $tramites->load('area','persona','empleado','tipoTramite','estado','comentario');
 
         return response()->json($tramites);
     }

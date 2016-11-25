@@ -12,8 +12,12 @@ class Tramite extends React.Component{
 		        	Para: {this.props.destino} <br/>
 		        	Estado: {this.props.estado}  <br/>
 		        </td>
+
 		        <td>{this.props.fechainicio}</td>
-		        <td>Final</td>
+		        <td>
+		        	{this.props.comentario}
+		        </td>
+		        
 
 
 		       	
@@ -118,7 +122,7 @@ window.TablaTramites = React.createClass({
 		        <th>Asunto</th>
 		        <th>Datos</th>
 		        <th>Fecha de Inicio</th>
-		        <th>Fecha de Finalización</th>
+		        <th>Comentarios</th>
 
 
 		        <th><span className="glyphicon glyphicon-envelope"></span> </th>
@@ -152,6 +156,7 @@ window.TablaTramites = React.createClass({
 				if(this.props.ver){
 
 						if(tramite.aceptado){
+							console.log("here 2");
 						return(
 		 					<Tramite
 		 					ide={tramite.nro_expediente}
@@ -164,6 +169,8 @@ window.TablaTramites = React.createClass({
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
 
+							comentario={  JSON.stringify(tramite.comentario)}
+
 							ver={this.props.ver}
 
 							recibido="true"
@@ -174,7 +181,7 @@ window.TablaTramites = React.createClass({
 		 				)
 					}
 					else{
-
+						console.log("here 1");
 
 						return(
 		 					<Tramite
@@ -182,6 +189,8 @@ window.TablaTramites = React.createClass({
 		 					id={tramite.id}
 
 							asunto={tramite.asunto}
+
+							comentario={  JSON.stringify(tramite.comentario) }
 
 							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
 							destino={tramite.area.nombre}
@@ -199,13 +208,15 @@ window.TablaTramites = React.createClass({
 					}
 				}
 				else{
-
+					console.log("here ");
 					return(
 		 					<Tramite
 		 					ide={tramite.nro_expediente}
 		 					id={tramite.id}
 
 							asunto={tramite.asunto}
+
+							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
 							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
 							destino={tramite.area.nombre}
