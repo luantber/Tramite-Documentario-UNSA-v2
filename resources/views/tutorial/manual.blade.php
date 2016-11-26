@@ -12,35 +12,83 @@
       <nav class="col-sm-3" id="myScrollspy">
         <ul class="nav nav-pills nav-stacked">
           <li><a href="#section1">Inicio</a></li>
+          <li><a href="#section2">Mis Trámites</a></li>
+          <li><a href="#section3">Panel</a></li>
+          <li><a href="#section4">Agenda</a></li>
+
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#section2">Crear<span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#section5">Areas<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#section21">Crear Usuario</a></li>
-              <li><a href="#section22">Crear Empleado</a></li>
-              <li><a href="#section23">Crear Cargo</a></li>
-              <li><a href="#section24">Crear Area</a></li>
-              <li><a href="#section25">Crear Tipo Trámite</a></li>
-              <li><a href="#section26">Crear Estado</a></li>
-              <li><a href="#section27">Crear Estado Empleado</a></li>
+
+              <li><a href="#section51">Nuevo</a></li>
+              <li><a href="#section52">Editar</a></li>
+              <li><a href="#section53">Todos</a></li>
+              <li><a href="#section54">Buscar</a></li>
+
             </ul>
           </li>
+
+
+
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#section3">Trámite <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#section6">Cargos<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#section31">Crear</a></li>
-              <li><a href="#section32">Subir Documentos</a></li>
-              <li><a href="#section33">Visualizar Trámites</a></li>
+
+              <li><a href="#section61">Nuevo</a></li>
+              <li><a href="#section62">Editar</a></li>
+              <li><a href="#section63">Todos</a></li>
+
             </ul>
           </li>
+
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#section4">Búsqueda<span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#section7">Usuarios<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#section41">Buscar Área</a></li>
-              <li><a href="#section42">Buscar Empleado</a></li>
-              <li><a href="#section43">Buscar Trámite</a></li>
-              <li><a href="#section44">Buscar Usuario</a></li>
+
+              <li><a href="#section71">Nuevo</a></li>
+              <li><a href="#section72">Editar</a></li>
+              <li><a href="#section73">Todos</a></li>
+              <li><a href="#section74">Buscar</a></li>
+
             </ul>
           </li>
+
+
+              <li><a href="#section8">Estadística</a></li>
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#section9">Empleados<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+
+              <li><a href="#section91">Nuevo</a></li>
+              <li><a href="#section92">De usuario a Empleado</a></li>
+              <li><a href="#section93">Editar empleado</a></li>
+              <li><a href="#section94">Todos</a></li>
+              <li><a href="#section95">Nuevo estado</a></li>
+              <li><a href="#section96">Todos los estados</a></li>
+              <li><a href="#section97">Buscar</a></li>
+
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#section10">Trámite<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+
+              <li><a href="#section101">Nuevo</a></li>
+              <li><a href="#section102">Todos</a></li>
+              <li><a href="#section103">Editar Trámite</a></li>
+              <li><a href="#section104">Nuevo estado</a></li>
+              <li><a href="#section105">Todos estados</a></li>
+              <li><a href="#section106">Nuevo Tipo trámite</a></li>
+              <li><a href="#section107">Todos Tipo trámites</a></li>
+              <li><a href="#section108">Buscar</a></li>
+
+            </ul>
+          </li>
+
+
+        
 
 
 
@@ -50,94 +98,254 @@
 
       <div class="col-sm-9">
         <div id="section1"> 
-          <h1>Inicio</h1>
-          <h5>Bienvenido a Tramite documentario</h5>
-          <img src="{{URL::asset('imagenes/inicio.png')}}" class="img-rounded" width="900" height="500">
+          <h2 class="text center">Inicio</h2>
+          <p>Bienvenido a Tramite documentario</p>
+          <img src="{{URL::asset('imagenes/inicio.png')}}" class="img-responsive center-block" >
+          <hr></hr>
           <p>Para ingresar a su cuenta tendra que proporcionar su correo electronico , con su respectiva contraseña</p>
           <p>Si no puede estrar una de la razones puede ser, que no aya activado su cuenta . Para activar la cuenta es desde su e-mail, ahi tambien le pediran crear su contraseña</p>
-          <img src="login.png" class="img-rounded">
-        </div>
-      <!-- crear -->
-
-        <div id="section21"> 
-          <h1>Crear Usuario</h1>
-          <img src="{{URL::asset('imagenes/crearusuario.png')}}" class="img-rounded">
-          <p>Ingresar todos los datos que se pide, si los datos como: Correo electronico, DNI o RUC, son repetidos, no se permitira registrar al nuevo usuario.</p>
-        </div>
-        <div id="section22"> 
-          <h1>Crear Empleado</h1>
-          <img src="{{URL::asset('imagenes/crearempleado.png')}}" class="img-rounded">
-          <p>Ingresar los datos requeridos, al cocluir esta opcion, se crea automaticamente un usuario del empleado.</p>
-        </div>
-        <div id="section23"> 
-          <h1>Crear Cargo</h1>
-          <img src="crearcargo.png" class="img-rounded">
-          <p>Al crear un cargo se le dan permisos, los cuales se pueden editar, ya sea para aumentar permisos o quitarle.</p>
-        </div>
-        <div id="section24"> 
-          <h1>Crear Area</h1>
-          <img src="creararea.png" class="img-rounded">
-          <p>Llenamos los respectivos requerimientos. </p>
-        </div> 
-        <div id="section25"> 
-          <h1>Crear Tipo Trámite</h1>
-          <img src="Creartipot.png" class="img-rounded">
-          <p>Se puede crear cualqueir Tipo de Tramite que usted requiera o necesite</p>
-        </div>
-        <div id="section26"> 
-          <h1>Crear Estado</h1>
-          <img src="crearestado.png" class="img-rounded">
-          <p>Esta opcion es para Crea un estado del Trámite</p>
-        </div>
-        <div id="section27"> 
-          <h1>Crear Estado Empleado</h1>
-          <img src="crearestadoem.png" class="img-rounded">
-          <p>El empleado puede tener varios estados</p>
-        </div>
-      <!-- tramite -->
-
-      <div id="section31"> 
-          <h1>Crear Trámite</h1>
-          <img src="creartramite.png" class="img-rounded">
-          <p>Ingresar todos los datos que se pide, llegara al jefe del área delegada.</p>
-        </div>
-        <div id="section32"> 
-          <h1>Subir Documentos</h1>
-          <img src="subirdocu.png" class="img-rounded">
-          <p>Esta Sección es opcional, ya que los tramites puedes físicos</p>
-        </div>
-        <div id="section33"> 
-          <h1>Visualizar el Trámite</h1>
-          <img src="vertramite.png" class="img-rounded">
-          <p>En esta ventana se pueden ver todos los Tramites ealizados , asi como tambien los Finalizados y en Proceso.</p>
+          <img src="{{URL::asset('imagenes/login.png')}}" class="img-responsive center-block">
         </div>
 
-         <!-- busqueda--> 
-
-
-        <div id="section24"> 
-          <h1>Buscar Area</h1>
-          <img src="busarea.png" class="img-rounded">
-          <p>Solo colocar el nombre del Area a buscar, Nos redirige al Area deseada. </p>
-        </div> 
-        <div id="section25"> 
-          <h1>Buscar Empleado</h1>
-          <img src="busempleado.png" class="img-rounded">
-          <p>Nos redirige al Perfil del Empleado</p>
+        <div id="section2"> 
+          <h2 class="text center">Mis Trámites</h2>
+          <hr></hr>
+          <p>Principalmente esta opción esta hecha para el usuario, con el fin de que pueda ver los tramites que ha realizado</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
         </div>
-        <div id="section26"> 
-          <h1>Buscar Trámite</h1>
-          <img src="Bustramite.png" class="img-rounded">
-          <p>AL Trámite requerido</p>
+
+        <div id="section3"> 
+          <h2 class="text center">Panel</h2>
+          <hr></hr>
+          <p>Se pueden visualizar aquellos tramites que han sido asignados , ya sea a una área, o encargado del área. </p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
         </div>
-        <div id="section27"> 
-          <h1>Buscar Usuario</h1>
-          <img src="bususuario.png" class="img-rounded">
-          <p>Redirige al Perfil del usuario</p>
-        </div>    
+
+        <div id="section4"> 
+          <h2 class="text center">Agenda</h2>
+          <hr></hr>
+          <p>Esta sección se puede crear notas, recordatorios, fechas importantes,etc.</p>
+          <p>Tiene las opciones de privacidad, solo disponible para los empleados.</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <!--Areas-->
+        <div id="section51"> 
+          <h2 class="text center">Nuevo</h2>
+          <hr></hr>
+          <p>Simplemente llenar lo que se pide</p>
+          <p class = "text-danger">No se puede crear dos áreas iguales.</p>
+          <img src="{{URL::asset('imagenes/creararea.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section52"> 
+          <h2 class="text center">Editar</h2>
+          <hr></hr>
+          <p>Si uno cómete cualquier tipo de error, exite la funcion "Editar", lo cual nos permítira corregir aquel error.</p>
+          <img src="{{URL::asset('imagenes/ediarea.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section53> 
+          <h2 class="text center">Todos</h2>
+          <hr></hr>
+          <p>Para visualizar aquellas áreas creadas, solo ir a "Todos".</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section54"> 
+          <h2 class="text center">Buscar</h2>
+          <hr></hr>
+          <p>Son demasiadas áreas, solo ir a la opción buscar, y la encontrarás</p>
+          <img src="{{URL::asset('imagenes/busarea.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <!--Cargos-->
 
 
-      </div>
+        <div id="section61"> 
+          <h2 class="text center">Nuevo</h2>
+          <hr></hr>
+          <p>Si uno cómete cualquier tipo de error, exite la funcion "Editar", lo cual nos permítira corregir aquel error.</p>
+          <img src="{{URL::asset('imagenes/crearcargo.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section62"> 
+          <h2 class="text center">Editar</h2>
+          <hr></hr>
+          <p>Para visualizar aquellas áreas creadas, solo ir a "Todos".</p>
+          <img src="{{URL::asset('imagenes/edicargo.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section63"> 
+          <h2 class="text center">Todos</h2>
+          <hr></hr>
+          <p>Son demasiadas áreas, solo ir a la opción buscar, y la encontrarás</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <!--Usuarios-->
+
+        <div id="section71"> 
+          <h2 class="text center">Nuevo</h2>
+          <hr></hr>
+          <p>Un usuarios solo tiene permiso, para ver sus trámites.</p>
+          <p class = "text-danger">No se puede crear dos usuarios iguales.</p>
+          <img src="{{URL::asset('imagenes/crearusuario.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section72"> 
+          <h2 class="text center">Editar</h2>
+          <hr></hr>
+          <p>Si uno cómete cualquier tipo de error, exite la funcion "Editar", lo cual nos permítira corregir aquel error.</p>
+          <p class = "text-danger">El mismo usuario tambien puede editar.</p>
+          <img src="{{URL::asset('imagenes/ediusuario.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section73"> 
+          <h2 class="text center">Todos</h2>
+          <hr></hr>
+          <p>Para visualizar todos los usuarios creados, solo ir a "Todos".</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section74"> 
+          <h2 class="text center">Buscar</h2>
+          <hr></hr>
+          <p>Desea Crear un trámite, solo ir a la opción buscar,y encontrará al usuario deseado</p>
+          <img src="{{URL::asset('imagenes/bususuario.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <!--Estadistica-->
+
+        <div id="section8"> 
+          <h2 class="text center">Estadística</h2>
+          <hr></hr>
+          <p>Un usuarios solo tiene permiso, para ver sus trámites.</p>
+
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <!--Empleados-->
+
+        <div id="section91"> 
+          <h2 class="text center">Nuevo</h2>
+          <hr></hr>
+          <p>CUando se crea un empleado, ya existe como usuario</p>
+          <p class = "text-danger">Solo se puede eliminar un empleado, no el usuario como tal.</p>
+          <img src="{{URL::asset('imagenes/crear empleado.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section92"> 
+          <h2 class="text center">De Usuarios a Empleado</h2>
+          <hr></hr>
+          <p>Existe un usuario, ahora es empleado, esta opcion nos permite crear un empleado cuando ya existe como usuario</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section93> 
+          <h2 class="text center">Editar Empleado</h2>
+          <hr></hr>
+          <p>Asi como el usuario puede editar su perfil, tambien un empleado</p>
+          <img src="{{URL::asset('imagenes/ediempleados.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section94"> 
+          <h2 class="text center">Todos</h2>
+          <hr></hr>
+          <p>Todos los empleados que necesites en el momento.</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section95"> 
+          <h2 class="text center">Nuevo Estado</h2>
+          <hr></hr>
+          <p>Crea un estado para el trámite</p>
+          <p class = "text-danger">No se puede crear dos estados iguales.</p>
+          <img src="{{URL::asset('imagenes/crearestadoem.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section96"> 
+          <h2 class="text center">Todos Estados</h2>
+          <hr></hr>
+          <p>Ver los eatdos creados.</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section97> 
+          <h2 class="text center">Buscar</h2>
+          <hr></hr>
+          <p>BUscar un empleado, para cualquier requerimiento.</p>
+          <img src="{{URL::asset('imagenes/busempleado.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <!--Tramite-->
+
+        <div id="section91"> 
+          <h2 class="text center">Nuevo</h2>
+          <hr></hr>
+          <p>Solo un area puede crear trámite. </p>
+          <p class = "text-danger">No se puede borrar tramites.</p>
+          <img src="{{URL::asset('imagenes/creartramite.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section92"> 
+          <h2 class="text center">Todos</h2>
+          <hr></hr>
+          <p>Ver todos los tramites que existen </p>
+          <img src="{{URL::asset('imagenes/vertramite.png')}}" class="img-responsive center-block" >
+        </div>
+1
+        <div id="section93> 
+          <h2 class="text center">Editar Trámite</h2>
+          <hr></hr>
+          <p>Los usuarios no pueden editar un trámite.</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section94"> 
+          <h2 class="text center">Nuevo Estado</h2>
+          <hr></hr>
+          <p>La opción nos indica poder crear un nuevo estado para un trámite.</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section95"> 
+          <h2 class="text center">Todos Estados</h2>
+          <hr></hr>
+          <p>Todos los estados ya creados para un trámite.</p>
+          <img src="{{URL::asset('imagenes/crearestadoem.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section96"> 
+          <h2 class="text center">Nuevo Tipo Trámite</h2>
+          <hr></hr>
+          <p>Crea todos los tipos trpamite que necestite.</p>
+          <img src="{{URL::asset('imagenes/creartipot.png')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section97"> 
+          <h2 class="text center">Todos Tipo Trámites</h2>
+          <hr></hr>
+          <p>Todos los tipos de trámites qeu usted creó.</p>
+          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+        </div>
+
+        <div id="section98">
+          <h2 class ="text center" >Buscar</h2>
+          <hr></hr>
+          <p>Busca cualquier tramite que desee.</p>
+          <img src="{{URL::asset('imagenes/Bustramite.png')}}" class="img-responsive center-block" >
+        </div>
+
+
+
+
+
+
+
+
+
 
 
     </div>

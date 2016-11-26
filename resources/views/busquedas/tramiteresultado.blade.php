@@ -92,14 +92,11 @@
 				      // texto sea el contenido de <td>, ubica el elemento <td> al final
 				      // de la hilera de la tabla
 				      var celda = document.createElement("td");
-				      var link = document.createElement('a');
-				      link.href = /tramites/ + aux3.data[i].tid;
-				      link.innerHTML= aux3.data[i].tid;
-				      //var textoCelda = document.createTextNode(aux3.data[i].tid);
-				      celda.appendChild(link);
+				      var textoCelda = document.createTextNode(aux3.data[i].tid);
+				      celda.appendChild(textoCelda);
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
-				      var textoCelda = document.createTextNode(aux3.data[i].expe);
+				      textoCelda = document.createTextNode(aux3.data[i].expe);
 				      celda.appendChild(textoCelda);
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
@@ -149,7 +146,7 @@
 
 
 				      celda = document.createElement("td");
-				      link = document.createElement('a');
+				      link =p  document.createElement('a');
 				      link.href = '/tramites/' + aux3.data[i].tid;
 				      link.innerHTML = 'Ver tramite';
 				      celda.appendChild(link);
