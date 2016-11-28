@@ -91,6 +91,8 @@ class tramitesController extends Controller
 
         $movimiento->empleadoRemitente()->associate(Empleado::find($mesa_de_partes->jefe_id));
         $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
+        $movimiento->estadoOrigen()->associate($tramite->estado);
+        $movimiento->estadoFinal()->associate($tramite->estado);
         $movimiento->comentario=$comentario;
         $movimiento->save();
     
@@ -284,6 +286,9 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate($empleado);
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
+
             
             $movimiento->comentario=$datos->comentario;
             
@@ -303,6 +308,8 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
             
             $movimiento->comentario=$datos->comentario;
             
@@ -322,6 +329,8 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
+            $movimiento->estadoOrigen()->associate($tramite->estado);   
+            $movimiento->estadoFinal()->associate($tramite->estado);
             $movimiento->comentario=$datos->comentario;
             $movimiento->save();
             
@@ -339,7 +348,8 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Empleado::find(Auth::user()->empleado->area->jefe_id));
-            
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
             $movimiento->comentario=$datos->comentario;
             
             $movimiento->save();
@@ -359,6 +369,8 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
             $movimiento->comentario=$datos->comentario;
             $movimiento->save();
             
