@@ -181,6 +181,9 @@ Route::group(['prefix'=>'tramites'],function(){
 
 
 	Route::get('{id}/recibir','tramitesController@recibir');
+
+	Route::get('{id}/cambiarEstado','tramitesController@cambiarEstadoV');
+	Route::post('{id}/cambiarEstado','tramitesController@cambiarEstado');
 });
 
 

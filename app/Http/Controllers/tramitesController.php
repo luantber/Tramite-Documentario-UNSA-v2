@@ -363,7 +363,7 @@ class tramitesController extends Controller
         else if($datos->finalizar){
             $area_destino=Area::find($datos->subarea);
             
-            $movimiento=new Movimiento;
+            $movimient=new Movimiento;
             $movimiento->tramite()->associate($tramite);
             $movimiento->areaDestino()->associate($tramite->area);
             $movimiento->areaRemitente()->associate($tramite->area);
@@ -454,6 +454,30 @@ class tramitesController extends Controller
 
     }
 
+    public function cambiarEstadoV($id){
+        $tramite= Tramite::find($id);
+        $estados= EstadoTramite::all();
+        return view('tramites.cambiarEstado',["tramite"=>$tramite,"estados"=>$estados]);
+    }
+
+    public function cambiarEstado(Request $datos,$id){
+        $tramite= Tramite::find($id);
+        $estadoNuevo= EstadoTramite::find($datos->nuevoEstado);
+
+        $movimiento= new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaDestino()->associate($tramite->area);
+        $movimiento->areaRemitente()->associate($tramite->area);
+        $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+        $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
+        $movimiento->estadoOrigen()->associate($tramite->estado);
+        $movimiento->estadoFinal()->associate($estadoNuevo);
+        $movimiento->comentario=$datos->comentario;
+        $movimiento->save();
+
+        $tramite->estado()->associate($nuevoEstado);
+        return redirect('panel');
+    }
     
 }
 
