@@ -20,7 +20,7 @@
 						<span class="input-group-addon" id="basic-addon1">
 							<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
 						</span>
-			  				<input class="form-control" type="text" name ="numExp" id="numExp" required="true" value="{$tramite->nro_expediente}">
+			  				<input class="form-control" type="text" name ="numExp" id="numExp" required="true" value="{{$tramite->nro_expediente}}">
 					</div>
 			</div><br>
 			<div class="row">
@@ -29,14 +29,16 @@
 						<span class="input-group-addon" id="basic-addon1">
 							<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
 						</span>
-			  				<input class="form-control" type="text" name ="estadoInicial" id="estadoInicial"required="true" value="{$estadoact->estado}">
+			  				<input class="form-control" type="text" name ="estadoInicial" id="estadoInicial"required="true" value="{{$tramite->estado->nombre}}">
 					</div>
 			</div><br>
 			<div class="row">
 				<label for="nuevoEstado" >Nuevo estado: </label>
 				    <select name="nuevoEstado" required="true" type="text" class="form-control" id="nuevoEstado">
 			          <option value="" >Seleccionar nuevo estado</option>
-			          		
+			          	@foreach($estados as $estado)
+			          		<option value="{{$estado->id}}"> {{$estado->nombre}}</option>
+			          	@endforeach
       
 			        </select>
 			</div><br>

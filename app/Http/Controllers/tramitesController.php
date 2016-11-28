@@ -475,7 +475,8 @@ class tramitesController extends Controller
         $movimiento->comentario=$datos->comentario;
         $movimiento->save();
 
-        $tramite->estado()->associate($nuevoEstado);
+        $tramite->estado()->associate($estadoNuevo);
+        $tramite->save();
         return redirect('panel');
     }
     
