@@ -7,7 +7,7 @@
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
       <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading"> 
           <div class="text-center">
             <h3 class="panel-title">Area: {{ $area->nombre}}</h3>
           </div>
@@ -23,17 +23,25 @@
                     <td>{{$area->nombre}}</td>
                   </tr>
                   <tr>
+
                     <td>Nombre de Área Padre: </td>
                     <td>{{$area->padre->nombre}}</td>
                   </tr>      
+                  @if($area->jefe_id ==0)
                   <tr>
                     <td>Jefe de Área: </td>
-                    <td>{{$area->jefe->user->apellido}} {{$area->jefe->user->nombre}}</td>
+                    <td>No tiene jefe de área</td>
                   </tr>
+                  @else
+                  <tr>
+                    <td>Jefe de Área: </td>
+                    <td>{{$area->jefe_id}}</td>
+                  </tr>
+                  @endif                
                   <tr>
                     <td>Descripción: </td>
                     <td>{{$area->descripcion}}</td>
-                  </tr>                    
+                  </tr>    
                 </tbody>
               </table>
 

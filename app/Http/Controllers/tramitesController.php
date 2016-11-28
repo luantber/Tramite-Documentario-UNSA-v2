@@ -91,6 +91,8 @@ class tramitesController extends Controller
 
         $movimiento->empleadoRemitente()->associate(Empleado::find($mesa_de_partes->jefe_id));
         $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
+        $movimiento->estadoOrigen()->associate($tramite->estado);
+        $movimiento->estadoFinal()->associate($tramite->estado);
         $movimiento->comentario=$comentario;
         $movimiento->save();
     
@@ -284,6 +286,9 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate($empleado);
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
+
             
             $movimiento->comentario=$datos->comentario;
             
@@ -303,6 +308,8 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
             
             $movimiento->comentario=$datos->comentario;
             
@@ -322,6 +329,8 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
+            $movimiento->estadoOrigen()->associate($tramite->estado);   
+            $movimiento->estadoFinal()->associate($tramite->estado);
             $movimiento->comentario=$datos->comentario;
             $movimiento->save();
             
@@ -339,7 +348,8 @@ class tramitesController extends Controller
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Empleado::find(Auth::user()->empleado->area->jefe_id));
-            
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
             $movimiento->comentario=$datos->comentario;
             
             $movimiento->save();
@@ -353,12 +363,14 @@ class tramitesController extends Controller
         else if($datos->finalizar){
             $area_destino=Area::find($datos->subarea);
             
-            $movimiento=new Movimiento;
+            $movimient=new Movimiento;
             $movimiento->tramite()->associate($tramite);
             $movimiento->areaDestino()->associate($tramite->area);
             $movimiento->areaRemitente()->associate($tramite->area);
             $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
             $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
+            $movimiento->estadoOrigen()->associate($tramite->estado);
+            $movimiento->estadoFinal()->associate($tramite->estado);
             $movimiento->comentario=$datos->comentario;
             $movimiento->save();
             
@@ -442,6 +454,31 @@ class tramitesController extends Controller
 
     }
 
+    public function cambiarEstadoV($id){
+        $tramite= Tramite::find($id);
+        $estados= EstadoTramite::all();
+        return view('tramites.cambiarEstado',["tramite"=>$tramite,"estados"=>$estados]);
+    }
+
+    public function cambiarEstado(Request $datos,$id){
+        $tramite= Tramite::find($id);
+        $estadoNuevo= EstadoTramite::find($datos->nuevoEstado);
+
+        $movimiento= new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaDestino()->associate($tramite->area);
+        $movimiento->areaRemitente()->associate($tramite->area);
+        $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+        $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
+        $movimiento->estadoOrigen()->associate($tramite->estado);
+        $movimiento->estadoFinal()->associate($estadoNuevo);
+        $movimiento->comentario=$datos->comentario;
+        $movimiento->save();
+
+        $tramite->estado()->associate($estadoNuevo);
+        $tramite->save();
+        return redirect('panel');
+    }
     
 }
 
