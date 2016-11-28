@@ -20,6 +20,8 @@ class CreateMovimientosTable extends Migration
             $table->integer('area_destino_id')->unsigned();
             $table->integer('empleado_remitente_id')->unsigned()->default(NULL);
             $table->integer('empleado_destino_id')->unsigned()->default(NULL);
+            $table->integer('estado_tramite_origen_id')->unsigned()->default(NULL);
+            $table->integer('estado_tramite_final_id')->unsigned()->default(NULL);
             $table->text('comentario');
             $table->timestamps();
 
@@ -38,6 +40,12 @@ class CreateMovimientosTable extends Migration
             $table->foreign('empleado_remitente_id')
                 ->references('id')
                 ->on('empleados');
+            $table->foreign('estado_tramite_origen_id')
+                ->references('id')
+                ->on('estado_tramites');
+            $table->foreign('estado_tramite_final_id')
+                ->references('id')
+                ->on('estado_tramites');
         });
     }
 
