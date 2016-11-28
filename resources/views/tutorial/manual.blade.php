@@ -111,7 +111,7 @@
           <h2 class="text center">Mis Trámites</h2>
           <hr></hr>
           <p>Principalmente esta opción esta hecha para el usuario, con el fin de que pueda ver los tramites que ha realizado</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/mismovimientos0...png')}}" class="img-responsive center-block" >
         </div>
 
         <div id="section3"> 
@@ -145,11 +145,11 @@
           <img src="{{URL::asset('imagenes/ediarea.png')}}" class="img-responsive center-block" >
         </div>
 
-        <div id="section53> 
+        <div id="section53"> 
           <h2 class="text center">Todos</h2>
           <hr></hr>
           <p>Para visualizar aquellas áreas creadas, solo ir a "Todos".</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/todosarea.png')}}" class="img-responsive center-block" >
         </div>
 
         <div id="section54"> 
@@ -180,7 +180,7 @@
           <h2 class="text center">Todos</h2>
           <hr></hr>
           <p>Son demasiadas áreas, solo ir a la opción buscar, y la encontrarás</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/todoscargo.png')}}" class="img-responsive center-block" >
         </div>
 
         <!--Usuarios-->
@@ -205,7 +205,7 @@
           <h2 class="text center">Todos</h2>
           <hr></hr>
           <p>Para visualizar todos los usuarios creados, solo ir a "Todos".</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/todosusuarios.png')}}" class="img-responsive center-block" >
         </div>
 
         <div id="section74"> 
@@ -240,10 +240,10 @@
           <h2 class="text center">De Usuarios a Empleado</h2>
           <hr></hr>
           <p>Existe un usuario, ahora es empleado, esta opcion nos permite crear un empleado cuando ya existe como usuario</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/deusuaem.png')}}" class="img-responsive center-block" >
         </div>
 
-        <div id="section93> 
+        <div id="section93"> 
           <h2 class="text center">Editar Empleado</h2>
           <hr></hr>
           <p>Asi como el usuario puede editar su perfil, tambien un empleado</p>
@@ -254,7 +254,7 @@
           <h2 class="text center">Todos</h2>
           <hr></hr>
           <p>Todos los empleados que necesites en el momento.</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/todosempleados.png')}}" class="img-responsive center-block" >
         </div>
 
         <div id="section95"> 
@@ -268,14 +268,14 @@
         <div id="section96"> 
           <h2 class="text center">Todos Estados</h2>
           <hr></hr>
-          <p>Ver los eatdos creados.</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <p>Ver los estados creados.</p>
+          <img src="{{URL::asset('imagenes/todosestadoem.png')}}" class="img-responsive center-block" >
         </div>
 
-        <div id="section97> 
+        <div id="section97"> 
           <h2 class="text center">Buscar</h2>
           <hr></hr>
-          <p>BUscar un empleado, para cualquier requerimiento.</p>
+          <p>Buscar un empleado, para cualquier requerimiento.</p>
           <img src="{{URL::asset('imagenes/busempleado.png')}}" class="img-responsive center-block" >
         </div>
 
@@ -295,8 +295,8 @@
           <p>Ver todos los tramites que existen </p>
           <img src="{{URL::asset('imagenes/vertramite.png')}}" class="img-responsive center-block" >
         </div>
-1
-        <div id="section93> 
+
+        <div id="section93"> 
           <h2 class="text center">Editar Trámite</h2>
           <hr></hr>
           <p>Los usuarios no pueden editar un trámite.</p>
@@ -307,20 +307,20 @@
           <h2 class="text center">Nuevo Estado</h2>
           <hr></hr>
           <p>La opción nos indica poder crear un nuevo estado para un trámite.</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/crearestado.png')}}" class="img-responsive center-block" >
         </div>
 
         <div id="section95"> 
           <h2 class="text center">Todos Estados</h2>
           <hr></hr>
           <p>Todos los estados ya creados para un trámite.</p>
-          <img src="{{URL::asset('imagenes/crearestadoem.png')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/todosestados.png')}}" class="img-responsive center-block" >
         </div>
 
         <div id="section96"> 
           <h2 class="text center">Nuevo Tipo Trámite</h2>
           <hr></hr>
-          <p>Crea todos los tipos trpamite que necestite.</p>
+          <p>Crea todos los tipos trámite que necesite.</p>
           <img src="{{URL::asset('imagenes/creartipot.png')}}" class="img-responsive center-block" >
         </div>
 
@@ -328,7 +328,7 @@
           <h2 class="text center">Todos Tipo Trámites</h2>
           <hr></hr>
           <p>Todos los tipos de trámites qeu usted creó.</p>
-          <img src="{{URL::asset('imagenes/')}}" class="img-responsive center-block" >
+          <img src="{{URL::asset('imagenes/todostipot.png')}}" class="img-responsive center-block" >
         </div>
 
         <div id="section98">
