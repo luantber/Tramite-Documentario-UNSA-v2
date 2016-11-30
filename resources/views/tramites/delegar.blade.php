@@ -142,11 +142,19 @@
     <!-- Fin Delegar-->
 
     <div class="col-md-4">
-            <label for="comentario" >Comentario: </label>
-            <div class="">
-              <textarea type="text" class="form-control" rows="5" name="comentario" id="comentario"> </textarea>
-            </div>
+      <div class="row">
+        <label for="comentario" >Comentario: </label>
+        <div class="">
+          <textarea type="text" class="form-control" rows="5" name="comentario" id="comentario"> </textarea>
+        </div>
+      </div>
+      <div class="row">
+        <label>
+          <input type="checkbox" value="checknew" name="checknew" id="checknew" class="check"> Checkbox
+        </label>
+      </div>
     </div>
+
     <!-- Fin Comentarios-->
 
         
