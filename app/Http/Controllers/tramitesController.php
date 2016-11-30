@@ -83,7 +83,7 @@ class tramitesController extends Controller
         $tramite->nro_expediente=(date("Y").sprintf('%07d', $tramite->id));
         $tramite->save();
 
-        $comentario="sin comentarios";
+        $comentario="Tramite creado";
         $movimiento=new Movimiento;
         $movimiento->tramite()->associate($tramite);
         $movimiento->areaDestino()->associate($area_destino);
@@ -359,7 +359,7 @@ class tramitesController extends Controller
             $tramite->aceptado=0;
             $tramite->save();
         }
-
+        /*
         else if($datos->finalizar){
             $area_destino=Area::find($datos->subarea);
             
@@ -380,7 +380,12 @@ class tramitesController extends Controller
             $tramite->save();      
 
         }
-
+        */
+        if($datos->checknew=="checknew"){
+            $documentos=$tramite->documentos;    
+            $tiposDocumentos=TipoDocumento::all();
+            return view('tramites.subir',["tiposDocumentos"=>$tiposDocumentos,"tramite"=>$tramite,"documentos"=>$documentos]);
+        }
         return redirect('panel');
     }
 
