@@ -42,8 +42,9 @@ class Tramite extends React.Component{
     			{this.props.ver &&
 				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> <span className = "glyphicon glyphicon-pencil"></span> </a></td>
 				}
+				
 				{this.props.ver &&
-				<td><a href={this.props.base+'/'+this.props.id+'/eliminar'}> <span className =  "glyphicon glyphicon-remove"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/cambiarEstado'}> <span className =  "glyphicon glyphicon glyphicon-edit"></span> </a></td>
 				}
 
 			</tr>
@@ -140,7 +141,7 @@ window.TablaTramites = React.createClass({
 				<th><span className = "glyphicon glyphicon-pencil"></span></th>
 				}
 				{this.props.ver &&
-				<th><span className =  "glyphicon glyphicon-remove"></span></th>
+				<th><span className =  "glyphicon glyphicon glyphicon-edit"></span></th>
 				}
 
 		    </tr>
