@@ -118,6 +118,8 @@
                  <li><a href="{{ url('tramites/estados') }}">Estados</a></li>
                  <li><a href="{{ url('tipostramite/crear') }}">Crear Tipo Trámite</a></li>
                  <li><a href="{{ url('tipostramite') }}">Tipos de Trámite</a></li>
+                 <li><a href="{{ url('tiposDocumento/crear') }}">Crear Tipo Documento</a></li>
+                 <li><a href="{{ url('tiposDocumento') }}">Tipos de Documento</a></li>
                 <li><a href="{{ url('/busqueda/porTramite') }}">Buscar</a></li>
 
                </ul>
