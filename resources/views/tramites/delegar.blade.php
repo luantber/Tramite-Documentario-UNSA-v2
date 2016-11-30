@@ -48,7 +48,7 @@
             <li><a data-toggle="tab" href="#area">Area</a></li>
             <li><a data-toggle="tab" href="#subarea">SubArea</a></li>
             <li><a data-toggle="tab" href="#jefe">Jefe</a></li>
-            <li><a data-toggle="tab" href="#finalizar">Finalizar</a></li>
+            
           </ul>
 
 
@@ -124,16 +124,7 @@
               </div>
           </div>
 
-          <div id="finalizar" class="tab-pane fade">
-          <br>
-          Finalizar trámite
-          <br><br>
-             <div class="selectme">
-                    <label>
-                      <input type="checkbox" value="finalizar" name="finalizar" id="finalizar_id" class="check"> Confirmar
-                    </label>
-              </div>
-          </div>
+          
     
     </div>
       
