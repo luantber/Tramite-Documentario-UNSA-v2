@@ -170,7 +170,7 @@ window.TablaTramites = React.createClass({
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
 
-							comentario={  JSON.stringify(tramite.comentario)}
+							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
 							ver={this.props.ver}
 
@@ -191,7 +191,7 @@ window.TablaTramites = React.createClass({
 
 							asunto={tramite.asunto}
 
-							comentario={  JSON.stringify(tramite.comentario) }
+							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
 							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
 							destino={tramite.area.nombre}
