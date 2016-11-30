@@ -123,7 +123,7 @@ window.TablaTramites = React.createClass({
 		        <th>Asunto</th>
 		        <th>Datos</th>
 		        <th>Fecha de Inicio</th>
-		        <th>Comentarios</th>
+		        <th>Último Comentario</th>
 
 
 		        <th><span className="glyphicon glyphicon-envelope"></span> </th>
