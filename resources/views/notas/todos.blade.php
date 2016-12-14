@@ -240,7 +240,6 @@ $(document).on('click','.pagination a',function(e){
 <div id="editar">
 
 
-
 </div>
 
 <div id="eliminar">
@@ -248,6 +247,8 @@ $(document).on('click','.pagination a',function(e){
 
 
 </div>
+
+
 
 
 <script>
@@ -305,12 +306,13 @@ alertify.genericDialog ($('#new-nota')[0]).set('selector', 'input[type="password
   });
 
 </script>
-<!--
+
 <script>
 
 $(document).ready(function(){
 
   $(".edit").click(function(e){
+
     e.preventDefault();
     var $tmp = $(this).attr('href');
     console.log($tmp);
@@ -344,6 +346,54 @@ return {
 });
 //force focusing password box
 alertify.genericDialog ($('#editar')[0]).set('selector', 'input[type="password"]');
+
+  });
+
+});
+
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+
+  $(".delete").click(function(e){
+    e.preventDefault();
+    var $tmp = $(this).attr('href');
+    console.log($tmp);
+    var $edi = $tmp +  " #confirmacion";
+    $("#eliminar").load($edi);
+>>>>>>> Stashed changes
+    alertify.genericDialog || alertify.dialog('genericDialog',function(){
+return {
+    main:function(content){
+        this.setContent(content);
+    },
+    setup:function(){
+        return {
+            focus:{
+                element:function(){
+                    return this.elements.body.querySelector(this.get('selector'));
+                },
+                select:true
+            },
+            options:{
+                basic:true,
+                maximizable:false,
+                resizable:false,
+                padding:false
+            }
+        };
+    },
+    settings:{
+        selector:undefined
+    }
+};
+});
+
+alertify.genericDialog ($('#eliminar')[0]).set('selector', 'input[type="password"]');
+
 
   });
 
@@ -397,7 +447,5 @@ alertify.genericDialog ($('#eliminar')[0]).set('selector', 'input[type="password
 
 
 </script>
--->
-
 
 @endsection
