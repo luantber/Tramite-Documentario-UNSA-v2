@@ -59,7 +59,7 @@
 	      </div>
 
 	      <div class="text-center">
-	      	<button class="btn btn-lg btn-primary btn-primary" type="submit" value="Submit">Crear nueva área</button> 
+	      	<button class="btn btn-lg btn-primary btn-primary" type="submit" value="Submit">Crear nueva área</button>
 	      </div>
 
 		</div>
@@ -69,7 +69,7 @@
 
 <div id="error"> </div>
 <script type="text/javascript">
-	
+
 	$("#formulario").submit(function(e) {
 
     var url = "{{asset('areas/crear')}}"; // the script where you handle the form input.
@@ -126,5 +126,5 @@
 
 </script>
 
-	
+
 @endsection
