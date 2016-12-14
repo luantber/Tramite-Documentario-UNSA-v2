@@ -491,6 +491,40 @@ class tramitesController extends Controller
         $tramite->save();
         return redirect('panel');
     }
+
+    // num_xp   nom_doc   area_remitente comentario  
+    public function tramiteTemporal(Request $datos){
+        $tramite= new Tramite;
+        $documento= new Documento;
+        $movimiento=new Movimiento;
+        $area_remitente= Area::find($datos->area_id);
+
+        $tramite->nro_expediente= $datos->num_exp;
+        $tramite->asunto=$datos->asunto;
+        $tramite->prioridad=1;
+        $tramite->aceptado=1;
+        $tramite->area()->associate(Auth::user()->empleado->area);
+        $tramite->empleado()->associate(Auth::user()->empleado);
+
+
+        $documento->tramite()->associate($tramite);
+        $documento->nombre= $datos->nombre_doc;
+        $documento->nombre_archivo= ".___.";
+
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaRemitente()->associate($area_remitente);
+        $movimiento->areaDestino()->associate(Auth::user()->empleado->area);
+        $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
+        $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+
+        $movimiento->comentario=$datos->comentario;
+
+
+        return redirect('panel2');
+
+
+    }
+
     
 }
 

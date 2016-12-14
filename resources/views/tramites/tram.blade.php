@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="recibiendo" id="">
+<form method="POST" action="{{asset('tramite/recibir')}}" id="">
 	{{ csrf_field()}}
 
 	<h2><p class="text-center">  Nuevo trámite </p></h2>
