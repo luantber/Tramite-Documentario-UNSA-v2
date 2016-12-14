@@ -29,6 +29,31 @@ class tramitesController extends Controller
         return view('tramites.tram',['area'=>$areas]);
     }
 
+    public function antesDelegar($id){
+        $areas = Areas::all();
+        $tramite = Tramite::find($id);
+        return view('tramites.delegar2',['areas'=>$areas,'tramite'=>$tramite]);        
+    }
+
+    public function delegandoAndo(Request $datos){
+        $tramite = Tramite::all()->where('nro_expediente',$datos->num_exp);}
+        $area_destino= Area::find($datos->area);
+        $empleado_destino= Empleado::find($area_destino->jefe_id);
+        $movimiento = new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaRemitente()->associate($tramite->area);
+        $movimiento->areaDestino()->associate($area_destino);
+        $movimiento->empleadoRemitente()->associate($tramite->empleado);
+        $movimiento->empleadoDestino()->associate($empleado_destino);
+        $movimiento->comentario = $datos->comentario;
+        $tramite->area()->associate($area_destino);
+        $tramite->save();
+        $movimiento->save();
+
+        
+
+    }
+
     public function recibir($id){
 
         $tramite = Tramite::find($id);
