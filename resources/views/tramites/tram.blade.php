@@ -53,17 +53,6 @@
 			</div>
 		</div><br>
 
-		<div class="row">
-			<div class="col-sm-12">
-				<label for="plazo" > Plazo: </label>
-				<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">
-				    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-				  </span>
-				  <input type="text" class="form-control" name="plazo" id="plazo_id" value="" required="true">
-				</div>
-			</div>
-		</div><br>
     
     </div>
 
