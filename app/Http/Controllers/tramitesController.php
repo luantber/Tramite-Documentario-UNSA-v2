@@ -29,6 +29,31 @@ class tramitesController extends Controller
         return view('tramites.tram',['area'=>$areas]);
     }
 
+    public function antesDelegar($id){
+        $areas = Areas::all();
+        $tramite = Tramite::find($id);
+        return view('tramites.delegar2',['areas'=>$areas,'tramite'=>$tramite]);        
+    }
+
+    public function delegandoAndo(Request $datos){
+        $tramite = Tramite::all()->where('nro_expediente',$datos->num_exp);}
+        $area_destino= Area::find($datos->area);
+        $empleado_destino= Empleado::find($area_destino->jefe_id);
+        $movimiento = new Movimiento;
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaRemitente()->associate($tramite->area);
+        $movimiento->areaDestino()->associate($area_destino);
+        $movimiento->empleadoRemitente()->associate($tramite->empleado);
+        $movimiento->empleadoDestino()->associate($empleado_destino);
+        $movimiento->comentario = $datos->comentario;
+        $tramite->area()->associate($area_destino);
+        $tramite->save();
+        $movimiento->save();
+
+        
+
+    }
+
     public function recibir($id){
 
         $tramite = Tramite::find($id);
@@ -491,6 +516,40 @@ class tramitesController extends Controller
         $tramite->save();
         return redirect('panel');
     }
+
+    // num_xp   nom_doc   area_remitente comentario  
+    public function tramiteTemporal(Request $datos){
+        $tramite= new Tramite;
+        $documento= new Documento;
+        $movimiento=new Movimiento;
+        $area_remitente= Area::find($datos->area_id);
+
+        $tramite->nro_expediente= $datos->num_exp;
+        $tramite->asunto=$datos->asunto;
+        $tramite->prioridad=1;
+        $tramite->aceptado=1;
+        $tramite->area()->associate(Auth::user()->empleado->area);
+        $tramite->empleado()->associate(Auth::user()->empleado);
+
+
+        $documento->tramite()->associate($tramite);
+        $documento->nombre= $datos->nombre_doc;
+        $documento->nombre_archivo= ".___.";
+
+        $movimiento->tramite()->associate($tramite);
+        $movimiento->areaRemitente()->associate($area_remitente);
+        $movimiento->areaDestino()->associate(Auth::user()->empleado->area);
+        $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
+        $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+
+        $movimiento->comentario=$datos->comentario;
+
+
+        return redirect('panel2');
+
+
+    }
+
     
 }
 

@@ -5,7 +5,7 @@
 @section('content')
 
 
-<form method="POST" action="{{asset('tramite/recibir')}}" id="">
+<form method="POST" action="{{asset('tramite/delegandoAndo')}}" id="">
 	{{ csrf_field()}}
 
 	<h2><p class="text-center">  Nuevo trámite </p></h2>
@@ -22,7 +22,7 @@
 				  <span class="input-group-addon" id="basic-addon1">
 				    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 				  </span>
-				  <input type="text" class="form-control" name="num_exp" id="numExp" value="" required="true">
+				  <input type="text" class="form-control" name="num_exp" id="numExp" value="{{}}" required="true">
 				</div>
 			</div>
 		</div><br>
@@ -33,7 +33,7 @@
 				<div class="input-group">
 					<select required="" name="area" type="text" class="form-control" id="area_id">
 				        <option value="" >Seleccionar área</option>
-			          		@foreach($area as $are)
+			          		@foreach($areas as $are)
 				                <option value='{{$are->id}}'>{{$are->nombre}}</option>
 				            @endforeach
 				    </select>
@@ -71,7 +71,7 @@
 
 <div class="container">
 	<div class="text-center" id="boton">
-		<button class="btn btn-lg btn-primary" type="submit" value="Submit"> Guardar</button> 
+		<button class="btn btn-lg btn-primary" type="submit" value="Submit">Enviar</button> 
 	</div>
 </div>
 

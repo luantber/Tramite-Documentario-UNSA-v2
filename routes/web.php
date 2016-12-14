@@ -13,9 +13,13 @@ Route::group(['prefix'=>'panel2'],function(){
 	Route::get('todos','panel2Controller@todos');
 });
 
-Route::get('tramites/recibiendo');
-Route::get('tramites/recibir','tramitesController@antesRecibir');
 
+Route::get('tramite/recibir','tramitesController@antesRecibir');
+Route::post('tramite/recibir','tramitesController@tramiteTemporal');
+
+
+Route::post('delegar/{id}','tramitesController@antesDelegar');
+Route::post('delegandoAndo','tramitesController@delegandoAndo');
 //---------------------------- RUTAS DISPONIBLES ----------------------------------
 
 Route::get('turorial',function(){
