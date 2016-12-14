@@ -1,8 +1,3 @@
-@extends('template')
-
-@section('title','Nuevo Tramite')
-
-@section('content')
 
 
 <form method="POST" action="{{asset('tramite/recibir')}}" id="">
@@ -77,5 +72,4 @@
 
 </form>
 
-@endsection
 

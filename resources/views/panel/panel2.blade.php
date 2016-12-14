@@ -14,18 +14,11 @@
 	</div>
 
 	<div class="col-md-9">
-		<div id="container"></div>
+		<iframe  style="width: 100%;height: 600	px;position: relative;" src="http://localhost:8000/panel2/panelcito"></iframe>
 	</div>
 </div>
 
-
 <script type="text/javascript">
-
-	$.ajax({url: "panel2/panelcito",
-	 success: function(result){
-        $("#container").html(result);
-    }});
-    
+	
 </script>
-
 @endsection

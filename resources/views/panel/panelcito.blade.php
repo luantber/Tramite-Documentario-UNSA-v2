@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-
   <link href="{{asset('fonts/font-awesome.min.css')}}" rel="stylesheet">
   <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('css/paleta.css')}}">
@@ -12,10 +10,6 @@
   <script src="{{asset('js/react.js')}}"></script>
   <script src="{{asset('js/react-dom.js')}}"></script>
   <script src="{{asset('js/browser.min.js')}}"></script>
-
-
-
-
 <div id="container"></div>
 
 <script>
