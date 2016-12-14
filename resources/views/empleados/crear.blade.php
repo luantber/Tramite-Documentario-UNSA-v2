@@ -96,7 +96,6 @@
 			                    <option value='{{$are->id}}'>{{$are->nombre}}</option>
 			                @endforeach
 			        </select>
-			    
 			  </div>
 			</div><br>
 
