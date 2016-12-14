@@ -17,10 +17,17 @@ use App\Movimiento;
 use App\Cargo;
 use Illuminate\Support\Facades\Auth;
 use File;
+use DB;
 
 class tramitesController extends Controller
 {
     //
+
+    public function antesRecibir(){
+        $areas = DB::table('areas')->select('id','nombre')->get();
+
+        return view('tramites.tram',['area'=>$areas]);
+    }
 
     public function recibir($id){
 

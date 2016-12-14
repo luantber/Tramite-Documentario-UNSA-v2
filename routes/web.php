@@ -6,8 +6,15 @@ use App\Mail\Email;
 Route::get('/', function () {
     return view('home');
 });
+//---------------------------- RUTAS DISPONIBLES ----------------------------------
 
+Route::group(['prefix'=>'panel2'],function(){
+	Route::get('/','panel2Controller@index');
+	Route::get('todos','panel2Controller@todos');
+});
 
+Route::get('tramites/recibiendo')
+Route::get('tramites/recibir','tramitesController@antesRecibir');
 
 //---------------------------- RUTAS DISPONIBLES ----------------------------------
 
@@ -251,10 +258,7 @@ Route::group(['prefix'=>'panel'],function(){
 	Route::get('todos','panelController@todos');
 });
 
-Route::group(['prefix'=>'panel2'],function(){
-	Route::get('/','panel2Controller@index');
-	Route::get('todos','panel2Controller@todos');
-});
+
 
 
 Route::group(['prefix'=>'mistramites'],function(){
