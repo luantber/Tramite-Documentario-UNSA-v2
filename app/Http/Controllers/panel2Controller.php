@@ -2,18 +2,30 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Tramite;
+use Auth;
 
 class panel2Controller extends Controller
 {
+	//Vista
     public function index(){
     	return view('panel.panel2');
     }
 
+    public function panelcito(){
+    	return  view('panel.panelcito');
+    }
+
+    //TOdos JSON
     public function todos(){
-    	 if(Auth::user()->empleado->isJefe()){
+
+    	if(!Auth::user()) dd("No User");
+
+    	if(Auth::user()->empleado->isJefe()){
         //dd("es jefe ");
 	        $tramites = Tramite::with('area','persona','empleado','estado','comentario')
 	        ->where('area_id',Auth::user()->empleado->id_area)

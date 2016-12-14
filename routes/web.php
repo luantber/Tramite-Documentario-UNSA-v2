@@ -258,6 +258,11 @@ Route::group(['prefix'=>'panel'],function(){
 	Route::get('todos','panelController@todos');
 });
 
+Route::group(['prefix'=>'panel2'],function(){
+	Route::get('/','panel2Controller@index');
+	Route::get('panelcito','panel2Controller@panelcito');
+	Route::get('todos','panel2Controller@todos');
+});
 
 
 
