@@ -32,9 +32,6 @@
       </div>
     </div>
   </div><br>
-
-    
-
      
             
 <form method="post" id="form" action="{{asset('tramites'.'/'.$tramite->id.'/delegar')}}">
@@ -124,11 +121,19 @@
               </div>
           </div>
 
-          
-    
-    </div>
+      </div>
+
+      <br> 
+      <div class="col-md-8">
+      <label for="checknew"> ¿Subir documentos? </label>
+        <br>
+        <div class="row">
+          <label>
+            <input type="checkbox" value="checknew" name="checknew" id="checknew" class="check">  Confirmar
+          </label>
+        </div>
+      </div>
       
-       
     </div>
     <!-- Fin Delegar-->
 
@@ -139,11 +144,7 @@
           <textarea type="text" class="form-control" rows="5" name="comentario" id="comentario"> </textarea>
         </div>
       </div>
-      <div class="row">
-        <label>
-          <input type="checkbox" value="checknew" name="checknew" id="checknew" class="check"> Checkbox
-        </label>
-      </div>
+
     </div>
 
     <!-- Fin Comentarios-->
@@ -153,8 +154,10 @@
 
 <div class="row">
     <br>
+    <div class="col-md-8">
     <button class="btn btn-lg btn-primary" type="submit" value="Submit"> 
           Delegar </button> 
+    </div>
 </div>
   </form>
 
