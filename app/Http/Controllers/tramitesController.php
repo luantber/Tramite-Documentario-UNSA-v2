@@ -29,6 +29,7 @@ class tramitesController extends Controller
         return view('tramites.tram',['area'=>$areas]);
     }
 
+/*
     public function antesDelegar($id){
         $areas = Areas::all();
         $tramite = Tramite::find($id);
@@ -54,6 +55,7 @@ class tramitesController extends Controller
 
     }
 
+    */
     public function recibir($id){
 
         $tramite = Tramite::find($id);
@@ -63,7 +65,7 @@ class tramitesController extends Controller
             $tramite->aceptado = !$tramite->aceptado;
             $tramite->save();
             //dd($tramite);
-            return redirect('panel');
+            return redirect('panel2/panelcito');
             
         }
         dd("no existe");

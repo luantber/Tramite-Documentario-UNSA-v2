@@ -15,7 +15,7 @@ class Tramite extends React.Component{
 
 		        <td>{this.props.fechainicio}</td>
 		        <td>
-		        	{this.props.comentario}
+		        	{ this.props.comentario}
 		        </td>
 		        
 
@@ -156,8 +156,10 @@ window.TablaTramites = React.createClass({
 					
 				if(this.props.ver){
 
-						if(tramite.aceptado){
+						if(tramite.aceptado && this.props.yes){
+
 							console.log("here 2");
+
 						return(
 		 					<Tramite
 		 					ide={tramite.nro_expediente}
@@ -182,6 +184,9 @@ window.TablaTramites = React.createClass({
 		 				)
 					}
 					else{
+
+						if(this.props.no){
+							
 						console.log("here 1");
 
 						return(
@@ -206,6 +211,8 @@ window.TablaTramites = React.createClass({
 							key={tramite.id}
 		 				/>
 		 				)
+
+						}
 					}
 				}
 				else{

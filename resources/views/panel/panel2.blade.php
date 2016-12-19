@@ -23,7 +23,9 @@
 	<div id="destino"></div>
 
 	<div class="col-md-9">
-		<iframe  style="width: 100%;height: 600	px;position: relative;" src="http://localhost:8000/panel2/panelcito"></iframe>
+		<div class="col">
+			<iframe  style="width: 100%; height: 450px; position: relative;" src="http://localhost:8000/panel2/panelcito"></iframe>
+		</div>
 	</div>
 </div>
 
