@@ -44,7 +44,7 @@ class areasController extends Controller
             return response()->json(["resp"=>true,"data"=>"Area ". $datos->nomArea ." Creada con Exito"]);
     	    //return redirect('areas')->with('data','Area '.$datos->nomArea .',creada con exito');
 
-        } catch (\PDOException $e) {
+        } catch (\PDOExceqption $e) {
             $mess = "";
             if($e->errorInfo[1]==1062){
                 $mess = "El nombre de area: ".$datos->nomArea. " ya existe.";

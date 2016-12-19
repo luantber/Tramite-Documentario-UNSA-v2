@@ -1,9 +1,6 @@
-@extends('template')
 
-@section('title','Resultado de la Consulta')
-
-@section('content')
-
+<div id="alerta" >
+	
 <head><title>Buscador por Usuario</title>
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 <script type="text/javascript">
@@ -134,5 +131,35 @@
 
 </body>
 
+</div>
 
-@endsection
+<script type="text/javascript">
+	alertify.genericDialog || alertify.dialog('genericDialog',function(){
+    return {
+        main:function(content){
+            this.setContent(content);
+        },
+        setup:function(){
+            return {
+                focus:{
+                    element:function(){
+                        return this.elements.body.querySelector(this.get('selector'));
+                    },
+                    select:true
+                },
+                options:{
+                    basic:true,
+                    maximizable:false,
+                    resizable:false,
+                    padding:false
+                }
+            };
+        },
+        settings:{
+            selector:undefined
+        }
+    };
+});
+
+	alertify.genericDialog ($('#alerta')[0]).set('selector', 'input[type="text"]');
+</script>

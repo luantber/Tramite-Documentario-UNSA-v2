@@ -36,7 +36,7 @@ class tramitesController extends Controller
     }
 
     public function delegandoAndo(Request $datos){
-        $tramite = Tramite::all()->where('nro_expediente',$datos->num_exp);}
+        /*$tramite = Tramite::all()->where('nro_expediente',$datos->num_exp);}
         $area_destino= Area::find($datos->area);
         $empleado_destino= Empleado::find($area_destino->jefe_id);
         $movimiento = new Movimiento;
@@ -50,7 +50,7 @@ class tramitesController extends Controller
         $tramite->save();
         $movimiento->save();
 
-        
+        */
 
     }
 
