@@ -51,11 +51,11 @@ class tramitesController extends Controller
         $tramite->save();
         $movimiento->save();
 
-        */
 
     }
 
-    */
+        */
+            
     public function recibir($id){
 
         $tramite = Tramite::find($id);

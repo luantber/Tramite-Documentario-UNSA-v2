@@ -30,6 +30,8 @@
 </div>
 
 <script type="text/javascript">
+
+	
 	function boto1(){
 		$.ajax({
 			url :"{{asset('tramite/')}}"

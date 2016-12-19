@@ -21,30 +21,30 @@ class Tramite extends React.Component{
 
 
 		       	
-    			<td><a href={this.props.base+'/'+this.props.id}> <span className = "glyphicon glyphicon-envelope"></span></a> </td>
+    			<td><a href={this.props.base+'/'+this.props.id} target="_top" > <span className = "glyphicon glyphicon-envelope"></span></a> </td>
     			
 
 
     			{this.props.recibido &&
-				<td><a href={this.props.base+'/'+this.props.id+'/recibir'}> <span className = "glyphicon glyphicon-ok-sign"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} target="_top"> <span className = "glyphicon glyphicon-ok-sign"></span> </a></td>
 				}
 
 
     			{this.props.norecibido &&
-				<td><a href={this.props.base+'/'+this.props.id+'/recibir'}> <span className = "glyphicon glyphicon-remove-sign"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} target="_top"> <span className = "glyphicon glyphicon-remove-sign"></span> </a></td>
 				}
 
     			{this.props.ver &&
-				<td><a href={this.props.base+'/'+this.props.id+'/delegar'}> <span className = "glyphicon glyphicon-send"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/delegar'} target="_top"> <span className = "glyphicon glyphicon-send"></span> </a></td>
 				}
 
 
     			{this.props.ver &&
-				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> <span className = "glyphicon glyphicon-pencil"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/editar'} target="_top"> <span className = "glyphicon glyphicon-pencil"></span> </a></td>
 				}
 				
 				{this.props.ver &&
-				<td><a href={this.props.base+'/'+this.props.id+'/cambiarEstado'}> <span className =  "glyphicon glyphicon glyphicon-edit"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/cambiarEstado'} target="_top"> <span className =  "glyphicon glyphicon glyphicon-edit"></span> </a></td>
 				}
 
 			</tr>
