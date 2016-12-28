@@ -44,6 +44,8 @@
 							  <input type="text" class="form-control" name="nombre_doc" id="nombre_doc" value="" required="true" >
 							</div>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-5">
 			<label for="asunto_id" >Asunto: </label>
 				<div class="input-group">
