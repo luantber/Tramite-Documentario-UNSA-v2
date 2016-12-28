@@ -18,7 +18,7 @@ Route::get('tramite/recibir','tramitesController@antesRecibir');
 Route::post('tramite/recibir','tramitesController@tramiteTemporal');
 
 
-Route::post('delegar/{id}','tramitesController@antesDelegar');
+Route::get('delegar/{id}','tramitesController@antesDelegar');
 Route::post('delegandoAndo','tramitesController@delegandoAndo');
 //---------------------------- RUTAS DISPONIBLES ----------------------------------
 
