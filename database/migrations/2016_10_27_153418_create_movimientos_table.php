@@ -16,8 +16,8 @@ class CreateMovimientosTable extends Migration
         Schema::create('movimientos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tramite_id')->unsigned();
-            $table->integer('area_remitente_id')->unsigned();
-            $table->integer('area_destino_id')->unsigned();
+            $table->integer('area_remitente_id')->unsigned()->default(NULL);
+            $table->integer('area_destino_id')->unsigned()->default(NULL);
             $table->integer('empleado_remitente_id')->unsigned()->default(NULL);
             $table->integer('empleado_destino_id')->unsigned()->default(NULL);
             $table->integer('estado_tramite_origen_id')->unsigned()->default(NULL);
