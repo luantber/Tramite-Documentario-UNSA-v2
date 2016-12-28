@@ -167,7 +167,7 @@ window.TablaTramites = React.createClass({
 
 							asunto={tramite.asunto}
 
-							persona={JSON.stringify(tramite.persona.apellido) + " "+ JSON.stringify(tramite.persona.nombre)}
+							persona={JSON.stringify(tramite.persona)}
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
@@ -198,7 +198,7 @@ window.TablaTramites = React.createClass({
 
 							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							persona={JSON.stringify(tramite.persona.apellido) + " "+ JSON.stringify(tramite.persona.nombre)}
+							persona={JSON.stringify(tramite.persona)}
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
@@ -226,7 +226,7 @@ window.TablaTramites = React.createClass({
 
 							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							persona={JSON.stringify(tramite.persona.apellido) + " "+ JSON.stringify(tramite.persona.nombre)}
+							persona={JSON.stringify(tramite.persona)}
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
