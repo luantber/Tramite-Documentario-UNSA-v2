@@ -198,7 +198,7 @@ window.TablaTramites = React.createClass({
 
 							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
+							persona={JSON.stringify(tramite.persona.apellido) + " "+ JSON.stringify(tramite.persona.nombre)}
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
@@ -226,7 +226,7 @@ window.TablaTramites = React.createClass({
 
 							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
+							persona={JSON.stringify(tramite.persona.apellido) + " "+ JSON.stringify(tramite.persona.nombre)}
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
