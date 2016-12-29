@@ -26,12 +26,12 @@ class Tramite extends React.Component{
 
 
     			{this.props.recibido &&
-				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} target="_top"> <span className = "glyphicon glyphicon-ok-sign"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} > <span className = "glyphicon glyphicon-ok-sign"></span> </a></td>
 				}
 
 
     			{this.props.norecibido &&
-				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} target="_top"> <span className = "glyphicon glyphicon-remove-sign"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} > <span className = "glyphicon glyphicon-remove-sign"></span> </a></td>
 				}
 
     			{this.props.ver &&
@@ -152,7 +152,6 @@ window.TablaTramites = React.createClass({
 				this.state.data.map(
 				 	function (tramite){
 
-				if(tramite.estado){
 					
 				if(this.props.ver){
 
@@ -160,36 +159,87 @@ window.TablaTramites = React.createClass({
 
 							console.log("here 2");
 
-						return(
-		 					<Tramite
+							if(tramite.persona){
+								return(
+				 					<Tramite
+				 					ide={tramite.nro_expediente}
+				 					id={tramite.id}
+
+									asunto={tramite.asunto}
+
+									persona={tramite.persona.nombre + " " + tramite.persona.apellido}
+									destino={tramite.area.nombre}
+									estado={tramite.estado.nombre}
+									fechainicio={tramite.created_at}
+
+									comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+
+									ver={this.props.ver}
+
+									recibido="true"
+
+									base={this.props.base}
+									key={tramite.id}
+				 				/>
+				 				)			
+
+							}
+							else{
+								
+								return(
+				 					<Tramite
+				 					ide={tramite.nro_expediente}
+				 					id={tramite.id}
+
+									asunto={tramite.asunto}
+
+									persona={JSON.stringify(tramite.persona)}
+									destino={tramite.area.nombre}
+									estado={tramite.estado.nombre}
+									fechainicio={tramite.created_at}
+
+									comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+
+									ver={this.props.ver}
+
+									recibido="true"
+
+									base={this.props.base}
+									key={tramite.id}
+				 				/>
+				 				)								
+							}
+
+					}
+					else{
+
+						if(this.props.no && !tramite.aceptado){
+
+							console.log("here 1");	
+							if(tramite.persona){
+								<Tramite
 		 					ide={tramite.nro_expediente}
 		 					id={tramite.id}
 
 							asunto={tramite.asunto}
 
-							persona={JSON.stringify(tramite.persona)}
+							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+
+							persona={tramite.persona.nombre + " " + apellido}
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
 
-							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
-
 							ver={this.props.ver}
 
-							recibido="true"
+							norecibido="true"
 
 							base={this.props.base}
 							key={tramite.id}
-		 				/>
-		 				)
-					}
-					else{
-
-						if(this.props.no){
-							
-						console.log("here 1");
-
-						return(
+				 				/>
+							}
+							else{
+								return(
 		 					<Tramite
 		 					ide={tramite.nro_expediente}
 		 					id={tramite.id}
@@ -209,14 +259,18 @@ window.TablaTramites = React.createClass({
 
 							base={this.props.base}
 							key={tramite.id}
-		 				/>
-		 				)
+				 				/>
+			 				)
+		
+							}
+							
 
+						
 						}
 					}
 				}
 				else{
-					console.log("here ");
+					console.log("No mostrable");
 					return(
 		 					<Tramite
 		 					ide={tramite.nro_expediente}
@@ -230,19 +284,14 @@ window.TablaTramites = React.createClass({
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
-					
 
 							base={this.props.base}
 							key={tramite.id}
 		 				/>
 		 				)
 				}					
-				}
-				else{
-					console.log("error Con tramite");
-					console.log(tramite);
-				}
-
+				
+			
 				 		
 					
 		 				
