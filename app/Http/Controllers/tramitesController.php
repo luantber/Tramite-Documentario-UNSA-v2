@@ -38,6 +38,7 @@ class tramitesController extends Controller
 
     public function delegandoAndo(Request $datos){
         $tramite = Tramite::all()->where('nro_expediente',$datos->num_exp)->first();
+        $tramite ->aceptado=0;
         
         $area_destino= Area::find($datos->area);
         //$empleado_destino= Empleado::find($area_destino->jefe_id);
