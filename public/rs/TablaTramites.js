@@ -184,8 +184,7 @@ window.TablaTramites = React.createClass({
 				 				)			
 
 							}
-							else{
-								
+							else{						
 								return(
 				 					<Tramite
 				 					ide={tramite.nro_expediente}
@@ -210,55 +209,57 @@ window.TablaTramites = React.createClass({
 				 				)								
 							}
 
-					}
-					else{
-
-						if(this.props.no && !tramite.aceptado){
+				}
+				else{
+					console.log("wap wap");
+						if(this.props.no &&  !tramite.aceptado){
 
 							console.log("here 1");	
 							if(tramite.persona){
-								<Tramite
-		 					ide={tramite.nro_expediente}
-		 					id={tramite.id}
+								return(
+									<Tramite
+					 					ide={tramite.nro_expediente}
+					 					id={tramite.id}
 
-							asunto={tramite.asunto}
+										asunto={tramite.asunto}
 
-							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+										comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							persona={tramite.persona.nombre + " " + apellido}
-							destino={tramite.area.nombre}
-							estado={tramite.estado.nombre}
-							fechainicio={tramite.created_at}
+										persona={tramite.persona.nombre + " " + tramite.persona.apellido}
+										destino={tramite.area.nombre}
+										estado={tramite.estado.nombre}
+										fechainicio={tramite.created_at}
 
-							ver={this.props.ver}
+										ver={this.props.ver}
 
-							norecibido="true"
+										norecibido="true"
 
-							base={this.props.base}
-							key={tramite.id}
-				 				/>
+										base={this.props.base}
+										key={tramite.id}
+					 				/>
+								)
 							}
 							else{
 								return(
-		 					<Tramite
-		 					ide={tramite.nro_expediente}
-		 					id={tramite.id}
+				 					<Tramite
+				 					ide={tramite.nro_expediente}
+				 					id={tramite.id}
 
-							asunto={tramite.asunto}
+									asunto={tramite.asunto}
 
-							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+									comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							persona={JSON.stringify(tramite.persona)}
-							destino={tramite.area.nombre}
-							estado={tramite.estado.nombre}
-							fechainicio={tramite.created_at}
+									persona={JSON.stringify(tramite.persona)}
+									destino={tramite.area.nombre}
+									estado={tramite.estado.nombre}
+									fechainicio={tramite.created_at}
 
-							ver={this.props.ver}
+									ver={this.props.ver}
 
-							norecibido="true"
+									norecibido="true"
 
-							base={this.props.base}
-							key={tramite.id}
+									base={this.props.base}
+									key={tramite.id}
 				 				/>
 			 				)
 		

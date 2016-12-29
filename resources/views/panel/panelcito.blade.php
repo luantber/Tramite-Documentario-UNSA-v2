@@ -13,18 +13,20 @@
 
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#yes">Recibidos</a></li>
-  <li><a data-toggle="tab" href="#nop">No Recibidos</a></li>
+  <li ><a data-toggle="tab" href="#nop">No Recibidos</a></li>
 </ul>
 
 <div class="tab-content">
 
+  <div id="nop" class="tab-pane fade">
+    <div id="container2"></div>
+  </div>
+
+  
   <div id="yes" class="tab-pane fade in active">
     <div id="container"></div>    
   </div>
 
-  <div id="nop" class="tab-pane fade">
-    <div id="container2"></div>
-  </div>
 
 </div>
 
