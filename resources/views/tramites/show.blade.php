@@ -20,15 +20,27 @@
                     <tbody>
                       <tr>
                         <td>DNI: </td>
-                        <td>{{$tramite->persona->dni}}</td>
+                        @if($tramite->persona == NULL)
+                          <td> Sin DNI </td>
+                        @else
+                          <td>{{$tramite->persona->dni}}</td>
+                        @endif
                       </tr>
                       <tr>
                         <td>Nombre: </td>
-                        <td>{{$tramite->persona->nombre}}</td>
+                        @if($tramite->persona == NULL)
+                          <td> Sin persona </td>
+                        @else
+                          <td>{{$tramite->persona->nombre}}</td>
+                        @endif
                       </tr>
                       <tr>
                         <td>Apellidos: </td>
-                        <td>{{$tramite->persona->apellido}}</td>
+                        @if($tramite->persona == NULL)
+                          <td> Sin persona </td>
+                        @else
+                          <td>{{$tramite->persona->apellido}}</td>
+                        @endif
                       </tr>
                       <tr>
                         <td>Persona a cargo: </td>
@@ -48,7 +60,11 @@
                       </tr>
                       <tr>
                         <td>Tipo de trámite:</td>
-                        <td>{{$tramite->tipoTramite->nombre}}</td>
+                        @if($tramite->persona == NULL)
+                          <td> No tiene tipo tramite </td>
+                        @else
+                          <td>{{$tramite->tipoTramite->nombre}}</td>
+                        @endif
                       </tr>
                       <tr>
                         <td>Aceptado:</td>
