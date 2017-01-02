@@ -12,12 +12,16 @@
       <h2><p class="text-center">  Editar Trámite </p></h2>
       <br>
 
+        @if($tramite->persona != NULL)
         <div class="row">
             <label for="dni" class="col-sm-2 control-label"> DNI </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="dni" id="dni" required="true" value="{{$tramite->persona->dni}}" disabled="">
+              <input type="text" class="form-control" name="dni" id="dni" required="true" value="{{$tramite->persona->dni}}">
             </div>
         </div><br>
+            @else
+              <!-- -->
+            @endif
 
         <div class="row">
           <label for="destino" class="col-sm-2 control-label" >Área a delegar</label>
@@ -36,15 +40,25 @@
         <div class="row">
           <label for="tipo" class="col-sm-2 control-label" >Tipo de Trámite</label>
           <div class="col-sm-10">
+            
             <select name="tipoTramite" class="form-control" id="tipo">
-              <option value="{{$tramite->tipo}}" >{{$tramite->tipoTramite->nombre}}</option>
-                @foreach($tipos as $tipo)
+              
+            @if( $tramite->tipoTramite != NULL)
+              <option value="{{$tramite->tipoTramite->id}}" > {{$tramite->tipoTramite->nombre}}
+              </option>
+
+              @foreach($tipos as $tipo)
                 @if( $tramite->tipoTramite->id != $tipo->id)
                   @if($tipo->id!=1)
                   <option value="{{$tipo->id}}" >{{$tipo->nombre}}</option>
                   @endif
                 @endif
               @endforeach
+            
+            @else
+              <option value=""> No tiene tipo trámite
+              </option>
+            @endif
             </select>
           </div>
         </div><br>
