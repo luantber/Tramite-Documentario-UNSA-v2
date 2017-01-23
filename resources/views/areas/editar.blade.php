@@ -68,15 +68,18 @@
 							
 					    	<select type="text" class="form-control" name="jefe" id="nomJefe" >
 					    		<option value="0">No Jefe</option>
-								@foreach($empleados as $e)
+					    		
+									@foreach($empleados as $e)
 
-					    			@if($e->id  == $area->jefe_id)
-										<option selected="select" value="{{$e->id}}">{{$e->user->nombre}} {{ $e->user->apellido}}</option>
-								 	@else
-								 		<option  value="{{$e->id}}">{{$e->user->nombre}} {{ $e->user->apellido}}</option>
-								 	@endif
-								@endforeach
-									
+						    			@if($e->id  == $area->jefe_id)
+											<option selected="select" value="{{$e->id}}">{{$e->user->nombre}} {{ $e->user->apellido}}</option>
+									 	@else
+									 		<option  value="{{$e->id}}">
+									 		{{$e->user->nombre}} {{ $e->user->apellido}}
+									 		</option>
+									 	@endif
+									@endforeach
+					    			
 							</select>
 					</div>
 		  </div>

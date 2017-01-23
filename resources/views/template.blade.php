@@ -144,7 +144,7 @@
         @endsection
         
         @section('panel')
-          <li ><a href="{{asset('panel')}}">Panel  </a></li>
+          <li ><a href="{{asset('panel2')}}">Panel  </a></li>
         @endsection
 
 <!--AGENDA-->

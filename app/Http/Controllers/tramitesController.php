@@ -29,31 +29,35 @@ class tramitesController extends Controller
         return view('tramites.tram',['area'=>$areas]);
     }
 
+
     public function antesDelegar($id){
-        $areas = Areas::all();
+        $areas = Area::all();
         $tramite = Tramite::find($id);
         return view('tramites.delegar2',['areas'=>$areas,'tramite'=>$tramite]);        
     }
 
     public function delegandoAndo(Request $datos){
-        /*$tramite = Tramite::all()->where('nro_expediente',$datos->num_exp);}
+        $tramite = Tramite::all()->where('nro_expediente',$datos->num_exp)->first();
+        $tramite ->aceptado=0;
+        
         $area_destino= Area::find($datos->area);
-        $empleado_destino= Empleado::find($area_destino->jefe_id);
+        //$empleado_destino= Empleado::find($area_destino->jefe_id);
         $movimiento = new Movimiento;
         $movimiento->tramite()->associate($tramite);
         $movimiento->areaRemitente()->associate($tramite->area);
         $movimiento->areaDestino()->associate($area_destino);
-        $movimiento->empleadoRemitente()->associate($tramite->empleado);
-        $movimiento->empleadoDestino()->associate($empleado_destino);
+        $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
+        $movimiento->empleadoDestino()->associate(Empleado::find($area_destino->jefe_id));
         $movimiento->comentario = $datos->comentario;
         $tramite->area()->associate($area_destino);
         $tramite->save();
         $movimiento->save();
 
-        */
-
+        return redirect('panel2');
     }
 
+        
+            
     public function recibir($id){
 
         $tramite = Tramite::find($id);
@@ -63,7 +67,7 @@ class tramitesController extends Controller
             $tramite->aceptado = !$tramite->aceptado;
             $tramite->save();
             //dd($tramite);
-            return redirect('panel');
+            return redirect('panel2/panelcito');
             
         }
         dd("no existe");
@@ -522,28 +526,37 @@ class tramitesController extends Controller
         $tramite= new Tramite;
         $documento= new Documento;
         $movimiento=new Movimiento;
-        $area_remitente= Area::find($datos->area_id);
+        $estado= EstadoTramite::find(1);
+        echo "sc";
+        echo $datos->area;
+        $area_remitente= Area::find($datos->area);
 
         $tramite->nro_expediente= $datos->num_exp;
-        $tramite->asunto=$datos->asunto;
-        $tramite->prioridad=1;
-        $tramite->aceptado=1;
-        $tramite->area()->associate(Auth::user()->empleado->area);
-        $tramite->empleado()->associate(Auth::user()->empleado);
+        //$tramite->asunto=$datos->asunto;
+        $tramite->asunto="asunto";
 
+        $tramite->prioridad=1;
+        $tramite->aceptado=0;
+        $tramite->area()->associate(Auth::user()->empleado->area);
+        $tramite->estado()->associate($estado);
+        //$tramite->empleado()->associate(Auth::user()->empleado);
+
+        $tramite->save();   
 
         $documento->tramite()->associate($tramite);
         $documento->nombre= $datos->nombre_doc;
         $documento->nombre_archivo= ".___.";
+        $documento->save();
 
         $movimiento->tramite()->associate($tramite);
         $movimiento->areaRemitente()->associate($area_remitente);
         $movimiento->areaDestino()->associate(Auth::user()->empleado->area);
         $movimiento->empleadoDestino()->associate(Auth::user()->empleado);
         $movimiento->empleadoRemitente()->associate(Auth::user()->empleado);
-
+        //$movimiento->estado_tramite_origen_id=0;
+        //$movimiento->estado_tramite_final_id=0;
         $movimiento->comentario=$datos->comentario;
-
+        $movimiento->save();
 
         return redirect('panel2');
 

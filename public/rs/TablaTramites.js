@@ -15,36 +15,36 @@ class Tramite extends React.Component{
 
 		        <td>{this.props.fechainicio}</td>
 		        <td>
-		        	{this.props.comentario}
+		        	{ this.props.comentario}
 		        </td>
 		        
 
 
 		       	
-    			<td><a href={this.props.base+'/'+this.props.id}> <span className = "glyphicon glyphicon-envelope"></span></a> </td>
+    			<td><a href={this.props.base+'/'+this.props.id} target="_top" > <span className = "glyphicon glyphicon-envelope"></span></a> </td>
     			
 
 
     			{this.props.recibido &&
-				<td><a href={this.props.base+'/'+this.props.id+'/recibir'}> <span className = "glyphicon glyphicon-ok-sign"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} > <span className = "glyphicon glyphicon-ok-sign"></span> </a></td>
 				}
 
 
     			{this.props.norecibido &&
-				<td><a href={this.props.base+'/'+this.props.id+'/recibir'}> <span className = "glyphicon glyphicon-remove-sign"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/recibir'} > <span className = "glyphicon glyphicon-remove-sign"></span> </a></td>
 				}
 
     			{this.props.ver &&
-				<td><a href={this.props.base+'/'+this.props.id+'/delegar'}> <span className = "glyphicon glyphicon-send"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/delegar'} target="_top"> <span className = "glyphicon glyphicon-send"></span> </a></td>
 				}
 
 
     			{this.props.ver &&
-				<td><a href={this.props.base+'/'+this.props.id+'/editar'}> <span className = "glyphicon glyphicon-pencil"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/editar'} target="_top"> <span className = "glyphicon glyphicon-pencil"></span> </a></td>
 				}
 				
 				{this.props.ver &&
-				<td><a href={this.props.base+'/'+this.props.id+'/cambiarEstado'}> <span className =  "glyphicon glyphicon glyphicon-edit"></span> </a></td>
+				<td><a href={this.props.base+'/'+this.props.id+'/cambiarEstado'} target="_top"> <span className =  "glyphicon glyphicon glyphicon-edit"></span> </a></td>
 				}
 
 			</tr>
@@ -152,64 +152,126 @@ window.TablaTramites = React.createClass({
 				this.state.data.map(
 				 	function (tramite){
 
-				if(tramite.estado){
 					
 				if(this.props.ver){
 
-						if(tramite.aceptado){
+						if(tramite.aceptado && this.props.yes){
+
 							console.log("here 2");
-						return(
-		 					<Tramite
-		 					ide={tramite.nro_expediente}
-		 					id={tramite.id}
 
-							asunto={tramite.asunto}
+							if(tramite.persona){
+								return(
+				 					<Tramite
+				 					ide={tramite.nro_expediente}
+				 					id={tramite.id}
 
-							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
-							destino={tramite.area.nombre}
-							estado={tramite.estado.nombre}
-							fechainicio={tramite.created_at}
+									asunto={tramite.asunto}
 
-							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+									persona={tramite.persona.nombre + " " + tramite.persona.apellido}
+									destino={tramite.area.nombre}
+									estado={tramite.estado.nombre}
+									fechainicio={tramite.created_at}
 
-							ver={this.props.ver}
+									comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							recibido="true"
+									ver={this.props.ver}
 
-							base={this.props.base}
-							key={tramite.id}
-		 				/>
-		 				)
-					}
-					else{
-						console.log("here 1");
+									recibido="true"
 
-						return(
-		 					<Tramite
-		 					ide={tramite.nro_expediente}
-		 					id={tramite.id}
+									base={this.props.base}
+									key={tramite.id}
+				 				/>
+				 				)			
 
-							asunto={tramite.asunto}
+							}
+							else{						
+								return(
+				 					<Tramite
+				 					ide={tramite.nro_expediente}
+				 					id={tramite.id}
 
-							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+									asunto={tramite.asunto}
 
-							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
-							destino={tramite.area.nombre}
-							estado={tramite.estado.nombre}
-							fechainicio={tramite.created_at}
+									persona={JSON.stringify(tramite.persona)}
+									destino={tramite.area.nombre}
+									estado={tramite.estado.nombre}
+									fechainicio={tramite.created_at}
 
-							ver={this.props.ver}
+									comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							norecibido="true"
+									ver={this.props.ver}
 
-							base={this.props.base}
-							key={tramite.id}
-		 				/>
-		 				)
+									recibido="true"
+
+									base={this.props.base}
+									key={tramite.id}
+				 				/>
+				 				)								
+							}
+
+				}
+				else{
+					console.log("wap wap");
+						if(this.props.no &&  !tramite.aceptado){
+
+							console.log("here 1");	
+							if(tramite.persona){
+								return(
+									<Tramite
+					 					ide={tramite.nro_expediente}
+					 					id={tramite.id}
+
+										asunto={tramite.asunto}
+
+										comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+
+										persona={tramite.persona.nombre + " " + tramite.persona.apellido}
+										destino={tramite.area.nombre}
+										estado={tramite.estado.nombre}
+										fechainicio={tramite.created_at}
+
+										ver={this.props.ver}
+
+										norecibido="true"
+
+										base={this.props.base}
+										key={tramite.id}
+					 				/>
+								)
+							}
+							else{
+								return(
+				 					<Tramite
+				 					ide={tramite.nro_expediente}
+				 					id={tramite.id}
+
+									asunto={tramite.asunto}
+
+									comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
+
+									persona={JSON.stringify(tramite.persona)}
+									destino={tramite.area.nombre}
+									estado={tramite.estado.nombre}
+									fechainicio={tramite.created_at}
+
+									ver={this.props.ver}
+
+									norecibido="true"
+
+									base={this.props.base}
+									key={tramite.id}
+				 				/>
+			 				)
+		
+							}
+							
+
+						
+						}
 					}
 				}
 				else{
-					console.log("here ");
+					console.log("No mostrable");
 					return(
 		 					<Tramite
 		 					ide={tramite.nro_expediente}
@@ -219,23 +281,18 @@ window.TablaTramites = React.createClass({
 
 							comentario={ JSON.stringify(tramite.comentario[tramite.comentario.length-1].comentario) }
 
-							persona={tramite.persona.apellido + " "+ tramite.persona.nombre}
+							persona={JSON.stringify(tramite.persona)}
 							destino={tramite.area.nombre}
 							estado={tramite.estado.nombre}
 							fechainicio={tramite.created_at}
-					
 
 							base={this.props.base}
 							key={tramite.id}
 		 				/>
 		 				)
 				}					
-				}
-				else{
-					console.log("error Con tramite");
-					console.log(tramite);
-				}
-
+				
+			
 				 		
 					
 		 				

@@ -32,27 +32,39 @@
 				</div>
   </div>
 </div>
+
 <br>
-<div class="row">
-<div class="col-md-5">
-	<label for="nombre_doc" >Nombre de documento: </label>
-					<div class="input-group">
-					  <span class="input-group-addon" id="basic-addon1">
-					    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-					  </span>
-					  <input type="text" class="form-control" name="nombre_doc" id="nombre_doc" value="" required="true" >
-					</div>
-</div>
-</div>
+	<div class="row">
+		<div class="col-md-5">
+			<label for="nombre_doc" >Nombre de documento: </label>
+							<div class="input-group">
+							  <span class="input-group-addon" id="basic-addon1">
+							    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+							  </span>
+							  <input type="text" class="form-control" name="nombre_doc" id="nombre_doc" value="" required="true" >
+							</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5">
+			<label for="asunto_id" >Asunto: </label>
+				<div class="input-group">
+				  <span class="input-group-addon" id="basic-addon1">
+				    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+				  </span>
+				  <input type="text" class="form-control" name="asunto_id" id="asunto_id" value="" required="true" >
+				</div>
+		</div>
+	</div>
 
 <div class="row">
-<div class="col-md-5">
-<label for="comentario" >Comentario: </label>
-		        <div class="">
-		          <textarea type="text" class="form-control" rows="5" name="comentario" id="comentario"> </textarea>
-		        </div>
+	<div class="col-md-5">
+	<label for="comentario" >Comentario: </label>
+			        <div class="">
+			          <textarea type="text" class="form-control" rows="5" name="comentario" id="comentario"> </textarea>
+			        </div>
 
-</div>
+	</div>
 </div>
 <br><br>
 	

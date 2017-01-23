@@ -46,18 +46,38 @@
 	    	@if($movimiento->areaRemitente->id != $movimiento->areaDestino->id)
 	    		<tr class="success">
 	    	@elseif($movimiento->empleadoRemitente->user->id != $movimiento->empleadoDestino->user->id)
-	    		<tr class="info">
-	    	@elseif($movimiento->estadoOrigen->id != $movimiento->estadoFinal->id)
+		    	<tr class="info">
+		    @endif
+
+		    @if($movimiento->estadoOrigen == NULL)
+		    	<tr>
+		    @elseif($movimiento->estadoFinal == NULL)
+		    	<tr>
+		    @elseif($movimiento->estadoOrigen->id != $movimiento->estadoFinal->id)
 	    		<tr class="danger">
-	    	@else
-	    		<tr>
 	    	@endif
+
 				<td>{{$movimiento->id}}</td>
 		        <td>{{$movimiento->areaRemitente->nombre}}</td>
 		        <td>{{$movimiento->areaDestino->nombre}}</td>
-		        <td>{{$movimiento->empleadoRemitente->user->nombre}} {{$movimiento->empleadoRemitente->user->apellido}}</td>
-		        <td>{{$movimiento->empleadoDestino->user->nombre}} {{$movimiento->empleadoDestino->user->apellido}}</td>
-		        <td>{{$movimiento->estadoFinal->nombre}}</td>
+		        @if($movimiento->empleadoRemitente != NULL)
+		        	<td>{{$movimiento->empleadoRemitente->user->nombre}} {{$movimiento->empleadoRemitente->user->apellido}}</td>
+		        @else
+		        	<td>No hay empleado remitente</td>
+		        @endif
+
+		        @if($movimiento->empleadoDestino != NULL)
+		        	<td>{{$movimiento->empleadoDestino->user->nombre}} {{$movimiento->empleadoDestino->user->apellido}}</td>
+		        @else
+		        	<td> No hay empleado destino</td>
+				@endif
+
+		        @if($movimiento->estadoFinal != NULL)
+		        	<td>{{$movimiento->estadoFinal->nombre}}</td>
+		        @else
+		        	<td> No tiene estado</td>
+		        @endif
+
 		        <td>{{$movimiento->comentario}}</td>
 		        <td>{{$movimiento->created_at}}</td>
 		    </tr>

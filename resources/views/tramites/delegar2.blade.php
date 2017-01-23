@@ -5,10 +5,10 @@
 @section('content')
 
 
-<form method="POST" action="{{asset('tramite/delegandoAndo')}}" id="">
+<form method="POST" action="{{asset('delegandoAndo')}}" id="">
 	{{ csrf_field()}}
 
-	<h2><p class="text-center">  Nuevo trámite </p></h2>
+	<h2><p class="text-center">  Delegar </p></h2>
 				<br><br>
 
 <div class="container">
@@ -22,14 +22,14 @@
 				  <span class="input-group-addon" id="basic-addon1">
 				    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 				  </span>
-				  <input type="text" class="form-control" name="num_exp" id="numExp" value="{{}}" required="true">
+				  <input type="text" class="form-control" name="num_exp" id="numExp" value="{{$tramite->nro_expediente}}" required="true">
 				</div>
 			</div>
 		</div><br>
 
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
-				<label for="remitente" >Área Remitente: </label>
+				<label for="remitente" >Área Destino: </label>
 				<div class="input-group">
 					<select required="" name="area" type="text" class="form-control" id="area_id">
 				        <option value="" >Seleccionar área</option>
@@ -48,7 +48,7 @@
 				  <span class="input-group-addon" id="basic-addon1">
 				    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
 				  </span>
-				  <input type="text" class="form-control" name="nombre_doc" id="nombre_doc" value="" required="true" >
+				  <input type="text" class="form-control" name="nombre_doc" id="nombre_doc" value="" >
 				</div>
 			</div>
 		</div><br>
