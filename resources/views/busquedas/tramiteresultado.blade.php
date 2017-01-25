@@ -143,7 +143,7 @@
 
 				      celda = document.createElement("td");
 				      link =p  document.createElement('a');
-				      link.href = '/tramites/' + aux3.data[i].tid;
+				      link.href = '{{asset("tramites")}}/' + aux3.data[i].tid;
 				      link.innerHTML = 'Ver tramite';
 				      celda.appendChild(link);
 				      hilera.appendChild(celda);
