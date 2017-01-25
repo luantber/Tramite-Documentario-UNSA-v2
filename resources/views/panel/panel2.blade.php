@@ -24,7 +24,7 @@
 
 	<div class="col-md-9">
 		<div class="col">
-			<iframe  style="width: 100%; height: 450px; position: relative;" src="http://localhost:8000/panel2/panelcito"></iframe>
+			<iframe  style="width: 100%; height: 450px; position: relative;" src="{{asset('panel2/panelcito')}}"></iframe>
 		</div>
 	</div>
 </div>
