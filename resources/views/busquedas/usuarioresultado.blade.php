@@ -52,7 +52,7 @@
 				      // de la hilera de la tabla
 				      var celda = document.createElement("td");
 				      var link = document.createElement('a');
-				      link.href = '/usuarios/' + aux3.data[i].id;
+				      link.href = '{{asset("usuarios")}}/' + aux3.data[i].id;
 				      link.innerHTML = aux3.data[i].nombre;
 				      //var textoCelda = document.createTextNode(aux3.data[i].nombre);
 				      celda.appendChild(link);
@@ -67,7 +67,7 @@
 				      hilera.appendChild(celda);
 				      celda = document.createElement("td");
 				      link = document.createElement('a');
-				      link.href = '/tramites/' + aux3.data[i].dni + '/crear';
+				      link.href = '{{asset("tramites")}}/' + aux3.data[i].dni + '/crear';
 				      link.innerHTML = aux3.data[i].dni;
 				      celda.appendChild(link);
 				      hilera.appendChild(celda);
